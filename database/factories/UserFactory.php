@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Enums\Identity\Provider;
+use App\Enums\Identity\Role;
+use App\Models\Tenant;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -24,8 +27,16 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+
+            'provider'=>Provider::EMAIL->value,
+
+            'role' => Role::VENDER->value,
+            'password'=>Hash::make(1234),
+            'tenant_id'=>Tenant::factory(),
+            'avatar'=>$this->faker->imageUrl(550,400),
+            'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
