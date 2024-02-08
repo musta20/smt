@@ -2,7 +2,7 @@
     <ul class="flex justify-items-center align-baseline gap-1 py-2 ">
         <li>التصنيفات</li>
         <li>
-            <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true"
+            <svg class="w-[12px] h-[12px] text-gray-800" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m15 19-7-7 7-7" />
@@ -10,7 +10,7 @@
         </li>
         <li>الاحذية</li>
         <li>
-            <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true"
+            <svg class="w-[12px] h-[12px] text-gray-800" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m15 19-7-7 7-7" />
@@ -86,8 +86,8 @@
             <span class="text-4xl">$450</span>
 
             <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
-             focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600
-              dark:hover:bg-green-700 dark:focus:ring-green-800 ">طلب المنتج</button>
+             focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
+              ">طلب المنتج</button>
 
 
 

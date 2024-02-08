@@ -25,19 +25,21 @@ class DatabaseSeeder extends Seeder
         $storename = 'musta';
         $storename2 = 'reem';
 
-        $tenant =  Tenant::create([
-            'name' => $storename
+        $tenant =  Tenant::create();
+        $tenant2 =  Tenant::create();
+
+        //  dd($tenant->id);
+
+        $tenant->domains()->create([
+            'domain' =>  $storename . '.' . env('APP_DOMAIN'),
+            'name' =>  $storename
         ]);
-        $tenant2 =  Tenant::create([
-            'name' => $storename2
+        $tenant2->domains()->create([
+            'domain' =>  $storename2 . '.' . env('APP_DOMAIN'),
+            'name' =>  $storename2
+
         ]);
 
-      //  dd($tenant->id);
-
-
-      $tenant->domains()->create(['domain' =>  $storename . '.' . env('APP_DOMAIN')]);
-      $tenant2->domains()->create(['domain' =>  $storename2 . '.' . env('APP_DOMAIN')]);
-      
         $user =  User::factory()->for($tenant)->create([
             'name' => 'musta',
             'last_name' => 'osman',
@@ -45,7 +47,7 @@ class DatabaseSeeder extends Seeder
             'provider' => Provider::EMAIL,
             'avatar' => 'https://github.com/musta20.png',
             'email' => 'admin@admin.com',
-            'password' => Hash::make(1234)
+            'password' => Hash::make('1234')
 
         ]);
 

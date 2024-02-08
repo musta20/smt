@@ -33,7 +33,7 @@ class UserFactory extends Factory
             'provider'=>Provider::EMAIL->value,
 
             'role' => Role::VENDER->value,
-            'password'=>Hash::make(1234),
+            'password'=>Hash::make("password"),
             'tenant_id'=>Tenant::factory(),
             'avatar'=>$this->faker->imageUrl(550,400),
             'email' => $this->faker->unique()->safeEmail(),
