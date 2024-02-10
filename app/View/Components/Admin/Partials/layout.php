@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\admin\component;
+namespace App\View\Components\Admin\Partials;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class table02 extends Component
+class layout extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class table02 extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.admin.component.table02');
+        return view('admin.partials.layout');
     }
 }

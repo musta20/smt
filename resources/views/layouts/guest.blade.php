@@ -17,7 +17,7 @@
           $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
     :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}">
     <!-- ===== Preloader Start ===== -->
-    <x-admin.component.preloader />
+    {{-- <x-admin.partials.preloader /> --}}
     <!-- ===== Preloader End ===== -->
 
     <!-- ===== Page Wrapper Start ===== -->

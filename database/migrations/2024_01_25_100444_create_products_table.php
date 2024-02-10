@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Store\Status;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,7 +22,9 @@ return new class extends Migration
             
             $table->unsignedDouble('older_price')->nullable();
             $table->unsignedInteger('discount')->nullable();
+            $table->string('image');
             $table->string('tenant_id');
+            $table->string('status')->default(Status::DRAFT);
 
             $table->foreign('tenant_id')
             ->references('id')
@@ -29,12 +32,7 @@ return new class extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
-            // $table->foreignId('tenant_id')->index()
-            // ->constrained()
-            // ->cascadeOnDelete();
-
             $table->foreignUlid('store_id')->index()
-           // ->constrained()
             ->cascadeOnDelete();
             
             $table->json('tags')->nullable();

@@ -17,6 +17,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
 use Laravel\Sanctum\HasApiTokens;
+use Stancl\Tenancy\Database\Concerns\BelongsToTenant as ConcernsBelongsToTenant;
 
 class User extends Authenticatable  
 {
@@ -24,7 +25,7 @@ class User extends Authenticatable
     use    HasFactory;
     use    Notifiable;
     use    HasUlids;
-    use    BelongsToTenant;
+    use    ConcernsBelongsToTenant;
 
     /**
      * The attributes that are mass assignable.

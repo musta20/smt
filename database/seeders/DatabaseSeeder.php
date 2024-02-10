@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
             'provider' => Provider::EMAIL,
             'avatar' => 'https://github.com/musta20.png',
             'email' => 'reem@reem.com',
-            'password' => Hash::make(1234)
+            'password' => Hash::make('1234')
 
         ]);
 
@@ -76,19 +76,24 @@ class DatabaseSeeder extends Seeder
 
 
 
-        $category = Category::factory()->for($tenant)->for($store)->create();
-        $category = Category::factory()->for($tenant2)->for($store2)->create();
+        $category1 = Category::factory(10)->for($tenant)->for($store)->create();
+        $category2 = Category::factory(10)->for($tenant2)->for($store2)->create();
 
-        Product::factory()->for($tenant)->for($store)->for($category)->create([
-            'name' => 'Squadra Mesh Leather Panel Side Elastic Side Slip-On Shoes for Men',
-            'description' => "About this item
-            Style : Experience simplicity and style in one place, the ZONTA shoes is the solution! Slip on design to easily complete your outfit for every occasion
-            COMFORT AVAILABLE:Slip-On,Casual,And Soft For All Day Comfort. The shoe is made of microfiber fabric for your comfortable day stressful walks or stylish night events.
-            LIGHTWEIGHT DESIGN: ZONTA shoes are lightweight to survive the day's fatigue in total comfort.
-             ZONTA offers a lightweight and comfortable experience to enjoy every step of your day without fatigue.",
-            'price' => 350
-        ]);
+        // Product::factory()->for($tenant)->for($store)->for($category1->random(1))->create([
+        //     'name' => 'Squadra Mesh Leather Panel Side Elastic Side Slip-On Shoes for Men',
+        //     'description' => "About this item
+        //     Style : Experience simplicityshoes are lightweight to survive the day's fatigue in total comfort.
+        //      ZONTA offers a lightweight and comfortable experience to enjoy every step of your day without fatigue.",
+        //     'price' => 350
+        // ]);
+        //dd($category1);
 
-        // Product::factory(10)->for($store)->create();
+        foreach ($category1 as $item) {
+            Product::factory(10)->for($tenant)->for($store)->for($item)->create();
+        }
+
+        foreach ($category2 as $item) {
+            Product::factory(10)->for($tenant2)->for($store2)->for($item)->create();
+        }
     }
 }

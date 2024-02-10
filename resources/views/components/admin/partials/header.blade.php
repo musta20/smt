@@ -31,7 +31,9 @@
         <img src="{{ Vite::asset('resources/images/logo/logo-icon.svg') }}" alt="Logo" />
       </a>
     </div>
-    <span><a href="/">عرص المتجر</a></span>
+    <span class="inline-flex items-center px-3 py-3 me-3 text-sm font-medium text-green-800 bg-green-100 rounded-full hover:bg-green-500 dark:bg-green-900 dark:text-green-300">
+      <a href="/">عرص المتجر</a>
+    </span>
 
     <div class="flex items-center gap-3 2xsm:gap-7">
       <ul class="flex items-center gap-2 2xsm:gap-4">

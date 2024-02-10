@@ -8,7 +8,7 @@ test('password can be updated', function () {
 
     $response = $this
         ->actingAs($user)
-        ->from('/profile')
+        ->from('admin/profile')
         ->put('/password', [
             'current_password' => 'password',
             'password' => 'new-password',
@@ -17,17 +17,17 @@ test('password can be updated', function () {
 
     $response
         ->assertSessionHasNoErrors()
-        ->assertRedirect('/profile');
+        ->assertRedirect('admin/profile');
 
     $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
-})->skip();
+});
 
 test('correct password must be provided to update password', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->for(tenant())->create();
 
     $response = $this
         ->actingAs($user)
-        ->from('/profile')
+        ->from('admin/profile')
         ->put('/password', [
             'current_password' => 'wrong-password',
             'password' => 'new-password',
@@ -36,5 +36,5 @@ test('correct password must be provided to update password', function () {
 
     $response
         ->assertSessionHasErrorsIn('updatePassword', 'current_password')
-        ->assertRedirect('/profile');
-})->skip();
+        ->assertRedirect('admin/profile');
+});

@@ -19,6 +19,7 @@ class Header extends Component
     /**
      * Get the view / contents that represent the component.
      */
+    public $testPass = "Hi from the Header class";
     public function render(): View|Closure|string
     {
         return view('components.layout.header');

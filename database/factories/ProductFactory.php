@@ -30,6 +30,7 @@ class ProductFactory extends Factory
             ),
             'price'=>rand(456,5100),
             'order_url'=>$this->faker->url(),
+            'image'=>$this->faker->imageUrl(250,160),
             'older_price'=>rand(465,3351),
             'category_id'=>Category::factory()->create(),
             'store_id'=>Store::factory()->create(),

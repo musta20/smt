@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
+use Stancl\Tenancy\Middleware\ScopeSessions;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,9 @@ Route::middleware([
     Route::get('/', function () {
         return view('index');
     });
-
+    Livewire::setUpdateRoute(function ($handle) {
+        return Route::post('/maintenant/livewire/update', $handle);
+    });
 
     require __DIR__.'/auth.php';
     require __DIR__.'/guest.php';

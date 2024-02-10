@@ -2,9 +2,12 @@ import "jsvectormap/dist/css/jsvectormap.css";
 import "flatpickr/dist/flatpickr.min.css";
 import "../css/satoshi.css";
 import "../css/style.css";
+// import 'flowbite';
+import { Livewire  } from '../../vendor/livewire/livewire/dist/livewire.esm.js';
 
 import Alpine from "alpinejs";
 import persist from "@alpinejs/persist";
+
 import flatpickr from "flatpickr";
 // import chart01 from "./components/chart-01";
 // import chart02 from "./components/chart-02";
@@ -13,8 +16,10 @@ import flatpickr from "flatpickr";
 // import map01 from "./components/map-01";
 
 Alpine.plugin(persist);
-window.Alpine = Alpine;
 Alpine.start();
+Livewire.start()
+window.Alpine = Alpine;
+
 import.meta.glob([
   '../images/**',
   '../fonts/**',

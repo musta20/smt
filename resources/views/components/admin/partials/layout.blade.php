@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @vite('resources/js/index.js')
-
+    @vite(['resources/js/index.js'])
+    @livewireStyles
     <title>
         eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template
     </title>
@@ -20,26 +20,31 @@
     :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}">
 
     <!-- ===== Preloader Start ===== -->
-    <x-admin.component.preloader />
+    <x-admin.partials.preloader />
     <!-- ===== Preloader End ===== -->
 
     <!-- ===== Page Wrapper Start ===== -->
     <div class="flex h-screen overflow-hidden">
         <!-- ===== Sidebar Start ===== -->
-        <x-admin.component.sidebar />
+        <x-admin.partials.sidebar />
 
         <!-- ===== Sidebar End ===== -->
 
         <!-- ===== Content Area Start ===== -->
         <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
             <!-- ===== Header Start ===== -->
-            <x-admin.component.header />
+            <x-admin.partials.header />
 
             <!-- ===== Header End ===== -->
 
             <!-- ===== Main Content Start ===== -->
+            <main>
+                <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+                    {{ $slot }}
+                    @livewireScriptConfig
 
-            {{ $slot }}
+                </div>
+            </main>
 
             <!-- ===== Main Content End ===== -->
         </div>

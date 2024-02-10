@@ -1,12 +1,11 @@
 <?php
 
-namespace App\View\Components\admin\component;
+namespace App\View\Components\Admin\Partials;
 
-use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class preloader extends Component
+class Header extends Component
 {
     /**
      * Create a new component instance.
@@ -15,12 +14,11 @@ class preloader extends Component
     {
         //
     }
-
-    /**
+        /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|Closure|string
+    public function render(): View
     {
-        return view('components.admin.component.preloader');
+        return view('components.admin.partials.header');
     }
 }

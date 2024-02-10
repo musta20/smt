@@ -1,4 +1,4 @@
-<x-admin.component.layout>
+<x-admin.partials.layout>
     <main>
         <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
@@ -172,7 +172,7 @@
 
                 <!-- ====== Table One Start -->
                 <div class="col-span-12 xl:col-span-8">
-                    <x-admin.component.table01 />
+                    <x-admin.partials.table01 />
                     {{-- <include src="./partials/table-01.html" /> --}}
                 </div>
                 <!-- ====== Table One End -->
@@ -311,4 +311,4 @@
             </div>
         </div>
     </main>
-</x-admin.component.layout>
+</x-admin.partials.layout>
