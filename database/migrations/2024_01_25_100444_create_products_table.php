@@ -23,6 +23,8 @@ return new class extends Migration
             $table->unsignedDouble('older_price')->nullable();
             $table->unsignedInteger('discount')->nullable();
             $table->string('image');
+            $table->unsignedInteger('order_count');
+            $table->unsignedDouble('rating');
             $table->string('tenant_id');
             $table->string('status')->default(Status::DRAFT);
 

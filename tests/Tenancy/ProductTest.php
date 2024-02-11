@@ -9,6 +9,14 @@ it("can render product management page",function(){
     $response->assertStatus(200);
 });
 
+it("can render product edit page",function(){
+    $user = User::factory()->for(tenant())->create();
+    $response = $this->actingAs($user)->get('admin/product/edit');
+
+    $response->assertStatus(200);
+});
+
+
 it("get list of product only belong to your store",function(){
 
 })->skip();

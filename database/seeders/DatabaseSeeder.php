@@ -79,14 +79,6 @@ class DatabaseSeeder extends Seeder
         $category1 = Category::factory(10)->for($tenant)->for($store)->create();
         $category2 = Category::factory(10)->for($tenant2)->for($store2)->create();
 
-        // Product::factory()->for($tenant)->for($store)->for($category1->random(1))->create([
-        //     'name' => 'Squadra Mesh Leather Panel Side Elastic Side Slip-On Shoes for Men',
-        //     'description' => "About this item
-        //     Style : Experience simplicityshoes are lightweight to survive the day's fatigue in total comfort.
-        //      ZONTA offers a lightweight and comfortable experience to enjoy every step of your day without fatigue.",
-        //     'price' => 350
-        // ]);
-        //dd($category1);
 
         foreach ($category1 as $item) {
             Product::factory(10)->for($tenant)->for($store)->for($item)->create();

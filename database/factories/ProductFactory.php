@@ -32,11 +32,14 @@ class ProductFactory extends Factory
             'order_url'=>$this->faker->url(),
             'image'=>$this->faker->imageUrl(250,160),
             'older_price'=>rand(465,3351),
+            'order_count'=>rand(465,3351),
+            'discount'=>rand(10,100),
+            'rating'=>rand(1,5),
             'category_id'=>Category::factory()->create(),
             'store_id'=>Store::factory()->create(),
             'tenant_id'=>Tenant::factory(),
 
-
+           'created_at'=>$this->faker->dateTime()
         ];
     }
 }
