@@ -11,6 +11,7 @@ export default defineConfig({
         'resources/js/helper.js',
         'resources/js/alpine.js',
         'resources/js/index.js',
+        'resources/js/fileUpload.js',
             ],
             refresh: true,
         }),

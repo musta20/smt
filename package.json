@@ -35,6 +35,7 @@
         "@ryangjchandler/alpine-clipboard": "ryangjchandler/alpine-clipboard",
         "alpinejs": "^3.13.3",
         "apexcharts": "^3.36.3",
+        "create-file-list": "^1.1.0",
         "flatpickr": "^4.6.13",
         "jsvectormap": "^1.5.1",
         "prismjs": "^1.18.0"

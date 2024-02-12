@@ -19,29 +19,35 @@ return new class extends Migration
             $table->unsignedDouble('price');
 
             $table->string('order_url');
-            
+
             $table->unsignedDouble('older_price')->nullable();
             $table->unsignedInteger('discount')->nullable();
             $table->string('image');
+
             $table->unsignedInteger('order_count');
             $table->unsignedDouble('rating');
             $table->string('tenant_id');
             $table->string('status')->default(Status::DRAFT);
 
+            $table->json('visible')->default(json_encode([
+                "CanRate" => false,
+                "CanCommint" => true
+            ]));
+
             $table->foreign('tenant_id')
-            ->references('id')
-            ->on('tenants')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('tenants')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->foreignUlid('store_id')->index()
-            ->cascadeOnDelete();
-            
+                ->cascadeOnDelete();
+
             $table->json('tags')->nullable();
 
-            $table->foreignUlid('category_id')->index()
-            ->constrained()
-            ->cascadeOnDelete();
+            $table->foreignUlid('category_product_id')->nullable()->index()
+                //->constrained()
+                ->cascadeOnDelete();
 
             $table->softDeletes();
 

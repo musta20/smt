@@ -57,8 +57,14 @@ class Product extends Component
 
         if ($this->filters['categoryId']) {
 
-            $products = $products->where('category_id', $this->filters['categoryId']);
+            //$products = Category::find($this->filters['categoryId'])->products;
+            //$products = Category::find($this->filters['categoryId'])->products;
+            // $products = $products->filter('category_id', $this->filters['categoryId']);
+            // dd($products->first()->categorys);
             
+            $products = $products->filter(function ($item) {
+                return   $item->categorys->find($this->filters['categoryId']);
+            });
         }
 
 

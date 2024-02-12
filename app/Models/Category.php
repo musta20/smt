@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Conserns\BelongsToTenant;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Category extends Model
 {
@@ -17,9 +18,9 @@ class Category extends Model
 
 
     protected $fillable = [
-        'category_id',
         'name',
         'store_id',
+        'category_product_id',
         'tenant_id'
     ];
 
@@ -33,7 +34,10 @@ class Category extends Model
         );
     }
 
-
+    public function products():BelongsToMany
+    {
+        return $this->belongsToMany(Product::class,'category_products');
+    }
 
     public function parent(): BelongsTo
     {

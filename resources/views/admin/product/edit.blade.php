@@ -1,8 +1,8 @@
 <x-admin.partials.layout>
-    
+
     <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h2 class="text-title-md2 font-bold text-black dark:text-white">
-          Tables
+          تعديل
         </h2>
 
         <nav>
@@ -15,9 +15,6 @@
         </nav>
       </div>
  
-        <livewire:admin.product  />
+      <livewire:admin.add-product :$product  />
 
-</x-admin.partials.layout>
-{{-- </x-layouts.app> --}}
-
-{{-- </x-admin.partials.layout> --}}
+</x-admin.partials.layout> 

@@ -23,7 +23,6 @@ class CategoryFactory extends Factory
     {
         return [
             'name'=>$this->faker->word(),
-            'category_id'=>null,
             'store_id'=>Store::factory()->create(),
             'tenant_id'=>Tenant::factory(),
 

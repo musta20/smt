@@ -163,9 +163,10 @@
             <p class="font-medium">المنتج</p>
         </div>
 
-        <div class="col-span-1 hidden items-center sm:flex">
+        <div class="col-span-1 flex items-center">
             <p class="font-medium">التصنيف</p>
         </div>
+
         <div class="col-span-1 flex items-center">
             <p class="font-medium">السعر</p>
         </div>
@@ -215,8 +216,18 @@
             </div>
         </div>
 
-        <div class="col-span-1 hidden items-center sm:flex">
-            <p class="text-sm font-medium text-black dark:text-white"> {{$item->category->name}}</p>
+
+        <div class="col-span-1 flex items-center">
+            <p class="text-sm font-medium text-black dark:text-white">
+                @foreach ($item->categorys as $cat)
+                <span id="badge-dismiss-default"
+                    class="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">
+                    {{$category->find($cat)->name}}
+           
+                </span>
+                @endforeach
+                
+                </p>
         </div>
 
         <div class="col-span-1 flex items-center">
@@ -269,10 +280,10 @@
                         حذف
                     </button>
 
-                    <button wire:click="filter('sortType','HIGHT_TO_LOW'); isOpen = false"
+                    <a href="{{Route('admin.product.edit',$item->id)}}"
                         class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
                         تعديل
-                    </button>
+                </a>
                 </div>
             </div>
 

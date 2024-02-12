@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Conserns\BelongsToTenant;
 use Illuminate\Database\Eloquent\Casts\AsCollection;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Product extends Model
 {
@@ -24,8 +25,11 @@ class Product extends Model
         'older_price',
         'discount',
         'store_id',
+        'status',
         'tag',
+        'visible',
         'category_id',
+        'category_product_id',
         'tenant_id'
     ];
 
@@ -33,6 +37,7 @@ class Product extends Model
         'price' => 'float',
         'older_price' => 'float',
         'dicount' => 'integer',
+        'visible'=>AsCollection::class,
         'tag' => AsCollection::class
 
     ];
@@ -44,12 +49,10 @@ class Product extends Model
             foreignKey: 'tenant_id'
         );
     }
-    public function category(): BelongsTo
+
+    public function categorys(): BelongsToMany
     {
-        return $this->belongsTo(
-            related: Category::class,
-            foreignKey: 'category_id'
-        );
+        return $this->belongsToMany(Category::class,'category_products');
     }
 
     public function store(): BelongsTo

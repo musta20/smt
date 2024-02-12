@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Enums\Identity\Provider;
 use App\Enums\Identity\Role;
 use App\Models\Category;
+use App\Models\CategoryProduct;
 use App\Models\Product;
 use App\Models\Store;
 use App\Models\Tenant;
@@ -76,16 +77,24 @@ class DatabaseSeeder extends Seeder
 
 
 
-        $category1 = Category::factory(10)->for($tenant)->for($store)->create();
-        $category2 = Category::factory(10)->for($tenant2)->for($store2)->create();
+        $category1 = Category::factory(5)->for($tenant)->for($store)->create();
+        $category11 = Category::factory(5)->for($tenant)->for($store)->create();
 
+        $category2 = Category::factory(5)->for($tenant2)->for($store2)->create();
+        $category22 = Category::factory(5)->for($tenant2)->for($store2)->create();
 
-        foreach ($category1 as $item) {
-            Product::factory(10)->for($tenant)->for($store)->for($item)->create();
+        $product1 =   Product::factory(80)->for($tenant)->for($store)->create();
+        $product2 =   Product::factory(50)->for($tenant2)->for($store2)->create();
+
+        foreach ($product1 as $item) {
+            CategoryProduct::factory()->for($item)->for($tenant)->for($category1->random())->create();
+            CategoryProduct::factory()->for($item)->for($tenant)->for($category11->random())->create();
         }
 
-        foreach ($category2 as $item) {
-            Product::factory(10)->for($tenant2)->for($store2)->for($item)->create();
+        foreach ($product2 as $item) {
+            CategoryProduct::factory()->for($item)->for($tenant2)->for($category2->random())->create();
+            CategoryProduct::factory()->for($item)->for($tenant2)->for($category22->random())->create();
+
         }
     }
 }

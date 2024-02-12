@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use App\Models\User;
 
 it("can render product management page",function(){
@@ -11,8 +12,12 @@ it("can render product management page",function(){
 
 it("can render product edit page",function(){
     $user = User::factory()->for(tenant())->create();
-    $response = $this->actingAs($user)->get('admin/product/edit');
 
+    $product = Product::factory()->for(tenant())->create();
+
+    $response = $this->actingAs($user)->get('admin/product/'.$product->id.'/edit');
+
+    
     $response->assertStatus(200);
 });
 

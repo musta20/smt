@@ -34,11 +34,6 @@ return new class extends Migration
                 ->onDelete('cascade');
 
 
-            // $table->foreignId('tenant_id')
-            // ->index()
-            // ->constrained()
-            // ->cascadeOnDelete();
-
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
