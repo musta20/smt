@@ -25,7 +25,11 @@ Route::middleware(
         })->name('dashboard');
 
         
+        
+        Route::get('/filemanger',function(){
+            return view('admin.product.file-manger');
 
+        });
 
         Route::resource('/product', productController::class, );
 

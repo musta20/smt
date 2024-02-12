@@ -2,18 +2,38 @@
 
 namespace App\Livewire\Admin;
 
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Validate;
 
 class FileManger extends Component
 {
 
     use WithFileUploads;
+    #[Validate('image|max:1024')] // 1MB Max
 
+    public $photo;
     public $files = [];
     public  $fileDragging =  null;
     public   $fileDropping = null;
+    
+    public function save()
+    {
+       // dd(Storage::get($path));
 
+      //  Storage::disk('local')->put('example.txt', 'Contents');
+
+            
+            $this->photo->storePublicly(path: 'photos');
+
+
+        
+       // dd($this->photos);
+        // foreach ($this->photos as $photo) {
+        //     $photo->store(path: 'photos');
+        // }
+    }
     public function humanFileSize($size)
     {
         //  $i = Math.floor(Math.log(size) / Math.log(1024));
