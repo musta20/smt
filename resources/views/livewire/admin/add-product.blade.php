@@ -168,16 +168,18 @@
 
   </div>
 
-  <div class="flex flex-col gap-9">
-    <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+  <div  class="flex flex-col gap-9">
+    <div dir="ltr" class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
         <h3 class="font-medium text-black dark:text-white">
           خيارات النشر و التقييم
         </h3>
       </div>
 
+    
+   
 
-      <div dir="ltr" class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
+      <div  class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
         <div class="w-full xl:w-1/2 flex justify-end">
 
           <span class="px-2"> السماح بتقييم المنتج</span>
@@ -185,9 +187,9 @@
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
               <input type="checkbox" class="sr-only" wire:click="settoogle(1)" />
-              <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
+              <div class="block h-8 w-14 rounded-full  bg-meta-9 dark:bg-[#5A616B]"></div>
               <div
-                class="absolute transition top-1  h-6 w-6 rounded-full {{$switcherToggle[1] ? $onSwitch : $offSwitch}}">
+                class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition {{$switcherToggle[1] ? '!right-1 !translate-x-full !bg-primary dark:!bg-white':''}}">
               </div>
             </div>
           </label>
@@ -202,8 +204,8 @@
               <input type="checkbox" class="sr-only" wire:click="settoogle(0)" />
               <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
               <div
-                class="absolute transition top-1  h-6 w-6 rounded-full {{$switcherToggle[0] ? $onSwitch : $offSwitch}}">
-              </div>
+              class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition {{$switcherToggle[0] ? '!right-1 !translate-x-full !bg-primary dark:!bg-white':''}}">
+            </div>
             </div>
           </label>
 
@@ -215,7 +217,7 @@
       </div>
 
 
-      <div dir="ltr" class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
+      <div  class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
 
         <div class="w-full xl:w-1/2 flex justify-end">
 
@@ -229,9 +231,9 @@
             <div class="relative">
               <input type="checkbox" class="sr-only" wire:click="settoogle(2)" />
               <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
-              <div
-                class="absolute transition   top-1  h-6 w-6 rounded-full {{$switcherToggle[2] ? $onSwitch : $offSwitch}}">
-              </div>
+              <div 
+              class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition {{$switcherToggle[2] ? '!right-1 !translate-x-full !bg-primary dark:!bg-white':''}}">
+            </div>
             </div>
           </label>
 

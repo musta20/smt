@@ -19,8 +19,8 @@ class CategoryProductFactory extends Factory
     public function definition(): array
     {
         return [
-           'category_id'=>Category::factory()->create(),
-           'product_id'=>Product::factory()->create()
+        //    'category_id'=>Category::factory()->create(),
+        //    'product_id'=>Product::factory()->create()
         ];
     }
 }

@@ -35,8 +35,8 @@ class ProductFactory extends Factory
             'order_count'=>rand(465,3351),
             'discount'=>rand(10,100),
             'rating'=>rand(1,5),
-            'store_id'=>Store::factory()->create(),
-            'tenant_id'=>Tenant::factory(),
+          //  'store_id'=>Store::factory()->create(),
+          //  'tenant_id'=>Tenant::factory(),
 
            'created_at'=>$this->faker->dateTime()
         ];

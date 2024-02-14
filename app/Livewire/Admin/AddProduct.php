@@ -13,8 +13,6 @@ class AddProduct extends Component
     
     public $productCategorys = [];
 
-    public $onSwitch = "right-1 bg-primary translate-x-full";
-    public $offSwitch = "left-1 bg-white ";
 
     public function settoogle($index){
         $this->switcherToggle[$index] = !$this->switcherToggle[$index];

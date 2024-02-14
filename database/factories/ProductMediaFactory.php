@@ -26,7 +26,7 @@ class ProductMediaFactory extends Factory
         return [
           'product_id'=>Product::factory()->create(),
           'media_id'=>Media::factory()->create() ,
-          'tenant_id'=>Tenant::factory(),
+          //'tenant_id'=>Tenant::factory(),
  
         ];
     }

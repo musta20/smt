@@ -26,7 +26,7 @@ class MediaFactory extends Factory
             'name'=>$this->faker->word(),
             'type'=>MediaType::IMAGE->value,
             'user_id'=>User::factory()->create(),
-            'tenant_id'=>Tenant::factory(),
+           // 'tenant_id'=>Tenant::factory(),
 
         ];
     }

@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Admin;
 
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
@@ -11,29 +10,52 @@ class FileManger extends Component
 {
 
     use WithFileUploads;
-    #[Validate('image|max:1024')] // 1MB Max
+     //#[Validate('image|max:1024')] // 1MB Max
 
-    public $photo;
-    public $files = [];
+    public $photo ;
+    public $form;
+    public $files = [
+        'productImage/0Vy1Lc7vrn4fcKLgUg5PgfSfGCtJfmlXjqM9JF08.jpg',
+        'productImage/1lFnYjpqAzL0TeMcORiiUQTsF3GczgAaTuDFeYge.jpg',
+        'productImage/2pBmLMXEe5hn5wF0aRQFzi78fobFHv0Tyunr2JaS.jpg ',
+        'productImage/4gyRCfJp213QNrbA9WPwQAlv5vgHjB9Lw3Sr8GZe.png ',
+        'productImage/2SgxXbKylgsfahE3x3P3aDbhDJez52WmvG3UWuGC.jpg',
+        'productImage/0Vy1Lc7vrn4fcKLgUg5PgfSfGCtJfmlXjqM9JF08.jpg',
+        'productImage/1lFnYjpqAzL0TeMcORiiUQTsF3GczgAaTuDFeYge.jpg',
+        'productImage/2pBmLMXEe5hn5wF0aRQFzi78fobFHv0Tyunr2JaS.jpg ',
+        'productImage/4gyRCfJp213QNrbA9WPwQAlv5vgHjB9Lw3Sr8GZe.png ',
+        'productImage/2SgxXbKylgsfahE3x3P3aDbhDJez52WmvG3UWuGC.jpg',
+    ];
     public  $fileDragging =  null;
     public   $fileDropping = null;
     
     public function save()
     {
-       // dd(Storage::get($path));
 
-      //  Storage::disk('local')->put('example.txt', 'Contents');
-
-            
-            $this->photo->storePublicly(path: 'photos');
-
-
-        
-       // dd($this->photos);
+        //dd($this->photo);
+        // dd(Storage::get($path));
+        //  Storage::disk('local')->put('example.txt', 'Contents');
+       // dd($this->photo->getMimeType);
+      //  dd($this->photo->temporaryUrl());
+        //$this->photo->storePublicly(path: 'photos');
+        // dd($this->photos);
         // foreach ($this->photos as $photo) {
         //     $photo->store(path: 'photos');
         // }
     }
+
+   public function updatedPhoto()
+{
+   // dd($this->photo);
+    foreach ($this->photo as $imge) {
+       $this->files[] = $imge->store(path: 'productImage');
+    } 
+
+   // dd($this->photo);
+
+  //  dd($this->photo);
+   // here you can store immediately on any change of the property
+}
     public function humanFileSize($size)
     {
         //  $i = Math.floor(Math.log(size) / Math.log(1024));
@@ -102,6 +124,7 @@ class FileManger extends Component
 
     public function render()
     {
+      // dd(storage_path());
         return view('livewire.admin.file-manger');
     }
 }

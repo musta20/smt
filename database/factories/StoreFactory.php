@@ -36,11 +36,11 @@ class StoreFactory extends Factory
                 maxNbChars: 300,
                 indexSize: 4
             ),
-            'tenant_id'=>Tenant::factory(),
+            // 'tenant_id'=>Tenant::factory()->create(),
+            // 'user_id' => User::factory()->create(),
 
             'currency' => Currency::EGP,
             'Status' => Status::CREATED,
-            'user_id' => User::factory()->create()
         ];
     }
 }

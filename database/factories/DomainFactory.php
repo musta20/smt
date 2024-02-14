@@ -25,7 +25,7 @@ class DomainFactory extends Factory
         return [
             'domain'=>$domain.'.'.env('APP_DOMAIN'),
             'name'=> $domain,
-            'tenant_id'=>Tenant::factory()->create()
+          //  'tenant_id'=>Tenant::factory()->create()
 
         ];
     }
