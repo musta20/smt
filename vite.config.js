@@ -7,6 +7,7 @@ export default defineConfig({
             input: [
         'resources/css/app.css',
         'resources/js/app.js',
+        'resources/js/test.js',
         'resources/js/flowbite.js',
         'resources/js/helper.js',
         'resources/js/alpine.js',

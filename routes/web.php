@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Admin\Product;
+use App\Livewire\Saveimage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/file', Saveimage::class);
+
 
 Route::get('/testtA',Product::class);
 
@@ -24,4 +27,4 @@ Route::get('/', function () {
 
 
 
-require __DIR__.'/centralDomainAuth.php';
+ require __DIR__.'/centralDomainAuth.php';

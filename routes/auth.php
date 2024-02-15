@@ -8,7 +8,6 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\ProfileController;
-use App\Livewire\Admin\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(
@@ -24,14 +23,13 @@ Route::middleware(
             return view('admin.admin');
         })->name('dashboard');
 
-        
-        
-        Route::get('/filemanger',function(){
-            return view('admin.product.file-manger');
 
+
+        Route::get('/filemanger', function () {
+            return view('admin.product.file-manger');
         });
 
-        Route::resource('/product', productController::class, );
+        Route::resource('/product', productController::class,);
 
         // Route::get('/dashboard', function () {
         //     return view('dashboard');

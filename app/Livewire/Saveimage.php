@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire;
 
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Validate;
 
-class FileManger extends Component
+class Saveimage extends Component
 {
 
     use WithFileUploads;
@@ -27,12 +29,17 @@ class FileManger extends Component
 
     public function updatedPhoto()
     {
-        //dd($this->photo);
+
+        $this->photo->store('/');
+        // dd($this->photo);
         // foreach ($this->photo as $imge) {
-        // $imge->store();
-            //Storage::put('/', $imge);
-         //   $this->files[] = Storage::disk('public');//$imge->storeAs('/', rand(1654654,654654).'img', 'images');
-       // }
+        // dd($imge);
+
+        //     //Storage::put('/', $imge);
+
+
+        //  //   $this->files[] = Storage::disk('public');//$imge->storeAs('/', rand(1654654,654654).'img', 'images');
+        // }
     }
     public function humanFileSize($size)
     {
@@ -47,6 +54,8 @@ class FileManger extends Component
     public function render()
     {
         
-        return view('livewire.admin.file-manger');
+        //Storage::delete('productImage/0Vy1Lc7vrn4fcKLgUg5PgfSfGCtJfmlXjqM9JF08.jpg');
+
+        return view('livewire.saveimage');
     }
 }
