@@ -83,8 +83,18 @@ class DatabaseSeeder extends Seeder
         $category2 = Category::factory(5)->for($tenant2)->for($store2)->create();
         $category22 = Category::factory(5)->for($tenant2)->for($store2)->create();
 
-        $product1 =   Product::factory(80)->for($tenant)->for($store)->create();
-        $product2 =   Product::factory(50)->for($tenant2)->for($store2)->create();
+
+        $tenantpath1 =storage_path().'/tenant'.$tenant->id.'/app/public/media';
+        $tenantpath2 =storage_path().'/tenant'.$tenant2->id.'/app/public/media';
+
+        $product1 =   Product::factory(80)->for($tenant)->for($store)->withImage($tenantpath1)->create();
+        $product2 =   Product::factory(50)->for($tenant2)->for($store2)->withImage($tenantpath2)->create();
+
+
+        // ModelsProduct::factory()->for($tenant)->for($store)->withImage(
+        //     storage_path().'/tenant'.$tenant->id.'/app/public/media'
+        //     )->create();
+
 
         foreach ($product1 as $item) {
             CategoryProduct::factory()->for($item)->for($tenant)->for($category1->random())->create();

@@ -13,19 +13,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
 use Laravel\Sanctum\HasApiTokens;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant as ConcernsBelongsToTenant;
 
-class User extends Authenticatable  
+class User extends Authenticatable
 {
     use    HasApiTokens;
     use    HasFactory;
     use    Notifiable;
     use    HasUlids;
     use    ConcernsBelongsToTenant;
+    use    SoftDeletes;
+
 
     /**
      * The attributes that are mass assignable.

@@ -15,6 +15,6 @@
         </nav>
       </div>
  
-      <livewire:admin.add-product :$product  />
+      <livewire:admin.edit-product :$product  />
 
 </x-admin.partials.layout> 

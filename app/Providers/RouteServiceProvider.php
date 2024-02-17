@@ -7,6 +7,8 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Livewire\Features\SupportFileUploads\FilePreviewController;
+use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -26,12 +28,15 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        FilePreviewController::$middleware = ['web', 'universal', InitializeTenancyByDomain::class];
+
         $this->configureRateLimiting();
 
         $this->routes(function () {
             $this->mapApiRoutes();
             $this->mapWebRoutes();
         });
+        // specify the right identification middleware
     }
 
 

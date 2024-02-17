@@ -28,17 +28,29 @@ class ProductFactory extends Factory
                 maxNbChars: 160,
                 indexSize: 4
             ),
-            'price'=>rand(456,5100),
-            'order_url'=>$this->faker->url(),
-            'image'=>$this->faker->imageUrl(250,160),
-            'older_price'=>rand(465,3351),
-            'order_count'=>rand(465,3351),
-            'discount'=>rand(10,100),
-            'rating'=>rand(1,5),
-          //  'store_id'=>Store::factory()->create(),
-          //  'tenant_id'=>Tenant::factory(),
+            'price' => rand(456, 5100),
+            'order_url' => $this->faker->url(),
+            'image' => $this->faker->imageUrl(250, 160),
+            'older_price' => rand(465, 3351),
+            'order_count' => rand(465, 3351),
+            'discount' => rand(10, 100),
+            'rating' => rand(1, 5),
+            //  'store_id'=>Store::factory()->create(),
+            //  'tenant_id'=>Tenant::factory(),
 
-           'created_at'=>$this->faker->dateTime()
+            'created_at' => $this->faker->dateTime()
         ];
     }
+
+    public function withImage($path): Factory
+    {
+       
+        return $this->state(fn (array $attributes) =>['image' => $this->faker->image($path, 640, 480,'products',false)]);
+    }
+
+
+    //            'image' => $this->faker->image(storage_path(),250, 160),
+
+
+
 }

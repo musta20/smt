@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Product extends Model
@@ -15,6 +17,7 @@ class Product extends Model
     use HasFactory;
     use HasUlids;
     use BelongsToTenant;
+    use SoftDeletes;
 
 
     protected $fillable = [
@@ -37,10 +40,18 @@ class Product extends Model
         'price' => 'float',
         'older_price' => 'float',
         'dicount' => 'integer',
-        'visible'=>AsCollection::class,
+        'visible' => AsCollection::class,
         'tag' => AsCollection::class
 
     ];
+    public function media(): HasMany
+    {
+
+        return $this->hasMany(
+            related: Media::class,
+            foreignKey: 'product_id'
+        );
+    }
 
     public function tenant(): BelongsTo
     {
@@ -52,7 +63,7 @@ class Product extends Model
 
     public function categorys(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class,'category_products');
+        return $this->belongsToMany(Category::class, 'category_products');
     }
 
     public function store(): BelongsTo

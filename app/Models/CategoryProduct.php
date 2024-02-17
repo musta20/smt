@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class CategoryProduct extends Model
@@ -13,6 +14,7 @@ class CategoryProduct extends Model
     use HasFactory;
     use HasUlids;
     use BelongsToTenant;
+    use SoftDeletes;
 
 
 

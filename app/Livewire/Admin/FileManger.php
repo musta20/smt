@@ -2,6 +2,11 @@
 
 namespace App\Livewire\Admin;
 
+use App\Enums\Store\MediaType;
+use App\Models\Media;
+use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\Modelable;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -9,44 +14,50 @@ class FileManger extends Component
 {
 
     use WithFileUploads;
-    //#[Validate('image|max:1024')] // 1MB Max
 
+    #[Validate(['photo.*' => 'image|max:1024'])]
     public $photo;
-    public $files = [
-        // 'productImage/0Vy1Lc7vrn4fcKLgUg5PgfSfGCtJfmlXjqM9JF08.jpg',
-        // 'productImage/1lFnYjpqAzL0TeMcORiiUQTsF3GczgAaTuDFeYge.jpg',
-        // 'productImage/2pBmLMXEe5hn5wF0aRQFzi78fobFHv0Tyunr2JaS.jpg ',
-        // 'productImage/4gyRCfJp213QNrbA9WPwQAlv5vgHjB9Lw3Sr8GZe.png ',
-        // 'productImage/2SgxXbKylgsfahE3x3P3aDbhDJez52WmvG3UWuGC.jpg',
-        // 'productImage/0Vy1Lc7vrn4fcKLgUg5PgfSfGCtJfmlXjqM9JF08.jpg',
-        // 'productImage/1lFnYjpqAzL0TeMcORiiUQTsF3GczgAaTuDFeYge.jpg',
-        // 'productImage/2pBmLMXEe5hn5wF0aRQFzi78fobFHv0Tyunr2JaS.jpg ',
-        // 'productImage/4gyRCfJp213QNrbA9WPwQAlv5vgHjB9Lw3Sr8GZe.png ',
-        // 'productImage/2SgxXbKylgsfahE3x3P3aDbhDJez52WmvG3UWuGC.jpg',
-    ];
+
+    #[Modelable]
+    public $files;
+
+    public $product;
 
     public function updatedPhoto()
     {
-        //dd($this->photo);
-        // foreach ($this->photo as $imge) {
-        // $imge->store();
-            //Storage::put('/', $imge);
-         //   $this->files[] = Storage::disk('public');//$imge->storeAs('/', rand(1654654,654654).'img', 'images');
-       // }
-    }
-    public function humanFileSize($size)
-    {
+        foreach ($this->photo as $imge) {
+            $imgename  = $imge->store();
+
+            $this->files[$imgename] = MediaType::IMAGE->value;
+
+            if ($this->product) {
+                Media::create(
+                    [
+                        'name' => $imgename,
+                        'type' => MediaType::IMAGE->value,
+                        'product_id' => $this->product->id,
+                        'user_id' => auth()->user()->id,
+                        'tenant_id' => tenant('id')
+                    ]
+                );
+            }
+        }
     }
 
-    public function  remove($index)
-    {
-    }
 
+    public function  remove($imageName)
+    {
+        if ($this->product) {
+            Media::where('name', $imageName)->first()->delete();
+        }
+        Storage::disk('media')->delete($imageName);
+
+        $this->files = array_filter($this->files, fn ($type, $name) => $name != $imageName, ARRAY_FILTER_USE_BOTH);
+    }
 
 
     public function render()
     {
-        
         return view('livewire.admin.file-manger');
     }
 }

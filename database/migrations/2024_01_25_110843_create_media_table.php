@@ -19,9 +19,15 @@ return new class extends Migration
 
             $table->string('type')->default(MediaType::IMAGE->value);
 
+            $table->foreignUlid('product_id')->index()
+            ->constrained()
+            ->cascadeOnDelete();
+            
+
             $table->foreignUlid('user_id')->index()
             ->constrained()
             ->cascadeOnDelete();
+
             $table->string('tenant_id');
 
             $table->foreign('tenant_id')
@@ -35,6 +41,8 @@ return new class extends Migration
             // ->cascadeOnDelete();
 
             $table->timestamps();
+
+            $table->softDeletes();
 
         });
     }

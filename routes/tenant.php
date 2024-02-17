@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Livewire\Saveimage;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
@@ -29,7 +28,6 @@ Route::middleware([
     //    Livewire::setUpdateRoute(function ($handle) {
     //     return Route::post('/maintenant/livewire/update', $handle);
     // });
-    Route::get('/file', Saveimage::class);
 
 
     Route::get('/', function () {

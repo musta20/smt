@@ -18,15 +18,15 @@ return new class extends Migration
                 ->nullable()
                 ->index()
                 ->constrained();
-                $table->string('tenant_id');
+            $table->string('tenant_id');
 
-                $table->foreign('tenant_id')
+            $table->foreign('tenant_id')
                 ->references('id')
                 ->on('tenants')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-                
-                $table->foreignUlid('category_product_id')
+
+            $table->foreignUlid('category_product_id')
                 ->nullable()
                 ->index()
                 // ->constrained()
@@ -35,8 +35,9 @@ return new class extends Migration
 
             $table->foreignUlid('store_id')
                 ->index()
-               //->constrained();
-               ->cascadeOnDelete();
+                //->constrained();
+                ->cascadeOnDelete();
+            $table->softDeletes();
 
             $table->timestamps();
         });

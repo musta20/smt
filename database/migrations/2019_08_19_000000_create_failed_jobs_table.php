@@ -22,6 +22,8 @@ return new class extends Migration
             // ->cascadeOnDelete();
             $table->longText('exception');
             $table->timestamp('failed_at')->useCurrent();
+            $table->softDeletes();
+
         });
     }
 

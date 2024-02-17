@@ -8,11 +8,16 @@ use App\Jobs\CreateFrameworkDirectoriesForTenant;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 use Stancl\JobPipeline\JobPipeline;
+use Stancl\Tenancy\Controllers\TenantAssetsController;
 use Stancl\Tenancy\Events;
 use Stancl\Tenancy\Jobs;
 use Stancl\Tenancy\Listeners;
 use Stancl\Tenancy\Middleware;
+use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
+use Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain;
+use Stancl\Tenancy\Middleware\InitializeTenancyByPath;
 
 class TenancyServiceProvider extends ServiceProvider
 {
@@ -29,7 +34,7 @@ class TenancyServiceProvider extends ServiceProvider
                     //Jobs\CreateDatabase::class,
                     //Jobs\MigrateDatabase::class,
                     //Jobs\SeedDatabase::class,
-                    //CreateFrameworkDirectoriesForTenant::class
+                    CreateFrameworkDirectoriesForTenant::class
 
                     // Your own jobs to prepare the tenant.
                     // Provision API keys, create S3 buckets, anything you want!
@@ -98,13 +103,27 @@ class TenancyServiceProvider extends ServiceProvider
     {
         //
     }
-
+// 
     public function boot()
     {
+
+        Livewire::setUpdateRoute(function ($handle) {
+
+            return Route::post('/livewire/update', $handle)
+                ->middleware(
+                    'web',
+                    'universal',
+                    InitializeTenancyByDomain::class, // or whatever tenancy middleware you use
+                );
+        });
+
         $this->bootEvents();
         $this->mapRoutes();
 
         $this->makeTenancyMiddlewareHighestPriority();
+        // TenantAssetsController::$tenancyMiddleware = InitializeTenancyByDomainOrSubdomain::class;
+
+
     }
 
     protected function bootEvents()

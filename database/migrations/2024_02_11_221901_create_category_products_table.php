@@ -30,6 +30,7 @@ return new class extends Migration
             ->on('tenants')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+            $table->softDeletes();
 
             $table->timestamps();
         });
