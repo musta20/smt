@@ -22,16 +22,17 @@ return new class extends Migration
 
             $table->unsignedDouble('older_price')->nullable();
             $table->unsignedInteger('discount')->nullable();
-            $table->string('image');
+            $table->string('image')->nullable();
 
             $table->unsignedInteger('order_count');
             $table->unsignedDouble('rating');
             $table->string('tenant_id');
+            
             $table->string('status')->default(Status::DRAFT);
 
             $table->json('visible')->default(json_encode([
-                "CanRate" => false,
-                "CanCommint" => true
+                "CanReview" => false,
+                "CanComment" => true
             ]));
 
             $table->foreign('tenant_id')

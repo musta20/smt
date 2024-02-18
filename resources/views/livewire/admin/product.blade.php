@@ -2,9 +2,6 @@
     {{-- @vite('resources/js/flowbite.js') --}}
     <div class="flex justify-between px-4 py-6 md:px-6 xl:px-7.5">
         <h4 class="text-xl font-bold text-black dark:text-white">Top Products</h4>
-
-
-
         <div x-data="{ isOpen: false }"
             class="relative divide-y divide-gray-3 rounded-lg border border-gray-3 shadow w-55 dark:bg-gray-700">
             <button @click.prevent="isOpen = !isOpen"
@@ -45,10 +42,6 @@
                 </button>
             </div>
         </div>
-
-
-
-
         <div class="flex">
             <div x-data="{ isOpen: false }"
                 class="relative divide-y divide-gray-3 border border-gray-3 rounded-s-lg shadow w-35 dark:bg-gray-700">
@@ -141,18 +134,6 @@
         @endempty
         @endforeach
 
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
 
@@ -204,11 +185,15 @@
 
     <div wire:key="{{ $item->id }}"
         class="grid grid-cols-9 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-9 md:px-6 2xl:px-7.5">
-
         <div class="col-span-2 flex items-center">
             <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <div class="h-12.5 w-15 rounded-md">
+                    @if ($item->image)
                     <img src="{{tenant_asset('media/'.$item->image) }}" alt="Product" />
+
+                    @else
+                    <span class="text-center text-sm" >no image</span>
+                    @endif
                 </div>
                 <p class="text-sm font-medium text-black dark:text-white">
                     {{$item->name}}
@@ -223,11 +208,11 @@
                 <span id="badge-dismiss-default"
                     class="inline-flex items-center px-1 py-1 mb-1  me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">
                     {{$category->find($cat)->name}}
-           
+
                 </span>
                 @endforeach
-                
-                </p>
+
+            </p>
         </div>
 
         <div class="col-span-1 flex items-center">
@@ -283,7 +268,7 @@
                     <a href="{{Route('admin.product.edit',$item->id)}}"
                         class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
                         تعديل
-                </a>
+                    </a>
                 </div>
             </div>
 

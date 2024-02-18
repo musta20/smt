@@ -16,8 +16,9 @@ import flatpickr from "flatpickr";
 // import map01 from "./components/map-01";
 
 Alpine.plugin(persist);
-Alpine.start();
 Livewire.start()
+Alpine.start();
+
 window.Alpine = Alpine;
 
 import.meta.glob([

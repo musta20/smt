@@ -29,7 +29,7 @@ Route::middleware(
             return view('admin.product.file-manger');
         });
 
-        Route::resource('/product', productController::class,);
+        Route::resource('/product', productController::class);
 
         // Route::get('/dashboard', function () {
         //     return view('dashboard');

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\Store\Status;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Enum;
 
 class UpdateProductRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class UpdateProductRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +24,50 @@ class UpdateProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => [
+                'string',
+                'required',
+                'min:3',
+                'max:600'
+            ],
+            'status' => [
+                'string',
+                'required',
+                new Enum(
+                    type: Status::class
+                )
+            ],
+            'description' => [
+                'nullable',
+                'string',
+                'min:3',
+                'max:600'
+            ],
+            'price' => [
+                'required',
+                'int',
+
+            ],
+            'order_url' => [
+                'url',
+                'required',
+                'string',
+
+            ],
+            'discount' => [
+                'int',
+            ],
+            'older_price' => [
+                'int',
+            ],
+            'CanReview' => [
+                'required',
+                'boolean'
+            ],
+            'CanComment' => [
+                'required',
+                'boolean',
+            ]
         ];
     }
 }
