@@ -32,7 +32,6 @@ class Product extends Model
         'tag',
         'visible',
         'category_id',
-        'category_product_id',
         'tenant_id'
     ];
 
@@ -61,7 +60,7 @@ class Product extends Model
         );
     }
 
-    public function categorys(): BelongsToMany
+    public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class, 'category_products');
     }

@@ -63,7 +63,7 @@ class Product extends Component
             // dd($products->first()->categorys);
             
             $products = $products->filter(function ($item) {
-                return   $item->categorys->find($this->filters['categoryId']);
+                return   $item->categories->find($this->filters['categoryId']);
             });
         }
 

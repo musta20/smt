@@ -30,20 +30,19 @@ class UpdateProductRequest extends FormRequest
                 'min:3',
                 'max:600'
             ],
-            'status' => [
-                'string',
-                'required',
-                new Enum(
-                    type: Status::class
-                )
-            ],
+          
             'description' => [
                 'nullable',
                 'string',
                 'min:3',
                 'max:600'
             ],
+            'category'=>[
+                'required',
+
+            ],
             'price' => [
+                'nullable',
                 'required',
                 'int',
 
@@ -55,19 +54,14 @@ class UpdateProductRequest extends FormRequest
 
             ],
             'discount' => [
+                'nullable',
                 'int',
             ],
             'older_price' => [
+                'nullable',
                 'int',
             ],
-            'CanReview' => [
-                'required',
-                'boolean'
-            ],
-            'CanComment' => [
-                'required',
-                'boolean',
-            ]
+        
         ];
     }
 }

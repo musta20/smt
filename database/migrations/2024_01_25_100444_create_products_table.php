@@ -46,9 +46,9 @@ return new class extends Migration
 
             $table->json('tags')->nullable();
 
-            $table->foreignUlid('category_product_id')->nullable()->index()
-                //->constrained()
-                ->cascadeOnDelete();
+            // $table->foreignUlid('category_product_id')->nullable()->index()
+            //     //->constrained()
+            //     ->cascadeOnDelete();
 
             $table->softDeletes();
 

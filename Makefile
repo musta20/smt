@@ -9,10 +9,10 @@ install:
 	@composer install
 
 test:
-	$(sail) artisan test
+	php artisan test
 
 fresh: 
-	$(sail) artisan migrate:fresh --seed
+	rm -rf storage/tenant* &&  rm -rf storage/app/* && php artisan migrate:fresh --seed
 
 clear: 
 	$(sail) artisan config:cache &&  $(sail) artisan config:clear &&  composer dump-autoload -o

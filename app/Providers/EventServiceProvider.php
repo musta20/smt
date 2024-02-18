@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\CategoryProduct;
+use App\Observers\CategoryProductObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -27,6 +29,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        CategoryProduct::observe(CategoryProductObserver::class);
         //FilePreviewController::$middleware = ['web', 'universal', InitializeTenancyByDomain::class];
 
         //

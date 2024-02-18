@@ -14,7 +14,7 @@
           </ol>
         </nav>
       </div>
- 
+
       <livewire:admin.edit-product :$product  />
 
 </x-admin.partials.layout> 

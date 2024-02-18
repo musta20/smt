@@ -204,7 +204,7 @@
 
         <div class="col-span-1 flex items-center">
             <p class="text-sm font-medium text-black dark:text-white">
-                @foreach ($item->categorys as $cat)
+                @foreach ($item->categories as $cat)
                 <span id="badge-dismiss-default"
                     class="inline-flex items-center px-1 py-1 mb-1  me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">
                     {{$category->find($cat)->name}}

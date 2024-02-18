@@ -16,11 +16,12 @@
       </a>
     </div>
   </div>
+  
   <form x-ref='form' method="POST" action="{{route('admin.product.update',$product->id)}}"
     class="grid grid-cols-1 gap-9 sm:grid-cols-2">
+    @method('PUT')
 
     @csrf
-    @method('PUT')
 
     <div class="flex flex-col gap-9">
       <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -29,16 +30,13 @@
             بيانات المنتج
           </h3>
         </div>
-
         <div class=" p-4 xl:flex-row">
-
           <div class="w-full xl:w-1/2">
             <label class=" text-sm font-medium text-black dark:text-white">
               صورة المنتج الاساسية
             </label>
           </div>
         </div>
-
         <div x-data="{showCancle:false}" class="flex items-center justify-center  m-2 ">
           @if ($product->image)
           <div @mouseenter="showCancle=true" @mouseleave="showCancle=false" class=" rounded-lg relative   ">
@@ -46,7 +44,6 @@
               src="{{tenant_asset('media/'.$product->image)}}" />
             <button wire:click.prevent="removeImage" x-show="showCancle"
               class="absolute bg-white hover:bg-slate-200 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-
               <svg class="w-10 h-10 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -55,7 +52,6 @@
             </button>
           </div>
           @else
-
           <div x-data="{ uploading: false,fileLoded:false, progress: 0  }" x-ref="dnd" class="relative flex  flex-col items-center justify-center w-full min-h-100 border-2 border-dashed  hover:border-primary hover:border-3 bg-slate-50 rounded-lg 
           bg-gray-50 hover:bg-gray-100 ">
             <input wire:model='photo' id="dropzone-file" type="file"
@@ -67,9 +63,6 @@
               @dragover="$refs.dnd.classList.add('border-blue-400'); $refs.dnd.classList.add('ring-4'); $refs.dnd.classList.add('ring-inset');"
               @dragleave="$refs.dnd.classList.remove('border-blue-400'); $refs.dnd.classList.remove('ring-4'); $refs.dnd.classList.remove('ring-inset');"
               @drop="$refs.dnd.classList.remove('border-blue-400'); $refs.dnd.classList.remove('ring-4'); $refs.dnd.classList.remove('ring-inset');" />
-
-
-
 
             <div x-show="!uploading" class="flex flex-col items-center justify-center pt-5 pb-6">
               <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -88,6 +81,7 @@
               <p>
                 الابعاد (800x400px)
               </p>
+              @error('photo') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>
             <div x-show="uploading"
               class="w-1/2 bg-gray-200 rounded-full text-lg mb-1 font-medium h-3 dark:bg-gray-700">
@@ -97,18 +91,14 @@
           </div>
           @endif
         </div>
-
         <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
           <div class="w-full xl:w-1/2">
             <label class="mb-3 block text-sm font-medium text-black dark:text-white">
               اسم المنتج
             </label>
-            
             <input type="text"  name="name"
-
-            
             value="{{old('name',$product->name)}}" placeholder="اسم المنتج"
-              class=" @error('name') border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" />
+              class=" @error('name') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
           </div>
           <div class="w-full xl:w-1/2">
@@ -116,7 +106,7 @@
               السعر
             </label>
             <input type="text"  name="price"  value="{{old('price',$product->price)}}" placeholder="السعر"
-              class="w-full @error('price') border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" />
+              class="w-full @error('price') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
             <x-input-error :messages="$errors->get('price')" class="mt-2" />
           </div>
         </div>
@@ -127,7 +117,7 @@
             </label>
             <input type="text"  value="{{old('order_url',$product->order_url)}}" name="order_url" value="{{$product->order_url}}"
               placeholder="رابط الطلب"
-              class="w-full @error('order_url') border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" />
+              class="w-full @error('order_url') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
             <x-input-error :messages="$errors->get('order_url')" class="mt-2" />
           </div>
           <div class="w-full xl:w-1/2">
@@ -135,7 +125,7 @@
               خصم (اختياري)
             </label>
             <input type="text"  name="discount" value="{{old('discount',$product->discount)}}" placeholder="خصم"
-              class="w-full @error('discount') border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" />
+              class="w-full @error('discount') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
               <x-input-error :messages="$errors->get('discount')" class="mt-2" />
 
             </div>
@@ -147,7 +137,7 @@
               (اختياري)
             </label>
             <input type="text" name="older_price" value="{{old('older_price',$product->older_price)}}" placeholder="السعر القديم"
-              class="w-full @error('older_price') border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" />
+              class="w-full @error('older_price') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
               <x-input-error :messages="$errors->get('older_price')" class="mt-2" />
               </div>
           <div class="w-full xl:w-1/2">
@@ -171,7 +161,7 @@
               <div @click.outside.prevent="isOpen = false" x-show="isOpen"
                 class="absolute shadow right-0 bottom-full z-1 mb-1 w-full max-w-39.5 rounded-[5px] bg-white py-2.5 shadow-12 dark:bg-boxdark "
                 style="display: none;">
-                @foreach ($category as $item)
+                @foreach (old('category',$category) as $item)
                 <button
                   class="flex w-full px-4 py-4 justify-center text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4"
                   wire:key="{{$item->id}}" wire:click.prevent="addCategory('{{$item->id}}'); isOpen = false">
@@ -186,6 +176,7 @@
             <span wire:key="{{$cat}}"
               class="inline-flex items-center px-2 py-1 mt-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">
               {{$category->find($cat)->name}}
+              <input hidden name="category[]" value="{{$cat}}" />
               <button type="button" wire:click="removeCategory('{{$cat}}')"
                 class="inline-flex items-center p-1 ms-2 text-sm text-blue-400 bg-transparent rounded-sm hover:bg-blue-200 hover:text-blue-900 dark:hover:bg-blue-800 dark:hover:text-blue-300">
                 <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -197,6 +188,8 @@
             </span>
             @endforeach
           </div>
+          @error('category') <span class="text-red-500">{{ $message }}</span> @enderror
+
         </div>
       </div>
       <!-- Toggle switch input -->
@@ -214,7 +207,8 @@
             <span class="px-2"> السماح بتقييم المنتج</span>
             <label class="flex cursor-pointer select-none items-center">
               <div class="relative">
-                <input type="checkbox" name="CanReview" class="sr-only" wire:model='CanReview' />
+                <input type="checkbox"
+                name="CanReview" class="sr-only" wire:model='CanReview' />
                 <div class="block h-8 w-14 rounded-full  bg-meta-9 dark:bg-[#5A616B]"></div>
                 <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.CanReview }"
                   class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition ">
@@ -226,7 +220,11 @@
             <span class="px-2"> إظهار المنتج</span>
             <label class="flex cursor-pointer select-none items-center">
               <div class="relative">
-                <input type="checkbox" name="status" class="sr-only" wire:model='status' />
+                <input type="checkbox" 
+               
+                
+                name="status" class="sr-only" wire:model='status' />
+
                 <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
                 <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.status }"
                   class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition ">
@@ -242,8 +240,10 @@
             <span class="px-2"> السماح بالتعليقات</span>
             <label class="flex cursor-pointer select-none items-center">
               <div class="relative">
-                <input type="checkbox" name="CanComment" wire:model='CanComment' class="sr-only" {{--
-                  wire:click="settoogle(2)" --}} />
+                <input type="checkbox" name="CanComment" wire:model='CanComment' 
+                class="sr-only"  />
+
+                  
                 <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
                 <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.CanComment }"
                   class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition ">
@@ -268,8 +268,8 @@
             </label>
             <textarea rows="6"  name="description" placeholder="وصف المنتج"
               class="w-full 
-              @error('description') border-red-500 @enderror
-              rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary">
+              @error('description') !border-red-500 @enderror
+              rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary">
             {{old('description',$product->description)}}
           </textarea>
             <x-input-error :messages="$errors->get('description')" class="mt-2" />

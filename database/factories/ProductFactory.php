@@ -42,10 +42,12 @@ class ProductFactory extends Factory
         ];
     }
 
+
+
     public function withImage($path): Factory
     {
-       
-        return $this->state(fn (array $attributes) =>['image' => $this->faker->image($path, 640, 480,'products',false)]);
+
+        return $this->state(fn (array $attributes) => ['image' => $this->faker->image($path, 640, 480, 'products', false)]);
     }
 
 

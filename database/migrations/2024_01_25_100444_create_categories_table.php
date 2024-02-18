@@ -26,11 +26,11 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->foreignUlid('category_product_id')
-                ->nullable()
-                ->index()
-                // ->constrained()
-                ->cascadeOnDelete();
+            // $table->foreignUlid('category_product_id')
+            //     ->nullable()
+            //     ->index()
+            //     // ->constrained()
+            //     ->cascadeOnDelete();
             $table->string('name');
 
             $table->foreignUlid('store_id')

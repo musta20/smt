@@ -14,8 +14,6 @@ class EditProduct extends Component
 
     public $product;
 
-    public $switcherToggle = [];
-
     public $CanComment;
 
     public $CanReview;
@@ -42,11 +40,6 @@ class EditProduct extends Component
         $this->product->save();
     }
 
-    public function settoogle($index)
-    {
-        $this->switcherToggle[$index] = !$this->switcherToggle[$index];
-    }
-
     public function addCategory($categoryId)
     {
 
@@ -66,19 +59,16 @@ class EditProduct extends Component
 
     public function mount($product)
     {
+       // dd($product->visible);
         $this->product = $product;
-        $this->productCategorys = $product->categorys->pluck('id')->toArray();
-        
+        $this->productCategorys = $product->categories->pluck('id')->toArray();
 
-        // $this->switcherToggle[0] = $product->status == Status::PUBLISHED ? true : false;
-        // $this->switcherToggle[1] = $product->visible['CanReview'];
-        // $this->switcherToggle[2] = $product->visible['CanComment'];
         
-        $this->status = $product->status == Status::PUBLISHED ? true : false;
+        $this->status = $product->status == Status::PUBLISHED->value ? true : false;
+
         $this->CanReview = $product->visible['CanReview'];
         $this->CanComment = $product->visible['CanComment'];
 
-        
 
         $this->files = $product->media->pluck('type.value', 'name')->toArray();
     }
