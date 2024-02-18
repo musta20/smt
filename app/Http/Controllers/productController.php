@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Enums\Store\Status;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Models\Category;
-use App\Models\CategoryProduct;
 use App\Models\Product;
 
 class productController extends Controller
@@ -60,40 +58,14 @@ class productController extends Controller
     public function update(UpdateProductRequest $request, Product $product)
     {
 
-
         $visible = [
             "CanReview" => $request->CanReview ? true : false,
             "CanComment" => $request->CanComment ? true : false
         ];
 
-        // dd($request->category);
         $newCategory = $request->category;
 
- 
         $product->categories()->syncWithPivotValues($newCategory,['tenant_id'=>tenant('id')]);
-
-        // $currentCategory = $product->categorys->pluck('id')->toArray();
-
-        // $deatchedCategory = array_diff($currentCategory, $newCategory);
-        // $exicstCategory = array_intersect($currentCategory, $newCategory);
-        // $attachedCategory = array_diff($newCategory, $exicstCategory);
-
-        // if ($deatchedCategory) {
-        //     $product->categorys()->detach($deatchedCategory);
-        // }
-
-        // if ($attachedCategory) {
-        //     $product->categorys()->attach($attachedCategory);
-        // }
-        //dd($deatchedCategory,$attachedCategory);
-
-        // dd(array_diff( $currentCategory,$category));
-
-        //  dd(array_intersect( $currentCategory,$category));
-
-        //array_intersect
-        //$product->categorys();
-
 
         $status = $request->status ? Status::PUBLISHED->value : Status::DRAFT->value;
 
