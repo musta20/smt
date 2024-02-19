@@ -21,8 +21,15 @@ class Product extends Component
         "categoryId" => '',
         "sortType" => '',
     ];
-
+    public $CurrentProduct;
     public $searchword = '';
+    public $products;
+    
+    public function openModel($id)
+    {
+        $this->CurrentProduct= $this->products->find($id);
+        $this->dispatch('modalbox'); 
+    }
 
 
     public function filter($filterType, $Value)
@@ -53,7 +60,7 @@ class Product extends Component
 
     public function render()
     {
-        $products = ModelsProduct::where('name', 'like', '%' . $this->searchword . '%')->get();
+        $this->products = ModelsProduct::where('name', 'like', '%' . $this->searchword . '%')->get();
 
         if ($this->filters['categoryId']) {
 
@@ -62,7 +69,7 @@ class Product extends Component
             // $products = $products->filter('category_id', $this->filters['categoryId']);
             // dd($products->first()->categorys);
             
-            $products = $products->filter(function ($item) {
+            $this->products = $this->products->filter(function ($item) {
                 return   $item->categories->find($this->filters['categoryId']);
             });
         }
@@ -72,27 +79,27 @@ class Product extends Component
 
             switch ($this->filters['sortType']) {
                 case Sorting::AVG_COUSTMER->value:
-                    $products =   $products->sortByDesc('rating');
+                    $this->products =   $this->products->sortByDesc('rating');
                     break;
                 case Sorting::BEST_SELLING->value:
-                    $products =   $products->sortByDesc('order_count');
+                    $this->products =   $this->products->sortByDesc('order_count');
                     break;
                 case Sorting::NEWEST->value:
-                    $products =   $products->sortByDesc('created_at');
+                    $this->products =   $this->products->sortByDesc('created_at');
                     break;
                 case Sorting::HIGHT_TO_LOW->value:
 
-                    $products =   $products->sortByDesc('price');
+                    $this->products =   $this->products->sortByDesc('price');
                     break;
                 case Sorting::LOW_TO_HIGHT->value:
-                    $products =   $products->sortBy('price');
+                    $this->products =   $this->products->sortBy('price');
                     break;
             }
         }
 
         return view('livewire.admin.product', [
 
-            "products" =>  $this->paginate($products, 10),
+            "allProducts" =>  $this->paginate($this->products, 10),
             "category" => Category::get()
 
         ]);

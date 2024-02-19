@@ -1,7 +1,23 @@
 <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
     {{-- @vite('resources/js/flowbite.js') --}}
     <div class="flex justify-between px-4 py-6 md:px-6 xl:px-7.5">
-        <h4 class="text-xl font-bold text-black dark:text-white">Top Products</h4>
+        <h4 
+        
+        class="relative divide-y divide-gray-3 rounded-lg border border-gray-3 shadow w-30 dark:bg-gray-700"
+        >
+
+            <a href="{{route('admin.product.create')}}"
+            class="w-full inline-flex items-center gap-1.5 rounded-md justify-center py-1.5 text-sm text-black  hover:text-primary dark:bg-meta-4 dark:text-white dark:shadow-none">
+
+                إضافة
+
+                <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5 12h14m-7 7V5" />
+                </svg></a>
+
+        </h4>
         <div x-data="{ isOpen: false }"
             class="relative divide-y divide-gray-3 rounded-lg border border-gray-3 shadow w-55 dark:bg-gray-700">
             <button @click.prevent="isOpen = !isOpen"
@@ -169,7 +185,7 @@
             <p class="font-medium">تعديل</p>
         </div>
     </div>
-    @empty($products->first())
+    @empty($allProducts->first())
     <div
         class="flex justify-center border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
         <span class="py-5 px-5">
@@ -180,7 +196,49 @@
     </div>
     @endempty
 
-    @foreach ($products as $item)
+    <x-modal>
+        <span class="mx-auto inline-block">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect opacity="0.1" width="60" height="60" rx="30" fill="#DC2626"></rect>
+                <path
+                    d="M30 27.2498V29.9998V27.2498ZM30 35.4999H30.0134H30ZM20.6914 41H39.3086C41.3778 41 42.6704 38.7078 41.6358 36.8749L32.3272 20.3747C31.2926 18.5418 28.7074 18.5418 27.6728 20.3747L18.3642 36.8749C17.3296 38.7078 18.6222 41 20.6914 41Z"
+                    stroke="#DC2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </span>
+        <h3 class="mt-5.5 p-5 text-xl font-bold text-black dark:text-white sm:text-2xl">
+
+            : هل انت متاكد من حذف المنتج
+
+            <p >
+                {{$CurrentProduct->name ?? ""}}
+            </p>
+        </h3>
+
+
+        <form method="post" action="{{ route('admin.product.destroy',$CurrentProduct->id ?? "") }}"
+            class="-mx-3 flex flex-wrap gap-y-4">
+            @csrf
+            @method('delete')
+
+            <div class="w-full px-3 2xsm:w-1/2">
+                <button type="submit"
+                    class="block w-full rounded border border-meta-1 bg-meta-1 p-3 text-center font-medium text-white transition hover:bg-opacity-90">
+                    حذف
+                </button>
+            </div>
+
+
+            <div class="w-full px-3 2xsm:w-1/2">
+                <button @click.prevent="modalOpen = false"
+                    class="block w-full rounded border border-stroke bg-gray p-3 text-center font-medium text-black transition hover:border-meta-1 hover:bg-meta-1 hover:text-white dark:border-strokedark dark:bg-meta-4 dark:text-white dark:hover:border-meta-1 dark:hover:bg-meta-1">
+                    الغاء
+                </button>
+            </div>
+
+        </form>
+    </x-modal>
+
+    @foreach ($allProducts as $item)
 
 
     <div wire:key="{{ $item->id }}"
@@ -192,7 +250,7 @@
                     <img src="{{tenant_asset('media/'.$item->image) }}" alt="Product" />
 
                     @else
-                    <span class="text-center text-sm" >no image</span>
+                    <span class="text-center text-sm">no image</span>
                     @endif
                 </div>
                 <p class="text-sm font-medium text-black dark:text-white">
@@ -260,7 +318,7 @@
                     style="display: none;">
 
 
-                    <button wire:click="filter('sortType','LOW_TO_HIGHT'); isOpen = false"
+                    <button wire:click="save('{{$item->id}}')"
                         class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
                         حذف
                     </button>
@@ -283,6 +341,6 @@
     @endforeach
     <hr>
     <div dir="ltr" class="p-2">
-        {{$products->links()}}
+        {{$allProducts->links()}}
     </div>
 </div>

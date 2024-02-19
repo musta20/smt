@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('name');
-            $table->mediumText('description');
+            $table->mediumText('description')->nullable();
             $table->unsignedDouble('price');
 
             $table->string('order_url');
@@ -24,8 +24,8 @@ return new class extends Migration
             $table->unsignedInteger('discount')->nullable();
             $table->string('image')->nullable();
 
-            $table->unsignedInteger('order_count');
-            $table->unsignedDouble('rating');
+            $table->unsignedInteger('order_count')->nullable();
+            $table->unsignedDouble('rating')->nullable();
             $table->string('tenant_id');
             
             $table->string('status')->default(Status::DRAFT);
@@ -41,7 +41,9 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->foreignUlid('store_id')->index()
+            $table->foreignUlid('store_id')
+            ->nullable()
+            ->index()
                 ->cascadeOnDelete();
 
             $table->json('tags')->nullable();

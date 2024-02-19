@@ -1,13 +1,14 @@
 <?php
 
 use App\Models\User;
+use Symfony\Component\HttpFoundation\Response;
 
 test('confirm password screen can be rendered', function () {
     $user = User::factory()->for(tenant())->create();
 
     $response = $this->actingAs($user)->get('/confirm-password');
 
-    $response->assertStatus(200);
+    $response->assertStatus(Response::HTTP_OK);
 });
 
 test('password can be confirmed', function () {

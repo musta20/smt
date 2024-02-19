@@ -34,16 +34,15 @@
 
     </div>
 
-    
+
     <div class=" grid  2xl:grid-cols-3   xsm:grid-cols-1 gap-2 items-center  p-1 w-full ">
 
-        @if ($files)
-        @foreach ($files as $item =>$type)
-        <div x-data="{showCancle:false}" class="w-50 ">
-            <div @mouseenter="showCancle=true" @mouseleave="showCancle=false"
-                class=" rounded-lg relative  ">
-                <img :class="{'blur-sm' : showCancle==true}" class=" rounded-lg   " src="{{ tenant_asset('media/'.$item) }}"
-                    {{-- src="{{$item->temporaryUrl()}}" --}} />
+        @if ($subFiles)
+        @foreach ($subFiles as $item =>$type)
+        <div x-data="{showCancle:false}" wire:key='{{$item}}' class="w-50 ">
+            <div @mouseenter="showCancle=true" @mouseleave="showCancle=false" class=" rounded-lg relative  ">
+                <img :class="{'blur-sm' : showCancle==true}" class=" rounded-lg   "
+                    src="{{ tenant_asset('media/'.$item) }}" {{-- src="{{$item->temporaryUrl()}}" --}} />
                 <button wire:click.prevent="remove('{{$item}}')" x-show="showCancle"
                     class="absolute bg-white hover:bg-slate-200 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
 
@@ -54,6 +53,10 @@
                     </svg>
                 </button>
             </div>
+            <input hidden name="subFiles[]" value="{{ json_encode([
+                "name"=>$item,
+                "type"=>$type
+            ]) }}" />
         </div>
 
         @endforeach

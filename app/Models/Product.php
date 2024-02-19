@@ -28,6 +28,7 @@ class Product extends Model
         'older_price',
         'discount',
         'store_id',
+        'image',
         'status',
         'tag',
         'visible',

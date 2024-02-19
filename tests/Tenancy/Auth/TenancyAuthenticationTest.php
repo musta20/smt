@@ -2,13 +2,13 @@
 
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
-
+use Symfony\Component\HttpFoundation\Response;
 
 it('login screen can be rendered', function () {
 
   $response = $this->get(RouteServiceProvider::LOGIN);
 
-  $response->assertStatus(200);
+  $response->assertStatus(Response::HTTP_OK);
 });
 
 

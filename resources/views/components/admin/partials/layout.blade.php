@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite(['resources/js/index.js'])
-    @livewireStyles
+
     <title>
         eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template
     </title>
@@ -20,7 +20,7 @@
     :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}">
 
     <x-toast />
-
+    
     <!-- ===== Preloader Start ===== -->
     <x-admin.partials.preloader />
     <!-- ===== Preloader End ===== -->
@@ -43,10 +43,11 @@
             <main>
                 <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
                     {{ $slot }}
-                    @livewireScriptConfig
 
                 </div>
+
             </main>
+            @livewireScriptConfig
 
             <!-- ===== Main Content End ===== -->
         </div>

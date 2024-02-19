@@ -20,7 +20,7 @@ class EditProduct extends Component
 
     public $status;
 
-    public $files = [];
+    public $subFiles = [];
 
     public $photo;
 
@@ -55,11 +55,14 @@ class EditProduct extends Component
 
         $this->productCategorys = array_filter($copy, fn ($item) =>  $categoryId != $item);
     }
-
+    public function openModel($id)
+    {
+        $this->dispatch('modalbox'); 
+    }
 
     public function mount($product)
     {
-       // dd($product->visible);
+
         $this->product = $product;
         $this->productCategorys = $product->categories->pluck('id')->toArray();
 
@@ -70,7 +73,7 @@ class EditProduct extends Component
         $this->CanComment = $product->visible['CanComment'];
 
 
-        $this->files = $product->media->pluck('type.value', 'name')->toArray();
+        $this->subFiles = $product->media->pluck('type.value', 'name')->toArray();
     }
 
     public function render()

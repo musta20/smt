@@ -3,12 +3,14 @@
 use App\Models\Product;
 use App\Models\Store;
 use App\Models\User;
+use Symfony\Component\HttpFoundation\Response;
 
 it("can render product management page",function(){
     $user = User::factory()->for(tenant())->create();
+    
     $response = $this->actingAs($user)->get('admin/product');
 
-    $response->assertStatus(200);
+    $response->assertStatus(Response::HTTP_OK);
 });
 
 it("can render product edit page",function(){
@@ -20,15 +22,17 @@ it("can render product edit page",function(){
 
     $response = $this->actingAs($user)->get('admin/product/'.$product->id.'/edit');
 
-    $response->assertStatus(200);
+    $response->assertStatus(Response::HTTP_OK);
 });
 
+it("can render creating product page",function(){
+    $user = User::factory()->for(tenant())->create();
 
-it("get list of product only belong to your store",function(){
+    $response = $this->actingAs($user)->get('/admin/product/create');
 
-})->skip();
+    $response->assertStatus(Response::HTTP_OK);
 
-it("can render product update page",function(){})->skip();
+});
 
 it("can add new product",function(){})->skip();
 

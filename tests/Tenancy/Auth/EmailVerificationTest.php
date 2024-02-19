@@ -5,6 +5,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
+use Symfony\Component\HttpFoundation\Response;
 
 it('email verification screen can be rendered', function () {
     $user = User::factory()->for(tenant())->create([
@@ -13,7 +14,7 @@ it('email verification screen can be rendered', function () {
 
     $response = $this->actingAs($user)->get('/verify-email');
 
-    $response->assertStatus(200);
+    $response->assertStatus(Response::HTTP_OK);
 });
 
 

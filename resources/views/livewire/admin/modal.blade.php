@@ -1,4 +1,4 @@
-<div x-data="{modalOpen: false}" x-on:modalbox.window="modalOpen=true">
+<div x-data="{modalOpen: false}" @modalbox.window="modalOpen=true">
     <div x-cloak x-show="modalOpen"
     x-transition
         class=" fixed left-0 top-0 z-999999 flex h-full min-h-screen w-full items-center justify-center bg-black/90 px-4 py-5">
