@@ -12,7 +12,11 @@ test:
 	php artisan test
 
 fresh: 
-	rm -rf storage/tenant* &&  rm -rf storage/app/* && php artisan migrate:fresh --seed
+	rm -rf storage/tenant* &&  
+	rm -rf storage/app/* && 
+	php artisan migrate:fresh --seed &&
+	chmod -R 777 storage
+	php artisan storage:link
 
 clear: 
 	$(sail) artisan config:cache &&  $(sail) artisan config:clear &&  composer dump-autoload -o

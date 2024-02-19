@@ -316,7 +316,7 @@
               <label class=" block text-sm font-medium text-black dark:text-white">
                 اضافة المزيد من صور المنتج
               </label>
-              <livewire:admin.file-manger  :$product />
+              <livewire:admin.file-manger :$subFiles :$product />
             </div>
           </div>
         </div>
