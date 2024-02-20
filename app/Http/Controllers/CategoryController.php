@@ -14,7 +14,6 @@ class CategoryController extends Controller
     public function index()
     {
         return view('admin.category.index');
-
     }
 
     /**
@@ -23,7 +22,6 @@ class CategoryController extends Controller
     public function create()
     {
         return view('admin.category.create');
-
     }
 
     /**
@@ -31,7 +29,13 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        
+
+        Category::create([
+            'name' => $request->name,
+            'description' => $request->description
+        ]);
+
+        return redirect()->route('admin.category.index')->with('OkToast', 'تم اضاقة المنتج');
     }
 
     /**
@@ -47,8 +51,10 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.category.edit');
+        return view('admin.category.edit',[
+            'category' => $category
 
+        ]);
     }
 
     /**
@@ -56,7 +62,14 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        
+
+        $category->update([
+            'name' => $request->name,
+            'description' => $request->description
+        ]);
+
+        return redirect()->route('admin.category.index')->with('OkToast', 'تم تحديث التصنيف');
+
     }
 
     /**
@@ -64,6 +77,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.category.index')->with('OkToast', "تم حذف التصنيف ");
     }
 }

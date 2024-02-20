@@ -2,7 +2,7 @@
 
     <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h2 class="text-title-md2 font-bold text-black dark:text-white">
-          انشاء تصنيف
+          تعديل
         </h2>
 
         <nav>
@@ -15,6 +15,6 @@
         </nav>
       </div>
 
-      <livewire:admin.create-product   />
+      <livewire:admin.create-category :$category  />
 
 </x-admin.partials.layout> 

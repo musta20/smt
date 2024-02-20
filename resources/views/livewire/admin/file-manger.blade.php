@@ -34,12 +34,10 @@
 
     </div>
 
-
-    <div class=" grid  2xl:grid-cols-3   xsm:grid-cols-1 gap-2 items-center  p-1 w-full ">
-
-        @if ($subFiles)
+    @if ($subFiles)
+    <div class=" grid  2xl:grid-cols-3   xsm:grid-cols-1 gap-2 items-center p-3  w-full ">
         @foreach ($subFiles as $item =>$type)
-        <div x-data="{showCancle:false}" wire:key='{{$item}}' class="w-50 ">
+        <div x-data="{showCancle:false}" wire:key='{{$item}}' >
             <div @mouseenter="showCancle=true" @mouseleave="showCancle=false" class=" rounded-lg relative  ">
                 <img :class="{'blur-sm' : showCancle==true}" class=" rounded-lg   "
                     src="{{ tenant_asset('media/'.$item) }}" {{-- src="{{$item->temporaryUrl()}}" --}} />
@@ -55,13 +53,12 @@
             </div>
             <input hidden name="subFiles[]" value="{{ json_encode([
                 "name"=>$item,
-                "type"=>$type
+            "type"=>$type
             ]) }}" />
         </div>
-
         @endforeach
-        @endif
     </div>
+    @endif
 
 
 </div>

@@ -164,7 +164,7 @@
               <div @click.outside.prevent="isOpen = false" x-show="isOpen"
                 class="absolute shadow right-0 bottom-full z-1 mb-1 w-full max-w-39.5 rounded-[5px] bg-white py-2.5 shadow-12 dark:bg-boxdark "
                 style="display: none;">
-                @foreach ($category as $item)
+                @foreach ($categories as $item)
                 <button
                   class="flex w-full px-4 py-4 justify-center text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4"
                   wire:key="{{$item->id}}" wire:click.prevent="addCategory('{{$item->id}}'); isOpen = false">
@@ -178,7 +178,7 @@
             @foreach ($productCategorys as $cat)
             <span wire:key="{{$cat}}"
               class="inline-flex items-center px-2 py-1 mt-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">
-              {{$category->find($cat)->name}}
+              {{$categories->find($cat)->name}}
               <input hidden name="category[]" value="{{$cat}}" />
               <button type="button" wire:click="removeCategory('{{$cat}}')"
                 class="inline-flex items-center p-1 ms-2 text-sm text-blue-400 bg-transparent rounded-sm hover:bg-blue-200 hover:text-blue-900 dark:hover:bg-blue-800 dark:hover:text-blue-300">

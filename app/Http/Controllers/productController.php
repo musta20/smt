@@ -62,7 +62,7 @@ class productController extends Controller
         if ($request->subFiles) {
             foreach ($request->subFiles as $item) {
                 $file=json_decode($item);
-                //dd($item);
+
                 Media::create(
                     [
                         'name' => $file->name,

@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -13,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(
     'auth'
 )->group(function () {
-
-
 
     Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
 
@@ -30,6 +29,7 @@ Route::middleware(
         });
 
         Route::resource('/product', productController::class);
+        Route::resource('/category', CategoryController::class);
 
         // Route::get('/dashboard', function () {
         //     return view('dashboard');

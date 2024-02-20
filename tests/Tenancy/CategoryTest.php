@@ -1,16 +1,45 @@
 <?php
 
-it("can render category management page",function(){})->skip();
+use App\Models\Category;
+use App\Models\User;
+use Symfony\Component\HttpFoundation\Response;
 
-it("get list of category only belong to your store",function(){})->skip();
+it("can render category management page",function(){
+    $user = User::factory()->for(tenant())->create();
 
-it("get list of product that belong to category",function(){})->skip();
+    $response = $this->actingAs($user)->get('admin/category');
 
-it("get list of parent category",function(){})->skip();
+    $response->assertStatus(Response::HTTP_OK);
+    
+});
 
-it("get list of child category",function(){})->skip();
 
-it("can add new category",function(){})->skip();
+it("can render category edit page", function () {
+    $user = User::factory()->for(tenant())->create();
+
+    $category = Category::factory()->for(tenant())->create();
+
+    $response = $this->actingAs($user)->get('admin/category/'.$category->id.'/edit');
+
+    $response->assertStatus(Response::HTTP_OK);
+});
+
+
+it("can add new category",function($string){  
+     $user = User::factory()->for(tenant())->create();
+
+    $response = $this->actingAs($user)->post('/admin/category/', [
+        "name" => $string,
+        "discription" => $string,
+    ]);
+
+    $response->assertStatus(Response::HTTP_FOUND);
+
+    $category = Category::first();
+
+    $response->assertRedirect('/admin/caregory/');
+
+})->with(data: 'strings');
 
 it("can't add new category on deferent store ",function(){})->skip();
 

@@ -318,7 +318,7 @@
                     style="display: none;">
 
 
-                    <button wire:click="save('{{$item->id}}')"
+                    <button wire:click="openModel('{{$item->id}}')"
                         class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
                         حذف
                     </button>
