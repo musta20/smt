@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Enums\Store\Status;
+use App\Rules\Ownership;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
 
@@ -24,20 +25,23 @@ class UpdateProductRequest extends FormRequest
     public function rules(): array
     {
         return [
+            $this->route('product')->id => [
+                new Ownership('App\Customer'),
+            ],
             'name' => [
                 'string',
                 'required',
                 'min:3',
                 'max:600'
             ],
-          
+
             'description' => [
                 'nullable',
                 'string',
                 'min:3',
                 'max:600'
             ],
-            'category'=>[
+            'category' => [
                 'required',
 
             ],
@@ -61,7 +65,7 @@ class UpdateProductRequest extends FormRequest
                 'nullable',
                 'int',
             ],
-        
+
         ];
     }
 }

@@ -31,9 +31,11 @@ return new class extends Migration
             //     ->index()
             //     // ->constrained()
             //     ->cascadeOnDelete();
+            
             $table->string('name');
 
             $table->foreignUlid('store_id')
+            ->nullable()
                 ->index()
                 //->constrained();
                 ->cascadeOnDelete();

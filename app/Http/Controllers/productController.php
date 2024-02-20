@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\Store\MediaType;
 use App\Enums\Store\Status;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -106,7 +105,6 @@ class productController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-
         $visible = [
             "CanReview" => $request->CanReview ? true : false,
             "CanComment" => $request->CanComment ? true : false

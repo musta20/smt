@@ -37,7 +37,6 @@ class StoreProductRequest extends FormRequest
             ],
             'category'=>[
                 'required',
-
             ],
             'price' => [
                 'nullable',
