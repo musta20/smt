@@ -65,7 +65,8 @@ test('user can delete their account', function () {
 
     $this->assertGuest();
     $user->fresh();
-    $this->assertNotNull($user->deleted_at);
+    $this->assertSoftDeleted($user);
+    
 });
 
 test('correct password must be provided to delete account', function () {

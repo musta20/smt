@@ -88,6 +88,7 @@ it("get 422 when trying to create new product item with invalid value", function
 it("can delete a product item", function () {
     $user = User::factory()->for(tenant())->create();
     $product = Product::factory()->for(tenant())->create();
+
     $response = $this->actingAs($user)->delete('admin/product/' . $product->id);
 
 
@@ -95,8 +96,8 @@ it("can delete a product item", function () {
 
     $response->assertStatus(Response::HTTP_FOUND);
 
-    $product->fresh();
-    $this->assertNull($product->delete_at);
+    $this->assertSoftDeleted($product);
+
 });
 
 it("get 404 when try to delete a product item with wrong id", function () {
