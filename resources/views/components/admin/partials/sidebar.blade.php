@@ -196,7 +196,7 @@
           <!-- Menu Item Settings -->
           <li>
             <a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
-              href="settings.html" @click="selected = (selected === 'Settings' ? '':'Settings')"
+              href="{{route('admin.store.index')}}" @click="selected = (selected === 'Settings' ? '':'Settings')"
               :class="{ 'bg-graydark': (selected === 'Settings') && (page === 'settings') }"
               :class="page === 'settings' && 'bg-graydark'">
               <svg class="fill-current" width="18" height="19" viewBox="0 0 18 19" fill="none"

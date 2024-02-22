@@ -64,11 +64,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $store =  Store::factory()->for($tenant)->for($user)->create([
-            'name' => $storename
+            'title' => $storename
         ]);
 
         $store2 =  Store::factory()->for($tenant2)->for($user2)->create([
-            'name' => $storename2
+            'title' => $storename2
         ]);
 
 

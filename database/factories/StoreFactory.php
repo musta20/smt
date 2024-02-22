@@ -25,12 +25,8 @@ class StoreFactory extends Factory
     {
         return [
             'domain'=>$this->faker->word(),
-            'name'=>$this->faker->word(),
-            'logo' => $this->faker->imageUrl(
-                width: 150,
-                height: 100,
-                format: 'png'
-            ),
+            'title'=>$this->faker->word(),
+        
             'cover' => $this->faker->imageUrl(600, 400),
             'description' => $this->faker->realText(
                 maxNbChars: 300,

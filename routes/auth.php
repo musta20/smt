@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(
@@ -28,6 +29,7 @@ Route::middleware(
             return view('admin.product.file-manger');
         });
 
+        Route::resource('/store', StoreController::class);
         Route::resource('/product', productController::class);
         Route::resource('/category', CategoryController::class);
 
