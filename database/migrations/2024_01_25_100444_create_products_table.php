@@ -24,7 +24,10 @@ return new class extends Migration
             $table->unsignedInteger('discount')->nullable();
             $table->string('image')->nullable();
 
+            $table->unsignedInteger('visits')->nullable();
+
             $table->unsignedInteger('order_count')->nullable();
+            
             $table->unsignedDouble('rating')->nullable();
             $table->string('tenant_id');
             

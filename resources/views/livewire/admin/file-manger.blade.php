@@ -24,9 +24,6 @@
             @error('photo.*') <span class="text-red-500">{{ $message }}</span> @enderror
 
         </div>
-
-
-
         <div x-show="uploading" class="w-1/2 bg-gray-200 rounded-full text-lg mb-1 font-medium h-3 dark:bg-gray-700">
             <div class="bg-blue-600  rounded-full text-white text-center transition-width" x-text="progress+'%'"
                 x-bind:style="progress && { width : progress+'%' }"></div>
@@ -43,7 +40,6 @@
                     src="{{ tenant_asset('media/'.$item) }}" {{-- src="{{$item->temporaryUrl()}}" --}} />
                 <button wire:click.prevent="remove('{{$item}}')" x-show="showCancle"
                     class="absolute bg-white hover:bg-slate-200 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-
                     <svg class="w-10 h-10 text-gray-900 dark:text-white" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

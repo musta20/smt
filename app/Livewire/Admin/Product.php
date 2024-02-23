@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin;
 
 use App\Enums\Store\Sorting;
+use App\Enums\Store\Status;
 use App\Models\Category;
 use App\Models\Product as ModelsProduct;
 use Livewire\Component;
@@ -24,11 +25,11 @@ class Product extends Component
     public $CurrentProduct;
     public $searchword = '';
     public $products;
-    
+
     public function openModel($id)
     {
-        $this->CurrentProduct= $this->products->find($id);
-        $this->dispatch('modalbox'); 
+        $this->CurrentProduct = $this->products->find($id);
+        $this->dispatch('modalbox');
     }
 
 
@@ -45,7 +46,7 @@ class Product extends Component
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
 
         $items = $items instanceof Collection ? $items : Collection::make($items);
-        
+
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 
@@ -67,7 +68,7 @@ class Product extends Component
         if ($this->filters['categoryId']) {
 
             $this->products = $this->products->filter(function ($item) {
-                
+
                 return   $item->categories->find($this->filters['categoryId']);
             });
         }
@@ -92,13 +93,20 @@ class Product extends Component
                 case Sorting::LOW_TO_HIGHT->value:
                     $this->products =   $this->products->sortBy('price');
                     break;
+                case Status::PUBLISHED->value:
+                    $this->products =   $this->products->where('status', Status::PUBLISHED->value);
+                    break;
+                case Status::DRAFT->value:
+                    $this->products =   $this->products->where('status', Status::DRAFT->value);
+                    break;
             }
         }
 
         return view('livewire.admin.product', [
 
             "allProducts" =>  $this->paginate($this->products, 10),
-            "category" => Category::get()
+            "category" => Category::get(),
+            "enumStatus" => Status::class
 
         ]);
     }

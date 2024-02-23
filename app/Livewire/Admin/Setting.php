@@ -34,14 +34,11 @@ class Setting extends Component
     #[On('addImage')] 
     public function updateImageList($imgename)
     {
+
         $this->subFiles[$imgename] = MediaType::IMAGE->value;
-
-
         $CarouselImageRecord = $this->setting->where('key', 'CarouselImage')->first();
         $CarouselImageRecord->value=json_encode($this->subFiles);
         $CarouselImageRecord->save();
-
-
 
     }
     
@@ -49,9 +46,6 @@ class Setting extends Component
     public function removeImageList($imgename)
     {
         $this->subFiles = array_filter($this->subFiles, fn ($type, $name) => $name != $imgename, ARRAY_FILTER_USE_BOTH);
-
-        
-  
         $CarouselImageRecord = $this->setting->where('key', 'CarouselImage')->first();
         $CarouselImageRecord->value=json_encode($this->subFiles);
         $CarouselImageRecord->save();

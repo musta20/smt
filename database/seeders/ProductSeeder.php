@@ -2,50 +2,28 @@
 
 namespace Database\Seeders;
 
-use App\Enums\Identity\Provider;
-use App\Enums\Identity\Role;
-use App\Models\Product as ModelsProduct;
-use App\Models\Store;
-use App\Models\Tenant;
-use App\Models\User;
-use Faker\Factory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
-class ProductSeeder extends Seeder  
+class ProductSeeder extends Seeder
 
 {
     
+
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run($category,$tenant,$store): void
     {
-         $storename = fake()->word();
 
-        $tenant =  Tenant::create();
+        $tenantpath= storage_path() . '/tenant' . $tenant->id . '/app/public/media';
 
-        $tenant->domains()->create([
-            'domain' =>  $storename . '.' . env('APP_DOMAIN'),
-            'name' =>  $storename
-        ]);
+        for ($count = 0; $count < 20; $count++) {
 
-
-        $user =  User::factory()->for($tenant)->create([
-            'name' => $storename,
-            'last_name' => $storename,
-
-            'password' => Hash::make('1234')
-
-        ]);
-
-        $store =  Store::factory()->for($tenant)->for($user)->create([
-            'name' => $storename
-        ]);
-
-
-
-        ModelsProduct::factory()->for($tenant)->for($store)->withImage(storage_path().'/tenant'.$tenant->id.'/app/public/media')->create();
+            Product::factory()->hasAttached(
+                $category->random(3),
+                ['tenant_id' => $tenant->id]
+            )->for($tenant)->for($store)->withImage($tenantpath)->create();
+        }
     }
 }

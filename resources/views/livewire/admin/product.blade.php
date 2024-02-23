@@ -1,20 +1,17 @@
 <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
     {{-- @vite('resources/js/flowbite.js') --}}
     <div class="flex justify-between px-4 py-6 md:px-6 xl:px-7.5">
-        <h4 
-        
-        class="relative divide-y divide-gray-3 rounded-lg border border-gray-3 shadow w-30 dark:bg-gray-700"
-        >
+        <h4 class="relative divide-y divide-gray-3 rounded-lg border border-gray-3 shadow w-30 dark:bg-gray-700">
 
             <a href="{{route('admin.product.create')}}"
-            class="w-full inline-flex items-center gap-1.5 rounded-md justify-center py-1.5 text-sm text-black  hover:text-primary dark:bg-meta-4 dark:text-white dark:shadow-none">
+                class="w-full inline-flex items-center gap-1.5 rounded-md justify-center py-1.5 text-sm text-black  hover:text-primary dark:bg-meta-4 dark:text-white dark:shadow-none">
 
                 إضافة
 
                 <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                  fill="none" viewBox="0 0 24 24">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M5 12h14m-7 7V5" />
+                    fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 12h14m-7 7V5" />
                 </svg></a>
 
         </h4>
@@ -55,6 +52,14 @@
                 <button wire:click="filter('sortType','HIGHT_TO_LOW'); isOpen = false"
                     class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
                     السعر: من الاعلى الى الاقل
+                </button>
+                <button wire:click="filter('sortType','PUBLISHED'); isOpen = false"
+                    class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
+                    حالة:منشور
+                </button>
+                <button wire:click="filter('sortType','DRAFT'); isOpen = false"
+                    class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
+                    حالة:مسودة
                 </button>
             </div>
         </div>
@@ -154,10 +159,14 @@
 
 
     <div
-        class="grid grid-cols-9 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-9 md:px-6 2xl:px-7.5">
+        class="grid grid-cols-10 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-10 md:px-6 2xl:px-7.5">
 
         <div class="col-span-2 flex items-center">
             <p class="font-medium">المنتج</p>
+        </div>
+
+        <div class="col-span-1 flex items-center">
+            <p class="font-medium">حالة النشر</p>
         </div>
 
         <div class="col-span-1 flex items-center">
@@ -209,7 +218,7 @@
 
             : هل انت متاكد من حذف المنتج
 
-            <p >
+            <p>
                 {{$CurrentProduct->name ?? ""}}
             </p>
         </h3>
@@ -242,7 +251,7 @@
 
 
     <div wire:key="{{ $item->id }}"
-        class="grid grid-cols-9 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-9 md:px-6 2xl:px-7.5">
+        class="grid grid-cols-10 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-10 md:px-6 2xl:px-7.5">
         <div class="col-span-2 flex items-center">
             <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <div class="h-12.5 w-15 rounded-md">
@@ -260,6 +269,27 @@
         </div>
 
 
+        <div class="col-span-1 flex items-center">
+            <p class="text-sm font-medium text-black dark:text-white">
+
+                @if ($item->status==$enumStatus::DRAFT->value)
+                <span
+                    class="inline-flex rounded-full border border-[#637381] px-3 py-1 text-sm font-medium text-[#637381] hover:opacity-80">
+                    {{__($item->status)}}
+                </span>
+                @endif
+                @if ($item->status==$enumStatus::PUBLISHED->value)
+                <span
+                    class="inline-flex rounded border border-[#13C296] px-2 py-1 text-sm font-medium text-[#13C296] hover:opacity-80">
+                    {{__($item->status)}}
+
+                </span>
+                @endif
+
+
+
+            </p>
+        </div>
         <div class="col-span-1 flex items-center">
             <p class="text-sm font-medium text-black dark:text-white">
                 @foreach ($item->categories as $cat)

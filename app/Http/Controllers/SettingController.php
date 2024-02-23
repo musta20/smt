@@ -123,11 +123,6 @@ class SettingController extends Controller
         $TermPageContentRecored->value=$TermPageContent;
         $TermPageContentRecored->save();
         
-
-        // $CarouselImageRecord = $setting->where('key', 'CarouselImage')->first();
-        // $CarouselImageRecord->value=json_encode($request->subFiles);
-        // $CarouselImageRecord->save();
-
         return redirect()->route('admin.setting.index')->with('OkToast', 'تم اضاقة المنتج');
 
     }
