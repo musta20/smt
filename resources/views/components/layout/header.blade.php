@@ -5,10 +5,8 @@
         <!-- auth box -->
         <div class=" ">
             <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://github.com/musta20.png"
-                alt="{user.handle}" />
-
-
-        </div>
+                alt="{user.handle}" /> 
+            </div>
 
 
         <!-- search box -->

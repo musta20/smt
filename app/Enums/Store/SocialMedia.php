@@ -11,6 +11,7 @@ enum SocialMedia:string
     case X = 'X';
     case SNAPCHAT = 'SNAPCHAT';
     case TIKTOK = 'TIKTOK';
+    case TELEGRAM = 'TELEGRAM';
     
 }
 

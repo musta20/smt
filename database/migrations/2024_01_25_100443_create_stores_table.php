@@ -50,7 +50,9 @@ return new class extends Migration
                         SocialMedia::WHATSAPP->value => '',
                         SocialMedia::SNAPCHAT->value => '',
                         SocialMedia::YOUTUBE->value => '',
-                        SocialMedia::TIKTOK->value => ''
+                        SocialMedia::TIKTOK->value => '',
+                        SocialMedia::TELEGRAM->value => ''
+                        
                     ]
                 )
             );

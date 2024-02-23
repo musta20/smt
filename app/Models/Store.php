@@ -21,15 +21,21 @@ class Store extends Model
 
 
     protected $fillable = [
-        'name',
+        'title',
         'domain',
+        'favicon',
+        'specialty',
         'logo',
+        'address',
+        'location',
+        'phone',
         'cover',
         'description',
         'currency',
         'status',
         'user_id',
-        'tenant_id'
+        'tenant_id',
+        'SocialMedia'
     ];
 
     protected $casts = [

@@ -43,9 +43,11 @@ class Store extends Component
     }
 
     public function mount(){
+
         $this->store=StoreModel::first();
+
         $this->SocialMedia = json_decode($this->store->SocialMedia);
-      //  dd($this->SocialMedia );
+
     }
     public function render()
     {

@@ -97,7 +97,6 @@ it("can delete a product item", function () {
     $response->assertStatus(Response::HTTP_FOUND);
 
     $this->assertSoftDeleted($product);
-
 });
 
 it("get 404 when try to delete a product item with wrong id", function () {
@@ -106,14 +105,13 @@ it("get 404 when try to delete a product item with wrong id", function () {
     $response = $this->actingAs($user)->delete('admin/product/000');
 
     $response->assertStatus(Response::HTTP_NOT_FOUND);
-
 });
 
 it("get 422 when trying to update a product with invalid value", function ($string) {
     $user = User::factory()->for(tenant())->create();
     $product = Product::factory()->for(tenant())->create();
 
-    $response = $this->actingAs($user)->put('/admin/product/'.$product->id , [
+    $response = $this->actingAs($user)->put('/admin/product/' . $product->id, [
         "name" => '',
         "discription" => 1,
         "order_url" => "http://" . $string . ".com",
@@ -122,7 +120,6 @@ it("get 422 when trying to update a product with invalid value", function ($stri
     ]);
 
     $response->assertSessionHasErrors();
-
 })->with(data: 'strings');
 
 
@@ -132,7 +129,7 @@ it("can update product", function (string $string) {
     $categories = Category::factory(2)->for(tenant())->create();
 
     $product = Product::factory()->for(tenant())->create();
-    $response = $this->actingAs($user)->put('/admin/product/'.$product->id, [
+    $response = $this->actingAs($user)->put('/admin/product/' . $product->id, [
         "name" => $string,
         "discription" => $string,
         "price" => 423,
@@ -152,7 +149,7 @@ it("can update product", function (string $string) {
 it("get 401 when trying to modify product while not authorized", function () {
 
     $product = Product::factory()->for(tenant())->create();
-    $response = $this->put('/admin/product/'.$product->id, [
+    $response = $this->put('/admin/product/' . $product->id, [
         "name" => "NAME",
     ]);
 
@@ -165,7 +162,7 @@ it("get 403 when trying to modify product that dose not belong to tenant", funct
     $user = User::factory()->for(tenant())->create();
     $categories = Category::factory(2)->for(tenant())->create();
     $product = Product::factory()->for(Tenant::factory()->create())->create();
-    $response = $this->actingAs($user)->put('/admin/product/'.$product->id, [
+    $response = $this->actingAs($user)->put('/admin/product/' . $product->id, [
         "name" => $string,
         "discription" => $string,
         "price" => 423,
@@ -175,8 +172,4 @@ it("get 403 when trying to modify product that dose not belong to tenant", funct
         "older_price" => 40,
     ]);
     $response->assertStatus(Response::HTTP_NOT_FOUND);
-
-    // $response->assertSessionHasErrors();
-
-
-})->with(data:'strings');
+})->with(data: 'strings');

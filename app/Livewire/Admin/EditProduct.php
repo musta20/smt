@@ -65,8 +65,7 @@ class EditProduct extends Component
 
         $this->product = $product;
         $this->productCategorys = $product->categories->pluck('id')->toArray();
-
-        
+   
         $this->status = $product->status == Status::PUBLISHED->value ? true : false;
 
         $this->CanReview = $product->visible['CanReview'];

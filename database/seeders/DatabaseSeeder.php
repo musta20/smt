@@ -6,12 +6,15 @@ namespace Database\Seeders;
 
 use App\Enums\Identity\Provider;
 use App\Enums\Identity\Role;
+use App\Enums\Store\Status;
 use App\Models\Category;
 use App\Models\CategoryProduct;
 use App\Models\Product;
+use App\Models\Setting;
 use App\Models\Store;
 use App\Models\Tenant;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -63,6 +66,7 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+    
         $store =  Store::factory()->for($tenant)->for($user)->create([
             'title' => $storename
         ]);
@@ -72,12 +76,37 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        $item = [
+            
+        ];
+        Setting::factory()->count(4)->for($tenant)
+        ->sequence([
+            "key" => "siteStatus",
+            "value" => Status::PUBLISHED->value,
+        ],
+        [
+            "key" => "visibility",
+            "value" => json_encode([
+                "CanComment" => false,
+                "CanReview" => false,
+                "showCarousel" => true,
+                "showFooterLinks" => false,
+                "showTermPage" => false,
+                "showHeadrLinks"=>false
+            ])
+        ],
+        [
+            "key" => "CarouselImage",
+            "value" => json_encode([])
+        ],
+        [
+            "key" => "TermPageContent",
+            "value" => ""
+        ])
+        ->create();
 
 
-
-
-
-
+     
 
         $tenantpath1 = storage_path() . '/tenant' . $tenant->id . '/app/public/media';
         $tenantpath2 = storage_path() . '/tenant' . $tenant2->id . '/app/public/media';
@@ -85,7 +114,7 @@ class DatabaseSeeder extends Seeder
         $category2 =   Category::factory(10)->for($tenant2)->for($store2)->create();
 
 
-        for ($count=0; $count < 60 ; $count++) { 
+        for ($count = 0; $count < 20; $count++) {
 
             Product::factory()->hasAttached(
                 $category1->random(3),
@@ -96,9 +125,6 @@ class DatabaseSeeder extends Seeder
                 $category2->random(3),
                 ['tenant_id' => $tenant2->id]
             )->for($tenant2)->for($store2)->withImage($tenantpath2)->create();
-        
-
-
         }
 
 
@@ -106,18 +132,12 @@ class DatabaseSeeder extends Seeder
         // Product::factory(40)->hasAttached(
         //     Category::factory(3)->for($tenant2)->for($store2)->create(),
         //     ['tenant_id' => $tenant2->id]
-
         // )->for($tenant2)->for($store2)->withImage($tenantpath2)->create();
-
         // $product1 =   Product::factory(80)->for($tenant)->for($store)->withImage($tenantpath1)->create();
         //  $product2 =   Product::factory(50)->for($tenant2)->for($store2)->withImage($tenantpath2)->create();
-
-
         // ModelsProduct::factory()->for($tenant)->for($store)->withImage(
         //     storage_path().'/tenant'.$tenant->id.'/app/public/media'
         //     )->create();
-
-
         // foreach ($product1 as $item) {
         //     // CategoryProduct::factory()->for($tenant)->create([
         //     //     'tenant_id'=
@@ -126,11 +146,9 @@ class DatabaseSeeder extends Seeder
         //     // ]);
         //   //  CategoryProduct::factory()->for($item)->for($tenant)->for($category11->random())->create();
         // }
-
         // foreach ($product2 as $item) {
         //     // CategoryProduct::factory()->for($item)->for($tenant2)->for($category2->random())->create();
         //     // CategoryProduct::factory()->for($item)->for($tenant2)->for($category22->random())->create();
-
         // }
     }
 }

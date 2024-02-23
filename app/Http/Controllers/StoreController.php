@@ -57,15 +57,14 @@ class StoreController extends Controller
 
 
         $SocialMedia =  json_encode([
-            [
                 SocialMedia::FACEBOOK->value =>  $request->facebook,
                 SocialMedia::X->value => $request->x,
                 SocialMedia::INSTAGRAM->value =>  $request->instagram,
+                SocialMedia::TELEGRAM->value =>  $request->telegram,
                 SocialMedia::WHATSAPP->value => $request->whatsapp,
                 SocialMedia::SNAPCHAT->value => $request->snapchat,
                 SocialMedia::YOUTUBE->value => $request->youtube,
                 SocialMedia::TIKTOK->value => $request->tiktok,
-            ]
         ]);
 
         $store->update([
@@ -74,6 +73,7 @@ class StoreController extends Controller
             'address' => $request->address,
             'location' => $request->location,
             'phone' => $request->phone,
+            'email' => $request->email,
             'specialty' => $request->specialty,
             'SocialMedia' => $SocialMedia,
         ]);

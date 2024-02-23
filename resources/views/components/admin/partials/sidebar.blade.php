@@ -196,7 +196,8 @@
           <!-- Menu Item Settings -->
           <li>
             <a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
-              href="{{route('admin.store.index')}}" @click="selected = (selected === 'Settings' ? '':'Settings')"
+              {{-- href="{{route('admin.store.index')}}" --}}
+               @click="selected = (selected === 'Settings' ? '':'Settings')"
               :class="{ 'bg-graydark': (selected === 'Settings') && (page === 'settings') }"
               :class="page === 'settings' && 'bg-graydark'">
               <svg class="fill-current" width="18" height="19" viewBox="0 0 18 19" fill="none"
@@ -218,6 +219,22 @@
 
               الاعداد
             </a>
+
+            <div class="translate transform overflow-hidden" :class="(selected === 'Settings') ? 'block' :'hidden'">
+              <ul class="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+                <li>
+                  <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white"
+                   href="{{Route('admin.store.index')}}" :class="page === 'ecommerce' && '!text-white'">عداد المتجر الاساسية
+                  </a>
+
+                </li>
+                <li>
+                  <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white"
+                    href="{{Route('admin.setting.index')}}" :class="page === 'ecommerce' && '!text-white'">اعداد المتجر
+                  </a>
+                </li>
+              </ul>
+            </div>
           </li>
           <!-- Menu Item Settings -->
         </ul>

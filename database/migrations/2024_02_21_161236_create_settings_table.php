@@ -17,6 +17,13 @@ return new class extends Migration
             $table->string('key');
             $table->string('value')->nullable();
             
+            $table->string('tenant_id');
+            $table->foreign('tenant_id')
+                ->references('id')
+                ->on('tenants')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            
             $table->softDeletes();
             $table->timestamps();
         });

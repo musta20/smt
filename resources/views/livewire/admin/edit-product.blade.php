@@ -56,9 +56,6 @@
 
 
     </div>
-
-
-
     <form x-ref='form' method="POST" action="{{route('admin.product.update',$product->id)}}"
       class="grid grid-cols-1 gap-9 sm:grid-cols-2">
       @method('PUT')

@@ -15,6 +15,6 @@
         </nav>
       </div>
  
-        <livewire:admin.product  />
+        <livewire:admin.setting  />
 
 </x-admin.partials.layout>
