@@ -30,15 +30,32 @@ class Setting extends Component
     public $TermPageContent;
 
     public $subFiles = [];
+
     #[On('addImage')] 
     public function updateImageList($imgename)
     {
         $this->subFiles[$imgename] = MediaType::IMAGE->value;
+
+
+        $CarouselImageRecord = $this->setting->where('key', 'CarouselImage')->first();
+        $CarouselImageRecord->value=json_encode($this->subFiles);
+        $CarouselImageRecord->save();
+
+
+
     }
+    
     #[On('removeImage')] 
     public function removeImageList($imgename)
     {
         $this->subFiles = array_filter($this->subFiles, fn ($type, $name) => $name != $imgename, ARRAY_FILTER_USE_BOTH);
+
+        
+  
+        $CarouselImageRecord = $this->setting->where('key', 'CarouselImage')->first();
+        $CarouselImageRecord->value=json_encode($this->subFiles);
+        $CarouselImageRecord->save();
+
     }
 
     public function mount()
@@ -58,13 +75,9 @@ class Setting extends Component
 
         
         $this->TermPageContent = $this->setting->where('key', 'TermPageContent')->first()->value;
-        $files =  json_decode($this->setting->where('key', 'CarouselImage')->first()->value);
 
-        
-        foreach ($files  as $key) {
-            $imgeItem = json_decode($key);
-            $this->subFiles[$imgeItem->name] = $imgeItem->type;
-        }
+        $this->subFiles = (array) json_decode($this->setting->where('key', 'CarouselImage')->first()->value);
+
 
         
     }

@@ -53,10 +53,11 @@ class FileManger extends Component
 
     public function  remove($imageName)
     {
-        Storage::disk('media')->delete($imageName);
+        //Storage::disk('media')->delete($imageName);
 
         if ($this->product) {
             Media::where('name', $imageName)->first()->delete();
+
             $this->subFiles = array_filter($this->subFiles, fn ($type, $name) => $name != $imageName, ARRAY_FILTER_USE_BOTH);
 
         }else{
