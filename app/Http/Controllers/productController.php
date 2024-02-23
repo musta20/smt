@@ -32,7 +32,7 @@ class productController extends Controller
     //StoreProductRequest
     public function store(StoreProductRequest $request)
     {
-      //  dd($request->subFiles);
+
         $imgename  = $request->file('image')->store('/','media');
 
         $visible = [

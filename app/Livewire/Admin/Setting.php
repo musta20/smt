@@ -2,8 +2,10 @@
 
 namespace App\Livewire\Admin;
 
+use App\Enums\Store\MediaType;
 use App\Enums\Store\Status;
 use App\Models\Setting as ModelsSetting;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Setting extends Component
@@ -28,6 +30,16 @@ class Setting extends Component
     public $TermPageContent;
 
     public $subFiles = [];
+    #[On('addImage')] 
+    public function updateImageList($imgename)
+    {
+        $this->subFiles[$imgename] = MediaType::IMAGE->value;
+    }
+    #[On('removeImage')] 
+    public function removeImageList($imgename)
+    {
+        $this->subFiles = array_filter($this->subFiles, fn ($type, $name) => $name != $imgename, ARRAY_FILTER_USE_BOTH);
+    }
 
     public function mount()
     {
@@ -46,7 +58,15 @@ class Setting extends Component
 
         
         $this->TermPageContent = $this->setting->where('key', 'TermPageContent')->first()->value;
-        $this->subFiles = json_decode($this->setting->where('key', 'CarouselImage')->first()->value);
+        $files =  json_decode($this->setting->where('key', 'CarouselImage')->first()->value);
+
+        
+        foreach ($files  as $key) {
+            $imgeItem = json_decode($key);
+            $this->subFiles[$imgeItem->name] = $imgeItem->type;
+        }
+
+        
     }
 
     public function render()

@@ -29,7 +29,6 @@ class CreateProduct extends Component
     #[On('addImage')] 
     public function updateImageList($imgename)
     {
-       // dd($imgename);
         $this->subFiles[$imgename] = MediaType::IMAGE->value;
     }
     #[On('removeImage')] 
@@ -38,20 +37,12 @@ class CreateProduct extends Component
         $this->subFiles = array_filter($this->subFiles, fn ($type, $name) => $name != $imgename, ARRAY_FILTER_USE_BOTH);
     }
 
-    // public function updatedPhoto()
-    // {
-    //     // $imgename  = $this->photo->store();
-    //     // $this->product->image = $imgename;
-    //     // $this->product->save();
-    // }
+
 
     public function removeImage()
     {
         
         $this->reset('photo');
-        // Storage::disk('media')->delete($this->product->image);
-        // $this->product->image = null;
-        // $this->product->save();
     }
 
     public function addCategory($categoryId)

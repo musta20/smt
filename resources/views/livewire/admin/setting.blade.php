@@ -1,4 +1,5 @@
-<form x-ref='form' method="post" action="{{route('admin.setting.index')}}" class=" p-5">
+<form x-ref='form' method="post" action="{{route('admin.setting.updateSetting')}}" class=" p-5">
+  @method('put')
   <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
     <div class="flex justify-between border-b border-stroke px-6.5 py-4 dark:border-strokedark">
       <button type="submit"

@@ -31,7 +31,9 @@ Route::middleware(
         });
 
         Route::resource('/setting', SettingController::class);
+        Route::put('/updateSetting', [SettingController::class,'updateSetting'])->name('setting.updateSetting');
 
+        
         Route::resource('/store', StoreController::class);
         Route::resource('/product', productController::class);
         Route::resource('/category', CategoryController::class);
