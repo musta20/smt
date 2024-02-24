@@ -187,7 +187,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+
+        // 'Theme'=> App\Theme\ThemeFacade::class,
     ])->toArray(),
 
 ];

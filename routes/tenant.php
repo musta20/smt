@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Http\Middleware\SetThemeForTenant;
+use Facades\App\CurrentTheme;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
@@ -31,8 +33,10 @@ Route::middleware([
 
 
     Route::get('/', function () {
+        //config(['view.paths'=>[resource_path('newTheme')]]);
+        //dd(config('view.paths'));
         return view('index');
-    });
+    })->middleware(SetThemeForTenant::class);
  
 
     require __DIR__.'/auth.php';
