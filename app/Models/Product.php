@@ -29,6 +29,7 @@ class Product extends Model
         'discount',
         'store_id',
         'image',
+        'view_count',
         'status',
         'tag',
         'visible',

@@ -33,8 +33,10 @@ class ProductFactory extends Factory
             'image' => $this->faker->imageUrl(250, 160),
             'older_price' => rand(465, 3351),
             'order_count' => rand(465, 3351),
+            'view_count' => rand(3, 7465),
             'discount' => rand(10, 100),
             'rating' => rand(1, 5),
+            
             //  'store_id'=>Store::factory()->create(),
             //  'tenant_id'=>Tenant::factory(),
 

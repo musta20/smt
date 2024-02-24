@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedInteger('discount')->nullable();
             $table->string('image')->nullable();
 
-            $table->unsignedInteger('visits')->nullable();
+            $table->unsignedInteger('view_count')->nullable();
 
             $table->unsignedInteger('order_count')->nullable();
             
