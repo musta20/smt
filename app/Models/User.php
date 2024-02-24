@@ -18,6 +18,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant as ConcernsBelongsToTenant;
 
 class User extends Authenticatable
@@ -28,6 +29,8 @@ class User extends Authenticatable
     use    HasUlids;
     use    ConcernsBelongsToTenant;
     use    SoftDeletes;
+    use    HasRoles;
+
 
 
     /**

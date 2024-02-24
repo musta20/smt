@@ -112,6 +112,18 @@
       </div>
       <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
         <div class="w-full xl:w-1/2 flex justify-end">
+          <span class="px-2">السمحاح بحسابات الزبائن</span>
+          <label class="flex cursor-pointer select-none items-center">
+            <div class="relative">
+              <input type="checkbox" name="AllowUsers" wire:model='AllowUsers' class="sr-only" />
+
+
+              <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
+              <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.AllowUsers }"
+                class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition ">
+              </div>
+            </div>
+          </label>
         </div>
         <div class="w-full xl:w-1/2 flex justify-end">
           <span class="px-2"> اظهار روابط التصنيفات اعلى المتجر</span>
@@ -128,6 +140,7 @@
           </label>
         </div>
       </div>
+     
     </div>
     <!-- Textarea Fields -->
     <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">

@@ -27,7 +27,9 @@ class SettingSeeder extends Seeder
                 "showCarousel" => true,
                 "showFooterLinks" => false,
                 "showTermPage" => false,
-                "showHeadrLinks"=>false
+                "showHeadrLinks"=>false,
+                "AllowUsers"=>false,
+                "OrderWithoutUsers"=>false,
             ])
         ],
         [

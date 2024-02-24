@@ -48,7 +48,8 @@ class DatabaseSeeder extends Seeder
             'name' =>  $this->storename2
 
         ]);
-
+        $this->callWith(permissionSeeder::class);
+            
         $userseed = new UserSeeder();
         $this->user = $userseed->run($this->tenant);
 
@@ -62,7 +63,6 @@ class DatabaseSeeder extends Seeder
             [
                 SettingSeeder::class,
                 ProductSeeder::class,
-                permissionSeeder::class
             ],
             [
                 "tenant" => $this->tenant, "category" => $category1,

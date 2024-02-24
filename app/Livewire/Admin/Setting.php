@@ -25,6 +25,10 @@ class Setting extends Component
 
     public $showHeadrLinks;
 
+    public $AllowUsers;
+
+    public $OrderWithoutUsers;
+
     public $showTermPage;
 
     public $TermPageContent;
@@ -67,6 +71,9 @@ class Setting extends Component
         $this->showTermPage = $visibility->showTermPage;
         $this->showHeadrLinks = $visibility->showHeadrLinks;
 
+        $this->AllowUsers = $visibility->AllowUsers;
+        $this->OrderWithoutUsers = $visibility->OrderWithoutUsers;
+    
         
         $this->TermPageContent = $this->setting->where('key', 'TermPageContent')->first()->value;
 

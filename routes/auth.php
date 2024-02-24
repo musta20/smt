@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -20,15 +21,10 @@ Route::middleware(
     Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
 
 
-        Route::get('/', function () {
-            return view('admin.admin');
-        })->name('dashboard');
+        Route::get('/',adminController::class)->name('dashboard');
 
 
 
-        Route::get('/filemanger', function () {
-            return view('admin.product.file-manger');
-        });
 
         Route::resource('/setting', SettingController::class);
         Route::put('/updateSetting', [SettingController::class,'updateSetting'])->name('setting.updateSetting');

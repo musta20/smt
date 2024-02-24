@@ -21,7 +21,11 @@ class permissionSeeder extends Seeder
         $Vender = ModelsRole::create(['name' => Role::VENDER->value]);
         $Customer = ModelsRole::create(['name' => Role::CUSTOMER->value]);
 
-        // $productMangment = Permission::create(['name' => 'Product']);
+        $MangmentVender = Permission::create(['name' =>  Role::VENDER->value]);
+
+        $Vender->givePermissionTo($MangmentVender);
+        $Admin->givePermissionTo($MangmentVender);
+
         // $CustomerMangment = Permission::create(['name' => 'Customer']);
         // $CustomerSetting= Permission::create(['name' => 'Setting']);
 
