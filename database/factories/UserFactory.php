@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Enums\Identity\Provider;
 use App\Enums\Identity\Role;
 use App\Models\Tenant;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -32,7 +33,8 @@ class UserFactory extends Factory
 
             'provider'=>Provider::EMAIL->value,
 
-            'role' => Role::VENDER->value,
+            //'role' => Role::CUSTOMER->value,
+            //Role::CUSTOMER->value
             'password'=>Hash::make("password"),
             'tenant_id'=>Tenant::factory(),
             'avatar'=>$this->faker->imageUrl(550,400),
@@ -51,5 +53,12 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    public function withrole($role): static
+    {
+        return $this->afterMaking(function (User $user) use ($role) {
+            $user->assignRole($role);
+        });
     }
 }

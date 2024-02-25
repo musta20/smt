@@ -16,7 +16,7 @@ class adminController extends Controller
     {
 
         $Product = Product::get()->take(10)->sortBy('order_count');
-        $custmerCount = User::where('Role',Role::CUSTOMER->value)->count();
+        $custmerCount = User::role(Role::CUSTOMER->value)->count();
         return view('admin.admin')->with( [
             "Product"=>$Product,
             "productCount" => $Product->sum('order_count'),

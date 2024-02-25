@@ -31,43 +31,48 @@ class DatabaseSeeder extends Seeder
     public $user;
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-
-        $this->tenant =  Tenant::create();
-        $this->tenant2 =  Tenant::create();
-
-
-        $this->tenant->domains()->create([
-            'domain' =>  $this->storename . '.' . env('APP_DOMAIN'),
-            'name' =>  $this->storename
-        ]);
-
-        $this->tenant2->domains()->create([
-            'domain' =>  $this->storename2 . '.' . env('APP_DOMAIN'),
-            'name' =>  $this->storename2
-
-        ]);
-        $this->callWith(permissionSeeder::class);
-            
-        $userseed = new UserSeeder();
-        $this->user = $userseed->run($this->tenant);
-
-        $storeseed =  new StoreSeeder();
-        $store = $storeseed->run($this->tenant, $this->user, $this->storename);
-
-        $category1 =   Category::factory(10)->for($this->tenant)->for($store)->create();
 
 
         $this->callWith(
-            [
-                SettingSeeder::class,
+            [ 
+                TenantSeeder::class,
+                permissionSeeder::class,
+                UserSeeder::class,
+                StoreSeeder::class,
+                CategorySeeder::class,
                 ProductSeeder::class,
+                SettingSeeder::class
+
             ],
             [
-                "tenant" => $this->tenant, "category" => $category1,
-                "store" => $store
+                "storename" => $this->storename, "storename2" => $this->storename2
             ]
         );
+        
+        // $this->callWith(permissionSeeder::class);
+        // $this->callWith(TenantSeeder::class, ["storename" => $this->storename, "storename2" => $this->storename2]);
+        // $this->callWith(UserSeeder::class, ["storename" => $this->storename, "storename2" => $this->storename2]);
+        // $this->callWith(StoreSeeder::class, ["storename" => $this->storename, "storename2" => $this->storename2]);
+        // $this->callWith(CategorySeeder::class, ["storename" => $this->storename, "storename2" => $this->storename2]);
+        
+        // $userseed = new UserSeeder();
+        // $this->user = $userseed->run($this->tenant);
+
+        // $storeseed =  new StoreSeeder();
+        // $store = $storeseed->run($this->tenant, $this->user, $this->storename);
+
+        // $category1 =   Category::factory(10)->for($this->tenant)->for($store)->create();
+
+
+        // $this->callWith(
+        //     [
+        //         SettingSeeder::class,
+        //         ProductSeeder::class,
+        //     ],
+        //     [
+        //         "tenant" => $this->tenant, "category" => $category1,
+        //         "store" => $store
+        //     ]
+        // );
     }
 }

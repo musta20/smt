@@ -5,8 +5,7 @@ namespace Database\Factories;
 use App\Enums\Store\Currency;
 use App\Enums\Store\Status;
 use App\Models\Store;
-use App\Models\Tenant;
-use App\Models\User;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -34,9 +33,24 @@ class StoreFactory extends Factory
             ),
             // 'tenant_id'=>Tenant::factory()->create(),
             // 'user_id' => User::factory()->create(),
-
+            'logo'=>'logo-icon.svg',
+            'favicon'=>'favicon.ico',
             'currency' => Currency::EGP,
             'Status' => Status::CREATED,
         ];
     }
+
+
+    public function withLogo($path): Factory
+    {
+
+        return $this->state(fn (array $attributes) => ['logo' => $this->faker->image($path, 100, 100, 'products', false)]);
+    }
+
+    public function withFavicon($path): Factory
+    {
+
+        return $this->state(fn (array $attributes) => ['favicon' => $this->faker->image($path, 100, 100, 'products', false)]);
+    }
+
 }

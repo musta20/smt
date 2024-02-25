@@ -17,7 +17,7 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('name');
             $table->string('last_name')->nullable();
-            $table->string('role')->default(Role::VENDER->value);
+          //  $table->string('role')->default(Role::VENDER->value);
 
             $table->string('provider')->default(Provider::EMAIL->value);
             $table->string('provider_id')->nullable();

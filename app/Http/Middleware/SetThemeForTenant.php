@@ -18,7 +18,7 @@ class SetThemeForTenant
     public function handle(Request $request, Closure $next): Response
     {
       if ($request->path() != RouteServiceProvider::HOME) {
-            config(['view.paths' => [resource_path('newTheme')]]);
+            //config(['view.paths' => [resource_path('newTheme')]]);
         }
         return $next($request);
     }
