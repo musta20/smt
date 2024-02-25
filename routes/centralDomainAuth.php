@@ -2,11 +2,9 @@
 
 
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Livewire\Admin\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    Route::get('/testtA', Product::class);
 
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
@@ -21,6 +19,5 @@ Route::middleware('guest')->group(function () {
 //tenant/restpass
 //tenant/send_email_pass
 //tenant/verfiy_email
-
 //maindomain/register
 ?>

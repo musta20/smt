@@ -1,13 +1,13 @@
-<div class=" mx-auto px-6 py-3 bg-gray-400">
+<div class="fixed  h-20 w-full bottom-2 top-0 mx-auto px-6 py-3 bg-white border-b-2">
 
     <div class="flex items-center justify-between">
 
         <!-- auth box -->
         <div class=" ">
-            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://github.com/musta20.png"
+            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+             src="https://github.com/musta20.png"
                 alt="{user.handle}" /> 
             </div>
-
 
         <!-- search box -->
         <div class="relative w-1/3">
@@ -27,11 +27,13 @@
 
         <!-- brand logo -->
         <div class="md:items-center">
-            <img src="https://f.nooncdn.com/s/app/com/noon/design-system/logos/noon-logo-en.svg" alt="noon"
-                class="sc-e5b054ec-1 ejhbvO">
+            <img 
+            src="{{tenant_asset('media/'.$logo)}}" alt="noon"
+              >
         </div>
 
     </div>
+    {{$slot}}
 
 </div>
 <x-layout.nav />

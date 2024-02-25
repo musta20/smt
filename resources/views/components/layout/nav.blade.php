@@ -1,4 +1,4 @@
-<nav class="flex sm:justify-center py-2 space-x-4">
+<nav class="flex sm:justify-center py-2 mt-20">
     
     @foreach ([['Home', '/dashboard'],
     ['Team', '/team'],
@@ -11,4 +11,3 @@
 
 
 </nav>
-

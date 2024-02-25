@@ -1,4 +1,4 @@
-<div id="indicators-carousel" class="relative w-full" data-carousel="static">
+<div id="indicators-carousel" class=" relative w-full" data-carousel="static">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         <!-- Item 1 -->

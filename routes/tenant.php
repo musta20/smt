@@ -2,13 +2,10 @@
 
 declare(strict_types=1);
 
-use App\Http\Middleware\SetThemeForTenant;
-use Facades\App\CurrentTheme;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
-use Livewire\Livewire;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
-use Stancl\Tenancy\Middleware\ScopeSessions;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,24 +24,11 @@ Route::middleware([
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
-    //    Livewire::setUpdateRoute(function ($handle) {
-    //     return Route::post('/maintenant/livewire/update', $handle);
-    // });
+
+    Route::get('/',[SiteController::class,'index'])->name('homePage');
+    Route::get('/product/{product}',[SiteController::class,'product'])->name('productPage');
 
 
-    Route::get('/', function () {
-        //config(['view.paths'=>[resource_path('newTheme')]]);
-        //dd(config('view.paths'));
-        return view('index');
-    })->middleware(SetThemeForTenant::class);
- 
-
-    require __DIR__.'/auth.php';
-    require __DIR__.'/guest.php';
-
-
-    // Route::get('/', function () {
-    //     return 'This is your multi-tenant application. The id of the current tenant is ' . tenant('id');
-    // });
-
+    require __DIR__ . '/auth.php';
+    require __DIR__ . '/guest.php';
 });

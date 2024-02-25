@@ -1,6 +1,6 @@
-    <div id="indicators-carousel" class="relative w-full " data-carousel="static">
+   <div id="indicators-carousel" class="relative w-full " data-carousel="static">
         <!-- Carousel wrapper -->
-        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96 -z-10">
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
                 <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
@@ -28,7 +28,7 @@
             </div>
         </div>
         <!-- Slider indicators -->
-        <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
+        <div class="absolute -z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
             <button type="button" class="w-3 h-3 rounded-full" 
             aria-current="true" aria-label="Slide 1"
                 data-carousel-slide-to="0"></button>

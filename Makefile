@@ -18,7 +18,7 @@ fresh:
 	rm -rf storage/tenant* && rm -rf storage/app/*  && php artisan migrate:fresh --seed &&	chmod -R 777 storage && php artisan storage:link
 
 clear: 
-	php artisan config:cache &&  php artisan config:clear &&  composer dump-autoload -o
+	php artisan config:cache &&  php artisan config:clear &&  composer dump-autoload -o && php artisan view:clear
 
 clearfiles: 
 	rm -rf storage/tenant* &&  rm -rf storage/app/*

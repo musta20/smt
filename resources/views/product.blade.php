@@ -1,4 +1,4 @@
-<x-layout.layout>
+<x-main-layout>
     <ul class="flex justify-items-center align-baseline gap-1 py-2 ">
         <li>التصنيفات</li>
         <li>
@@ -78,12 +78,12 @@
         </div>
         <!-- product detail-->
         <div class="max-w-xl flex flex-col gap-1">
-            <div class="text-4xl">Shoes black</div>
+            <div class="text-4xl">{{$product->name}}</div>
             <hr />
 
-            {{ fake()->sentence(50) }}
+            {{$product->description }}
             <hr />
-            <span class="text-4xl">$450</span>
+            <span class="text-4xl">{{$product->price}}</span>
 
             <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
              focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
@@ -96,5 +96,5 @@
     </section>
     <hr />
 
-    <x-recommended-product />
-</x-layout.layout>
+    <x-recommended-product :$recomendedProduct/>
+</x-main-layout>

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\View\Components\Layout;
+namespace App\View\Components;
 
+use App\Models\Store;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class slide extends Component
+class MainLayout extends Component
 {
     /**
      * Create a new component instance.
@@ -14,7 +15,6 @@ class slide extends Component
     public function __construct()
     {
         //
-
     }
 
     /**
@@ -22,6 +22,8 @@ class slide extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout.slide');
+
+        
+        return view('components.main-layout');
     }
 }
