@@ -15,7 +15,6 @@ class SettingController extends Controller
     public function index()
     {
         return view('admin.setting.index');
-
     }
 
     /**
@@ -64,34 +63,35 @@ class SettingController extends Controller
             "showCarousel" => $request->showCarousel ? true : false,
             "showHeadrLinks" => $request->showHeadrLinks ? true : false,
             "showTermPage" => $request->showTermPage ? true : false,
-            "showFooterLinks" => $request->showFooterLinks ? true : false
+            "showFooterLinks" => $request->showFooterLinks ? true : false,
+            "AllowUsers" => $request->AllowUsers ? true : false
+
+
         ];
 
 
         $setting = Setting::all();
 
         $siteStatusRecored = $setting->where('key', 'siteStatus')->first();
-        $siteStatusRecored->value=$siteStatus;
+        $siteStatusRecored->value = $siteStatus;
         $siteStatusRecored->save();
 
         $visibleRecored = $setting->where('key', 'visibility')->first();
-        $visibleRecored->value=json_encode($visible);
+        $visibleRecored->value = json_encode($visible);
         $visibleRecored->save();
 
         $TermPageContentRecored = $setting->where('key', 'TermPageContent')->first();
-        $TermPageContentRecored->value=$TermPageContent;
+        $TermPageContentRecored->value = $TermPageContent;
         $TermPageContentRecored->save();
-        
+
 
         $CarouselImageRecord = $setting->where('key', 'CarouselImage')->first();
-        $CarouselImageRecord->value=json_encode($request->subFiles);
+        $CarouselImageRecord->value = json_encode($request->subFiles);
         $CarouselImageRecord->save();
-
-  
     }
 
 
-        /**
+    /**
      * Update the specified resource in storage.
      */
     public function updateSetting(UpdateSettingRequest $request)
@@ -105,26 +105,29 @@ class SettingController extends Controller
             "showCarousel" => $request->showCarousel ? true : false,
             "showHeadrLinks" => $request->showHeadrLinks ? true : false,
             "showTermPage" => $request->showTermPage ? true : false,
-            "showFooterLinks" => $request->showFooterLinks ? true : false
+            "showFooterLinks" => $request->showFooterLinks ? true : false,
+
+            "AllowUsers" => $request->AllowUsers ? true : false,
+            "OrderWithoutUsers" => $request->OrderWithoutUsers ? true : false
+            
         ];
 
 
         $setting = Setting::all();
 
         $siteStatusRecored = $setting->where('key', 'siteStatus')->first();
-        $siteStatusRecored->value=$siteStatus;
+        $siteStatusRecored->value = $siteStatus;
         $siteStatusRecored->save();
 
         $visibleRecored = $setting->where('key', 'visibility')->first();
-        $visibleRecored->value=json_encode($visible);
+        $visibleRecored->value = json_encode($visible);
         $visibleRecored->save();
 
         $TermPageContentRecored = $setting->where('key', 'TermPageContent')->first();
-        $TermPageContentRecored->value=$TermPageContent;
+        $TermPageContentRecored->value = $TermPageContent;
         $TermPageContentRecored->save();
-        
-        return redirect()->route('admin.setting.index')->with('OkToast', 'تم اضاقة المنتج');
 
+        return redirect()->route('admin.setting.index')->with('OkToast', 'تم اضاقة المنتج');
     }
 
     /**

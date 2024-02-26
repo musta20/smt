@@ -63,16 +63,16 @@ class Setting extends Component
         $this->siteStatus = $this->setting->where('key', 'siteStatus')->first()->value == Status::PUBLISHED->value ? true : false;
 
         $visibility = json_decode($this->setting->where('key', 'visibility')->first()->value);
-
+        //dd($visibility);
         $this->CanReview = $visibility->CanReview;
         $this->CanComment = $visibility->CanComment;
         $this->showCarousel = $visibility->showCarousel;
         $this->showFooterLinks = $visibility->showFooterLinks;
         $this->showTermPage = $visibility->showTermPage;
         $this->showHeadrLinks = $visibility->showHeadrLinks;
-
-        $this->AllowUsers = $visibility->AllowUsers;
-        $this->OrderWithoutUsers = $visibility->OrderWithoutUsers;
+    $this->AllowUsers = $visibility->AllowUsers;
+        
+       $this->OrderWithoutUsers = $visibility->OrderWithoutUsers;
     
         
         $this->TermPageContent = $this->setting->where('key', 'TermPageContent')->first()->value;

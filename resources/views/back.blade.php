@@ -24,48 +24,32 @@
     <section id="product-carousel" data-carousel="static"
         class="flex justify-center flex-col  lg:flex-row  bg-white m-2 py-5 px-3 rounded-lg  border">
         <!-- image galary indecater -->
-
-        @if(count($product->media))
         <div class="lg:w-1/12 w-1/6 flex lg:flex-col lg:justify-center ">
-            <img class="h-auto max-w-full rounded-lg  mb-1  " aria-current="true" aria-label="Slide 1"
+            <img class="h-auto max-w-full rounded-lg  mb-1  " aria-current="true" aria-label="Slide 0"
                 data-carousel-slide-to="0" src="{{tenant_asset('media/'.$product->image)}}" alt="">
-            @foreach ($product->media as $key=>$item)
-            <img class="h-auto max-w-full rounded-lg  mb-1  " aria-current="true" aria-label="Slide 1"
-                data-carousel-slide-to="{{$key+1}}" src="{{tenant_asset('media/'.$item->name)}}" alt="">
+
+            @foreach ($product->media as $key=>$img)
+            <img class="h-auto max-w-full rounded-lg  mb-1  " aria-current="true" aria-label="Slide {{$key+2}}"
+                data-carousel-slide-to="{{$key+1}}" src="{{tenant_asset('media/'.$img)}}" alt="">
             @endforeach
+
+
         </div>
-        @endif
-
-
 
         <!-- main image -->
         <div class="container w-2/3 px-2 justify-center">
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                <!-- Item 1 -->
-
-                <div @if(count($product->media))
-                    class="hidden duration-700 ease-in-out"
-                    data-carousel-item="active"
-                    @endif
-                    >
+                <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
                     <img src="{{tenant_asset('media/'.$product->image)}}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
-
-
-                @if(count($product->media))
-                @foreach ($product->media as $key=>$item)
+                @foreach ($product->media as $img)
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-
-                    <img src="{{tenant_asset('media/'.$item->name)}}"
+                    <img src="{{tenant_asset('media/'.$img)}}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 @endforeach
-                @endif
 
-                <!-- Item 2 -->
-
-                <!-- Item 3 -->
 
 
             </div>

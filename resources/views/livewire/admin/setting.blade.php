@@ -28,7 +28,7 @@
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
               <input type="checkbox" name="CanReview" class="sr-only" wire:model='CanReview' />
-              <div class="block h-8 w-14 rounded-full  bg-meta-9 dark:bg-[#5A616B]"></div>
+              <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
               <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.CanReview }"
                 class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition ">
               </div>
@@ -55,7 +55,7 @@
             <div class="relative">
               <input type="checkbox" name="CanComment" class="sr-only" 
               wire:model='CanComment' />
-              <div class="block h-8 w-14 rounded-full  bg-meta-9 dark:bg-[#5A616B]"></div>
+              <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
               <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.CanComment }"
                 class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition ">
               </div>

@@ -33,6 +33,7 @@ class SettingSeeder extends Seeder
                         "showTermPage" => false,
                         "showHeadrLinks" => false,
                         "AllowUsers" => false,
+                        
                         "OrderWithoutUsers" => false,
                     ])
                 ],
@@ -47,7 +48,7 @@ class SettingSeeder extends Seeder
             )
             ->create();
     
-            Setting::factory()->count(4)->for($tenant2)
+        Setting::factory()->count(4)->for($tenant2)
             ->sequence(
                 [
                     "key" => "siteStatus",
@@ -63,6 +64,7 @@ class SettingSeeder extends Seeder
                         "showTermPage" => false,
                         "showHeadrLinks" => false,
                         "AllowUsers" => false,
+
                         "OrderWithoutUsers" => false,
                     ])
                 ],

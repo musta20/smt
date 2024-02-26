@@ -12,10 +12,11 @@ class ComposerServiceProvider extends ServiceProvider
     public function register(): void
     {
          // Using class based composers...
-         view()->composer(
-            '*', 'App\Http\ViewComposers\LayoutComposers'
-        );
- 
+            view()->composer(
+                '*', 'App\Http\ViewComposers\LayoutComposers'
+            );
+              
+
   
     }
 

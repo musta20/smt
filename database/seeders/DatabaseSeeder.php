@@ -41,8 +41,9 @@ class DatabaseSeeder extends Seeder
                 StoreSeeder::class,
                 CategorySeeder::class,
                 ProductSeeder::class,
-                SettingSeeder::class
-
+                SettingSeeder::class,
+                SettingSeeder::class,
+                commentSeeder::class
             ],
             [
                 "storename" => $this->storename, "storename2" => $this->storename2

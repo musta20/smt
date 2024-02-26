@@ -67,6 +67,13 @@ class Product extends Model
         return $this->belongsToMany(Category::class, 'category_products');
     }
 
+    public function comment(): HasMany
+    {
+        return $this->hasMany(
+            related: Comment::class,
+            foreignKey: "product_id"
+        );
+    }
     public function store(): BelongsTo
     {
         return $this->belongsTo(
