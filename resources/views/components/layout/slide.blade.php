@@ -5,9 +5,7 @@
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96 -z-10">
         <!-- Item 1 -->
 
-
         @if (count($CarouselImage) > 1)
-        
         @foreach($CarouselImage as $key=>$item)
         <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
             <img src="{{tenant_asset('media/'.$key)}}"
@@ -20,8 +18,6 @@
             <img src="{{tenant_asset('media/'.$key)}}"
                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         @endforeach
-    
-
         @endif
 
 

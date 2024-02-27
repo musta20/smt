@@ -7,21 +7,21 @@ use App\Models\Setting;
 
 class SiteController extends Controller
 {
-    
+
     public function index()
     {
         $setting = Setting::all();
 
         $product = Product::latest()->take(10)->get();
         $visibleRecored = $setting->where('key', 'visibility')->first();
-        $visible =json_decode($visibleRecored->value);
-       // dd($visible);
-        $CarouselImage= (array) json_decode($setting->where('key', 'CarouselImage')->first()->value);
+        $visible = json_decode($visibleRecored->value);
+        // dd($visible);
+        $CarouselImage = (array) json_decode($setting->where('key', 'CarouselImage')->first()->value);
 
         return view('index', [
-            'visible'=> $visible,
+            'visible' => $visible,
             'products' => $product,
-            'CarouselImage'=>$CarouselImage
+            'CarouselImage' => $CarouselImage
         ]);
     }
 
@@ -29,10 +29,27 @@ class SiteController extends Controller
     {
 
         $recomendedProduct = Product::latest()->take(5)->get();
+
+        $allRating = [
+            count($product->comment->where('rating', 5)),
+            count($product->comment->where('rating', 4)),
+            count($product->comment->where('rating', 3)),
+            count($product->comment->where('rating', 2)),
+            count($product->comment->where('rating', 1)),
+        ];;
+
+        $r =   array_map(function ($n, $i) {
+            return $n * $i;
+        }, $allRating, array_keys($allRating));
+
+        $totalRating = array_sum($r) / array_sum($allRating);
+
+
         return view('product', [
             'product' => $product,
-            'recomendedProduct'=>$recomendedProduct
+            'totalRating'=>$totalRating,
+            'allRating'=>$allRating,
+            'recomendedProduct' => $recomendedProduct
         ]);
-
     }
 }

@@ -1,4 +1,4 @@
-<div class="fixed  h-20 w-full bottom-2 top-0 mx-auto px-6 py-3 bg-white border-b-2">
+<div style="z-index: 100" class="fixed h-20 w-full bottom-2 top-0 mx-auto px-6 py-3 bg-white border-b-2">
 
     <div class="flex items-center justify-between">
 
@@ -23,8 +23,7 @@
                 class="w-full border rounded-md pl-10 pr-4 py-2 focus:border-blue-500 focus:outline-none focus:shadow-outline"
                 type="text" placeholder="Search">
         </div>
-
-
+        
         <!-- brand logo -->
         <div class="md:items-center">
             <img 

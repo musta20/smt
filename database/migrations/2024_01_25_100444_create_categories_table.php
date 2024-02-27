@@ -25,19 +25,12 @@ return new class extends Migration
                 ->on('tenants')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-
-            // $table->foreignUlid('category_product_id')
-            //     ->nullable()
-            //     ->index()
-            //     // ->constrained()
-            //     ->cascadeOnDelete();
             
             $table->string('name');
 
             $table->foreignUlid('store_id')
             ->nullable()
                 ->index()
-                //->constrained();
                 ->cascadeOnDelete();
             $table->softDeletes();
 

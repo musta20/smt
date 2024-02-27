@@ -18,10 +18,13 @@ return new class extends Migration
             ->index()
             ->constrained()
             ->cascadeOnDelete();
+
             $table->foreignUlid('user_id')
             ->index()
             ->constrained()
             ->cascadeOnDelete();
+
+            $table->unsignedFloat('rating')->nullable();
 
             $table->mediumText('comment');
 

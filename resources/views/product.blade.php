@@ -22,7 +22,7 @@
 
 
     <section id="product-carousel" data-carousel="static"
-        class="flex justify-center flex-col  lg:flex-row  bg-white m-2 py-5 px-3 rounded-lg  border">
+        class="flex justify-center flex-col  lg:flex-row  bg-white m-2 py-5 px-3 rounded-lg  border ">
         <!-- image galary indecater -->
 
         @if(count($product->media))
@@ -36,10 +36,8 @@
         </div>
         @endif
 
-
-
         <!-- main image -->
-        <div class="container w-2/3 px-2 justify-center">
+        <div class="container w-2/3 px-2 justify-center ">
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
 
@@ -63,14 +61,8 @@
                 @endforeach
                 @endif
 
-                <!-- Item 2 -->
-
-                <!-- Item 3 -->
-
-
             </div>
         </div>
-        <!-- product detail-->
         <div class="max-w-xl flex flex-col gap-1 justify-between">
             <div class="text-4xl">{{$product->name}}</div>
             <hr />
@@ -89,6 +81,47 @@
         </div>
 
     </section>
+    <div class="flex bg-white m-2 py-5 px-3  rounded-lg  border">
+        <div class="w-1/2">
+            <span class="text-xl">التعليقات :</span>
+            @foreach ($product->comment as $comment)
+            <x-comment-card :$comment />
+            @endforeach
+        </div>
 
+        <div dir="ltr" class="flex  items-center justify-center w-1/2">
+      
+            <div class="flex flex-col justify-items-end     w-9/12">
+                <span class="flex justify-between my-2"> 
+                    <x-user-rating :rating="$totalRating" />
+                  <strong> 
+                    التقييم العام
+
+                    بناءً على ({{array_sum($allRating)}}) تقييمات
+                </strong>
+                </span>
+                <hr>
+                @foreach (array_reverse($allRating) as $key=>$item)
+                <span class="flex max-h-6  p-1">
+                    <span class="w-2/12 " >
+                        {{5-$key}} star
+                    </span>
+                    @php
+                    $perst = ($item/array_sum($allRating)*100)
+                    @endphp
+                    <div dir="ltr" class="  w-10/12  bg-gray-100 rounded-full dark:bg-gray-200">
+                        <div style="width: {{$perst}}%" @class(['bg-yellow-300 text-xs text-white font-medium
+                            text-blue-100 text-center p-0.5 leading-none rounded-full', 'hidden'=> !$perst ]) >
+                            {{$perst}}%</div>
+                    </div>
+
+                 
+                </span>
+                @endforeach
+
+            </div>
+
+        </div>
+    </div>
     <x-recommended-product :$recomendedProduct />
 </x-main-layout>

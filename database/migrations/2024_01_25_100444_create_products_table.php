@@ -28,7 +28,8 @@ return new class extends Migration
 
             $table->unsignedInteger('order_count')->nullable();
             
-            $table->unsignedDouble('rating')->nullable();
+            $table->unsignedFloat('rating')->nullable();
+            
             $table->string('tenant_id');
             
             $table->string('status')->default(Status::DRAFT);
