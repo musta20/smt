@@ -1,9 +1,9 @@
 @if(session('OkToast'))
-<div x-data="{loaded:true}">
+<div  x-data="{loaded:true}">
   <div x-show="loaded"
     x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 5000)})"
     x-transition.duration.500ms class="fixed z-999999 right-1/2 top-10 ">
-    <div class=" rounded-lg py-4 pl-4 pr-4.5 shadow-2 dark:bg-meta-4 bg-white ">
+    <div class=" rounded-lg shadow border py-4 pl-4 pr-4.5 shadow-2 dark:bg-meta-4 bg-white ">
       <div class="flex items-center justify-between">
         <div class="flex flex-grow items-center gap-5">
           <div class="flex h-10 w-full max-w-10 items-center justify-center rounded-full bg-[#1EA779]">

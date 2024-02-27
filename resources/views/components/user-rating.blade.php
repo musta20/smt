@@ -24,7 +24,7 @@
 
 
         @if ($showText ?? true)
-        <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">{{$rating}}</p>
+        <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">{{floor($rating)}}</p>
         <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">out of</p>
         <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">5</p>
         @endif

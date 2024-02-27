@@ -71,56 +71,62 @@
             </P>
             <hr />
             <span class="text-3xl ">{{$product->price}}.EL</span>
-
-            <button type="button" class="text-white  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
+            <button type="submit" class="text-white  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
              focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
               ">طلب المنتج</button>
-
-
-
         </div>
-
     </section>
     <div class="flex bg-white m-2 py-5 px-3  rounded-lg  border">
         <div class="w-1/2">
+            <form method="post" action="{{route('comment.store')}}" class="p-2 m-2 space-x-2">
+                @csrf
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    اضف التعليق
+                </label>
+                <x-add-rating />
+                <textarea id="comment" rows="4" name="comment"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="ماهو رأيك في المنتج"></textarea>
+                <button type="submit" class="text-white m-2  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
+                focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
+                 ">نشر</button>
+                 <input value="{{$product->id}}" name="product_id" hidden />
+            </form>
+            <hr>
             <span class="text-xl">التعليقات :</span>
             @foreach ($product->comment as $comment)
             <x-comment-card :$comment />
             @endforeach
         </div>
 
-        <div dir="ltr" class="flex  items-center justify-center w-1/2">
-      
-            <div class="flex flex-col justify-items-end     w-9/12">
-                <span class="flex justify-between my-2"> 
-                    <x-user-rating :rating="$totalRating" />
-                  <strong> 
-                    التقييم العام
+        <div dir="ltr" class="flex justify-center w-1/2">
 
-                    بناءً على ({{array_sum($allRating)}}) تقييمات
-                </strong>
+            <div class="flex flex-col justify-items-end     w-9/12">
+                <span class="flex justify-between my-2">
+                    <x-user-rating :rating="$totalRating" />
+                    <strong>
+                        التقييم العام
+
+                        بناءً على ({{array_sum($allRating)}}) تقييمات
+                    </strong>
                 </span>
                 <hr>
-                @foreach (array_reverse($allRating) as $key=>$item)
+                @foreach ($allRating as $key=>$item)
                 <span class="flex max-h-6  p-1">
-                    <span class="w-2/12 " >
-                        {{5-$key}} star
+                    <span class="w-2/12 ">
+                        {{$key}} star
                     </span>
                     @php
-                    $perst = ($item/array_sum($allRating)*100)
+                    $perst = floor($item/array_sum($allRating)*100)
                     @endphp
                     <div dir="ltr" class="  w-10/12  bg-gray-100 rounded-full dark:bg-gray-200">
                         <div style="width: {{$perst}}%" @class(['bg-yellow-300 text-xs text-white font-medium
                             text-blue-100 text-center p-0.5 leading-none rounded-full', 'hidden'=> !$perst ]) >
                             {{$perst}}%</div>
                     </div>
-
-                 
                 </span>
                 @endforeach
-
             </div>
-
         </div>
     </div>
     <x-recommended-product :$recomendedProduct />
