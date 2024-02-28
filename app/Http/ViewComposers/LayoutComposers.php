@@ -23,13 +23,20 @@ class LayoutComposers
     public function __construct()
     {
         // Dependencies automatically resolved by service container...
-        $store =  Store::where('tenant_id', tenant('id'))->first();
-        $this->props = [
-            "logo" =>  $store->logo,
-            "favicon" =>  $store->favicon,
-            "title" => $store->title,
-            "description" =>  $store->description
-        ];
+        $uri = url()->current();
+
+        //dd(strpos($uri, 'admin'));
+
+        if (!strpos($uri, 'admin') &&  tenant('id')) {
+            
+            $store =  Store::where('tenant_id', tenant('id'))->first();
+            $this->props = [
+                "logo" =>  $store->logo,
+                "favicon" =>  $store->favicon,
+                "title" => $store->title,
+                "description" =>  $store->description
+            ];
+        }
     }
 
     /**
