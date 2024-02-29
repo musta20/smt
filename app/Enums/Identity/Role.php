@@ -9,4 +9,11 @@ enum Role: string
     case ADMIN = 'ADMIN';
     case CUSTOMER = 'CUSTOMER';
 
+
+    public static function getRandomRole(): self
+    {
+        $cases = self::cases();
+        $randomIndex = rand(0, count($cases) - 1);
+        return $cases[$randomIndex];
+    }
 }

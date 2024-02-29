@@ -35,12 +35,13 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->string('term')->nullable();
+                $table->longText('term')->nullable();
+                $table->longText('about')->nullable();
             $table->string('address')->nullable();
             $table->string('location')->nullable();
             $table->string('phone')->nullable();
             $table->string('specialty')->nullable();
-            
+
             $table->json('SocialMedia')->default(
                 json_encode(
                     [
@@ -52,11 +53,11 @@ return new class extends Migration
                         SocialMedia::YOUTUBE->value => '',
                         SocialMedia::TIKTOK->value => '',
                         SocialMedia::TELEGRAM->value => ''
-                        
+
                     ]
                 )
             );
-    
+
 
             $table->foreignUlid('user_id')
                 ->index()

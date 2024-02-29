@@ -5,6 +5,7 @@ namespace App\Livewire\Admin;
 use App\Enums\Store\MediaType;
 use App\Enums\Store\Status;
 use App\Models\Setting as ModelsSetting;
+use App\Models\Store;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -22,7 +23,10 @@ class Setting extends Component
     public $showCarousel;
 
     public $showFooterLinks;
-
+    
+    public $showAboutPage;
+    public $aboutPageContent;
+    
     public $showHeadrLinks;
 
     public $AllowUsers;
@@ -32,6 +36,7 @@ class Setting extends Component
     public $showTermPage;
 
     public $TermPageContent;
+    public $store;
 
     public $subFiles = [];
 
@@ -59,23 +64,25 @@ class Setting extends Component
     public function mount()
     {
         $this->setting = ModelsSetting::all();
-
+        $this->store = Store::where('tenant_id',tenant('id'))->first();
+        
         $this->siteStatus = $this->setting->where('key', 'siteStatus')->first()->value == Status::PUBLISHED->value ? true : false;
 
         $visibility = json_decode($this->setting->where('key', 'visibility')->first()->value);
-        //dd($visibility);
+
         $this->CanReview = $visibility->CanReview;
-        $this->CanComment = $visibility->CanComment;
         $this->showCarousel = $visibility->showCarousel;
         $this->showFooterLinks = $visibility->showFooterLinks;
         $this->showTermPage = $visibility->showTermPage;
+        $this->showAboutPage = $visibility->showAboutPage;
         $this->showHeadrLinks = $visibility->showHeadrLinks;
-    $this->AllowUsers = $visibility->AllowUsers;
+        $this->AllowUsers = $visibility->AllowUsers;
         
        $this->OrderWithoutUsers = $visibility->OrderWithoutUsers;
     
         
-        $this->TermPageContent = $this->setting->where('key', 'TermPageContent')->first()->value;
+       $this->TermPageContent = $this->store->term;
+       $this->aboutPageContent = $this->store->about;
 
         $this->subFiles = (array) json_decode($this->setting->where('key', 'CarouselImage')->first()->value);
 

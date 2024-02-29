@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Stancl\Tenancy\Database\Models\Tenant as BaseTenant;
 use Stancl\Tenancy\Database\Concerns\HasDomains;
+use Stancl\Tenancy\Database\Concerns\MaintenanceMode;
 use Stancl\Tenancy\Database\Models\Domain;
 
 class Tenant extends BaseTenant
@@ -14,6 +15,8 @@ class Tenant extends BaseTenant
     use HasDomains;
     use HasFactory;
     use SoftDeletes;
+    use MaintenanceMode;
+
 
     public function domain():HasOne{
     return $this->hasOne(

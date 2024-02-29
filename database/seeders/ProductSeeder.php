@@ -31,7 +31,7 @@ class ProductSeeder extends Seeder
         $store = Store::get()->where('title', $storename2)->first();
         $store2 = Store::get()->where('title', $storename2)->first();
 
-        for ($count = 0; $count < 20; $count++) {
+        for ($count = 0; $count < 100; $count++) {
 
             Product::factory()->hasAttached(
                 $category->random(3),

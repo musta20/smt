@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\Identity\Role;
+use App\Enums\Store\Status;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Store;
@@ -29,6 +31,7 @@ class ProductFactory extends Factory
                 indexSize: 4
             ),
             'price' => rand(456, 5100),
+            'status'=>  Status::getRandomStatus()->value,
             'order_url' => $this->faker->url(),
             'image' => $this->faker->imageUrl(250, 160),
             'older_price' => rand(465, 3351),
@@ -36,7 +39,7 @@ class ProductFactory extends Factory
             'view_count' => rand(3, 7465),
             'discount' => rand(10, 100),
             'rating' => rand(1, 5),
-            
+            'visible'=>['CanReview' => $this->faker->boolean()],
             //  'store_id'=>Store::factory()->create(),
             //  'tenant_id'=>Tenant::factory(),
 

@@ -36,7 +36,6 @@ return new class extends Migration
 
             $table->json('visible')->default(json_encode([
                 "CanReview" => false,
-                "CanComment" => true
             ]));
 
             $table->foreign('tenant_id')

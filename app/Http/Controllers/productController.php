@@ -37,7 +37,6 @@ class productController extends Controller
 
         $visible = [
             "CanReview" => $request->CanReview ? true : false,
-            "CanComment" => $request->CanComment ? true : false
         ];
 
         $newCategory = $request->category;
@@ -107,7 +106,6 @@ class productController extends Controller
     {
         $visible = [
             "CanReview" => $request->CanReview ? true : false,
-            "CanComment" => $request->CanComment ? true : false
         ];
 
         $newCategory = $request->category;

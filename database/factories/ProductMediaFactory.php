@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Media;
-use App\Models\ProductMedia;
+use App\Models\ProductMedia
 use App\Models\Product;
 use App\Models\Tenant;
 use Illuminate\Database\Eloquent\Factories\Factory;

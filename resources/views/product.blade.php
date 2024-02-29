@@ -1,26 +1,28 @@
 <x-main-layout>
-    <ul class="flex justify-items-center align-baseline gap-1  py-2 ">
+    <ul class="flex justify-items-center  gap-1   text-gray ">
         <li>التصنيفات</li>
         <li>
-            <svg class="w-[12px] h-[12px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            <svg class="w-[12px] h-[12px] text-gray-800 my-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m15 19-7-7 7-7" />
             </svg>
         </li>
-        <li>الاحذية</li>
+        <li class="flex ">
+            @foreach ($product->categories as $item)
+            <span class="mx-2">{{$item->name}}</span>
+            @endforeach
+
+        </li>
         <li>
-            <svg class="w-[12px] h-[12px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            <svg class="w-[12px] h-[12px] text-gray-800 my-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m15 19-7-7 7-7" />
             </svg>
         </li>
-        <li>حذاء</li>
-
+        <li>{{$product->name}}</li>
     </ul>
-
-
     <section id="product-carousel" data-carousel="static"
         class="flex justify-center flex-col  lg:flex-row  bg-white m-2 py-5 px-3 rounded-lg  border ">
         <!-- image galary indecater -->
@@ -76,6 +78,7 @@
               ">طلب المنتج</button>
         </div>
     </section>
+    @if ($product->visible->CanReview && $visible->CanReview)
     <div class="flex bg-white m-2 py-5 px-3  rounded-lg  border">
         <div class="w-1/2">
             <form method="post" action="{{route('comment.store')}}" class="p-2 m-2 space-x-2">
@@ -90,7 +93,7 @@
                 <button type="submit" class="text-white m-2  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
                 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
                  ">نشر</button>
-                 <input value="{{$product->id}}" name="product_id" hidden />
+                <input value="{{$product->id}}" name="product_id" hidden />
             </form>
             <hr>
             <span class="text-xl">التعليقات :</span>
@@ -117,7 +120,11 @@
                         {{$key}} star
                     </span>
                     @php
-                    $perst = floor($item/array_sum($allRating)*100)
+                    $perst =0 ;
+
+                    if (array_sum($allRating) > 0) {
+                    $perst = floor($item/array_sum($allRating)*100);
+                    }
                     @endphp
                     <div dir="ltr" class="  w-10/12  bg-gray-100 rounded-full dark:bg-gray-200">
                         <div style="width: {{$perst}}%" @class(['bg-yellow-300 text-xs text-white font-medium
@@ -129,5 +136,8 @@
             </div>
         </div>
     </div>
+    @endif
+
+
     <x-recommended-product :$recomendedProduct />
 </x-main-layout>

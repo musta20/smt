@@ -1,6 +1,5 @@
 <?php
 
-use App\Livewire\Admin\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/testtA',Product::class);
 
 
 Route::get('/', function () {

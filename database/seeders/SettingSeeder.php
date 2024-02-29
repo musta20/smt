@@ -17,7 +17,7 @@ class SettingSeeder extends Seeder
         $tenant = Tenant::get()->where('name', $storename)->first();
 
         $tenant2 = Tenant::get()->where('name', $storename2)->first();
-        Setting::factory()->count(4)->for($tenant)
+        Setting::factory()->count(3)->for($tenant)
             ->sequence(
                 [
                     "key" => "siteStatus",
@@ -26,11 +26,11 @@ class SettingSeeder extends Seeder
                 [
                     "key" => "visibility",
                     "value" => json_encode([
-                        "CanComment" => false,
                         "CanReview" => false,
                         "showCarousel" => true,
                         "showFooterLinks" => false,
                         "showTermPage" => false,
+                        "showAboutPage" => false,
                         "showHeadrLinks" => false,
                         "AllowUsers" => false,
                         
@@ -41,14 +41,11 @@ class SettingSeeder extends Seeder
                     "key" => "CarouselImage",
                     "value" => json_encode([])
                 ],
-                [
-                    "key" => "TermPageContent",
-                    "value" => ""
-                ]
+          
             )
             ->create();
     
-        Setting::factory()->count(4)->for($tenant2)
+        Setting::factory()->count(3)->for($tenant2)
             ->sequence(
                 [
                     "key" => "siteStatus",
@@ -57,11 +54,11 @@ class SettingSeeder extends Seeder
                 [
                     "key" => "visibility",
                     "value" => json_encode([
-                        "CanComment" => false,
                         "CanReview" => false,
                         "showCarousel" => true,
                         "showFooterLinks" => false,
                         "showTermPage" => false,
+                        "showAboutPage" => false,
                         "showHeadrLinks" => false,
                         "AllowUsers" => false,
 
@@ -72,10 +69,8 @@ class SettingSeeder extends Seeder
                     "key" => "CarouselImage",
                     "value" => json_encode([])
                 ],
-                [
-                    "key" => "TermPageContent",
-                    "value" => ""
-                ]
+             
+          
             )
             ->create();
     

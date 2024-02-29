@@ -50,13 +50,15 @@
       </div>
       <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
         <div class="w-full xl:w-1/2 flex justify-end">
-          <span class="px-2">السماح بالتعليقات </span>
+          <span class="px-2">صفحة من نحن</span>
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
-              <input type="checkbox" name="CanComment" class="sr-only" 
-              wire:model='CanComment' />
+              <input type="checkbox" 
+              name="showAboutPage" wire:model='showAboutPage' class="sr-only" />
+
+
               <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
-              <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.CanComment }"
+              <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.showAboutPage }"
                 class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition ">
               </div>
             </div>
@@ -152,7 +154,7 @@
       <div class="flex flex-col gap-5.5 p-6.5">
         <div>
           <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-            الشروط و الاحكام
+محتوى صفحة الشروط و الاحكام
           </label>
           <textarea rows="6" name="TermPageContent" placeholder="وصف المنتج"
             class="w-full 
@@ -161,6 +163,21 @@
                       {{old('TermPageContent',$TermPageContent)}}
                     </textarea>
           <x-input-error :messages="$errors->get('TermPageContent')"
+             class="mt-2" />
+        </div>
+      </div>
+      <div class="flex flex-col gap-5.5 p-6.5">
+        <div>
+          <label class="mb-3 block text-sm font-medium text-black dark:text-white">
+            محتوى صفحة من نحن 
+          </label>
+          <textarea rows="6" name="aboutPageContent" placeholder="من نحن  "
+            class="w-full 
+                        @error('aboutPageContent') !border-red-500 @enderror
+                        rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary">
+                      {{old('aboutPageContent',$aboutPageContent)}}
+                    </textarea>
+          <x-input-error :messages="$errors->get('aboutPageContent')"
              class="mt-2" />
         </div>
       </div>

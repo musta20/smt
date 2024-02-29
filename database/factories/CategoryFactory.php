@@ -22,7 +22,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>$this->faker->word(),
+            'name'=>$this->faker->word()
             //'store_id'=>Store::factory()->create(),
             //'tenant_id'=>Tenant::factory(),
 

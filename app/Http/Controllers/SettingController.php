@@ -6,6 +6,7 @@ use App\Enums\Store\Status;
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
 use App\Models\Setting;
+use App\Models\Store;
 
 class SettingController extends Controller
 {
@@ -54,40 +55,6 @@ class SettingController extends Controller
      */
     public function update(UpdateSettingRequest $request, Setting $setting)
     {
-        $siteStatus = $request->siteStatus ? Status::PUBLISHED->value : Status::DRAFT->value;
-        $TermPageContent = $request->TermPageContent;
-
-        $visible = [
-            "CanReview" => $request->CanReview ? true : false,
-            "CanComment" => $request->CanComment ? true : false,
-            "showCarousel" => $request->showCarousel ? true : false,
-            "showHeadrLinks" => $request->showHeadrLinks ? true : false,
-            "showTermPage" => $request->showTermPage ? true : false,
-            "showFooterLinks" => $request->showFooterLinks ? true : false,
-            "AllowUsers" => $request->AllowUsers ? true : false
-
-
-        ];
-
-
-        $setting = Setting::all();
-
-        $siteStatusRecored = $setting->where('key', 'siteStatus')->first();
-        $siteStatusRecored->value = $siteStatus;
-        $siteStatusRecored->save();
-
-        $visibleRecored = $setting->where('key', 'visibility')->first();
-        $visibleRecored->value = json_encode($visible);
-        $visibleRecored->save();
-
-        $TermPageContentRecored = $setting->where('key', 'TermPageContent')->first();
-        $TermPageContentRecored->value = $TermPageContent;
-        $TermPageContentRecored->save();
-
-
-        $CarouselImageRecord = $setting->where('key', 'CarouselImage')->first();
-        $CarouselImageRecord->value = json_encode($request->subFiles);
-        $CarouselImageRecord->save();
     }
 
 
@@ -98,20 +65,34 @@ class SettingController extends Controller
     {
         $siteStatus = $request->siteStatus ? Status::PUBLISHED->value : Status::DRAFT->value;
         $TermPageContent = $request->TermPageContent;
+        $aboutPageContent = $request->aboutPageContent;
 
+        $store = Store::where('tenant_id',tenant('id'))->first();
+
+        $store->term  = $TermPageContent;
+        $store->about  = $aboutPageContent;
+
+        $store->save();
         $visible = [
             "CanReview" => $request->CanReview ? true : false,
-            "CanComment" => $request->CanComment ? true : false,
             "showCarousel" => $request->showCarousel ? true : false,
+            "showAboutPage" => $request->showTermPage ? true : false,
+
             "showHeadrLinks" => $request->showHeadrLinks ? true : false,
             "showTermPage" => $request->showTermPage ? true : false,
             "showFooterLinks" => $request->showFooterLinks ? true : false,
 
             "AllowUsers" => $request->AllowUsers ? true : false,
             "OrderWithoutUsers" => $request->OrderWithoutUsers ? true : false
-            
-        ];
 
+        ];
+        $tenant = tenant();
+
+        if ($siteStatus != Status::PUBLISHED->value) {
+            $tenant->putDownForMaintenance(['allowed' => ['/admin']]);
+        } else {
+            $tenant->update(['maintenance_mode' => null]);
+        }
 
         $setting = Setting::all();
 
@@ -123,9 +104,9 @@ class SettingController extends Controller
         $visibleRecored->value = json_encode($visible);
         $visibleRecored->save();
 
-        $TermPageContentRecored = $setting->where('key', 'TermPageContent')->first();
-        $TermPageContentRecored->value = $TermPageContent;
-        $TermPageContentRecored->save();
+        // $TermPageContentRecored = $setting->where('key', 'TermPageContent')->first();
+        // $TermPageContentRecored->value = $TermPageContent;
+        // $TermPageContentRecored->save();
 
         return redirect()->route('admin.setting.index')->with('OkToast', 'تم اضاقة المنتج');
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\ViewComposers;
 
+use App\Models\Category;
+use App\Models\Setting;
 use App\Models\Store;
 use Illuminate\View\View;
 
@@ -28,12 +30,21 @@ class LayoutComposers
         //dd(strpos($uri, 'admin'));
 
         if (!strpos($uri, 'admin') &&  tenant('id')) {
-            
+            $setting = Setting::all();
+
+            $visibleRecored = $setting->where('key', 'visibility')->first();
+            $visible = json_decode($visibleRecored->value);
             $store =  Store::where('tenant_id', tenant('id'))->first();
+            $categoryLink = $visible->showHeadrLinks ? Category::latest()->get(['name', 'id']) : null;
+
             $this->props = [
                 "logo" =>  $store->logo,
                 "favicon" =>  $store->favicon,
                 "title" => $store->title,
+                "visible"=>$visible ,
+                "store"=>$store,
+                "setting"=> $setting ,
+                "categoryLink"=>$categoryLink,
                 "description" =>  $store->description
             ];
         }

@@ -31,6 +31,18 @@ class StoreFactory extends Factory
                 maxNbChars: 300,
                 indexSize: 4
             ),
+            'description' => $this->faker->realText(
+                maxNbChars: 600,
+                indexSize: 4
+            ),
+            'term' => $this->faker->realText(
+                maxNbChars: 900,
+                indexSize: 4
+            ),
+            'about' => $this->faker->realText(
+                maxNbChars: 900,
+                indexSize: 4
+            ),
             // 'tenant_id'=>Tenant::factory()->create(),
             // 'user_id' => User::factory()->create(),
             'logo'=>'logo-icon.svg',
