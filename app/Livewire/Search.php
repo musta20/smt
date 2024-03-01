@@ -3,8 +3,8 @@
 namespace App\Livewire;
 
 
-use App\Enums\Store\Sorting;
 use App\Enums\Store\Status;
+use App\Models\Category;
 use App\Models\Product as ModelsProduct;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -44,7 +44,7 @@ class Search extends Component
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 
-    public function search()
+    public function searchWord()
     {
         $this->resetPage();
     }
@@ -54,51 +54,29 @@ class Search extends Component
         $this->reset('searchword');
     }
 
-    public function mount($search)
+    public function mount($keyword)
     {
-        if ($search) {
-            $this->reset('searchword');
-
+        if ($keyword) {
+            $this->searchword = $keyword;
         }
     }
 
     public function render()
     {
-        dd( $this->products);
 
-        $this->products = ModelsProduct::where('name', 'like', '%' . $this->searchword . '%')->where('status', Status::PUBLISHED->value)->get();
+        $products = ModelsProduct::orderByType($this->filters)->where('name', 'like', '%' . $this->searchword . '%')
+            ->where('status', Status::PUBLISHED->value)
+            ->paginate(10);
 
-        if ($this->filters['categoryId']) {
+        //orderByType($this->filters)
+        //->
+        //->where('status', Status::PUBLISHED->value)
+        return view('livewire.search', [
 
-            $this->products = $this->products->filter(function ($item) {
+            "allProducts" => $products, // $this->paginate($this->products, 10),
+            "category" => Category::get(),
+            "enumStatus" => Status::class
 
-                return   $item->categories->find($this->filters['categoryId']);
-            });
-        }
-
-
-        if ($this->filters['sortType']) {
-
-            switch ($this->filters['sortType']) {
-                case Sorting::AVG_COUSTMER->value:
-                    $this->products =   $this->products->sortByDesc('rating');
-                    break;
-                case Sorting::BEST_SELLING->value:
-                    $this->products =   $this->products->sortByDesc('order_count');
-                    break;
-                case Sorting::NEWEST->value:
-                    $this->products =   $this->products->sortByDesc('created_at');
-                    break;
-                case Sorting::HIGHT_TO_LOW->value:
-
-                    $this->products =   $this->products->sortByDesc('price');
-                    break;
-                case Sorting::LOW_TO_HIGHT->value:
-                    $this->products =   $this->products->sortBy('price');
-                    break;
-            }
-
-            return view('livewire.search');
-        }
+        ]);
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Enums\Identity\Role;
 use App\Http\Controllers\Controller;
+use App\Models\Role as ModelsRole;
 use App\Models\Tenant;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -41,8 +43,6 @@ class RegisteredUserController extends Controller
 
         $tenant =  Tenant::create();
 
-        //  dd($tenant->id);
-
         $tenant->domains()->create([
             'domain' =>  $request->domain . '.' . env('APP_DOMAIN'),
             'name' =>  $request->domain
@@ -55,16 +55,12 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // if(!$user)
-        // {
+        $vernderRole = ModelsRole::findByName(Role::VENDER->value);
 
-        // }
+        $user->assignRole($vernderRole);
 
         event(new Registered($user));
 
-        //Auth::login($user);
-
-       // return redirect(RouteServiceProvider::HOME);
        return redirect()->route(RouteServiceProvider::LOGIN)->domain($tenant->domain->domain);
 
     }

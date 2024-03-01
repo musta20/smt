@@ -30,6 +30,10 @@ Route::middleware([
         CheckTenantForMaintenanceMode::class
     )->group(function () {
         
+        
+        Route::get('/register', [SiteController::class, 'showRegister'])->name('registerPage');
+        Route::post('/register', [SiteController::class, 'register'])->name('register');
+
         Route::get('/search', [SiteController::class, 'search'])->name('searchPage');
 
         Route::get('/', [SiteController::class, 'index'])->name('homePage');
@@ -37,11 +41,9 @@ Route::middleware([
         Route::get('/about', [SiteController::class, 'aboutPage'])->name('aboutPage');
         Route::get('/term', [SiteController::class, 'termPage'])->name('termPage');
         
-
         Route::get('/category/{category}', [SiteController::class, 'category'])->name('categoryPage');
-
-        
         Route::get('/product/{product}', [SiteController::class, 'product'])->name('productPage');
+        
     });
 
 

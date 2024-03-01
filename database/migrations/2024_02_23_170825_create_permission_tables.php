@@ -50,13 +50,13 @@ return new class extends Migration
         });
 
         Schema::create($tableNames['model_has_permissions'], function (Blueprint $table) use ($tableNames, $columnNames, $pivotPermission, $teams) {
-            $table->ulid($pivotPermission);
+           // $table->ulid($pivotPermission);
 
             $table->string('model_type');
             $table->ulid($columnNames['model_morph_key']);
             $table->index([$columnNames['model_morph_key'], 'model_type'], 'model_has_permissions_model_id_model_type_index');
 
-            $table->foreign($pivotPermission)
+            $table->foreignUlid($pivotPermission)
                 ->references('id') // permission id
                 ->on($tableNames['permissions'])
                 ->onDelete('cascade');
@@ -74,13 +74,13 @@ return new class extends Migration
         });
 
         Schema::create($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames, $pivotRole, $teams) {
-            $table->ulid($pivotRole);
+          //  $table->ulid($pivotRole);
 
             $table->string('model_type');
             $table->ulid($columnNames['model_morph_key']);
             $table->index([$columnNames['model_morph_key'], 'model_type'], 'model_has_roles_model_id_model_type_index');
 
-            $table->foreign($pivotRole)
+            $table->foreignUlid($pivotRole)
                 ->references('id') // role id
                 ->on($tableNames['roles'])
                 ->onDelete('cascade');
@@ -97,15 +97,15 @@ return new class extends Migration
         });
 
         Schema::create($tableNames['role_has_permissions'], function (Blueprint $table) use ($tableNames, $pivotRole, $pivotPermission) {
-            $table->ulid($pivotPermission);
-            $table->ulid($pivotRole);
+         //   $table->ulid($pivotPermission);
+        //    $table->ulid($pivotRole);
 
-            $table->foreign($pivotPermission)
+            $table->foreignUlid($pivotPermission)
                 ->references('id') // permission id
                 ->on($tableNames['permissions'])
                 ->onDelete('cascade');
 
-            $table->foreign($pivotRole)
+            $table->foreignUlid($pivotRole)
                 ->references('id') // role id
                 ->on($tableNames['roles'])
                 ->onDelete('cascade');

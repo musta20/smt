@@ -115,6 +115,9 @@
             </div>
         </div>
     </div>
+    <span class="m-3 p-4">
+        مجموع ({{count($allProducts)}}) منتج
+    </span>
     <div class="  border-stroke px-4 py-2 dark:border-strokedark sm:grid-cols-9 md:px-6 2xl:px-7.5">
 
         @empty(!$searchword)
@@ -157,7 +160,7 @@
 
     </div>
 
-
+ 
     <div
         class="grid grid-cols-10 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-10 md:px-6 2xl:px-7.5">
 
@@ -328,7 +331,7 @@
         </div>
 
         <div class="col-span-1 flex items-center">
-            <p class="text-sm font-medium text-black dark:text-white">{{$item->created_at->toDateString(); }}</p>
+            <p class="text-sm font-medium text-black dark:text-white">{{$item->created_at->diffForHumans(); }}</p>
         </div>
 
         <div class="col-span-1 flex justify-center">
@@ -377,7 +380,7 @@
     </div>
     @endforeach
     <hr>
-    <div dir="ltr" class="p-2">
+    <div dir="ltr" class="p-2 flex justify-center">
         {{$allProducts->links()}}
     </div>
 </div>

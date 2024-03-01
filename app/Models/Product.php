@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Store\Sorting;
 use Illuminate\Database\Eloquent\Casts\AsCollection;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -74,6 +75,40 @@ class Product extends Model
             foreignKey: "product_id"
         );
     }
+
+    public function scopeOrderByType($query, $orderType)
+    {
+
+        if ($orderType['categoryId']) {
+
+            $query->whereHas('categories', function ($query) use ($orderType){
+                $query->where('id', $orderType['categoryId']);
+            });
+
+     
+        }
+
+        switch ($orderType['sortType']) {
+            case Sorting::AVG_COUSTMER->value:
+                $query->orderBy('rating', 'desc');
+                break;
+            case Sorting::BEST_SELLING->value:
+                $query->orderBy('order_count', 'desc');
+                break;
+            case Sorting::NEWEST->value:
+                $query->orderBy('created_at', 'desc');
+                break;
+            case Sorting::HIGHT_TO_LOW->value:
+                $query->orderBy('price', 'desc');
+                break;
+            case Sorting::LOW_TO_HIGHT->value:
+                $query->orderBy('price');
+                break;
+        }
+
+        return $query;
+    }
+
     public function store(): BelongsTo
     {
         return $this->belongsTo(

@@ -35,10 +35,12 @@ class LayoutComposers
             $visibleRecored = $setting->where('key', 'visibility')->first();
             $visible = json_decode($visibleRecored->value);
             $store =  Store::where('tenant_id', tenant('id'))->first();
+            $SocialMedia = (array) json_decode($store->SocialMedia);
             $categoryLink = $visible->showHeadrLinks ? Category::latest()->get(['name', 'id']) : null;
 
             $this->props = [
                 "logo" =>  $store->logo,
+                "SocialMedia" =>$SocialMedia,
                 "favicon" =>  $store->favicon,
                 "title" => $store->title,
                 "visible"=>$visible ,

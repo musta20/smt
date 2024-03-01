@@ -1,3 +1,8 @@
-<x-main-layout>
-<livewire:search :$search="$search"  />  
+<x-main-layout :SearchBox="true" >
+
+    @vite('resources/js/test.js')
+
+    <livewire:search :keyword="$search" />
+
+    @livewireScriptConfig
 </x-main-layout>

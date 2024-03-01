@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Identity\Role as IdentityRole;
 use App\Enums\Store\Status;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Setting;
+use App\Models\User;
+use Illuminate\Auth\Events\Authenticated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Illuminate\Validation\Rules;
 
 class SiteController extends Controller
 {
@@ -36,7 +43,7 @@ class SiteController extends Controller
 
     public function search(Request $request)
     {
-        return view('search', ['search' => $request->search]);
+        return view('search', ['search'  => $request->search]);
     }
     public function contactPage()
     {
@@ -47,6 +54,37 @@ class SiteController extends Controller
     {
         return view('about');
     }
+
+
+    public function showRegister(Request $request)
+    {
+        if(Auth::check()) return redirect('/');
+        
+        return view('auth.customerRegister');
+    }
+
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'tenant_id' => tenant('id'),
+            'password' => Hash::make($request->password),
+        ]);
+        $customerRole = Role::findByName(IdentityRole::CUSTOMER->value);
+        dd($customerRole);
+        $user->assignRole($customerRole);
+
+        return redirect()->route('/');
+    }
+
     public function category(Category $category)
     {
         $category->products = $category->products->where('status', Status::PUBLISHED->value);
