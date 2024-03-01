@@ -28,7 +28,6 @@ class UserSeeder extends Seeder
         $user =  User::factory()->for($tenant)->withrole($vernderRole)->create([
             'name' => $storename,
             'last_name' => 'osman',
-          //  'role' => Role::VENDER,
             'provider' => Provider::EMAIL,
             'avatar' => 'https://github.com/musta20.png',
             'email' => $storename.'@'.$storename.'.com',
@@ -37,17 +36,12 @@ class UserSeeder extends Seeder
 
         $user2 =  User::factory()->for($tenant2)->withrole($vernderRole)->create([
             'name' => $storename2,
-            'last_name' => 'osman',
-           // 'role' => Role::VENDER,
+            'last_name' => 'reem',
             'provider' => Provider::EMAIL,
             'avatar' => 'https://github.com/musta20.png',
             'email' => $storename2.'@'.$storename2.'.com',
             'password' => Hash::make('1234')
         ]);
-
-        // $user->assignRole($vernderRole);
-
-        // $user2->assignRole($vernderRole);
 
         User::factory(10)->for($tenant)->withrole($customerRole)->create();
         User::factory(10)->for($tenant2)->withrole($customerRole)->create();

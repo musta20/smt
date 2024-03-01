@@ -36,7 +36,7 @@ return new class extends Migration
         Schema::create($tableNames['roles'], function (Blueprint $table) use ($teams, $columnNames) {
             $table->ulid('id')->primary(); // role id
             if ($teams || config('permission.testing')) { // permission.testing is a fix for sqlite testing
-                $table->ulid($columnNames['team_foreign_key'])->nullable();
+                $table->foreignUlid($columnNames['team_foreign_key'])->nullable();
                 $table->index($columnNames['team_foreign_key'], 'roles_team_foreign_key_index');
             }
             $table->string('name');       // For MySQL 8.0 use string('name', 125);
@@ -51,15 +51,19 @@ return new class extends Migration
 
         Schema::create($tableNames['model_has_permissions'], function (Blueprint $table) use ($tableNames, $columnNames, $pivotPermission, $teams) {
            // $table->ulid($pivotPermission);
+           $table->string('model_type');
+           $table->foreignUlid($columnNames['model_morph_key']);
+           $table->index([$columnNames['model_morph_key'], 'model_type'], 'model_has_permissions_model_id_model_type_index');
 
-            $table->string('model_type');
-            $table->ulid($columnNames['model_morph_key']);
-            $table->index([$columnNames['model_morph_key'], 'model_type'], 'model_has_permissions_model_id_model_type_index');
+           $table->foreignUlid($pivotPermission)
+           ->constrained()
+           ->cascadeOnDelete();
+               // ->references('id') // permission id
+               // ->on($tableNames['permissions'])
+               // ->onDelete('cascade');
 
-            $table->foreignUlid($pivotPermission)
-                ->references('id') // permission id
-                ->on($tableNames['permissions'])
-                ->onDelete('cascade');
+   
+
             if ($teams) {
                 $table->ulid($columnNames['team_foreign_key']);
                 $table->index($columnNames['team_foreign_key'], 'model_has_permissions_team_foreign_key_index');
@@ -74,16 +78,18 @@ return new class extends Migration
         });
 
         Schema::create($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames, $pivotRole, $teams) {
-          //  $table->ulid($pivotRole);
-
+            //$table->ulid($pivotRole);
+            $table->foreignUlid($pivotRole)
+            ->constrained()
+            ->cascadeOnDelete();
             $table->string('model_type');
-            $table->ulid($columnNames['model_morph_key']);
+            $table->foreignUlid($columnNames['model_morph_key']);
             $table->index([$columnNames['model_morph_key'], 'model_type'], 'model_has_roles_model_id_model_type_index');
 
-            $table->foreignUlid($pivotRole)
-                ->references('id') // role id
-                ->on($tableNames['roles'])
-                ->onDelete('cascade');
+          
+                // ->references('id') // role id
+                // ->on($tableNames['roles'])
+                // ->onDelete('cascade');
             if ($teams) {
                 $table->ulid($columnNames['team_foreign_key']);
                 $table->index($columnNames['team_foreign_key'], 'model_has_roles_team_foreign_key_index');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Identity\Role;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,11 +23,12 @@ Route::middleware(
 
     Route::resource('/comment', CommentController::class);
 
-    Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
+    Route::get('/profile', [SiteController::class, 'profile'])->name('profilePage');
+
+    Route::group(['middleware' => ['role:'.Role::VENDER->value],'prefix' => '/admin', 'as' => 'admin.'], function () {
 
 
         Route::get('/',adminController::class)->name('dashboard');
-
 
         Route::resource('/setting', SettingController::class);
 
@@ -37,10 +40,6 @@ Route::middleware(
         Route::resource('/store', StoreController::class);
         Route::resource('/product', productController::class);
         Route::resource('/category', CategoryController::class);
-
-        // Route::get('/dashboard', function () {
-        //     return view('dashboard');
-        // })->middleware(['auth', 'verified'])->name('dashboard');
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -31,6 +31,7 @@ Route::middleware([
     )->group(function () {
         
         
+        
         Route::get('/register', [SiteController::class, 'showRegister'])->name('registerPage');
         Route::post('/register', [SiteController::class, 'register'])->name('register');
 

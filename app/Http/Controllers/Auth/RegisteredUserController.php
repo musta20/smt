@@ -59,6 +59,7 @@ class RegisteredUserController extends Controller
 
         $user->assignRole($vernderRole);
 
+
         event(new Registered($user));
 
        return redirect()->route(RouteServiceProvider::LOGIN)->domain($tenant->domain->domain);

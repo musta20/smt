@@ -6,14 +6,15 @@ use App\Enums\Identity\Role as IdentityRole;
 use App\Enums\Store\Status;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Role;
 use App\Models\Setting;
 use App\Models\User;
-use Illuminate\Auth\Events\Authenticated;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Role;
 use Illuminate\Validation\Rules;
+use Illuminate\Auth\Events\Registered;
 
 class SiteController extends Controller
 {
@@ -33,6 +34,13 @@ class SiteController extends Controller
             'products' => $product,
             'CarouselImage' => $CarouselImage
         ]);
+    }
+
+
+    public function profile()
+    {
+        $user = Auth::user();
+        return view('profile', ['user' => $user]);
     }
 
     public function termPage()
@@ -58,8 +66,8 @@ class SiteController extends Controller
 
     public function showRegister(Request $request)
     {
-        if(Auth::check()) return redirect('/');
-        
+        if (Auth::check()) return redirect('/');
+
         return view('auth.customerRegister');
     }
 
@@ -79,10 +87,13 @@ class SiteController extends Controller
             'password' => Hash::make($request->password),
         ]);
         $customerRole = Role::findByName(IdentityRole::CUSTOMER->value);
-        dd($customerRole);
+
         $user->assignRole($customerRole);
 
-        return redirect()->route('/');
+        event(new Registered($user));
+        Auth::login($user);
+
+        return redirect('/');
     }
 
     public function category(Category $category)
@@ -95,9 +106,9 @@ class SiteController extends Controller
 
     public function product(Product $product)
     {
-        //  dd($product->visible);
 
         if ($product->status != Status::PUBLISHED->value) return     abort(404);
+
         $recomendedProduct = Product::where('status', Status::PUBLISHED->value)->latest()->take(5)->get();
 
         $allRating = [

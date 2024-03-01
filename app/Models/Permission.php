@@ -11,6 +11,6 @@ class Permission extends SpatieModels
 {
     use HasFactory;
     use HasUlids;
-    protected $primaryKey = 'id';
+    //protected $primaryKey = 'id';
 
 }
