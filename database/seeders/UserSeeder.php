@@ -43,6 +43,23 @@ class UserSeeder extends Seeder
             'password' => Hash::make('1234')
         ]);
 
+        User::factory()->for($tenant2)->withrole($customerRole)->create([
+            'name' => 'userTest',
+            'last_name' => 'userTest',
+            'provider' => Provider::EMAIL,
+            'avatar' => 'https://github.com/musta20.png',
+            'email' => 'userTest@userTest.com',
+            'password' => Hash::make('1234')
+        ]);
+
+        User::factory()->for($tenant)->withrole($customerRole)->create([
+            'name' => 'userTest',
+            'last_name' => 'userTest',
+            'provider' => Provider::EMAIL,
+            'avatar' => 'https://github.com/musta20.png',
+            'email' => 'userTest2@userTest.com',
+            'password' => Hash::make('1234')
+        ]);
         User::factory(10)->for($tenant)->withrole($customerRole)->create();
         User::factory(10)->for($tenant2)->withrole($customerRole)->create();
     }

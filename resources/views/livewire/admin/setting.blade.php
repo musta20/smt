@@ -152,6 +152,14 @@
         </h3>
       </div>
       <div class="flex flex-col gap-5.5 p-6.5">
+        <div class="flex flex-col gap-5.5 p-6.5">
+          <div>
+            <label class="mb-3 block text-sm font-medium text-black dark:text-white">
+            إضافة صور عروض إعلانية
+            </label>
+            <livewire:admin.file-manger :$subFiles wire:model='subFiles' />
+          </div>
+        </div>
         <div>
           <label class="mb-3 block text-sm font-medium text-black dark:text-white">
 محتوى صفحة الشروط و الاحكام
@@ -181,14 +189,7 @@
              class="mt-2" />
         </div>
       </div>
-      <div class="flex flex-col gap-5.5 p-6.5">
-        <div>
-          <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-          إضافة صور عروض إعلانية
-          </label>
-          <livewire:admin.file-manger :$subFiles wire:model='subFiles' />
-        </div>
-      </div>
+
     </div>
 
 

@@ -55,7 +55,7 @@ class SiteController extends Controller
     }
     public function contactPage()
     {
-        return view('term');
+        return view('contact');
     }
 
     public function aboutPage()

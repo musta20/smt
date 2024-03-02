@@ -30,8 +30,6 @@ Route::middleware([
         CheckTenantForMaintenanceMode::class
     )->group(function () {
         
-        
-        
         Route::get('/register', [SiteController::class, 'showRegister'])->name('registerPage');
         Route::post('/register', [SiteController::class, 'register'])->name('register');
 

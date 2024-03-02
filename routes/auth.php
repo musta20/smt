@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
@@ -31,6 +32,7 @@ Route::middleware(
         Route::get('/',adminController::class)->name('dashboard');
 
         Route::resource('/setting', SettingController::class);
+        Route::resource('/custmer', CustomerController::class);
 
 
         Route::resource('/setting', SettingController::class);
@@ -45,8 +47,6 @@ Route::middleware(
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
-
-
 
 
     Route::get('verify-email', EmailVerificationPromptController::class)
