@@ -1,10 +1,13 @@
 <?php
 
 use App\Models\User;
+use Database\Seeders\TestSeeder;
 use Symfony\Component\HttpFoundation\Response;
 
 test('confirm password screen can be rendered', function () {
     $user = User::factory()->for(tenant())->create();
+
+    //(new TestSeeder())->run(tenant(), $user);
 
     $response = $this->actingAs($user)->get('/confirm-password');
 

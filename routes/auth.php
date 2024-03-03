@@ -25,6 +25,8 @@ Route::middleware(
     Route::resource('/comment', CommentController::class);
 
     Route::get('/profile', [SiteController::class, 'profile'])->name('profilePage');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::group(['middleware' => ['role:'.Role::VENDER->value],'prefix' => '/admin', 'as' => 'admin.'], function () {
 
@@ -42,10 +44,11 @@ Route::middleware(
         Route::resource('/store', StoreController::class);
         Route::resource('/product', productController::class);
         Route::resource('/category', CategoryController::class);
-
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+
     });
 
 

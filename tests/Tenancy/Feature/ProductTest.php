@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 it("can render product management page", function () {
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
 
     $response = $this->actingAs($user)->get('admin/product');
 
@@ -18,7 +18,7 @@ it("can render product management page", function () {
 });
 
 it("can render product edit page", function () {
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
 
     $store = Store::factory()->for($user)->for(tenant())->create();
 
@@ -30,7 +30,7 @@ it("can render product edit page", function () {
 });
 
 it("can render creating product page", function () {
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
 
     $response = $this->actingAs($user)->get('/admin/product/create');
 
@@ -39,7 +39,7 @@ it("can render creating product page", function () {
 
 it("can add new product", function (string $string) {
 
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
     $categories = Category::factory(2)->for(tenant())->create();
 
     Storage::fake('image');
@@ -65,14 +65,14 @@ it("can add new product", function (string $string) {
 })->with(data: 'strings');
 
 it("get 404 when trying to view product item with wrong id", function () {
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
     $response = $this->actingAs($user)->get('/admin/product/000/edit');
     $response->assertStatus(Response::HTTP_NOT_FOUND);
 });
 
 it("get 422 when trying to create new product item with invalid value", function (string $string) {
 
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
 
     $response = $this->actingAs($user)->post('/admin/product/', [
         "name" => '1',
@@ -86,7 +86,7 @@ it("get 422 when trying to create new product item with invalid value", function
 })->with(data: 'strings');
 
 it("can delete a product item", function () {
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
     $product = Product::factory()->for(tenant())->create();
 
     $response = $this->actingAs($user)->delete('admin/product/' . $product->id);
@@ -101,14 +101,14 @@ it("can delete a product item", function () {
 
 it("get 404 when try to delete a product item with wrong id", function () {
 
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
     $response = $this->actingAs($user)->delete('admin/product/000');
 
     $response->assertStatus(Response::HTTP_NOT_FOUND);
 });
 
 it("get 422 when trying to update a product with invalid value", function ($string) {
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
     $product = Product::factory()->for(tenant())->create();
 
     $response = $this->actingAs($user)->put('/admin/product/' . $product->id, [
@@ -125,7 +125,7 @@ it("get 422 when trying to update a product with invalid value", function ($stri
 
 it("can update product", function (string $string) {
 
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
     $categories = Category::factory(2)->for(tenant())->create();
 
     $product = Product::factory()->for(tenant())->create();
@@ -159,7 +159,7 @@ it("get 401 when trying to modify product while not authorized", function () {
 
 it("get 403 when trying to modify product that dose not belong to tenant", function (string $string) {
 
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
     $categories = Category::factory(2)->for(tenant())->create();
     $product = Product::factory()->for(Tenant::factory()->create())->create();
     $response = $this->actingAs($user)->put('/admin/product/' . $product->id, [

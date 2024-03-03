@@ -23,7 +23,7 @@ class SiteController extends Controller
     {
 
 
-        $setting = Setting::all();
+        $setting = Setting::where('tenant_id',tenant('id'))->get();
         $product = Product::where('status', Status::PUBLISHED->value)->latest()->take(50)->get();
         $visibleRecored = $setting->where('key', 'visibility')->first();
         $visible = json_decode($visibleRecored->value);

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCommentRequest;
 use App\Models\Comment;
+use App\Models\Product;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -29,18 +31,26 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-       $user = auth()->user();
-       Comment::create([
-        'comment'=>$request->comment,
-        'rating'=>$request->rating,
-        'product_id'=>$request->product_id,
-        'user_id'=>$user->id,
-        'tenant_id'=>tenant('id')
-       ]);
+        $setting = Setting::where('tenant_id', tenant('id'))->get();
 
-       return redirect()->back()->with('OkToast', 'تم اضافة التقييم');
+        $visibleRecored = $setting->where('key', 'visibility')->first();
+        $visible = json_decode($visibleRecored->value);
+        $product = Product::findorfail($request->product_id);
+        $CanReviewProduct = json_decode($product->visible);
+        
+        if ($CanReviewProduct->CanReview && $visible->CanReview && $visible->OnlyCustmerCanReview) {
+            $user = auth()->user();
+            Comment::create([
+                'comment' => $request->comment,
+                'rating' => $request->rating,
+                'product_id' => $request->product_id,
+                'user_id' => $user->id,
+                'tenant_id' => tenant('id')
+            ]);
+        }
 
 
+        return redirect()->back()->with('OkToast', 'تم اضافة التقييم');
     }
 
     /**

@@ -54,6 +54,11 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+    public function withVenderRole(){
+        return $this->afterMaking(function (User $user) {
+            $user->assignRole(Role::VENDER->value);
+        });
+    }
 
     public function withrole($role): static
     {

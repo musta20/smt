@@ -53,6 +53,7 @@ class productController extends Controller
             'discount' => $request->discount,
             'older_price' => $request->older_price,
             'status' => $status,
+            'tenant_id' => tenant('id'),
             'visible' => $visible
         ]);
 

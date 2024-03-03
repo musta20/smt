@@ -16,7 +16,8 @@ class SettingSeeder extends Seeder
     {
         $tenant = Tenant::get()->where('name', $storename)->first();
 
-        $tenant2 = Tenant::get()->where('name', $storename2)->first();
+        if ($storename2)  $tenant2 = Tenant::get()->where('name', $storename2)->first();
+
         Setting::factory()->count(3)->for($tenant)
             ->sequence(
                 [
@@ -33,7 +34,7 @@ class SettingSeeder extends Seeder
                         "showAboutPage" => false,
                         "showHeadrLinks" => false,
                         "AllowUsers" => false,
-                        
+                        "OnlyCustmerCanReview" => false,
                         "OrderWithoutUsers" => false,
                     ])
                 ],
@@ -41,11 +42,12 @@ class SettingSeeder extends Seeder
                     "key" => "CarouselImage",
                     "value" => json_encode([])
                 ],
-          
+
             )
             ->create();
-    
-        Setting::factory()->count(3)->for($tenant2)
+
+
+            if($storename2)   Setting::factory()->count(3)->for($tenant2)
             ->sequence(
                 [
                     "key" => "siteStatus",
@@ -61,7 +63,7 @@ class SettingSeeder extends Seeder
                         "showAboutPage" => false,
                         "showHeadrLinks" => false,
                         "AllowUsers" => false,
-
+                        "OnlyCustmerCanReview" => false,
                         "OrderWithoutUsers" => false,
                     ])
                 ],
@@ -69,10 +71,9 @@ class SettingSeeder extends Seeder
                     "key" => "CarouselImage",
                     "value" => json_encode([])
                 ],
-             
-          
+
+
             )
             ->create();
-    
-        }
+    }
 }

@@ -36,7 +36,10 @@ class Setting extends Component
     public $showTermPage;
 
     public $TermPageContent;
+    
     public $store;
+
+    public $OnlyCustmerCanReview;
 
     public $subFiles = [];
 
@@ -77,6 +80,7 @@ class Setting extends Component
         $this->showAboutPage = $visibility->showAboutPage;
         $this->showHeadrLinks = $visibility->showHeadrLinks;
         $this->AllowUsers = $visibility->AllowUsers;
+        $this->OnlyCustmerCanReview = $visibility->OnlyCustmerCanReview;
         
        $this->OrderWithoutUsers = $visibility->OrderWithoutUsers;
     

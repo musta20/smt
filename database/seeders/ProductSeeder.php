@@ -24,6 +24,7 @@ class ProductSeeder extends Seeder
         $tenant2 = Tenant::get()->where('name',$storename2)->first();
 
         $tenantpath = storage_path() . '/tenant' . $tenant->id . '/app/public/media';
+        
         $tenantpath2 = storage_path() . '/tenant' . $tenant2->id . '/app/public/media';
 
         $category = Category::get()->where('tenant_id', $tenant->id);

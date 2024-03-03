@@ -83,7 +83,11 @@ class SettingController extends Controller
             "showFooterLinks" => $request->showFooterLinks ? true : false,
 
             "AllowUsers" => $request->AllowUsers ? true : false,
-            "OrderWithoutUsers" => $request->OrderWithoutUsers ? true : false
+            "OrderWithoutUsers" => $request->OrderWithoutUsers ? true : false,
+
+            "OnlyCustmerCanReview" => $request->OnlyCustmerCanReview ? true : false
+
+            
 
         ];
         $tenant = tenant();
@@ -94,7 +98,7 @@ class SettingController extends Controller
             $tenant->update(['maintenance_mode' => null]);
         }
 
-        $setting = Setting::all();
+        $setting = Setting::where('tenant_id',tenant('id'))->get();
 
         $siteStatusRecored = $setting->where('key', 'siteStatus')->first();
         $siteStatusRecored->value = $siteStatus;
@@ -103,10 +107,6 @@ class SettingController extends Controller
         $visibleRecored = $setting->where('key', 'visibility')->first();
         $visibleRecored->value = json_encode($visible);
         $visibleRecored->save();
-
-        // $TermPageContentRecored = $setting->where('key', 'TermPageContent')->first();
-        // $TermPageContentRecored->value = $TermPageContent;
-        // $TermPageContentRecored->save();
 
         return redirect()->route('admin.setting.index')->with('OkToast', 'تم اضاقة المنتج');
     }

@@ -1,11 +1,8 @@
 <div style="z-index: 100" class="fixed h-20 w-full bottom-2 top-0 mx-auto px-6 py-3 bg-white border-b-2">
-
     <div class="flex items-center justify-between ">
-
 
         <!-- auth box -->
         <div class="flex gap-2 !text-slate-500">
-
             @auth
             <div class="relative !min-w-90" x-data="{ dropdownOpen: false }" @click.outside="dropdownOpen = false">
                 <a class="flex items-center gap-4" href="#" @click.prevent="dropdownOpen = ! dropdownOpen">
@@ -81,7 +78,7 @@
             </div>
             @else
             @if ($visible->AllowUsers)
-            <a class="flex gap-2" href="{{route('login')}}">
+            <a class="flex gap-2 justify-center justify-items-center p-2" href="{{route('login')}}">
                 <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path

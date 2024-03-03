@@ -1,5 +1,6 @@
 <?php
 
+use Database\Seeders\permissionSeeder;
 
 test('registration screen can be rendered', function () {
     $response = $this->get('/register');
@@ -8,6 +9,8 @@ test('registration screen can be rendered', function () {
 });
 
 test('new users can register', function (string $string) {
+
+    (new permissionSeeder())->run();
 
     $response = $this->post('/register', [
         'name' => 'Test User',

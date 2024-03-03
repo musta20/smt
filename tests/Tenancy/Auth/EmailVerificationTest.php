@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Database\Seeders\TestSeeder;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
@@ -11,6 +12,8 @@ it('email verification screen can be rendered', function () {
     $user = User::factory()->for(tenant())->create([
         'email_verified_at' => null,
     ]);
+
+   // (new TestSeeder())->run(tenant(), $user);
 
     $response = $this->actingAs($user)->get('/verify-email');
 
@@ -24,7 +27,7 @@ it('email can be verified', function () {
         'email_verified_at' => null,
     ]);
 
-    Event::fake();
+    Event::fake([Verified::class]);
 
     $verificationUrl = URL::temporarySignedRoute(
         'verification.verify',

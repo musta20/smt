@@ -7,7 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use function PHPUnit\Framework\assertNotNull;
 
 it("can render category management page", function () {
-    $user = User::factory()->for(tenant())->create();
+
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
 
     $response = $this->actingAs($user)->get('admin/category');
 
@@ -16,7 +17,7 @@ it("can render category management page", function () {
 
 
 it("can render category edit page", function () {
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
 
     $category = Category::factory()->for(tenant())->create();
 
@@ -27,7 +28,7 @@ it("can render category edit page", function () {
 
 
 it("can add new category", function ($string) {
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
 
     $response = $this->actingAs($user)->post('/admin/category/', [
         "name" => $string,
@@ -42,7 +43,7 @@ it("can add new category", function ($string) {
 })->with(data: 'strings');
 
 it("get 404 when trying to view category item with wrong id", function () {
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
 
     $response = $this->actingAs($user)->get('admin/category/000/edit');
 
@@ -50,7 +51,7 @@ it("get 404 when trying to view category item with wrong id", function () {
 });
 
 it("get 422 when trying to create new category item with invalid value", function () {
-    $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->withVenderRole()->for(tenant())->create();
 
     $response = $this->actingAs($user)->post('/admin/category/', [
         "name" => '',
@@ -61,7 +62,7 @@ it("get 422 when trying to create new category item with invalid value", functio
 })->with(data: 'strings');
 
 it("can delete a category item", function () {
-    $user = User::factory()->create();
+    $user = User::factory()->withVenderRole()->create();
     $category = Category::factory()->create();
     $response =  $this->actingAs($user)->delete('/admin/category/'.$category->id);
     $category->fresh();
@@ -70,13 +71,13 @@ it("can delete a category item", function () {
 });
 
 it("get 404 when try to delete a category item with wrong id", function () {
-    $user = User::factory()->create();
+    $user = User::factory()->withVenderRole()->create();
     $response =  $this->actingAs($user)->delete('/admin/category/000');
     $response->assertStatus(Response::HTTP_NOT_FOUND);
 });
 
 it("get erorrs when trying to update a category with invalid value", function () {
-    $user = User::factory()->create();
+    $user = User::factory()->withVenderRole()->create();
 
     $category = Category::factory()->create();
 
@@ -89,7 +90,7 @@ it("get erorrs when trying to update a category with invalid value", function ()
 })->with(data: 'strings');
 
 it("can update category", function () {
-    $user = User::factory()->create();
+    $user = User::factory()->withVenderRole()->create();
 
     $category = Category::factory()->create();
 

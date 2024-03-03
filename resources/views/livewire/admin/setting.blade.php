@@ -142,6 +142,27 @@
           </label>
         </div>
       </div>
+      <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
+
+        <div class="w-full xl:w-1/2 flex justify-end">
+       
+        </div>
+
+        <div class="w-full xl:w-1/2 flex justify-end">
+          <span class="px-2">السمحاح بالتقييم للمستخدمين غير المسجلين  </span>
+          <label class="flex cursor-pointer select-none items-center">
+            <div class="relative">
+              <input type="checkbox" name="OnlyCustmerCanReview" wire:model='OnlyCustmerCanReview' class="sr-only" />
+
+
+              <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
+              <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.OnlyCustmerCanReview }"
+                class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition ">
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
      
     </div>
     <!-- Textarea Fields -->

@@ -76,6 +76,7 @@ class StoreController extends Controller
             'email' => $request->email,
             'specialty' => $request->specialty,
             'SocialMedia' => $SocialMedia,
+            'tenant_id' => tenant('id')
         ]);
 
 

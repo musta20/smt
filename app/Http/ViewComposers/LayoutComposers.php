@@ -27,11 +27,12 @@ class LayoutComposers
     {
         $uri = url()->current();
 
+
         if (!strpos($uri, 'admin') &&  tenant('id')) {
-            $setting = Setting::all();
+            $setting = Setting::where('tenant_id',tenant('id'))->get();
 
             $visibleRecored = $setting->where('key', 'visibility')->first();
-            $visible = json_decode($visibleRecored->value);
+            $visible = json_decode($visibleRecored?->value);
             $store =  Store::where('tenant_id', tenant('id'))->first();
             $SocialMedia = (array) json_decode($store->SocialMedia);
             $categoryLink = $visible->showHeadrLinks ? Category::latest()->get(['name', 'id']) : null;
@@ -39,7 +40,7 @@ class LayoutComposers
             if(Auth::check()){
                 $userCart = Auth::user()->products;
             }
-           //dd(session()->get('cart'));
+
             $this->props = [
                 "logo" =>  $store->logo,
                 "SocialMedia" =>$SocialMedia,

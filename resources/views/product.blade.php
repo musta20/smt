@@ -84,9 +84,10 @@
             </div>
         </div>
     </section>
-    @if ($product->visible->CanReview && $visible->CanReview)
     <div class="flex bg-white m-2 py-5 px-3  rounded-lg  border">
         <div class="w-1/2">
+            @if ($product->visible->CanReview && $visible->CanReview && $visible->OnlyCustmerCanReview)
+
             <form method="post" action="{{route('comment.store')}}" class="p-2 m-2 space-x-2">
                 @csrf
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -102,6 +103,9 @@
                 <input value="{{$product->id}}" name="product_id" hidden />
             </form>
             <hr>
+
+            @endif
+
             <span class="text-xl">التعليقات :</span>
             @foreach ($product->comment as $comment)
             <x-comment-card :$comment />
@@ -142,6 +146,5 @@
             </div>
         </div>
     </div>
-    @endif
     <x-recommended-product :$recomendedProduct />
 </x-main-layout>

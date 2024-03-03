@@ -13,7 +13,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('tenant_id',tenant('id'))->get();
         return view('admin.custmer.index',['users' => $users]);
     }
 
