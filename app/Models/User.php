@@ -6,11 +6,11 @@ namespace App\Models;
 
 use App\Enums\Identity\Provider;
 use App\Enums\Identity\Role;
-use App\Models\Conserns\BelongsToTenant;
 
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -23,13 +23,13 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant as ConcernsBelongsToTenant;
 
 class User extends Authenticatable
 {
-    use    HasApiTokens;
-    use    HasFactory;
-    use    Notifiable;
-    use    HasUlids;
-    use    ConcernsBelongsToTenant;
-    use    SoftDeletes;
-    use    HasRoles;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
+    use HasUlids;
+    use ConcernsBelongsToTenant;
+    use SoftDeletes;
+    use HasRoles;
 
 
 
@@ -51,10 +51,6 @@ class User extends Authenticatable
         'tenant_id'
     ];
 
-
-
-
-
     public function store(): HasOne
     {
 
@@ -73,7 +69,10 @@ class User extends Authenticatable
             foreignKey: 'user_id'
         );
     }
-
+    public function products():BelongsToMany
+    {
+        return $this->belongsToMany(Product::class,'shop_carts')->wherePivotNull('deleted_at');
+    }
     public function tenant(): BelongsTo | Collection
     {
         return $this->belongsTo(

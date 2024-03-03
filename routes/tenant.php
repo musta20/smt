@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\CheckTenantForMaintenanceMode;
@@ -29,6 +30,12 @@ Route::middleware([
     Route::middleware(
         CheckTenantForMaintenanceMode::class
     )->group(function () {
+        
+        Route::get('/addToCart/{product}', [CartController::class, 'addToCart'])->name('addToCart');
+        Route::get('/removeCart/{product}', [CartController::class, 'removeCart'])->name('removeCart');
+        Route::get('/showCart', [CartController::class, 'showCart'])->name('showCart');
+
+
         
         Route::get('/register', [SiteController::class, 'showRegister'])->name('registerPage');
         Route::post('/register', [SiteController::class, 'register'])->name('register');

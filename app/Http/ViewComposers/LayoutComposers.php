@@ -5,6 +5,7 @@ namespace App\Http\ViewComposers;
 use App\Models\Category;
 use App\Models\Setting;
 use App\Models\Store;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class LayoutComposers
@@ -24,10 +25,7 @@ class LayoutComposers
      */
     public function __construct()
     {
-        // Dependencies automatically resolved by service container...
         $uri = url()->current();
-
-        //dd(strpos($uri, 'admin'));
 
         if (!strpos($uri, 'admin') &&  tenant('id')) {
             $setting = Setting::all();
@@ -37,7 +35,11 @@ class LayoutComposers
             $store =  Store::where('tenant_id', tenant('id'))->first();
             $SocialMedia = (array) json_decode($store->SocialMedia);
             $categoryLink = $visible->showHeadrLinks ? Category::latest()->get(['name', 'id']) : null;
-
+            $userCart = [];
+            if(Auth::check()){
+                $userCart = Auth::user()->products;
+            }
+           //dd(session()->get('cart'));
             $this->props = [
                 "logo" =>  $store->logo,
                 "SocialMedia" =>$SocialMedia,
@@ -45,6 +47,7 @@ class LayoutComposers
                 "title" => $store->title,
                 "visible"=>$visible ,
                 "store"=>$store,
+                "userCart"=>$userCart,
                 "setting"=> $setting ,
                 "categoryLink"=>$categoryLink,
                 "description" =>  $store->description

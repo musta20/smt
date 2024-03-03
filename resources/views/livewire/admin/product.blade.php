@@ -270,11 +270,8 @@
                 </p>
             </div>
         </div>
-
-
         <div class="col-span-1 flex items-center">
             <p class="text-sm font-medium text-black dark:text-white">
-
                 @if ($item->status==$enumStatus::DRAFT->value)
                 <span
                     class="inline-flex rounded-full border border-[#637381] px-3 py-1 text-sm font-medium text-[#637381] hover:opacity-80">

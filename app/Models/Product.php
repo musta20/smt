@@ -68,6 +68,8 @@ class Product extends Model
         return $this->belongsToMany(Category::class, 'category_products');
     }
 
+
+
     public function comment(): HasMany
     {
         return $this->hasMany(
@@ -75,17 +77,18 @@ class Product extends Model
             foreignKey: "product_id"
         );
     }
-
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
     public function scopeOrderByType($query, $orderType)
     {
 
         if ($orderType['categoryId']) {
 
-            $query->whereHas('categories', function ($query) use ($orderType){
+            $query->whereHas('categories', function ($query) use ($orderType) {
                 $query->where('id', $orderType['categoryId']);
             });
-
-     
         }
 
         switch ($orderType['sortType']) {

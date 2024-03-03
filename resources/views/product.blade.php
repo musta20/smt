@@ -73,9 +73,15 @@
             </P>
             <hr />
             <span class="text-3xl ">{{$product->price}}.EL</span>
+            <div>
             <button type="submit" class="text-white  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
              focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
               ">طلب المنتج</button>
+            <a href="{{route('addToCart',$product->id)}}" class="text-white  bg-slate-700 hover:bg-slate-800 focus:outline-none focus:ring-4
+              focus:ring-slate-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
+               ">اضافة للسلة
+            </a>
+            </div>
         </div>
     </section>
     @if ($product->visible->CanReview && $visible->CanReview)
@@ -137,7 +143,5 @@
         </div>
     </div>
     @endif
-
-
     <x-recommended-product :$recomendedProduct />
 </x-main-layout>
