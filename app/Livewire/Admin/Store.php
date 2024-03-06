@@ -51,6 +51,6 @@ class Store extends Component
     }
     public function render()
     {
-        return view('livewire.admin.store');
+        return themeView('livewire.admin.store');
     }
 }

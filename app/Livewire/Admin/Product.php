@@ -24,11 +24,16 @@ class Product extends Component
     ];
     public $CurrentProduct;
     public $searchword = '';
-    public $products;
+    protected $products;
 
-    public function openModel($id)
+    public function openModel($id, $name)
     {
-        $this->CurrentProduct = $this->products->find($id);
+
+        $this->CurrentProduct = (object) [
+            "name" => $name,
+            "id" => $id
+        ];
+
         $this->dispatch('modalbox');
     }
 
@@ -41,15 +46,6 @@ class Product extends Component
 
 
 
-    public function paginate($items, $perPage = 5, $page = null, $options = [])
-    {
-        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
-
-        $items = $items instanceof Collection ? $items : Collection::make($items);
-
-        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
-    }
-
     public function search()
     {
         $this->resetPage();
@@ -61,20 +57,20 @@ class Product extends Component
     }
 
 
+
     public function render()
     {
-        $products = ModelsProduct::orderByType($this->filters)->where('name', 'like', '%' . $this->searchword . '%')
-        ->paginate(10);
 
 
-      
-            
-            return view('livewire.admin.product', [
+        $this->products = ModelsProduct::orderByType($this->filters)->where('name', 'like', '%' . $this->searchword . '%')
+            ->paginate(10);
 
-                "allProducts" => $products ,
-                "category" => Category::get(),
-                "enumStatus" => Status::class
+        return themeView('livewire.admin.product', [
 
-            ]);
+            "allProducts" => $this->products,
+            "category" => Category::get(),
+            "enumStatus" => Status::class
+
+        ]);
     }
 }

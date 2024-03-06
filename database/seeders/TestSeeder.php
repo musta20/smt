@@ -45,14 +45,14 @@ class TestSeeder extends Seeder
             [
                 "key" => "visibility",
                 "value" => json_encode([
-                    "CanReview" => false,
+                    "CanReview" => true,
                     "showCarousel" => true,
                     "showFooterLinks" => false,
                     "showTermPage" => false,
                     "showAboutPage" => false,
                     "showHeadrLinks" => false,
-                    "AllowUsers" => false,
-                    "OnlyCustmerCanReview" => false,
+                    "AllowUsers" => true,
+                    "OnlycustomerCanReview" => true,
                     "OrderWithoutUsers" => false,
                 ])
             ],

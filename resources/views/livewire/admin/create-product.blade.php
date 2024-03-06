@@ -3,19 +3,19 @@
     class="rounded-sm border border-stroke bg-white my-3 shadow-default dark:border-strokedark dark:bg-boxdark">
     <div class="flex justify-between border-b border-stroke px-6.5 py-4 dark:border-strokedark">
       <div>
-        {{-- <div @modalindow.window="alert('mom');"></div> --}}
+
         <button @click="$refs.form.submit()"
           class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-          حفظ التغيرات
+          {{__('save')}} 
         </button>
         <button
           class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded">
-          الغاء
+          {{__('Cancel')}}
         </button>
 
       </div>
       <a class="font-medium text-black dark:text-white hover:underline py-1" href="{{route('admin.product.index')}}">
-        قائمة المنتجات
+        {{__('Products list')}}
       </a>
     </div>
   </div>
@@ -26,13 +26,13 @@
       <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
           <h3 class="font-medium text-black dark:text-white">
-            بيانات المنتج
+            {{__('Product Details')}}
           </h3>
         </div>
         <div class=" p-4 xl:flex-row">
           <div class="w-full xl:w-1/2">
             <label class=" text-sm font-medium text-black dark:text-white">
-              صورة المنتج الاساسية
+              {{__('Main product image')}}
             </label>
           </div>
         </div>
@@ -51,25 +51,20 @@
             </button>
           </div>
           @endif
-          <div x-data="{ uploading: false , fileLoded:false , progress: 0  }" 
-              x-ref="dnd" 
-              class=" {{$photo ? 'hidden':'' }} relative flex  flex-col items-center justify-center w-full min-h-100 border-2 border-dashed  hover:border-primary hover:border-3 bg-slate-50 rounded-lg 
+          <div x-data="{ uploading: false , fileLoded:false , progress: 0  }" x-ref="dnd" class=" {{$photo ? 'hidden':'' }} relative flex  flex-col items-center justify-center w-full min-h-100 border-2 border-dashed  hover:border-primary hover:border-3 bg-slate-50 rounded-lg 
                       bg-gray-50 hover:bg-gray-100 ">
 
-            <input wire:model='photo' type="file" name="image" 
-              class="absolute h-full w-full opacity-0 cursor-pointer"
+            <input wire:model='photo' type="file" name="image" class="absolute h-full w-full opacity-0 cursor-pointer"
               x-on:livewire-upload-start="uploading = true"
               x-on:livewire-upload-finish="uploading = false;fileLoded=true"
-              x-on:livewire-upload-cancel="uploading = false" 
-              x-on:livewire-upload-error="uploading = false"
+              x-on:livewire-upload-cancel="uploading = false" x-on:livewire-upload-error="uploading = false"
               x-on:livewire-upload-progress="progress = $event.detail.progress"
-
               @dragover="$refs.dnd.classList.add('border-blue-400'); $refs.dnd.classList.add('ring-4'); $refs.dnd.classList.add('ring-inset');"
               @dragleave="$refs.dnd.classList.remove('border-blue-400'); $refs.dnd.classList.remove('ring-4'); $refs.dnd.classList.remove('ring-inset');"
               @drop="$refs.dnd.classList.remove('border-blue-400'); $refs.dnd.classList.remove('ring-4'); $refs.dnd.classList.remove('ring-inset');" />
 
-            
-              <div x-show="!uploading" class="flex flex-col items-center justify-center pt-5 pb-6">
+
+            <div x-show="!uploading" class="flex flex-col items-center justify-center pt-5 pb-6">
               <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -77,14 +72,14 @@
               </svg>
               <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
                 <span class="font-semibold">
-                  إضغط او اسحب هنا لرفع الصور
+                  {{__('click here or drag')}}
                 </span>
               </p>
               <p>
-                صيغ الصور المعتمده (PNG, JPG or GIF)
+                {{__('Supported image formats ')}}(PNG, JPG or GIF)
               </p>
               <p>
-                الابعاد (800x400px)
+                {{__('size')}} (800x400px)
               </p>
               @error('photo') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>
@@ -99,17 +94,17 @@
         <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
           <div class="w-full xl:w-1/2">
             <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-              اسم المنتج
+              {{__('product name')}}
             </label>
-            <input type="text" multiple name="name" value="{{old('name')}}" placeholder="اسم المنتج"
+            <input type="text" multiple name="name" value="{{old('name')}}" placeholder="{{__('product name')}} "
               class=" @error('name') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
           </div>
           <div class="w-full xl:w-1/2">
             <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-              السعر
+              {{__('price')}}
             </label>
-            <input type="text" name="price" value="{{old('price')}}" placeholder="السعر"
+            <input type="text" name="price" value="{{old('price')}}" placeholder="{{__('price')}} "
               class="w-full @error('price') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
             <x-input-error :messages="$errors->get('price')" class="mt-2" />
           </div>
@@ -117,17 +112,17 @@
         <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
           <div class="w-full xl:w-1/2">
             <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-              رابط الطلب
+              {{__('order url')}}
             </label>
-            <input type="text" value="{{old('order_url')}}" name="order_url" placeholder="رابط الطلب"
+            <input type="text" value="{{old('order_url')}}" name="order_url" placeholder="{{__('order url')}} "
               class="w-full @error('order_url') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
             <x-input-error :messages="$errors->get('order_url')" class="mt-2" />
           </div>
           <div class="w-full xl:w-1/2">
             <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-              خصم (اختياري)
+              {{__('dicount')}} ({{__('optinal')}} )
             </label>
-            <input type="text" name="discount" value="{{old('discount')}}" placeholder="خصم"
+            <input type="text" name="discount" value="{{old('discount')}}" placeholder="{{__('dicount')}} "
               class="w-full @error('discount') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
             <x-input-error :messages="$errors->get('discount')" class="mt-2" />
 
@@ -136,10 +131,10 @@
         <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
           <div class="w-full xl:w-1/2">
             <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-              السعر القديم
-              (اختياري)
+              {{__('old price')}}
+              ({{__('optinal')}} )
             </label>
-            <input type="text" name="older_price" value="{{old('older_price')}}" placeholder="السعر القديم"
+            <input type="text" name="older_price" value="{{old('older_price')}}" placeholder="{{__('old price')}}"
               class="w-full @error('older_price') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
             <x-input-error :messages="$errors->get('older_price')" class="mt-2" />
           </div>
@@ -148,12 +143,12 @@
         </div>
         <div class="p-6.5 xl:flex-row">
           <label class="  flex justify-between mb-3 block gap-1 text-sm font-medium text-black dark:text-white">
-            <span class="py-1.5"> التصنيفات :</span>
+            <span class="py-1.5"> {{__('categories')}} :</span>
             <div x-data="{ isOpen: false }"
               class="relative divide-y divide-gray-3 border border-gray-3 rounded-s-lg shadow w-35 dark:bg-gray-700">
               <button @click.prevent="isOpen = !isOpen"
                 class="w-full inline-flex items-center gap-1.5 justify-center py-1.5 text-sm text-black  hover:text-primary dark:bg-meta-4 dark:text-white dark:shadow-none">
-                إضافة
+                {{__('add')}}
 
                 <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                   fill="none" viewBox="0 0 24 24">
@@ -202,12 +197,15 @@
         class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
           <h3 class="font-medium text-black dark:text-white">
-            خيارات النشر و التقييم
+            {{__('Publishing and reviews options')}}
           </h3>
         </div>
         <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
           <div class="w-full xl:w-1/2 flex justify-end">
-            <span class="px-2"> السماح بتقييم المنتج</span>
+            <span class="px-2">
+              {{__('Allow review for this product')}}
+
+            </span>
             <label class="flex cursor-pointer select-none items-center">
               <div class="relative">
                 <input type="checkbox" name="CanReview" class="sr-only" wire:model='CanReview' />
@@ -219,7 +217,11 @@
             </label>
           </div>
           <div class="w-full xl:w-1/2 flex justify-end">
-            <span class="px-2"> إظهار المنتج</span>
+            <span class="px-2">
+
+              {{__('publish this product')}}
+
+            </span>
             <label class="flex cursor-pointer select-none items-center">
               <div class="relative">
                 <input type="checkbox" name="status" class="sr-only" wire:model='status' />
@@ -235,7 +237,7 @@
         <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
           <div class="w-full xl:w-1/2 flex justify-end">
           </div>
-      
+
         </div>
       </div>
 
@@ -243,15 +245,17 @@
       <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
           <h3 class="font-medium text-black dark:text-white">
-            تفاصيل اضافية للمنتج
+            {{__('Additional product details')}}
+
           </h3>
         </div>
         <div class="flex flex-col gap-5.5 p-6.5">
           <div>
             <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-              وصف المنتج (اختياري)
+              {{__('description')}}
+              ({{__('optinal')}})
             </label>
-            <textarea rows="6" name="description" placeholder="وصف المنتج"
+            <textarea rows="6" name="description" placeholder=" {{__('description')}}"
               class="w-full 
                       @error('description') !border-red-500 @enderror
                       rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary">
@@ -261,7 +265,7 @@
           </div>
           <div>
             <label class=" block text-sm font-medium text-black dark:text-white">
-              اضافة المزيد من صور المنتج
+              {{__('Add more image')}}
             </label>
             <livewire:admin.file-manger :$subFiles wire:model='subFiles' />
           </div>

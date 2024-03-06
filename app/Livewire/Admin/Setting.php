@@ -39,7 +39,7 @@ class Setting extends Component
     
     public $store;
 
-    public $OnlyCustmerCanReview;
+    public $OnlycustomerCanReview;
 
     public $subFiles = [];
 
@@ -80,7 +80,7 @@ class Setting extends Component
         $this->showAboutPage = $visibility->showAboutPage;
         $this->showHeadrLinks = $visibility->showHeadrLinks;
         $this->AllowUsers = $visibility->AllowUsers;
-        $this->OnlyCustmerCanReview = $visibility->OnlyCustmerCanReview;
+        $this->OnlycustomerCanReview = $visibility->OnlycustomerCanReview;
         
        $this->OrderWithoutUsers = $visibility->OrderWithoutUsers;
     
@@ -96,6 +96,6 @@ class Setting extends Component
 
     public function render()
     {
-        return view('livewire.admin.setting');
+        return themeView('livewire.admin.setting');
     }
 }

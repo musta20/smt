@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Identity\Role;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -16,7 +17,9 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit',
+      
+
+        return view('admin.profile.edit',
          [
             'user' => $request->user(),
         ]
@@ -35,6 +38,8 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
+
+        if(Auth::user()->hasRole(Role::VENDER->value)) return Redirect::route('admin.profile.update')->with('OkToast', 'تم  التعديل');
 
         return Redirect::route('profilePage')->with('OkToast', 'تم  التعديل');
 

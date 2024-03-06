@@ -5,11 +5,11 @@
 
         <button type="submit"
           class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-          حفظ التغيرات
+          {{__('save changes')}}
         </button>
         <a href="{{route('admin.dashboard')}}"
           class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded">
-          الغاء
+          {{__('cancel')}}
         </a>
 
       </div>
@@ -24,13 +24,13 @@
     <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
         <h3 class="font-medium text-black dark:text-white">
-          إعدادادة المتجر الاساسية
+          {{__('Genral store settings')}}
         </h3>
       </div>
       <div class=" p-4 xl:flex-row">
         <div class="w-full  xl:w-1/2">
           <label class=" text-sm font-medium text-black dark:text-white">
-            شعار الموقع
+            {{__('logo')}}
           </label>
         </div>
       </div>
@@ -69,16 +69,16 @@
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
             </svg>
-            <p class="mb-2 text-gray-500 dark:text-gray-400">
+            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
               <span class="font-semibold">
-                إضغط او اسحب هنا لرفع الصور
+                {{__('click here or drag')}}
               </span>
             </p>
             <p>
-              (PNG, JPG or GIF)
+              {{__('Supported image formats ')}}(PNG, JPG or GIF)
             </p>
             <p>
-              الابعاد (800x400px)
+              {{__('size')}} (800x400px)
             </p>
             @error('photo') <span class="text-red-500">{{ $message }}</span> @enderror
           </div>
@@ -94,18 +94,18 @@
       <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
         <div class="w-full xl:w-1/2">
           <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-            اسم المتجر
+            {{__('Store Title')}}
           </label>
-          <input type="text" multiple name="title" value="{{old('title',$store->title)}}" placeholder="اسم المتجر"
+          <input type="text" multiple name="title" value="{{old('title',$store->title)}}" placeholder="{{__('Store Title')}}"
             class=" @error('title') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
           <x-input-error :messages="$errors->get('title')" class="mt-2" />
         </div>
         <div class="w-full xl:w-1/2">
           <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-            تخصص المتجر
+            {{__('Store specialty')}}
           </label>
           <input type="text" name="specialty" value="{{old('specialty',$store->specialty)}}"
-            placeholder="الحواسيب - اكسسورات الكمبيوتر"
+            placeholder="{{__('pcs accessory ..')}}"
             class="w-full @error('specialty') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
           <x-input-error :messages="$errors->get('specialty')" class="mt-2" />
         </div>
@@ -113,7 +113,7 @@
       <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
         <div class="w-full xl:w-1/2">
           <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-            عنوان المتجر
+            {{__('Adress')}}
           </label>
           <input type="text" value="{{old('address',$store->address)}}" name="address"
             placeholder=" القاهرة - حدائق الإهرام"
@@ -122,14 +122,18 @@
         </div>
         <div class="w-full xl:w-1/2 ">
           <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-            تبويب شعار
+            {{__('favicon')}}
           </label>
           <div class="flex ">
             <input type="file" wire:model='faviconImge' class="w-3/4"
-              class="w-full @error('favicon') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
+              class="w-full @error('favicon') !border-red-500 @enderror  
+              rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal
+               text-black outline-none transition focus:!border-primary active:border-primary
+                disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input
+                 dark:text-white dark:focus:!border-primary" />
 
             @if (!$store->favicon )
-            <span>no image</span>
+            <span>{{__('no image')}}</span>
             @else
             <img src="{{tenant_asset('media/'.$store->favicon)}}" width="50" height="50" alt="">
             @endif
@@ -143,17 +147,17 @@
       <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
         <div class="w-full xl:w-1/2">
           <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-            رقم الهاتف
+            {{__('phone number')}}
           </label>
-          <input type="text" multiple name="phone" value="{{old('phone',$store->phone)}}" placeholder="رقم الهاتف"
+          <input type="text" multiple name="phone" value="{{old('phone',$store->phone)}}" placeholder="{{__('phone number')}}"
             class=" @error('phone') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
           <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
         <div class="w-full xl:w-1/2">
           <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-            البريد الاكتروني
+            {{__('Email')}}
           </label>
-          <input type="text" name="email" value="{{old('email',$store->email)}}" placeholder="البريد الاكتروني"
+          <input type="text" name="email" value="{{old('email',$store->email)}}" placeholder="{{__('Email')}}"
             class="w-full @error('email') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
           <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
@@ -163,21 +167,19 @@
     <!-- Toggle switch input -->
   </div>
   <div x-data class="flex p-5 flex-col gap-9">
-
-
     <!-- Textarea Fields -->
     <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
         <h3 class="font-medium text-black dark:text-white">
-          تفاصيل اضافية
+          {{__('Extra details')}}
         </h3>
       </div>
       <div class="flex flex-col gap-5.5 p-6.5">
         <div>
           <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-            وصف المتجر
+            {{__('Store Description')}}
           </label>
-          <textarea rows="6" name="description" placeholder=" وصف المتجر"
+          <textarea rows="6" name="description" placeholder="{{__('Store Description')}}"
             class="w-full 
                     @error('description',$store->description) !border-red-500 @enderror
                     rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary">
@@ -188,10 +190,8 @@
         <div>
           <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
             <div class="w-full xl:w-1/2">
-
               <div class="relative w-full">
-
-                <input type="text" multiple name="tiktok" value="{{old('tiktok',$SocialMedia->TIKTOK)}}" placeholder="حساب تيك توك"
+                <input type="text" multiple name="tiktok" value="{{old('tiktok',$SocialMedia->TIKTOK)}}" placeholder="{{__('tiktok account')}}"
                   class="ps-10 @error('tiktok') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
 
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -209,7 +209,7 @@
             <div class="w-full xl:w-1/2">
               <div class="relative w-full">
 
-                <input type="text" name="telegram" value="{{old('telegram',$SocialMedia->INSTAGRAM)}}" placeholder="حساب تلغرام"
+                <input type="text" name="telegram" value="{{old('telegram',$SocialMedia->INSTAGRAM)}}" placeholder="{{__('telegram account')}}"
                   class="ps-10 w-full @error('telegram') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
 
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -220,8 +220,6 @@
                   </svg>
                 </div>
               </div>
-
-
               <x-input-error :messages="$errors->get('telegram')" class="mt-2" />
             </div>
           </div>
@@ -230,8 +228,9 @@
 
               <div class="relative w-full">
 
-                <input type="text" name="x" value="{{old('x',$SocialMedia->X)}}" placeholder="حساب إكس"
-                  class="ps-10 w-full @error('x') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
+                <input type="text" name="x" value="{{old('x',$SocialMedia->X)}}" placeholder="{{__('X account')}}"
+                  class="ps-10 w-full @error('x') !border-red-500 @enderror  rounded-lg border-[1.5px]
+                   border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
 
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
 
@@ -250,7 +249,7 @@
 
               <div class="relative w-full">
 
-                <input type="text" name="youtube" value="{{old('youtube',$SocialMedia->YOUTUBE)}}" placeholder="حساب يوتيوب"
+                <input type="text" name="youtube" value="{{old('youtube',$SocialMedia->YOUTUBE)}}" placeholder="{{__('Youtube account')}}"
                   class="ps-10 w-full @error('youtube') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                   <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
@@ -275,7 +274,7 @@
 
               <div class="relative w-full">
 
-                <input type="text" multiple name="facebook" value="{{old('facebook',$SocialMedia->FACEBOOK)}}" placeholder="حساب فيس بوك"
+                <input type="text" multiple name="facebook" value="{{old('facebook',$SocialMedia->FACEBOOK)}}" placeholder="{{__('Facebook account')}}"
                   class="ps-10 @error('facebook') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
 
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -294,8 +293,10 @@
 
               <div class="relative w-full">
 
-                <input type="text" name="snapchat" value="{{old('snapchat',$SocialMedia->SNAPCHAT)}}" placeholder="حساب سناب شات"
-                  class="ps-10 w-full @error('snapchat') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
+                <input type="text" name="snapchat" value="{{old('snapchat',$SocialMedia->SNAPCHAT)}}" placeholder="{{__('snapchat account')}}"
+                  class="ps-10 w-full @error('snapchat') !border-red-500 @enderror  rounded-lg border-[1.5px]
+                   border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary
+                    active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
 
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
 
@@ -314,7 +315,7 @@
             
             <div class="w-full xl:w-1/2">
               <div class="relative w-full">
-                <input type="text" name="instagram" value="{{old('instagram',$SocialMedia->INSTAGRAM)}}" placeholder="حساب إنستجرام"
+                <input type="text" name="instagram" value="{{old('instagram',$SocialMedia->INSTAGRAM)}}" placeholder="{{__('instagram account')}}"
                   class="ps-10 w-full @error('instagram') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                   <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
@@ -326,11 +327,9 @@
               </div>
               <x-input-error :messages="$errors->get('whatsapp')" class="mt-2" />
             </div>
-
-
             <div class="w-full xl:w-1/2">
               <div class="relative w-full">
-                <input type="text" name="whatsapp" value="{{old('whatsapp',$SocialMedia->WHATSAPP)}}" placeholder="حساب واتس اب"
+                <input type="text" name="whatsapp" value="{{old('whatsapp',$SocialMedia->WHATSAPP)}}" placeholder="{{__('whatsapp account')}}"
                   class="ps-10 w-full @error('whatsapp') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                   <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
@@ -340,17 +339,8 @@
               </div>
               <x-input-error :messages="$errors->get('whatsapp')" class="mt-2" />
             </div>
-
           </div>
         </div>
-
-
-
-
-
-
-
-
       </div>
     </div>
   </div>

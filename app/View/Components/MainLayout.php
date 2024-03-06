@@ -24,6 +24,6 @@ class MainLayout extends Component
     {
 
         
-        return view('components.main-layout');
+        return themeView('components.main-layout');
     }
 }

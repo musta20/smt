@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Redirect;
 
 class SiteController extends Controller
 {
@@ -23,44 +24,62 @@ class SiteController extends Controller
     {
 
 
-        $setting = Setting::where('tenant_id',tenant('id'))->get();
+        $setting = Setting::where('tenant_id', tenant('id'))->get();
         $product = Product::where('status', Status::PUBLISHED->value)->latest()->take(50)->get();
         $visibleRecored = $setting->where('key', 'visibility')->first();
         $visible = json_decode($visibleRecored->value);
         $CarouselImage = (array) json_decode($setting->where('key', 'CarouselImage')->first()->value);
 
-        return view('index', [
+        return themeView('index', [
             'visible' => $visible,
             'products' => $product,
             'CarouselImage' => $CarouselImage
         ]);
     }
 
+    // public function setLocale(Request $request)
+    // {
+    //     $locale = $request->post('locale');
+    //     if (in_array($locale, config('app.available_locales'))) {
+    //         session()->put('locale', $locale); // Use session or cookie
+    //         app()->setLocale($locale);
+    //     }
 
+    //     return redirect()->back();
+    // }
+
+
+    public function someMethod($locale = null)
+    {
+        if ($locale && in_array($locale, config('app.available_locales'))) {
+            app()->setLocale($locale);
+        }
+    }
     public function profile()
     {
         $user = Auth::user();
-        return view('profile', ['user' => $user]);
+        if ($user->hasRole(IdentityRole::VENDER->value)) return Redirect::Route('admin.profile.update');
+        return themeView('profile', ['user' => $user]);
     }
 
     public function termPage()
     {
 
-        return view('term');
+        return themeView('term');
     }
 
     public function search(Request $request)
     {
-        return view('search', ['search'  => $request->search]);
+        return themeView('search', ['search'  => $request->search]);
     }
     public function contactPage()
     {
-        return view('contact');
+        return themeView('contact');
     }
 
     public function aboutPage()
     {
-        return view('about');
+        return themeView('about');
     }
 
 
@@ -68,7 +87,7 @@ class SiteController extends Controller
     {
         if (Auth::check()) return redirect('/');
 
-        return view('auth.customerRegister');
+        return themeView('auth.customerRegister');
     }
 
     public function register(Request $request)
@@ -99,7 +118,7 @@ class SiteController extends Controller
     public function category(Category $category)
     {
         $category->products = $category->products->where('status', Status::PUBLISHED->value);
-        return view('category', [
+        return themeView('category', [
             'category' => $category,
         ]);
     }
@@ -131,7 +150,7 @@ class SiteController extends Controller
             $totalRating = array_sum($r) / array_sum($allRating);
         }
 
-        return view('product', [
+        return themeView('product', [
             'product' => $product,
             'totalRating' => $totalRating,
             'allRating' => $allRating,

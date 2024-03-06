@@ -47,7 +47,12 @@ class ProductFactory extends Factory
         ];
     }
 
+public function withReview(){
 
+    return $this->state(fn (array $attributes) => ['visible'=>['CanReview' => true]]);
+
+
+}
 
     public function withImage($path): Factory
     {

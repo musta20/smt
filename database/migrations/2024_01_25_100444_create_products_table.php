@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('status')->default(Status::DRAFT);
 
             $table->json('visible')->default(json_encode([
-                "CanReview" => false,
+                "CanReview" => true,
             ]));
 
             $table->foreign('tenant_id')

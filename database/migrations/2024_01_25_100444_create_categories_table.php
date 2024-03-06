@@ -26,7 +26,8 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             
-            $table->string('name');
+                $table->string('name');
+                $table->mediumText('description')->nullable();
 
             $table->foreignUlid('store_id')
             ->nullable()

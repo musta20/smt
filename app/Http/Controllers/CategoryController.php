@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.index');
+        return themeView('admin.category.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return themeView('admin.category.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class CategoryController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect()->route('admin.category.index')->with('OkToast', 'تم اضاقة المنتج');
+        return redirect()->route('admin.category.index')->with('OkToast','تم اضافة التصنيف');
     }
 
     /**
@@ -51,7 +51,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.category.edit',[
+        return themeView('admin.category.edit',[
             'category' => $category
 
         ]);

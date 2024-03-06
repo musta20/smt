@@ -29,6 +29,6 @@ class Header extends Component
     {
 
 
-        return view('components.layout.header');
+        return themeView('components.layout.header');
     }
 }

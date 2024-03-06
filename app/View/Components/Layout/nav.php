@@ -21,7 +21,7 @@ class nav extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout.nav');
+        return themeView('components.layout.nav');
     }
 }
 

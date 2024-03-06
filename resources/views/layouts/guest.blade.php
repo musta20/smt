@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In | TailAdmin - Tailwind CSS Admin Dashboard Template</title>
+    <title>{{__('Login')}} | {{$title ?? "store"}}</title>
 </head>
 <x-auth-session-status class="mb-4" :status="session('status')" />
 @vite(['resources/js/index.js','resources/js/helper.js'])
@@ -33,7 +33,7 @@
                     <!-- Breadcrumb Start -->
                     <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <h2 class="text-title-md2 font-bold text-black dark:text-white">
-                            Sign In
+                            {{__('login')}}
                         </h2>
 
                         <nav>
@@ -51,7 +51,7 @@
                     <div
                         class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                         <div class="flex flex-wrap items-center">
-                            <div class="hidden w-full xl:block xl:w-1/2">
+                            {{-- <div class="hidden w-full xl:block xl:w-1/2">
                                 <div class="px-26 py-17.5 text-center">
                                     <a class="mb-5.5 inline-block" href="index.html">
                                         <img class="hidden dark:block" src="{{ Vite::asset('resources/images/logo/logo.svg') }}" alt="Logo" />
@@ -67,7 +67,7 @@
                                         <img src="{{ Vite::asset('resources/images/illustration/illustration-03.svg') }}" alt="illustration" />
                                     </span>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             {{ $slot }}
 

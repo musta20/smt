@@ -34,11 +34,15 @@ class CommentController extends Controller
         $setting = Setting::where('tenant_id', tenant('id'))->get();
 
         $visibleRecored = $setting->where('key', 'visibility')->first();
+
         $visible = json_decode($visibleRecored->value);
+
         $product = Product::findorfail($request->product_id);
-        $CanReviewProduct = json_decode($product->visible);
         
-        if ($CanReviewProduct->CanReview && $visible->CanReview && $visible->OnlyCustmerCanReview) {
+        $CanReviewProduct = json_decode($product->visible);
+
+        if ($CanReviewProduct->CanReview && $visible->CanReview && $visible->OnlycustomerCanReview) {
+
             $user = auth()->user();
             Comment::create([
                 'comment' => $request->comment,
@@ -47,10 +51,13 @@ class CommentController extends Controller
                 'user_id' => $user->id,
                 'tenant_id' => tenant('id')
             ]);
+
+            return redirect()->back()->with('OkToast', 'تم اضافة التقييم');
+
         }
 
+        return redirect()->back()->with('ErorrToast', 'لم يتم اضافة التقييم');
 
-        return redirect()->back()->with('OkToast', 'تم اضافة التقييم');
     }
 
     /**

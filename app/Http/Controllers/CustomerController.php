@@ -14,7 +14,7 @@ class CustomerController extends Controller
     public function index()
     {
         $users = User::where('tenant_id',tenant('id'))->get();
-        return view('admin.custmer.index',['users' => $users]);
+        return themeView('admin.customer.index',['users' => $users]);
     }
 
     /**

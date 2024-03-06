@@ -71,7 +71,7 @@ class Search extends Component
         //orderByType($this->filters)
         //->
         //->where('status', Status::PUBLISHED->value)
-        return view('livewire.search', [
+        return themeView('livewire.search', [
 
             "allProducts" => $products, // $this->paginate($this->products, 10),
             "category" => Category::get(),

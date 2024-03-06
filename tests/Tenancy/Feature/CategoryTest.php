@@ -32,17 +32,23 @@ it("can add new category", function ($string) {
 
     $response = $this->actingAs($user)->post('/admin/category/', [
         "name" => $string,
-        "discription" => $string,
+        "description" => $string,
+    ]);
+
+    $this->assertDatabaseHas('categories', [
+        "name" => $string,
+        "description" => $string,
     ]);
 
     $response->assertStatus(Response::HTTP_FOUND);
 
-    $category = Category::first();
-
     $response->assertRedirect('/admin/category/');
+
+    $response->assertSessionHas('OkToast', 'تم اضافة التصنيف');
 })->with(data: 'strings');
 
 it("get 404 when trying to view category item with wrong id", function () {
+
     $user = User::factory()->withVenderRole()->for(tenant())->create();
 
     $response = $this->actingAs($user)->get('admin/category/000/edit');
@@ -59,14 +65,24 @@ it("get 422 when trying to create new category item with invalid value", functio
     ]);
 
     $response->assertSessionHasErrors();
+
 })->with(data: 'strings');
 
 it("can delete a category item", function () {
     $user = User::factory()->withVenderRole()->create();
+
     $category = Category::factory()->create();
-    $response =  $this->actingAs($user)->delete('/admin/category/'.$category->id);
+
+    $response =  $this->actingAs($user)->delete('/admin/category/' . $category->id);
+
+    $response->assertRedirect('/admin/category');
+
     $category->fresh();
+    
+    $response->assertSessionHas('OkToast', 'تم حذف التصنيف ');
+
     $this->assertSoftDeleted($category);
+
     $response->assertStatus(Response::HTTP_FOUND);
 });
 
@@ -77,11 +93,12 @@ it("get 404 when try to delete a category item with wrong id", function () {
 });
 
 it("get erorrs when trying to update a category with invalid value", function () {
+
     $user = User::factory()->withVenderRole()->create();
 
     $category = Category::factory()->create();
 
-    $response = $this->actingAs($user)->put('/admin/category/'.$category->id, [
+    $response = $this->actingAs($user)->put('/admin/category/' . $category->id, [
         "name" => '',
         "discription" => ''
     ]);
@@ -90,28 +107,34 @@ it("get erorrs when trying to update a category with invalid value", function ()
 })->with(data: 'strings');
 
 it("can update category", function () {
+
     $user = User::factory()->withVenderRole()->create();
 
     $category = Category::factory()->create();
 
-    $response = $this->actingAs($user)->put('/admin/category/'.$category->id, [
+    $response = $this->actingAs($user)->put('/admin/category/' . $category->id, [
         "name" => 'new-name',
-        "discription" => 'new-description'
+        "description" => 'new-description'
+    ]);
+
+
+    $this->assertDatabaseHas('categories', [
+        "name" => 'new-name',
+        "description" => 'new-description',
     ]);
 
     $response->assertRedirect('/admin/category');
-})->with(data: 'strings');
+});
 
 
 it("redirect to login page when trying to modify category while not authorized", function () {
 
     $category = Category::factory()->create();
 
-    $response = $this->put('/admin/category/'.$category->id, [
+    $response = $this->put('/admin/category/' . $category->id, [
         "name" => 'new-name',
-        "discription" => 'new-description'
+        "description" => 'new-description'
     ]);
 
     $response->assertRedirect('/login');
 });
-

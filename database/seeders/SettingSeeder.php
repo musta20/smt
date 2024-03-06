@@ -34,7 +34,7 @@ class SettingSeeder extends Seeder
                         "showAboutPage" => false,
                         "showHeadrLinks" => false,
                         "AllowUsers" => false,
-                        "OnlyCustmerCanReview" => false,
+                        "OnlycustomerCanReview" => false,
                         "OrderWithoutUsers" => false,
                     ])
                 ],
@@ -63,7 +63,7 @@ class SettingSeeder extends Seeder
                         "showAboutPage" => false,
                         "showHeadrLinks" => false,
                         "AllowUsers" => false,
-                        "OnlyCustmerCanReview" => false,
+                        "OnlycustomerCanReview" => false,
                         "OrderWithoutUsers" => false,
                     ])
                 ],

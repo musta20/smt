@@ -2,8 +2,6 @@
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         <!-- Item 1 -->
- 
-
         <!-- Item 2 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg"

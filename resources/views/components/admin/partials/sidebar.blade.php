@@ -23,7 +23,7 @@
     <nav class="mt-5 px-4 py-4 lg:mt-9 lg:px-6" x-data="{selected: $persist('Dashboard')}">
       <!-- Menu Group -->
       <div>
-        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">القائمة الرئيسية</h3>
+        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">{{__('main menu')}}</h3>
 
         <ul class="mb-6 flex flex-col gap-1.5">
           <!-- Menu Item Dashboard -->
@@ -46,7 +46,8 @@
                   fill="" />
               </svg>
 
-              المنتجات
+              
+              {{__('products')}}
 
 
             </a>
@@ -66,7 +67,8 @@
                 </path>
               </svg>
 
-              التصنيفات
+              {{__('Categories')}}
+
 
             </a>
           </li>
@@ -85,7 +87,8 @@
                   fill="" />
               </svg>
 
-              هوية المتجر
+              {{__('Themes')}}
+
 
             </a>
           </li>
@@ -94,7 +97,7 @@
           <!-- Menu Item Forms -->
           <li>
             <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
-              href="{{route('admin.custmer.index')}}">
+              href="{{route('admin.customer.index')}}">
               <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -114,7 +117,8 @@
                   fill="white" />
               </svg>
 
-              الزيائن
+              {{__('Customers')}}
+
 
             </a>
 
@@ -143,7 +147,8 @@
                 </defs>
               </svg>
 
-              التنبيهات
+              {{__('Dashboard')}}
+
             </a>
           </li>
           <!-- Menu Item Tables -->
@@ -170,7 +175,8 @@
                 </defs>
               </svg>
 
-              الاعداد
+              {{__('Settings')}}
+
             </a>
 
             <li>
@@ -195,7 +201,8 @@
                   </defs>
                 </svg>
   
-                اعداد خصوصية المتجر
+                {{__('Genral Settings')}}
+
               </a>
 
           </li>
@@ -205,7 +212,8 @@
 
       <!-- Others Group -->
       <div>
-        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">اخرى</h3>
+        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">       {{__('others')}}
+        </h3>
 
         <ul class="mb-6 flex flex-col gap-1.5">
           <!-- Menu Item Chart -->
@@ -230,7 +238,8 @@
                 </defs>
               </svg>
 
-              الدعم الفني
+              {{__('Support')}}
+
 
             </a>
           </li>

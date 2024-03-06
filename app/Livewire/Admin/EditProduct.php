@@ -77,7 +77,7 @@ class EditProduct extends Component
 
     public function render()
     {
-        return view('livewire.admin.edit-product', [
+        return themeView('livewire.admin.edit-product', [
             "category" => Category::get(),
 
         ]);

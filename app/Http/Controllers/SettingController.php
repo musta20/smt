@@ -85,7 +85,7 @@ class SettingController extends Controller
             "AllowUsers" => $request->AllowUsers ? true : false,
             "OrderWithoutUsers" => $request->OrderWithoutUsers ? true : false,
 
-            "OnlyCustmerCanReview" => $request->OnlyCustmerCanReview ? true : false
+            "OnlycustomerCanReview" => $request->OnlycustomerCanReview ? true : false
 
             
 

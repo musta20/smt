@@ -1,6 +1,6 @@
 <x-main-layout>
     <ul class="flex justify-items-center  gap-1   text-gray ">
-        <li>التصنيفات</li>
+        <li>{{__('categories')}}</li>
         <li>
             <svg class="w-[12px] h-[12px] text-gray-800 my-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 24 24">
@@ -76,22 +76,22 @@
             <div>
             <button type="submit" class="text-white  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
              focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
-              ">طلب المنتج</button>
+              ">{{__('order')}}</button>
             <a href="{{route('addToCart',$product->id)}}" class="text-white  bg-slate-700 hover:bg-slate-800 focus:outline-none focus:ring-4
               focus:ring-slate-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
-               ">اضافة للسلة
+               ">{{__('Add to cart')}}
             </a>
             </div>
         </div>
     </section>
     <div class="flex bg-white m-2 py-5 px-3  rounded-lg  border">
         <div class="w-1/2">
-            @if ($product->visible->CanReview && $visible->CanReview && $visible->OnlyCustmerCanReview)
+            @if ($product->visible->CanReview && $visible->CanReview && $visible->OnlycustomerCanReview)
 
             <form method="post" action="{{route('comment.store')}}" class="p-2 m-2 space-x-2">
                 @csrf
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    اضف التعليق
+                    {{__('add review')}}
                 </label>
                 <x-add-rating />
                 <textarea id="comment" rows="4" name="comment"
@@ -99,14 +99,14 @@
                     placeholder="ماهو رأيك في المنتج"></textarea>
                 <button type="submit" class="text-white m-2  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
                 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
-                 ">نشر</button>
+                 ">{{__('publish')}}</button>
                 <input value="{{$product->id}}" name="product_id" hidden />
             </form>
             <hr>
 
             @endif
 
-            <span class="text-xl">التعليقات :</span>
+            <span class="text-xl">{{__('reviews')}} :</span>
             @foreach ($product->comment as $comment)
             <x-comment-card :$comment />
             @endforeach
@@ -118,9 +118,9 @@
                 <span class="flex justify-between my-2">
                     <x-user-rating :rating="$totalRating" />
                     <strong>
-                        التقييم العام
+                        {{__('over all rating')}}
 
-                        بناءً على ({{array_sum($allRating)}}) تقييمات
+                        {{__('based on')}}({{array_sum($allRating)}}) {{__('reviews')}}
                     </strong>
                 </span>
                 <hr>

@@ -4,21 +4,16 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Http\Middleware\SetThemeForTenant;
 use App\Jobs\CreateFrameworkDirectoriesForTenant;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Stancl\JobPipeline\JobPipeline;
-use Stancl\Tenancy\Controllers\TenantAssetsController;
 use Stancl\Tenancy\Events;
-use Stancl\Tenancy\Jobs;
 use Stancl\Tenancy\Listeners;
 use Stancl\Tenancy\Middleware;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
-use Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain;
-use Stancl\Tenancy\Middleware\InitializeTenancyByPath;
 
 class TenancyServiceProvider extends ServiceProvider
 {
@@ -153,13 +148,15 @@ class TenancyServiceProvider extends ServiceProvider
         $tenancyMiddleware = [
             // Even higher priority than the initialization middleware
             Middleware\PreventAccessFromCentralDomains::class,
+            
 
             Middleware\InitializeTenancyByDomain::class,
+
             Middleware\InitializeTenancyBySubdomain::class,
             Middleware\InitializeTenancyByDomainOrSubdomain::class,
             Middleware\InitializeTenancyByPath::class,
             Middleware\InitializeTenancyByRequestData::class,
-            SetThemeForTenant::class
+
         ];
 
         foreach (array_reverse($tenancyMiddleware) as $middleware) {

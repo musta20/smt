@@ -1,4 +1,5 @@
 <x-admin.partials.layout>
+
     <main>
         <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
@@ -36,7 +37,7 @@
                 </x-admin.partials.card-item>
 
                   <!-- Card Item Start -->
-                  <x-admin.partials.card-item :number="$custmerCount" :title="'عدد المستخدمين'">
+                  <x-admin.partials.card-item :number="$customerCount" :title="'عدد المستخدمين'">
                     <svg class="fill-primary" width="20" height="22" viewBox="0 0 20 22" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path

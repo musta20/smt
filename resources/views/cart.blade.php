@@ -5,14 +5,14 @@
                 <div
                     class="grid grid-cols-10 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
                     <div class="col-span-4 p-5 flex items-center">
-                        <p class="font-medium">السلة</p>
+                        <p class="font-medium">{{__('Cart')}}</p>
                     </div>
                 </div>
                 @if(!count($cart))
                 <div
                     class="grid grid-cols-7 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
                     <div class="col-span-7 flex items-center">
-                        <span class="p-10">السلة فارعة</span>
+                        <span class="p-10">{{__('your shoping cart is empty')}}</span>
                     </div>
                 </div>
                 @endif
@@ -27,7 +27,7 @@
                                 alt="Product" />
 
                             @else
-                            <span class="text-center text-sm">no image</span>
+                            <span class="text-center text-sm">{{__('no image')}}</span>
                             @endif
                         </div>
                         <p class="text-sm p-5  font-medium text-black dark:text-white">
@@ -53,7 +53,7 @@
                             class="shadow absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 whitespace-nowrap rounded-md bg-white px-4.5 py-1.5 text-sm font-medium opacity-0  group-hover:opacity-100 dark:bg-meta-4">
                             <span
                                 class="absolute -left-1 top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-r-sm bg-white dark:bg-meta-4"></span>
-                            حذف
+                                {{__('delete')}}
                         </div>
                     </div>
 

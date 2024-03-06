@@ -34,7 +34,7 @@ class ShopCart extends Pivot
         return $this->BelongsTo(Product::class);
     }
 
-    public function users(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->BelongsTo(User::class);
     }

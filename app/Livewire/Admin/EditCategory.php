@@ -27,7 +27,7 @@ class EditCategory extends Component
  
     public function render()
     {
-        return view(
+        return themeView(
             'livewire.admin.edit-category',
             ["category" => Category::all()]
         );

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
+use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Symfony\Component\HttpFoundation\Response;
 
 class SetThemeForTenant
@@ -15,10 +15,22 @@ class SetThemeForTenant
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
+
+     protected $config;
+
+     public function __construct(ConfigRepository $config)
+     {
+         $this->config = $config;
+     }
     public function handle(Request $request, Closure $next): Response
     {
+        
       if ($request->path() != RouteServiceProvider::HOME) {
-            //config(['view.paths' => [resource_path('newTheme')]]);
+
+        $this->config->set('view.paths', [
+            resource_path('views'),
+        ]);
+            
         }
         return $next($request);
     }

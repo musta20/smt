@@ -15,11 +15,11 @@ class TenantSeeder extends Seeder
 
         $tenant =  Tenant::create([
             'name' =>  $storename,
-            'theme' =>  $storename
+            'theme' =>  ""
         ]);
         $tenant2 =  Tenant::create([
             'name' =>  $storename2,
-            'theme' =>  $storename2
+            'theme' =>  ""
         ]);
 
 

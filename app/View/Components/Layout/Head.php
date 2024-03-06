@@ -21,6 +21,6 @@ class Head extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout.head');
+        return themeView('components.layout.head');
     }
 }

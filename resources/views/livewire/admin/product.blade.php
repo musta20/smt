@@ -6,7 +6,7 @@
             <a href="{{route('admin.product.create')}}"
                 class="w-full inline-flex items-center gap-1.5 rounded-md justify-center py-1.5 text-sm text-black  hover:text-primary dark:bg-meta-4 dark:text-white dark:shadow-none">
 
-                إضافة
+                {{__('add')}}
 
                 <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                     fill="none" viewBox="0 0 24 24">
@@ -19,7 +19,7 @@
             class="relative divide-y divide-gray-3 rounded-lg border border-gray-3 shadow w-55 dark:bg-gray-700">
             <button @click.prevent="isOpen = !isOpen"
                 class="w-full inline-flex items-center gap-1.5 rounded-md justify-center py-1.5 text-sm text-black  hover:text-primary dark:bg-meta-4 dark:text-white dark:shadow-none">
-                ترتيب حسب
+                {{__('order by')}}
                 <svg class="fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -33,33 +33,35 @@
                 style="display: none;">
                 <button wire:click="filter('sortType','NEWEST'); isOpen = false"
                     class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                    الاحدث
+                    
+                    {{__('newest')}}
                 </button>
                 <button wire:click="filter('sortType','AVG_COUSTMER'); isOpen = false"
                     class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                    الاعلى تقييما
+                    {{__('average customer')}}
                 </button>
                 <button wire:click="filter('sortType','BEST_SELLING'); isOpen = false"
                     class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                    الاكثر طلبا
+                   
+                    {{__('highest order')}}
                 </button>
 
                 <button wire:click="filter('sortType','LOW_TO_HIGHT'); isOpen = false"
                     class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                    السعر: من الاقل الى الاعلى
+                    {{__('Price:low to high')}}
                 </button>
 
                 <button wire:click="filter('sortType','HIGHT_TO_LOW'); isOpen = false"
                     class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                    السعر: من الاعلى الى الاقل
+                    {{__('Price: high to low')}}
                 </button>
                 <button wire:click="filter('sortType','PUBLISHED'); isOpen = false"
                     class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                    حالة:منشور
+                    {{__('Status: Publish')}}
                 </button>
                 <button wire:click="filter('sortType','DRAFT'); isOpen = false"
                     class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                    حالة:مسودة
+                    {{__('Status: Draft')}}
                 </button>
             </div>
         </div>
@@ -68,7 +70,7 @@
                 class="relative divide-y divide-gray-3 border border-gray-3 rounded-s-lg shadow w-35 dark:bg-gray-700">
                 <button @click.prevent="isOpen = !isOpen"
                     class="w-full inline-flex items-center gap-1.5 rounded-md justify-center py-1.5 text-sm text-black  hover:text-primary dark:bg-meta-4 dark:text-white dark:shadow-none">
-                    التصنيف
+                    {{__('Category')}}
                     <svg class="fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -100,9 +102,7 @@
 
                 <input type="search" wire:model='searchword' id="search-dropdown"
                     class=" p-2.5 w-50 z-20 text-sm text-gray-900 bg-gray-50  border border-gray-3  shadow focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                    placeholder="بحث" required>
-
-
+                    placeholder="{{__('product name')}}" required>
                 <button type="submit" wire:click="search"
                     class=" top-0   p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -110,13 +110,13 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                     </svg>
-                    <span class="sr-only">البحث اسم المنتج</span>
+                    <span class="sr-only">{{__('Search by name')}}</span>
                 </button>
             </div>
         </div>
     </div>
     <span class="m-3 p-4">
-        مجموع ({{count($allProducts)}}) منتج
+        {{__('Total')}} ({{count($allProducts)}}) {{__('product')}}
     </span>
     <div class="  border-stroke px-4 py-2 dark:border-strokedark sm:grid-cols-9 md:px-6 2xl:px-7.5">
 
@@ -165,43 +165,43 @@
         class="grid grid-cols-10 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-10 md:px-6 2xl:px-7.5">
 
         <div class="col-span-2 flex items-center">
-            <p class="font-medium">المنتج</p>
+            <p class="font-medium">{{__('product')}}</p>
         </div>
 
         <div class="col-span-1 flex items-center">
-            <p class="font-medium">حالة النشر</p>
+            <p class="font-medium">{{__('product status')}}</p>
         </div>
 
         <div class="col-span-1 flex items-center">
-            <p class="font-medium">التصنيف</p>
+            <p class="font-medium">{{__('category')}}</p>
         </div>
 
         <div class="col-span-1 flex items-center">
-            <p class="font-medium">السعر</p>
+            <p class="font-medium">{{__('price')}}</p>
         </div>
         <div class="col-span-1 flex items-center">
-            <p class="font-medium">التخفيض</p>
+            <p class="font-medium">{{__('discount')}}</p>
         </div>
         <div class="col-span-1 flex items-center">
-            <p class="font-medium">عدد الطلبات</p>
+            <p class="font-medium">{{__('orders count')}}</p>
         </div>
         <div class="col-span-1 flex items-center">
-            <p class="font-medium"> التقييم</p>
+            <p class="font-medium"> {{__('reviews')}}</p>
         </div>
 
         <div class="col-span-1 flex items-center">
-            <p class="font-medium">تاريخ الانشاء</p>
+            <p class="font-medium">{{__('created at')}}</p>
         </div>
 
         <div class="col-span-1 flex justify-center">
-            <p class="font-medium">تعديل</p>
+            <p class="font-medium">{{__('edite')}}</p>
         </div>
     </div>
     @empty($allProducts->first())
     <div
         class="flex justify-center border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
         <span class="py-5 px-5">
-            لا يوجد بيانات
+            {{__('no product')}}
 
 
         </span>
@@ -217,14 +217,12 @@
                     stroke="#DC2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
         </span>
-        <h3 class="mt-5.5 p-5 text-xl font-bold text-black dark:text-white sm:text-2xl">
-
-            : هل انت متاكد من حذف المنتج
-
-            <p>
-                {{$CurrentProduct->name ?? ""}}
-            </p>
-        </h3>
+        <h3 class="mt-1 p-2 text-xl font-bold text-black dark:text-white sm:text-2xl">
+            <strong class="text-3xl"> {{__('Are you sure')}}</strong>
+          </h3>
+          <p class="m-5 text-2xl">{{__('you want to delete product :')}}
+            {{$CurrentProduct->name ?? ""}}
+          </p>
 
 
         <form method="post" action="{{ route('admin.product.destroy',$CurrentProduct->id ?? "") }}"
@@ -235,7 +233,7 @@
             <div class="w-full px-3 2xsm:w-1/2">
                 <button type="submit"
                     class="block w-full rounded border border-meta-1 bg-meta-1 p-3 text-center font-medium text-white transition hover:bg-opacity-90">
-                    حذف
+                    {{__('Delete')}}
                 </button>
             </div>
 
@@ -243,7 +241,7 @@
             <div class="w-full px-3 2xsm:w-1/2">
                 <button @click.prevent="modalOpen = false"
                     class="block w-full rounded border border-stroke bg-gray p-3 text-center font-medium text-black transition hover:border-meta-1 hover:bg-meta-1 hover:text-white dark:border-strokedark dark:bg-meta-4 dark:text-white dark:hover:border-meta-1 dark:hover:bg-meta-1">
-                    الغاء
+                    {{__('Cancel')}}
                 </button>
             </div>
 
@@ -262,7 +260,7 @@
                     <img src="{{tenant_asset('media/'.$item->image) }}" alt="Product" />
 
                     @else
-                    <span class="text-center text-sm">no image</span>
+                    <span class="text-center text-sm">{{__('no image')}}</span>
                     @endif
                 </div>
                 <p class="text-sm font-medium text-black dark:text-white">
@@ -274,7 +272,8 @@
             <p class="text-sm font-medium text-black dark:text-white">
                 @if ($item->status==$enumStatus::DRAFT->value)
                 <span
-                    class="inline-flex rounded-full border border-[#637381] px-3 py-1 text-sm font-medium text-[#637381] hover:opacity-80">
+                    class="inline-flex rounded-full border border-[#637381] px-3 py-1 text-sm font-medium
+                     text-[#637381] hover:opacity-80">
                     {{__($item->status)}}
                 </span>
                 @endif
@@ -341,7 +340,7 @@
                 class="relative flex justify-center divide-y divide-gray-3 rounded-lg border border-gray-3 shadow w-25 dark:bg-gray-700">
                 <button @click.prevent="isOpen = !isOpen"
                     class="w-full inline-flex gap-2 items-center   rounded-md justify-center  text-sm text-black  hover:text-primary dark:bg-meta-4 dark:text-white dark:shadow-none">
-                    خيارات
+                    {{__('option')}}
                     <svg class="fill-current " width="16" height="16" viewBox="0 0 16 16" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -349,20 +348,16 @@
                             fill=""></path>
                     </svg>
                 </button>
-
                 <div @click.outside="isOpen = false" x-show="isOpen"
                     class="absolute right-0 top-full z-1  w-full  rounded-t-none bg-white py-2.5  shadow"
                     style="display: none;">
-
-
-                    <button wire:click="openModel('{{$item->id}}')"
+                    <button wire:click="openModel('{{$item->id}}','{{$item->name}}')"
                         class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                        حذف
+                        {{__('Delete')}}
                     </button>
-
                     <a href="{{Route('admin.product.edit',$item->id)}}"
                         class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                        تعديل
+                        {{__('Edite')}}
                     </a>
                 </div>
             </div>

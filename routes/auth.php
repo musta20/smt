@@ -34,9 +34,9 @@ Route::middleware(
         Route::get('/',adminController::class)->name('dashboard');
 
         Route::resource('/setting', SettingController::class);
-        Route::resource('/custmer', CustomerController::class);
+        Route::resource('/customer', CustomerController::class);
 
-
+        
         Route::resource('/setting', SettingController::class);
         Route::put('/updateSetting', [SettingController::class,'updateSetting'])->name('setting.updateSetting');
 

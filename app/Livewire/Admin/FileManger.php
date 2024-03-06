@@ -70,6 +70,6 @@ class FileManger extends Component
 
     public function render()
     {
-        return view('livewire.admin.file-manger');
+        return themeView('livewire.admin.file-manger');
     }
 }

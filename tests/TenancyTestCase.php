@@ -21,6 +21,7 @@ abstract class TenancyTestCase extends BaseTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        Event::fake([TenantCreated::class]);
 
         if ($this->tenancy) {
             $this->initializeTenancy();
@@ -36,12 +37,14 @@ abstract class TenancyTestCase extends BaseTestCase
 
     public function initializeTenancy()
     {        
+
         Event::fake([TenantCreated::class]);
+
         $domain = Factory::create()->word();
 
         $tenant = Tenant::create([
             'name' =>$domain,
-            'theme' => $domain
+            
         ]);
 
     

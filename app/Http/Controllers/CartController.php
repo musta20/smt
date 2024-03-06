@@ -48,7 +48,7 @@ class CartController extends Controller
             $cart = CartService::getCart();
         }
 
-        return view('cart',['cart' => $cart]);   
+        return themeView('cart',['cart' => $cart]);   
     }
 
 

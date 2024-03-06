@@ -20,7 +20,10 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
-        \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class
+        \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+         \App\Http\Middleware\SetThemeForTenant::class,
+         \App\Http\Middleware\LocaleMiddleware::class,
+
     ];
 
     /**
@@ -66,6 +69,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
-
+        'theme'=>\App\Http\Middleware\SetThemeForTenant::class
     ];
 }

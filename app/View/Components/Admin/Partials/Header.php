@@ -19,6 +19,6 @@ class Header extends Component
      */
     public function render(): View
     {
-        return view('components.admin.partials.header');
+        return themeView('components.admin.partials.header');
     }
 }

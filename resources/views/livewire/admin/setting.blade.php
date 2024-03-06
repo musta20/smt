@@ -4,11 +4,12 @@
     <div class="flex justify-between border-b border-stroke px-6.5 py-4 dark:border-strokedark">
       <button type="submit"
         class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-        حفظ التغيرات
+        {{__('save changes')}}
       </button>
       <a href="{{route('admin.dashboard')}}"
         class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded">
-        الغاء
+        {{__('cancel')}}
+
       </a>
     </div>
   </div>
@@ -19,12 +20,14 @@
       class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
         <h3 dir="rtl" class="font-medium text-black dark:text-white">
-          خيارات النشر و التقييم
+          {{__('Publishing and reviews options')}}
+
+
         </h3>
       </div>
       <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
         <div class="w-full xl:w-1/2 flex justify-end">
-          <span class="px-2"> السماح بتقييم المنتجات</span>
+          <span class="px-2"> {{__('Enable reviews')}}</span>
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
               <input type="checkbox" name="CanReview" class="sr-only" wire:model='CanReview' />
@@ -36,7 +39,7 @@
           </label>
         </div>
         <div class="w-full xl:w-1/2 flex justify-end">
-          <span class="px-2">تشغيل المتجر</span>
+          <span class="px-2">{{__('Launch the store')}}</span>
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
               <input type="checkbox" name="siteStatus" class="sr-only" wire:model='siteStatus' />
@@ -50,11 +53,10 @@
       </div>
       <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
         <div class="w-full xl:w-1/2 flex justify-end">
-          <span class="px-2">صفحة من نحن</span>
+          <span class="px-2">{{__('Enable about us page')}}</span>
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
-              <input type="checkbox" 
-              name="showAboutPage" wire:model='showAboutPage' class="sr-only" />
+              <input type="checkbox" name="showAboutPage" wire:model='showAboutPage' class="sr-only" />
 
 
               <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
@@ -65,11 +67,10 @@
           </label>
         </div>
         <div class="w-full xl:w-1/2 flex justify-end">
-          <span class="px-2"> عروض علانية في الصفحة الرئسيسة </span>
+          <span class="px-2">{{__('Enable main banner slide')}}</span>
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
-              <input type="checkbox" name="showCarousel" class="sr-only"
-               wire:model='showCarousel' />
+              <input type="checkbox" name="showCarousel" class="sr-only" wire:model='showCarousel' />
 
               <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
               <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.showCarousel }"
@@ -82,11 +83,10 @@
 
       <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
         <div class="w-full xl:w-1/2 flex justify-end">
-          <span class="px-2">صفحة الشروط و الاحكام</span>
+          <span class="px-2">{{__('Enable Term and conditions page')}}</span>
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
-              <input type="checkbox" 
-              name="showTermPage" wire:model='showTermPage' class="sr-only" />
+              <input type="checkbox" name="showTermPage" wire:model='showTermPage' class="sr-only" />
 
 
               <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
@@ -97,11 +97,10 @@
           </label>
         </div>
         <div class="w-full xl:w-1/2 flex justify-end">
-          <span class="px-2"> السماح بالروابط اسفل المتجر</span>
+          <span class="px-2"> {{__('Enable footer links')}}</span>
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
-              <input type="checkbox" name="showFooterLinks" 
-              wire:model='showFooterLinks' class="sr-only" />
+              <input type="checkbox" name="showFooterLinks" wire:model='showFooterLinks' class="sr-only" />
 
 
               <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
@@ -114,7 +113,7 @@
       </div>
       <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
         <div class="w-full xl:w-1/2 flex justify-end">
-          <span class="px-2">السمحاح بحسابات الزبائن</span>
+          <span class="px-2">{{__('Enable user registration')}}</span>
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
               <input type="checkbox" name="AllowUsers" wire:model='AllowUsers' class="sr-only" />
@@ -128,7 +127,7 @@
           </label>
         </div>
         <div class="w-full xl:w-1/2 flex justify-end">
-          <span class="px-2"> اظهار روابط التصنيفات اعلى المتجر</span>
+          <span class="px-2"> {{__('Enable categories link in header')}}</span>
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
               <input type="checkbox" name="showHeadrLinks" wire:model='showHeadrLinks' class="sr-only" />
@@ -143,71 +142,66 @@
         </div>
       </div>
       <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
-
         <div class="w-full xl:w-1/2 flex justify-end">
-       
         </div>
-
         <div class="w-full xl:w-1/2 flex justify-end">
-          <span class="px-2">السمحاح بالتقييم للمستخدمين غير المسجلين  </span>
+          <span class="px-2">{{__('Allow unregistered users to review')}} </span>
           <label class="flex cursor-pointer select-none items-center">
             <div class="relative">
-              <input type="checkbox" name="OnlyCustmerCanReview" wire:model='OnlyCustmerCanReview' class="sr-only" />
-
-
+              <input type="checkbox" name="OnlycustomerCanReview" wire:model='OnlycustomerCanReview' class="sr-only" />
               <div class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
-              <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.OnlyCustmerCanReview }"
+              <div :class="{  '!right-1 !translate-x-full !bg-primary dark:!bg-white': $wire.OnlycustomerCanReview }"
                 class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition ">
               </div>
             </div>
           </label>
         </div>
       </div>
-     
     </div>
     <!-- Textarea Fields -->
     <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+
       <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
         <h3 class="font-medium text-black dark:text-white">
-          تفاصيل اضافية
+          {{__('Extra details')}}
         </h3>
       </div>
+
       <div class="flex flex-col gap-5.5 p-6.5">
-        <div class="flex flex-col gap-5.5 p-6.5">
-          <div>
-            <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-            إضافة صور عروض إعلانية
-            </label>
-            <livewire:admin.file-manger :$subFiles wire:model='subFiles' />
-          </div>
-        </div>
         <div>
           <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-محتوى صفحة الشروط و الاحكام
+            {{__('Add Banner images')}}
           </label>
-          <textarea rows="6" name="TermPageContent" placeholder="وصف المنتج"
-            class="w-full 
-                        @error('TermPageContent') !border-red-500 @enderror
-                        rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary">
-                      {{old('TermPageContent',$TermPageContent)}}
-                    </textarea>
-          <x-input-error :messages="$errors->get('TermPageContent')"
-             class="mt-2" />
+          <livewire:admin.file-manger :$subFiles wire:model='subFiles' />
         </div>
       </div>
+      
+      <div class="flex flex-col gap-5.5 p-6.5">
+        <label class="mb-3 block text-sm font-medium text-black dark:text-white">
+          {{__('Term page content')}}
+        </label>
+        <textarea rows="6" name="TermPageContent" placeholder="{{__('Term page content')}}" class="w-full 
+                        @error('TermPageContent') !border-red-500 @enderror
+                        rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition 
+                        focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark
+                         dark:bg-form-input dark:text-white dark:focus:!border-primary">
+                      {{old('TermPageContent',$TermPageContent)}}
+                    </textarea>
+        <x-input-error :messages="$errors->get('TermPageContent')" class="mt-2" />
+      </div>
+      
       <div class="flex flex-col gap-5.5 p-6.5">
         <div>
           <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-            محتوى صفحة من نحن 
+            {{__('Anout us page content')}}
           </label>
-          <textarea rows="6" name="aboutPageContent" placeholder="من نحن  "
+          <textarea rows="6" name="aboutPageContent" placeholder="{{__('Anout us page content')}}"
             class="w-full 
                         @error('aboutPageContent') !border-red-500 @enderror
                         rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary">
                       {{old('aboutPageContent',$aboutPageContent)}}
                     </textarea>
-          <x-input-error :messages="$errors->get('aboutPageContent')"
-             class="mt-2" />
+          <x-input-error :messages="$errors->get('aboutPageContent')" class="mt-2" />
         </div>
       </div>
 

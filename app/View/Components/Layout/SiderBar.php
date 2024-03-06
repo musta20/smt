@@ -21,6 +21,6 @@ class SiderBar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout.sider-bar');
+        return themeView('components.layout.sider-bar');
     }
 }
