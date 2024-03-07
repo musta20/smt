@@ -1,6 +1,6 @@
 <x-main-layout>
     <ul class="flex justify-items-center  gap-1   text-gray ">
-        <li>{{__('categories')}}</li>
+        <li>{{__('messages.categories')}}</li>
         <li>
             <svg class="w-[12px] h-[12px] text-gray-800 my-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 24 24">
@@ -76,10 +76,10 @@
             <div>
             <button type="submit" class="text-white  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
              focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
-              ">{{__('order')}}</button>
+              ">{{__('messages.order')}}</button>
             <a href="{{route('addToCart',$product->id)}}" class="text-white  bg-slate-700 hover:bg-slate-800 focus:outline-none focus:ring-4
               focus:ring-slate-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
-               ">{{__('Add to cart')}}
+               ">{{__('messages.Add to cart')}}
             </a>
             </div>
         </div>
@@ -91,22 +91,22 @@
             <form method="post" action="{{route('comment.store')}}" class="p-2 m-2 space-x-2">
                 @csrf
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    {{__('add review')}}
+                    {{__('messages.add review')}}
                 </label>
                 <x-add-rating />
                 <textarea id="comment" rows="4" name="comment"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="ماهو رأيك في المنتج"></textarea>
+                    placeholder=""></textarea>
                 <button type="submit" class="text-white m-2  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
                 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
-                 ">{{__('publish')}}</button>
+                 ">{{__('messages.publish')}}</button>
                 <input value="{{$product->id}}" name="product_id" hidden />
             </form>
             <hr>
 
             @endif
 
-            <span class="text-xl">{{__('reviews')}} :</span>
+            <span class="text-xl">{{__('messages.reviews')}} :</span>
             @foreach ($product->comment as $comment)
             <x-comment-card :$comment />
             @endforeach
@@ -114,13 +114,13 @@
 
         <div dir="ltr" class="flex justify-center w-1/2">
 
-            <div class="flex flex-col justify-items-end     w-9/12">
-                <span class="flex justify-between my-2">
+            <div class="flex  flex-col justify-items-end     w-9/12">
+                <span class="flex sm:flex-col justify-between my-2">
                     <x-user-rating :rating="$totalRating" />
                     <strong>
-                        {{__('over all rating')}}
+                        {{__('messages.over all rating')}}
 
-                        {{__('based on')}}({{array_sum($allRating)}}) {{__('reviews')}}
+                        {{__('messages.based on')}}({{array_sum($allRating)}}) {{__('messages.reviews')}}
                     </strong>
                 </span>
                 <hr>

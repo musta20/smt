@@ -23,7 +23,7 @@
     <nav class="mt-5 px-4 py-4 lg:mt-9 lg:px-6" x-data="{selected: $persist('Dashboard')}">
       <!-- Menu Group -->
       <div>
-        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">{{__('main menu')}}</h3>
+        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">{{__('messages.main menu')}}</h3>
 
         <ul class="mb-6 flex flex-col gap-1.5">
           <!-- Menu Item Dashboard -->
@@ -47,7 +47,7 @@
               </svg>
 
               
-              {{__('products')}}
+              {{__('messages.products')}}
 
 
             </a>
@@ -67,7 +67,7 @@
                 </path>
               </svg>
 
-              {{__('Categories')}}
+              {{__('messages.Categories')}}
 
 
             </a>
@@ -87,7 +87,7 @@
                   fill="" />
               </svg>
 
-              {{__('Themes')}}
+              {{__('messages.Themes')}}
 
 
             </a>
@@ -117,7 +117,7 @@
                   fill="white" />
               </svg>
 
-              {{__('Customers')}}
+              {{__('messages.Customers')}}
 
 
             </a>
@@ -147,7 +147,7 @@
                 </defs>
               </svg>
 
-              {{__('Dashboard')}}
+              {{__('messages.Dashboard')}}
 
             </a>
           </li>
@@ -175,7 +175,7 @@
                 </defs>
               </svg>
 
-              {{__('Settings')}}
+              {{__('messages.Settings')}}
 
             </a>
 
@@ -201,7 +201,7 @@
                   </defs>
                 </svg>
   
-                {{__('Genral Settings')}}
+                {{__('messages.Genral Settings')}}
 
               </a>
 
@@ -212,7 +212,7 @@
 
       <!-- Others Group -->
       <div>
-        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">       {{__('others')}}
+        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">       {{__('messages.others')}}
         </h3>
 
         <ul class="mb-6 flex flex-col gap-1.5">
@@ -238,7 +238,7 @@
                 </defs>
               </svg>
 
-              {{__('Support')}}
+              {{__('messages.Support')}}
 
 
             </a>

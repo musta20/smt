@@ -17,7 +17,7 @@ it("can add new review", function (string $string) {
     ]);
 
     $response->assertStatus(Response::HTTP_FOUND);
-    $response->assertSessionHas('OkToast', 'تم اضافة التقييم');
+    $response->assertSessionHas('OkToast');
 
     $this->assertDatabaseHas('comments',[
         "product_id" => $product->id,

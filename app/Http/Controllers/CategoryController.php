@@ -35,7 +35,7 @@ class CategoryController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect()->route('admin.category.index')->with('OkToast','تم اضافة التصنيف');
+        return redirect()->route('admin.category.index')->with('OkToast',__('messages.category added'));
     }
 
     /**
@@ -68,7 +68,7 @@ class CategoryController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect()->route('admin.category.index')->with('OkToast', 'تم تحديث التصنيف');
+        return redirect()->route('admin.category.index')->with('OkToast', __('messages.category updated'));
 
     }
 
@@ -78,6 +78,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('admin.category.index')->with('OkToast', "تم حذف التصنيف ");
+        return redirect()->route('admin.category.index')->with('OkToast', __('messages.category removed'));
     }
 }

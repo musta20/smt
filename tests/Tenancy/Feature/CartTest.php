@@ -17,7 +17,7 @@ it('can  add product to shoping cart', function () {
     ]);
 
     $response->assertStatus(Response::HTTP_FOUND);
-    $response->assertSessionHas('OkToast', 'تم اضاقة المنتج');
+    $response->assertSessionHas('OkToast');
 });
 
 it('can  add product to shoping cart while not loged in', function () {
@@ -26,7 +26,7 @@ it('can  add product to shoping cart while not loged in', function () {
     $response = $this->get('/addToCart/'.$product->id);
 
     $response->assertStatus(Response::HTTP_FOUND);
-    $response->assertSessionHas('OkToast', 'تم اضاقة المنتج');
+    $response->assertSessionHas('OkToast');
     $response->assertSessionHas('cart');
 });
 
@@ -65,7 +65,7 @@ it('can  remove product from shoping cart', function () {
     ]);
 
     $response->assertStatus(Response::HTTP_FOUND);
-    $response->assertSessionHas('OkToast', 'تم  حذف المنتج');
+    $response->assertSessionHas('OkToast');
 });
 
 it('can  remove product from shoping cart while not loged in', function () {
@@ -77,6 +77,6 @@ it('can  remove product from shoping cart while not loged in', function () {
     $response = $this->get('/removeCart/'.$product->id);
 
     $response->assertStatus(Response::HTTP_FOUND);
-    $response->assertSessionHas('OkToast', 'تم  حذف المنتج');
+    $response->assertSessionHas('OkToast');
 })
 ?>

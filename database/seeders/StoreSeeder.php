@@ -36,6 +36,9 @@ class StoreSeeder extends Seeder
 
         $logopath = storage_path() . '/logo/logo-icon.svg';
         $Faviconpath = storage_path() . '/logo/favicon.ico';
+
+      
+
         
 
         Process::run("cp ".$Faviconpath." ".$tenantpath."/favicon.ico");

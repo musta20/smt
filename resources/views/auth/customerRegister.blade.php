@@ -8,7 +8,7 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf              
                   <div class="mb-4">
-                    <label :value="__('Name')" class="mb-2.5 block font-medium text-black dark:text-white">Name</label>
+                    <label :value="__('messages.Name')" class="mb-2.5 block font-medium text-black dark:text-white">Name</label>
                     <div class="relative">
                         <input type="text" id='name' name="name" placeholder="Enter your full name"
                             class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
@@ -34,7 +34,7 @@
                 <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white">Email</label>
                     <div class="relative">
-                        <input type="email" :value="__('Email')" placeholder="Enter your email"
+                        <input type="email" :value="__('messages.Email')" placeholder="Enter your email"
                             class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                             type="email" name="email" :value="old('email')" required />
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -54,7 +54,7 @@
 
                 <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white" for="password"
-                        :value="__('Password')">Password</label>
+                        :value="__('messages.Password')">Password</label>
                     <div class="relative">
                         <input type="password" placeholder="Enter your password" type="password" id="password"
                             name="password" required autocomplete="new-password"

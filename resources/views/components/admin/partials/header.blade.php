@@ -32,7 +32,7 @@
       </a>
     </div>
     <span class="inline-flex items-center px-3 py-3 me-3 text-sm font-medium text-green-800 bg-green-100 rounded-full hover:bg-green-500 dark:bg-green-900 dark:text-green-300">
-      <a href="/">       {{__('show the store')}}
+      <a href="/">       {{__('messages.show the store')}}
       </a>
     </span>
 
@@ -151,7 +151,7 @@
                     d="M17.7719 21.4156H4.2281C3.5406 21.4156 2.9906 20.8656 2.9906 20.1781V17.0844C2.9906 13.7156 5.7406 10.9656 9.10935 10.9656H12.925C16.2937 10.9656 19.0437 13.7156 19.0437 17.0844V20.1781C19.0094 20.8312 18.4594 21.4156 17.7719 21.4156ZM4.53748 19.8687H17.4969V17.0844C17.4969 14.575 15.4344 12.5125 12.925 12.5125H9.07498C6.5656 12.5125 4.5031 14.575 4.5031 17.0844V19.8687H4.53748Z"
                     fill="" />
                 </svg>
-                {{__('Profile')}}
+                {{__('messages.Profile')}}
 
               </a>
             </li>
@@ -175,7 +175,7 @@
 
               <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                   this.closest('form').submit();">
-                {{ __('Log Out') }}
+                {{ __('messages.Log Out') }}
               </x-dropdown-link>
             </form>
           </button>

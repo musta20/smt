@@ -68,12 +68,10 @@ class Search extends Component
             ->where('status', Status::PUBLISHED->value)
             ->paginate(10);
 
-        //orderByType($this->filters)
-        //->
-        //->where('status', Status::PUBLISHED->value)
+ 
         return themeView('livewire.search', [
 
-            "allProducts" => $products, // $this->paginate($this->products, 10),
+            "allProducts" => $products, 
             "category" => Category::get(),
             "enumStatus" => Status::class
 

@@ -25,6 +25,7 @@ class Setting extends Component
     public $showFooterLinks;
     
     public $showAboutPage;
+    
     public $aboutPageContent;
     
     public $showHeadrLinks;

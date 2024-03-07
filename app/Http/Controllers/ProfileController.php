@@ -39,9 +39,9 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        if(Auth::user()->hasRole(Role::VENDER->value)) return Redirect::route('admin.profile.update')->with('OkToast', 'تم  التعديل');
+        if(Auth::user()->hasRole(Role::VENDER->value)) return Redirect::route('admin.profile.update')->with('OkToast', __('messages.profile updated'));
 
-        return Redirect::route('profilePage')->with('OkToast', 'تم  التعديل');
+        return Redirect::route('profilePage')->with('OkToast', __('messages.profile updated'));
 
     }
 

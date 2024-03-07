@@ -9,12 +9,12 @@ use App\Models\Product;
 use App\Models\Role;
 use App\Models\Setting;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Auth\Events\Registered;
+
 use Illuminate\Support\Facades\Redirect;
 
 class SiteController extends Controller
@@ -37,24 +37,21 @@ class SiteController extends Controller
         ]);
     }
 
-    // public function setLocale(Request $request)
-    // {
-    //     $locale = $request->post('locale');
-    //     if (in_array($locale, config('app.available_locales'))) {
-    //         session()->put('locale', $locale); // Use session or cookie
-    //         app()->setLocale($locale);
-    //     }
-
-    //     return redirect()->back();
-    // }
-
-
-    public function someMethod($locale = null)
+    public function setLocale(Request $request)
     {
-        if ($locale && in_array($locale, config('app.available_locales'))) {
-            app()->setLocale($locale);
+        $locale = $request->locale;
+
+        if (in_array($locale, config('app.available_locales'))) {
+
+          session()->put('locale', $locale);
+
+
         }
+        return redirect()->back();
     }
+
+
+
     public function profile()
     {
         $user = Auth::user();

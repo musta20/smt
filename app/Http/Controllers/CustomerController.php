@@ -69,6 +69,6 @@ class CustomerController extends Controller
         $user->delete();
 
      
-        return redirect()->back()->with('OkToast', "تم حذف المستخدم ");
+        return redirect()->back()->with('OkToast', __('messages.User deleted'));
     }
 }

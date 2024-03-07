@@ -7,7 +7,7 @@
 
     <div class="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
         <div class="w-full p-4 sm:p-12.5 xl:p-17.5">
-            <span class="mb-1.5 block font-medium"> {{ __('Forgot your password? No problem. Just let us know your email
+            <span class="mb-1.5 block font-medium"> {{__('messages.messages.Forgot your password? No problem. Just let us know your email
                 address and we will email you a password reset link that will allow you to choose a new one.') }}
             </span>
             <h2 class="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
@@ -18,7 +18,7 @@
 
                 <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white"
-                        :value="__('Email')">Email</label>
+                        :value="__('messages.Email')">Email</label>
                     <div class="relative">
                         <input type="email" :value="old('email')" placeholder="Enter your email" name="email"
                             class="w-full  rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />

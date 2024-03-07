@@ -7,7 +7,7 @@
 
         @if (count($CarouselImage) > 1)
         @foreach($CarouselImage as $key=>$item)
-        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+        <div class="hidden  duration-700 ease-in-out" data-carousel-item="active">
             <img src="{{tenant_asset('media/'.$key)}}"
                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
@@ -16,7 +16,7 @@
         @else
         @foreach($CarouselImage as $key=>$item)
             <img src="{{tenant_asset('media/'.$key)}}"
-                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                class="absolute block w-full -translate-x-1/4 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         @endforeach
         @endif
 

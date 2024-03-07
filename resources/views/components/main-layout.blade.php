@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+
+<html 
+  lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+ dir="{{ in_array(app()->getLocale(), ['ar']) ? 'rtl' : 'ltr' }}"
+ >
+
 <x-layout.head />
 <body class="bg-slate-50">
     <x-layout.header :logo="$logo"/>

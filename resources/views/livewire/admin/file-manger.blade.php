@@ -21,14 +21,14 @@
 
                 <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
                 <span class="font-semibold">
-                  {{__('click here or drag')}}
+                  {{__('messages.click here or drag')}}
                 </span>
               </p>
               <p>
-                {{__('Supported image formats ')}}(PNG, JPG or GIF)
+                {{__('messages.Supported image formats ')}}(PNG, JPG or GIF)
               </p>
               <p>
-                {{__('size')}} (800x400px)
+                {{__('messages.size')}} (800x400px)
               </p>
               @error('photo') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>

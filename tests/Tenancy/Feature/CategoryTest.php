@@ -44,7 +44,7 @@ it("can add new category", function ($string) {
 
     $response->assertRedirect('/admin/category/');
 
-    $response->assertSessionHas('OkToast', 'تم اضافة التصنيف');
+    $response->assertSessionHas('OkToast');
 })->with(data: 'strings');
 
 it("get 404 when trying to view category item with wrong id", function () {
@@ -79,7 +79,7 @@ it("can delete a category item", function () {
 
     $category->fresh();
     
-    $response->assertSessionHas('OkToast', 'تم حذف التصنيف ');
+    $response->assertSessionHas('OkToast');
 
     $this->assertSoftDeleted($category);
 

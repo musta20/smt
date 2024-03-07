@@ -24,7 +24,9 @@ return new class extends Migration
             ->cascadeOnDelete();
             
 
-            $table->foreignUlid('user_id')->index()
+            $table->foreignUlid('user_id')
+            ->nullable()
+            ->index()
             ->constrained()
             ->cascadeOnDelete();
 

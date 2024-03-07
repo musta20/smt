@@ -13,12 +13,12 @@
                     </div>
                 </a>
                 <!-- Dropdown Start -->
-                <div x-show="dropdownOpen"
-                    class="absolute right-0 mt-4 flex w-30 flex-col rounded-sm border border-stroke bg-white shadow-default">
-                    <ul class="flex flex-col gap-5 border-b border-stroke px-6 py-7.5">
+                <div  x-show="dropdownOpen"
+                    class="absolute ltr:-right-25 mt-4 flex w-30 flex-col rounded-sm border border-stroke bg-white shadow-default">
+                    <ul class="flex flex-col border-b border-stroke px-6 py-7.5">
                         <li>
                             <a href="{{route('profilePage')}}"
-                                class="flex items-center py-5 gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+                                class="flex items-center py-4 gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
                                 <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -28,14 +28,14 @@
                                         d="M17.7719 21.4156H4.2281C3.5406 21.4156 2.9906 20.8656 2.9906 20.1781V17.0844C2.9906 13.7156 5.7406 10.9656 9.10935 10.9656H12.925C16.2937 10.9656 19.0437 13.7156 19.0437 17.0844V20.1781C19.0094 20.8312 18.4594 21.4156 17.7719 21.4156ZM4.53748 19.8687H17.4969V17.0844C17.4969 14.575 15.4344 12.5125 12.925 12.5125H9.07498C6.5656 12.5125 4.5031 14.575 4.5031 17.0844V19.8687H4.53748Z"
                                         fill="" />
                                 </svg>
-                                {{__('Profile')}}
+                                {{__('messages.Profile')}}
                             </a>
                         </li>
 
                         @role(App\Enums\Identity\Role::VENDER->value)
                         <li>
                             <a href="{{route('admin.dashboard')}}"
-                                class="flex items-center py-5 gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+                                class="flex items-center py-4 gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
                                 <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -45,7 +45,7 @@
                                         d="M17.7719 21.4156H4.2281C3.5406 21.4156 2.9906 20.8656 2.9906 20.1781V17.0844C2.9906 13.7156 5.7406 10.9656 9.10935 10.9656H12.925C16.2937 10.9656 19.0437 13.7156 19.0437 17.0844V20.1781C19.0094 20.8312 18.4594 21.4156 17.7719 21.4156ZM4.53748 19.8687H17.4969V17.0844C17.4969 14.575 15.4344 12.5125 12.925 12.5125H9.07498C6.5656 12.5125 4.5031 14.575 4.5031 17.0844V19.8687H4.53748Z"
                                         fill="" />
                                 </svg>
-                                {{__('لوحة التحكم')}}
+                                {{__('messages.Dashboard')}}
                             </a>
                         </li>
 
@@ -69,7 +69,7 @@
                             @csrf
                             <a onclick="event.preventDefault();
                                           this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('messages.Log Out') }}
                             </a>
                         </form>
                     </button>
@@ -88,7 +88,7 @@
                         d="M17.7719 21.4156H4.2281C3.5406 21.4156 2.9906 20.8656 2.9906 20.1781V17.0844C2.9906 13.7156 5.7406 10.9656 9.10935 10.9656H12.925C16.2937 10.9656 19.0437 13.7156 19.0437 17.0844V20.1781C19.0094 20.8312 18.4594 21.4156 17.7719 21.4156ZM4.53748 19.8687H17.4969V17.0844C17.4969 14.575 15.4344 12.5125 12.925 12.5125H9.07498C6.5656 12.5125 4.5031 14.575 4.5031 17.0844V19.8687H4.53748Z"
                         fill=""></path>
                 </svg>
-                <span>{{__('Login')}}</span>
+                <span>{{__('messages.Login')}}</span>
 
             </a>
             @endif
@@ -135,7 +135,14 @@
             </a>
             @endauth
 
+            @if (app()->getLocale() == 'ar')
+            <a class="p-1 m-1 rounded-md border hover:bg-slate-200" href="{{route('setLocale','en')}}" >English</a>
 
+            @else
+            <a class="p-1 m-1 rounded-md border hover:bg-slate-200" href="{{route('setLocale','ar')}}" >العربية</a>
+
+
+            @endif
 
 
         </div>

@@ -9,9 +9,9 @@
       </svg>
     </span>
     <h3 class="mt-1 p-2 text-xl font-bold text-black dark:text-white sm:text-2xl">
-      <strong class="text-3xl"> {{__('Are you sure')}}</strong>
+      <strong class="text-3xl"> {{__('messages.Are you sure')}}</strong>
     </h3>
-    <p class="m-5 text-2xl">{{__('you want to delete category :')}}
+    <p class="m-5 text-2xl">{{__('messages.you want to delete category :')}}
       {{$CurrentProduct->name ?? ""}}
     </p>
 
@@ -23,7 +23,7 @@
       <div class="w-full px-3 2xsm:w-1/2">
         <button type="submit"
           class="block w-full rounded border border-meta-1 bg-meta-1 p-3 text-center font-medium text-white transition hover:bg-opacity-90">
-          {{__('Delete')}}
+          {{__('messages.Delete')}}
         </button>
       </div>
 
@@ -31,7 +31,7 @@
       <div class="w-full px-3 2xsm:w-1/2">
         <button @click.prevent="modalOpen = false"
           class="block w-full rounded border border-stroke bg-gray p-3 text-center font-medium text-black transition hover:border-meta-1 hover:bg-meta-1 hover:text-white dark:border-strokedark dark:bg-meta-4 dark:text-white dark:hover:border-meta-1 dark:hover:bg-meta-1">
-          {{__('Cancel')}}
+          {{__('messages.Cancel')}}
         </button>
       </div>
 
@@ -50,7 +50,7 @@
         <div
           class="grid grid-cols-10 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
           <div class="col-span-4 flex items-center">
-            <p class="font-medium">{{__('categories')}}</p>
+            <p class="font-medium">{{__('messages.categories')}}</p>
           </div>
 
         </div>
@@ -83,7 +83,7 @@
               class="shadow absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 whitespace-nowrap rounded-md bg-white px-4.5 py-1.5 text-sm font-medium opacity-0  group-hover:opacity-100 dark:bg-meta-4">
               <span
                 class="absolute -left-1 top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-r-sm bg-white dark:bg-meta-4"></span>
-              {{__('Delete')}}
+              {{__('messages.Delete')}}
             </div>
           </div>
 
@@ -102,16 +102,16 @@
       <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
           <h3 class="font-medium text-black dark:text-white">
-            {{__('Add category')}}
+            {{__('messages.Add category')}}
           </h3>
         </div>
 
         <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
           <div class="w-full ">
             <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-              {{__('Category name')}}
+              {{__('messages.Category name')}}
             </label>
-            <input type="text" multiple name="name" value="{{old('name')}}" placeholder=" {{__('Category name')}}"
+            <input type="text" multiple name="name" value="{{old('name')}}" placeholder=" {{__('messages.Category name')}}"
               class=" @error('name') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
           </div>
@@ -119,9 +119,9 @@
         <div class="flex flex-col gap-5.5 p-6.5">
           <div>
             <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-              {{__('Category description')}}({{__('optinal')}})
+              {{__('messages.Category description')}}({{__('messages.optinal')}})
             </label>
-            <textarea rows="6" name="description" placeholder=" {{__('Category description')}}"
+            <textarea rows="6" name="description" placeholder=" {{__('messages.Category description')}}"
               class="w-full 
                         @error('description') !border-red-500 @enderror
                         rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary">
@@ -142,11 +142,11 @@
             {{-- <div @modalindow.window="alert('mom');"></div> --}}
             <button @click="$refs.form.submit()"
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-              {{__('save')}}
+              {{__('messages.save')}}
             </button>
             <button
               class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded">
-              {{__('Cancel')}}
+              {{__('messages.Cancel')}}
             </button>
 
           </div>

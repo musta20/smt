@@ -78,7 +78,7 @@ class productController extends Controller
 
 
 
-        return redirect()->route('admin.product.edit', $product->id)->with('OkToast', 'تم اضاقة المنتج');
+        return redirect()->route('admin.product.edit', $product->id)->with('OkToast', __('messages.product added'));
     }
 
     /**
@@ -126,7 +126,7 @@ class productController extends Controller
             'visible' => $visible
         ]);
 
-        return redirect()->route('admin.product.edit', $product->id)->with('OkToast', "تم تحديث بيانات المنتج");
+        return redirect()->route('admin.product.edit', $product->id)->with('OkToast', __("messages.product updated"));
 
         // return redirect()->route('admin.product.edit',$product->id)->with('ErorrToast', "الرجاء مراجعة الاخطاء");
 
@@ -139,6 +139,6 @@ class productController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('admin.product.index')->with('OkToast', "تم تحديث بيانات المنتج");
+        return redirect()->route('admin.product.index')->with('OkToast',  __("messages.product deleted"));
     }
 }

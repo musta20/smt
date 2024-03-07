@@ -22,7 +22,7 @@ class CartController extends Controller
                 ["user_id" => $user->id]
             );
 
-            return redirect()->back()->with('OkToast', 'تم اضاقة المنتج');
+            return redirect()->back()->with('OkToast', __('messages.product added'));
 
         }
 
@@ -34,7 +34,7 @@ class CartController extends Controller
         ]);
 
 
-        return redirect()->back()->with('OkToast', 'تم اضاقة المنتج');
+        return redirect()->back()->with('OkToast', __('messages.product added'));
     }
 
     public function showCart(){
@@ -64,12 +64,12 @@ class CartController extends Controller
            
              $productItem->first()->delete();
 
-            return redirect()->back()->with('OkToast', 'تم  حذف المنتج');
+            return redirect()->back()->with('OkToast', __('messages.product removed'));
 
         }
 
         CartService::remove($product->id);
 
-        return redirect()->back()->with('OkToast', 'تم  حذف المنتج');
+        return redirect()->back()->with('OkToast',__('messages.product removed'));
     }
 }

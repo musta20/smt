@@ -54,6 +54,13 @@ public function withReview(){
 
 }
 
+
+public function withRealImage($path): Factory
+{
+
+    return $this->state(fn (array $attributes) => ['image' =>$path]);
+}
+
     public function withImage($path): Factory
     {
 

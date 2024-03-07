@@ -1,8 +1,9 @@
 
 
-<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+<div class="w-full max-w-sm  bg-white border border-gray-200 rounded-lg shadow">
     <a href="{{route('productPage',$product->id)}}">
-        <img class="p-8 rounded-lg"
+        <img class="p-8 rounded-lg "
+    
          src="{{tenant_asset('media/'.$product->image)}}" alt="product image" />
     </a>
     <div class="px-5 pb-5">

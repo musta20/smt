@@ -81,7 +81,7 @@ class StoreController extends Controller
 
 
 
-        return redirect()->route('admin.store.index')->with('OkToast', 'تم اضاقة المنتج');
+        return redirect()->route('admin.store.index')->with('OkToast', __('messages.setting updated'));
     }
 
     /**

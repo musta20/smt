@@ -5,8 +5,9 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Store;
 use App\Models\Tenant;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Process;
 
 class CategorySeeder extends Seeder
 {
@@ -23,7 +24,20 @@ class CategorySeeder extends Seeder
         $store = Store::where('title', $storename2)->get()->first();
         $store2 = Store::where('title', $storename2)->get()->first();
 
-        Category::factory(10)->for($tenant)->for($store)->create();
-        Category::factory(10)->for($tenant2)->for($store2)->create();
-    }
+ 
+
+
+
+        Category::factory()->count(10)
+        ->state(new Sequence(
+            fn (Sequence $sequence) => ['name' => collect(SeederData::$arabicCategories)->random()],
+        ))
+        ->for($tenant)->for($store)->create();
+        
+        Category::factory()->count(10)
+        ->state(new Sequence(
+            fn (Sequence $sequence) => ['name' => collect(SeederData::$arabicCategories)->random()],
+        ))
+        ->for($tenant2)->for($store2)->create();
+            }
 }

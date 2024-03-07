@@ -52,11 +52,11 @@ class CommentController extends Controller
                 'tenant_id' => tenant('id')
             ]);
 
-            return redirect()->back()->with('OkToast', 'تم اضافة التقييم');
+            return redirect()->back()->with('OkToast', __('messages.review added'));
 
         }
 
-        return redirect()->back()->with('ErorrToast', 'لم يتم اضافة التقييم');
+        return redirect()->back()->with('ErorrToast', __('messages.error'));
 
     }
 

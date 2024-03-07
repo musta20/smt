@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html 
+  lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+ dir="{{ in_array(app()->getLocale(), ['ar']) ? 'rtl' : 'ltr' }}"
+ >
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite(['resources/js/index.js'])
     <title>
-       {{__('Dashboard')}}
+       {{__('messages.Dashboard')}}
     </title>
 </head>
 <body

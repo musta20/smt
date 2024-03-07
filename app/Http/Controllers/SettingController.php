@@ -108,7 +108,7 @@ class SettingController extends Controller
         $visibleRecored->value = json_encode($visible);
         $visibleRecored->save();
 
-        return redirect()->route('admin.setting.index')->with('OkToast', 'تم اضاقة المنتج');
+        return redirect()->route('admin.setting.index')->with('OkToast', __('messages.setting updated'));
     }
 
     /**

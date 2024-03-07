@@ -7,13 +7,13 @@
             @method('patch')            <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
                     <h3 class="font-medium text-black dark:text-white">
-                       {{__('User Profile')}}
+                       {{__('messages.User Profile')}}
                     </h3>
                 </div>
                 <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
                     <div class="w-full xl:w-1/2">
                         <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                            {{__('Name')}}
+                            {{__('messages.Name')}}
                         </label>
                         <input type="text" multiple name="name" value="{{old('name',$user->name)}}"
                             class=" @error('name') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
@@ -23,7 +23,7 @@
                 <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
                     <div class="w-full xl:w-1/2">
                         <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                            {{__('last name')}}
+                            {{__('messages.last name')}}
                         </label>
                         <input type="text" name="last_name" value="{{old('last_name',$user->last_name)}}"
                             class="w-full @error('last_name') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
@@ -33,7 +33,7 @@
                 <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
                     <div class="w-full xl:w-1/2">
                         <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                            {{__('Email')}}
+                            {{__('messages.Email')}}
                         </label>
                         <input type="text" value="{{old('email',$user->email)}}" name="email"
                             class="w-full @error('email') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
@@ -46,7 +46,7 @@
                     <div class="flex justify-between border-b border-stroke px-6.5 py-4 dark:border-strokedark">
                         <button type="submit"
                             class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                           {{__('save')}}
+                           {{__('messages.save')}}
                         </button>
                     </div>
                 </div>
@@ -59,15 +59,16 @@
             <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
                     <h3 class="font-medium text-black dark:text-white">
-                       {{__('Change password')}}
+                       {{__('messages.Change password')}}
                     </h3>
                 </div>
                 <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
                     <div class="w-full xl:w-1/2">
                         <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                           {{__('password')}}
+                           {{__('messages.current password')}}
                         </label>
-                        <input type="password" name="current_password" placeholder="current_password"
+                        <input type="password" name="current_password"
+                         placeholder="{{__('messages.current password')}}"
                             class=" @error('current_password') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
                         <x-input-error :messages="$errors->get('current_password')" class="mt-2" />
                     </div>
@@ -75,9 +76,10 @@
                 <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
                     <div class="w-full xl:w-1/2">
                         <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                            {{__('new password')}}
+                            {{__('messages.new password')}}
                         </label>
-                        <input type="password" name="password" placeholder="new-password"
+                        <input type="password" name="password"
+                         placeholder="{{__('messages.new password')}}"
                             class=" @error('password') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>
@@ -85,9 +87,12 @@
                 <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
                     <div class="w-full xl:w-1/2">
                         <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                            {{__('password confirmation')}}
+                            {{__('messages.password confirmation')}}
                         </label>
-                        <input type="password" name="password_confirmation" 
+                        <input type="password"
+                         name="password_confirmation" 
+                         placeholder="{{__('messages.password confirmation')}}"
+
                             class=" @error('password_confirmation') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                     </div>
@@ -96,7 +101,7 @@
                     <div class="flex justify-between border-b border-stroke px-6.5 py-4 dark:border-strokedark">
                         <button type="submit"
                             class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                            {{__('save')}}
+                            {{__('messages.save')}}
                         </button>
                     </div>
                 </div>
