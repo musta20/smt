@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class centralDomainController extends Controller
+{
+
+    public function welcome()
+    {
+        return themeView('welcome');
+    }
+
+    public function setLocale(Request $request)
+    {
+        $locale = $request->locale;
+
+        if (in_array($locale, config('app.available_locales'))) {
+
+            session()->put('locale', $locale);
+        }
+        return redirect()->back();
+    }
+}

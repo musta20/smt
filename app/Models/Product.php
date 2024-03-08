@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\Store\Sorting;
+use App\Enums\Store\Status;
 use Illuminate\Database\Eloquent\Casts\AsCollection;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -81,7 +82,7 @@ class Product extends Model
     {
         return $this->belongsToMany(User::class);
     }
-    public function scopeOrderByType($query, $orderType)
+    public function scopeOrderByType($query, $orderType, $isAdmin)
     {
 
         if ($orderType['categoryId']) {
@@ -89,6 +90,21 @@ class Product extends Model
             $query->whereHas('categories', function ($query) use ($orderType) {
                 $query->where('id', $orderType['categoryId']);
             });
+        }
+
+        if ($isAdmin) {
+            
+            switch ($orderType['sortType']) {
+                case Status::PUBLISHED->value:
+                    $query->where('status', Status::PUBLISHED->value);
+                    break;
+                case Status::DRAFT->value:
+                    $query->where('status', Status::DRAFT->value);
+                    break;
+                case Status::CREATED->value:
+                    $query->where('status', Status::CREATED->value);
+                    break;
+            }
         }
 
         switch ($orderType['sortType']) {

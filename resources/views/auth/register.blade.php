@@ -1,21 +1,17 @@
 <x-guest-layout>
 
-
-
-
-
-    <div class="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
-        <div class="w-full p-4 sm:p-12.5 xl:p-17.5"> <span class="mb-1.5 block font-medium">Start for free</span>
+    <div class="w-full border-stroke dark:border-strokedark  xl:border-l-2">
+        <div class="w-full p-4 sm:p-12.5 xl:p-17.5"> 
             <h2 class="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-                Sign Up to TailAdmin
+                {{__('messages.Login')}}
             </h2>
-
-            <form method="POST" action="{{ route('register') }}">
-                @csrf              
-                  <div class="mb-4">
-                    <label :value="__('messages.messages.Name')" class="mb-2.5 block font-medium text-black dark:text-white">Name</label>
+            <form method="POST" class="w-full" action="{{ route('register') }}">
+                @csrf
+                <div class="mb-4">
+                    <label :value="__('messages.Name')"
+                        class="mb-2.5 block font-medium text-black dark:text-white">{{__('messages.Name')}}</label>
                     <div class="relative">
-                        <input type="text" id='name' name="name" placeholder="Enter your full name"
+                        <input type="text" id='name' name="name" placeholder="{{__('messages.Name')}}"
                             class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                             :value="old('name')" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
@@ -35,15 +31,13 @@
                         </span>
                     </div>
                 </div>
-
                 <div class="mb-4">
-                    <label class="mb-2.5 block font-medium text-black dark:text-white">Email</label>
+                    <label class="mb-2.5 block font-medium text-black dark:text-white">{{__('messages.Email')}}</label>
                     <div class="relative">
-                        <input type="email" :value="__('messages.messages.Email')" placeholder="Enter your email"
+                        <input type="email" :value="__('messages.Email')" placeholder="{{__('messages.Email')}}"
                             class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                             type="email" name="email" :value="old('email')" required />
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
-
                         <span class="absolute right-4 top-4">
                             <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -56,12 +50,11 @@
                         </span>
                     </div>
                 </div>
-
                 <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white" for="password"
-                        :value="__('messages.Password')">Password</label>
+                        :value="__('messages.Password')">{{__('messages.Password')}}</label>
                     <div class="relative">
-                        <input type="password" placeholder="Enter your password" type="password" id="password"
+                        <input type="password" placeholder="{{__('messages.Password')}}" type="password" id="password"
                             name="password" required autocomplete="new-password"
                             class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -81,11 +74,10 @@
                         </span>
                     </div>
                 </div>
-
                 <div class="mb-6">
-                    <label class="mb-2.5 block font-medium text-black dark:text-white">Re-type Password</label>
+                    <label class="mb-2.5 block font-medium text-black dark:text-white">{{__('messages.Re-type Password')}}</label>
                     <div class="relative">
-                        <input type="password" placeholder="Re-enter your password" name="password_confirmation"
+                        <input type="password" placeholder="{{__('messages.Re-type Password')}}" name="password_confirmation"
                             id="password_confirmation" required autocomplete="new-password"
                             class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
@@ -106,50 +98,46 @@
                     </div>
                 </div>
                 <div class="mb-4" x-data="{ domain:'',DomainAvilaplety: '',isLoading:false }">
-                    <label :value="__('messages.messages.domain')" class="mb-2.5 block font-medium text-black dark:text-white">Your store
-                        domain adress</label>
+                    <label :value="__('messages.domain')"
+                        class="mb-2.5 block font-medium text-black dark:text-white">
+                        {{__('messages.Your store domain adress')}}</label>
                     <div class="relative flex">
-                        <input type="text"
-                        x-model="domain"
-                        @keyup="DomainAvilaplety =  await CheckDomainAvilaplety(domain);isLoading=true"
-                        id='domain' name="domain" placeholder="Enter your full Domain"
+                        <input type="text" x-model="domain"
+                            @keyup="DomainAvilaplety =  await CheckDomainAvilaplety(domain);isLoading=true" id='domain'
+                            name="domain" placeholder="{{__('messages.Enter your full Domain')}}"
                             class="w-2/3 rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                             :value="old('domain')" required autofocus autocomplete="Domain" />
                         <span
                             class="w-2/3  bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none  dark:focus:border-primary">.{{env('APP_DOMAIN')}}</span>
-
                         <x-input-error :messages="$errors->get('domain')" class="mt-2" />
-
                     </div>
                     <li x-show='isLoading' class="flex items-center">
                         <svg x-show='DomainAvilaplety'
-                         class="w-4 h-4 me-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                            class="w-4 h-4 me-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
                         </svg>
-                        
-                        <svg x-show='!DomainAvilaplety' 
-                         class="w-4 h-4 me-2 text-red-500 dark:text-red-400 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd" d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z" clip-rule="evenodd"/>
-                          </svg>
-                          
-                          
-                          
-                        <span x-show='!DomainAvilaplety'>domain is not valid</span>
 
-                        <span  x-show='DomainAvilaplety'>domain is valid</span>
+                        <svg x-show='!DomainAvilaplety'
+                            class="w-4 h-4 me-2 text-red-500 dark:text-red-400 flex-shrink-0" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z"
+                                clip-rule="evenodd" />
+                        </svg>
+
+                        <span x-show='!DomainAvilaplety'>{{__('messages.domain is not valid')}}</span>
+                        <span x-show='DomainAvilaplety'>{{__('messages.domain is valid')}}</span>
                         <br />
- 
                     </li>
 
                 </div>
-
-
                 <div class="mb-5">
-                    <input type="submit" value="Create account"
-                        class="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 font-medium text-white transition hover:bg-opacity-90" />
+                    <input type="submit" value="{{__('messages.Create account')}}"
+                        class="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 font-medium
+                         text-white transition hover:bg-opacity-90" />
                 </div>
-
-
                 <button
                     class="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 font-medium hover:bg-opacity-80 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-80">
                     <span>
@@ -175,13 +163,12 @@
                             </defs>
                         </svg>
                     </span>
-                    Sign up with Google
+                    {{__('messages.Sign up with Google')}}
                 </button>
-
                 <div class="mt-6 text-center">
                     <p class="font-medium">
-                        Already have an account?
-                        <a href="/login" class="text-primary">Sign in</a>
+                        {{__('messages.Already have an account?')}}
+                        <a href="/login" class="text-primary">{{__('messages.Login')}}</a>
                     </p>
                 </div>
             </form>
@@ -192,12 +179,6 @@
 
 
     </div>
-
-
-
-
-
-
 
 </x-guest-layout>
 @vite('resources/js/helper.js')

@@ -64,7 +64,7 @@ class Search extends Component
     public function render()
     {
 
-        $products = ModelsProduct::orderByType($this->filters)->where('name', 'like', '%' . $this->searchword . '%')
+        $products = ModelsProduct::orderByType($this->filters,false)->where('name', 'like', '%' . $this->searchword . '%')
             ->where('status', Status::PUBLISHED->value)
             ->paginate(10);
 

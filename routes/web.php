@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\centralDomainController;
+use App\Http\Middleware\LocaleMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::middleware([LocaleMiddleware::class])->group(function () {
 
-
-Route::get('/', function () {
-    return themeView('welcome');
-});
-
+Route::get('/',[centralDomainController::class, 'welcome'] );
+Route::get('setLocale/{locale}',[centralDomainController::class, 'setLocale'])->name('setLocale');
 
 
  require __DIR__.'/centralDomainAuth.php';
+});

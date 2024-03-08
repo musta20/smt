@@ -7,7 +7,7 @@
                 class="relative divide-y divide-gray-3 rounded-lg border border-gray-3 shadow w-1/4 dark:bg-gray-700">
                 <button @click.prevent="isOpen = !isOpen"
                     class="w-full inline-flex items-center gap-1.5 rounded-md justify-center py-1.5 text-sm text-black  hover:text-primary dark:bg-meta-4 dark:text-white dark:shadow-none">
-                    ترتيب حسب
+                    {{__('messages.order by')}}
                     <svg class="fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -21,34 +21,28 @@
                     style="display: none;">
                     <button wire:click="filter('sortType','NEWEST'); isOpen = false"
                         class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                        الاحدث
+                        {{__('messages.newest')}}
                     </button>
                     <button wire:click="filter('sortType','AVG_COUSTMER'); isOpen = false"
                         class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                        الاعلى تقييما
+                        {{__('messages.average customer')}}
                     </button>
                     <button wire:click="filter('sortType','BEST_SELLING'); isOpen = false"
                         class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                        الاكثر طلبا
+                        {{__('messages.highest order')}}
                     </button>
 
                     <button wire:click="filter('sortType','LOW_TO_HIGHT'); isOpen = false"
                         class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                        السعر: من الاقل الى الاعلى
+                        {{__('messages.Price: low to high')}}
                     </button>
 
                     <button wire:click="filter('sortType','HIGHT_TO_LOW'); isOpen = false"
                         class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                        السعر: من الاعلى الى الاقل
+                        {{__('messages.Price: high to low')}}
                     </button>
-                    <button wire:click="filter('sortType','PUBLISHED'); isOpen = false"
-                        class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                        حالة:منشور
-                    </button>
-                    <button wire:click="filter('sortType','DRAFT'); isOpen = false"
-                        class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                        حالة:مسودة
-                    </button>
+                
+                  
                 </div>
             </div>
 
@@ -79,7 +73,7 @@
                 class="relative divide-y w-1/4  divide-gray-3 border border-gray-3 rounded-s-lg shadow dark:bg-gray-700">
                 <button @click.prevent="isOpen = !isOpen"
                     class="w-full inline-flex items-center gap-1.5 rounded-md justify-center py-1.5 text-sm text-black  hover:text-primary dark:bg-meta-4 dark:text-white dark:shadow-none">
-                    التصنيف
+                    {{__('messages.category')}}
                     <svg class="fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -108,7 +102,7 @@
 
         </div>
         <span class="m-3 p-4 text-stone-600">
-            مجموع ({{count($allProducts)}}) منتج
+            {{__('messages.Total')}} ({{count($allProducts)}}) {{__('messages.product')}}
         </span>
         <div class="  border-stroke px-4 py-2 dark:border-strokedark sm:grid-cols-9 md:px-6 2xl:px-7.5">
             @empty(!$searchword)
@@ -134,7 +128,8 @@
             @empty(!$item)
             <span id="badge-dismiss-default"
                 class="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">
-                {{$key =='categoryId' ? $category->find($item)->name:__($item)}}
+                {{$key =='categoryId' ? $category->find($item)->name:__('messages.'.$item)}}
+
                 <button type="button" wire:click="filter('{{$key}}','')"
                     class="inline-flex items-center p-1 ms-2 text-sm text-blue-400 bg-transparent rounded-sm hover:bg-blue-200 hover:text-blue-900 dark:hover:bg-blue-800 dark:hover:text-blue-300"
                     data-dismiss-target="#badge-dismiss-default" aria-label="Remove">

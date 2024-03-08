@@ -72,8 +72,40 @@
                 {{$product->description }}
             </P>
             <hr />
-            <span class="text-3xl ">{{$product->price}}.EL</span>
-            <div>
+            <div class="flex text-slate-800  justify-between">
+                <div class=" w-full flex justify-between font-bold ">
+                    <div class=" py-2 px-2">
+                        <span class="text-2xl">
+                            {{$product->price}}
+                        </span>
+                        <span class="text-sm">
+                            {{__('messages.EGP')}}
+                        </span>
+                        <div class="">
+                            @if ($product->older_price)
+                            <label>{{__('messages.olderprice')}} : </label>
+
+                            <span class="line-through text-slate-500">
+
+                                {{$product->older_price}}
+                                <span class="text-sm">
+                                    {{__('messages.EGP')}}
+                                </span>
+                            </span>
+
+                            @endif
+                        </div>
+                        @if ($product->discount)
+                        <label>{{__('messages.discount')}} : </label>
+
+                        <span class="bg-blue-100 text-xl text-blue-800 font-semibold px-2.5 py-0.5 rounded ms-3">
+                           %
+                            {{$product->discount}}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+            </div>            <div>
             <button type="submit" class="text-white  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
              focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
               ">{{__('messages.order')}}</button>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html 
+  lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+ dir="{{ in_array(app()->getLocale(), ['ar']) ? 'rtl' : 'ltr' }}"
+ >
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,7 +19,7 @@
           $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
     :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}">
     <!-- ===== Preloader Start ===== -->
-    {{-- <x-admin.partials.preloader /> --}}
+    <x-admin.partials.preloader />
     <!-- ===== Preloader End ===== -->
 
     <!-- ===== Page Wrapper Start ===== -->
@@ -26,22 +28,23 @@
         <!-- ===== Content Area Start ===== -->
         <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
 
-
             <!-- ===== Main Content Start ===== -->
             <main>
                 <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
                     <!-- Breadcrumb Start -->
                     <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                        <h2 class="text-title-md2 font-bold text-black dark:text-white">
-                            {{__('login')}}
-                        </h2>
-
+                        <div class="md:items-center p-2">
+                            @if (tenant())
+                            <a href="/">
+                                <img src="{{tenant_asset('media/'.$logo)}}" alt="noon">
+                            </a>   
+                            @endif
+                        </div>
                         <nav>
                             <ol class="flex items-center gap-2">
                                 <li>
-                                    <a class="font-medium" href="index.html">Dashboard /</a>
+                                    <a class="font-medium" href="/">{{__('messages.Home')}}</a>
                                 </li>
-                                <li class="font-medium text-primary">Sign In</li>
                             </ol>
                         </nav>
                     </div>
@@ -49,30 +52,12 @@
 
                     <!-- ====== Forms Section Start -->
                     <div
-                        class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                        <div class="flex flex-wrap items-center">
-                            {{-- <div class="hidden w-full xl:block xl:w-1/2">
-                                <div class="px-26 py-17.5 text-center">
-                                    <a class="mb-5.5 inline-block" href="index.html">
-                                        <img class="hidden dark:block" src="{{ Vite::asset('resources/images/logo/logo.svg') }}" alt="Logo" />
-                                        <img class="dark:hidden" src="{{ Vite::asset('resources/images/logo/logo-dark.svg') }}" alt="Logo" />
-                                    </a>
-
-                                    <p class="font-medium 2xl:px-20">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                        suspendisse.
-                                    </p>
-
-                                    <span class="mt-15 inline-block">
-                                        <img src="{{ Vite::asset('resources/images/illustration/illustration-03.svg') }}" alt="illustration" />
-                                    </span>
-                                </div>
-                            </div> --}}
+                        class="rounded-sm border w-1/2 m-auto border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+                         
 
                             {{ $slot }}
 
 
-                        </div>
                     </div>
                     <!-- ====== Forms Section End -->
                 </div>
