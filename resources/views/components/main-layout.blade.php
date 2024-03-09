@@ -1,11 +1,11 @@
+@props(['page'=>''])
 <!DOCTYPE html>
-
 <html 
   lang="{{ str_replace('_', '-', app()->getLocale()) }}"
  dir="{{ in_array(app()->getLocale(), ['ar']) ? 'rtl' : 'ltr' }}"
  >
 
-<x-layout.head />
+<x-layout.head  :$page/>
 <body class="bg-slate-50">
     <x-layout.header :logo="$logo"/>
 

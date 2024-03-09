@@ -16,6 +16,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ThemesController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(
@@ -35,6 +36,7 @@ Route::middleware(
 
         Route::resource('/setting', SettingController::class);
         Route::resource('/customer', CustomerController::class);
+        Route::resource('/themes', ThemesController::class);
 
         
         Route::resource('/setting', SettingController::class);

@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-main-layout :page="__('messages.About')">
 
     <section style="height: 50rem"
         class=" m-2   text-pretty  bg-white m-2 py-5 px-3 rounded-lg  border ">

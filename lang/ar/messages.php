@@ -11,7 +11,7 @@ return [
     الرجاء تأكيد كلمة المرور',
     'Confirm' => 'تاكيد',
     'Login' => 'تسجيل الدخول',
-
+    'Social'=>'تواصل',
     'your shoping cart is empty' => 'السلة فارغة',
     'you want to delete product :' => 'تريد حذف المنتج',
     'add category' => 'إضافة تصنيف',

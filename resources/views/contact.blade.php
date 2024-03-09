@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-main-layout :page="__('messages.Contact')">
 
     <form class="p-5 flex flex-col justify-items-center align-baseline">
 

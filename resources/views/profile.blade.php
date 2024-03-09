@@ -1,4 +1,4 @@
-<x-main-layout :SearchBox="true">
+<x-main-layout :page="__('messages.Profile')" :SearchBox="true">
 
         <div x-ref='form' method="post" action="{{route('admin.profile.update')}}" class=" p-5">
             @method('put')

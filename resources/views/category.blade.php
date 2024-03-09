@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-main-layout :page="$category->name">
 
   <div class="grid lg:grid-cols-4 gap-2 py-5 sm:grid-cols-1 md:grid-cols-3">
 

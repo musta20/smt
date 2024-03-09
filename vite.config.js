@@ -13,6 +13,7 @@ export default defineConfig({
         'resources/js/alpine.js',
         'resources/js/index.js',
         'resources/js/fileUpload.js',
+        'resources/views/newStyle/css/nordic.css'
             ],
             refresh: true,
         }),

@@ -74,7 +74,7 @@
           </li>
           <li>
             <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
-              href="{{route('profilePage')}}" @click="selected = (selected === 'Profile' ? '':'Profile')"
+              href="{{route('admin.themes.index')}}" @click="selected = (selected === 'Profile' ? '':'Profile')"
               :class="{ 'bg-graydark': (selected === 'Profile') && (page === 'profile') }"
               :class="page === 'profile' && 'bg-graydark'">
               <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none"
@@ -131,7 +131,7 @@
           <!-- Menu Item Tables -->
           <li>
             <a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
-              href="tables.html" @click="selected = (selected === 'Tables' ? '':'Tables')"
+              href="{{route('profilePage')}}" @click="selected = (selected === 'Tables' ? '':'Tables')"
               :class="{ 'bg-graydark': (selected === 'Tables') && (page === 'tables') }">
               <svg class="fill-current" width="18" height="19" viewBox="0 0 18 19" fill="none"
                 xmlns="http://www.w3.org/2000/svg">

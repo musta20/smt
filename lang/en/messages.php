@@ -1,10 +1,13 @@
 <?php
 
-// lang/en/messages.php
 return  [
+    
     'EGP' => 'EGP',
 
     'Login' => 'Login',
+
+    'Social'=>'Social',
+
     'This is a secure area of the application. Please confirm your password before continuing.' => 'This is a secure area of the application. Please confirm your password before continuing.',
 
     'Confirm' => 'Confirm',

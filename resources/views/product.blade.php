@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-main-layout :page="$product->name">
     <ul class="flex justify-items-center  gap-1   text-gray ">
         <li>{{__('messages.categories')}}</li>
         <li>

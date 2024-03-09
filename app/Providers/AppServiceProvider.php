@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Theme\Theme;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Features\SupportFileUploads\FilePreviewController;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
@@ -23,6 +24,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+      //  dd(resource_path('views/newStyle/components'));
+        Blade::anonymousComponentPath(
+            resource_path('views/newStyle/components'),
+            'newstyle'
+        );
+
+   
+        
+      //  Blade::componentNamespace('App\\Views\\newStyle\\Components', 'newStyle');
+
        // FilePreviewController::$middleware = ['web', 'universal', InitializeTenancyByDomain::class];
       // config(['view.paths'=>[resource_path('newTheme')]]);
       //  dd(tenant());
