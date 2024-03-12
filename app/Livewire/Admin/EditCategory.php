@@ -19,7 +19,7 @@ class EditCategory extends Component
     }
     
     public function mount($category){
-        $this->categories = Category::all();
+        $this->categories = Category::where('tenant_id',tenant('id'))->get();
 
         $this->category =$category;
     }
@@ -29,7 +29,7 @@ class EditCategory extends Component
     {
         return themeView(
             'livewire.admin.edit-category',
-            ["category" => Category::all()]
+            ["category" => $this->categories]
         );
     }
 }

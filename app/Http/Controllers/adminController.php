@@ -15,7 +15,7 @@ class adminController extends Controller
     public function __invoke(Request $request)
     {
 
-        $Product = Product::get()->take(10)->sortBy('order_count');
+        $Product = Product::where('tenant_id',tenant('id'))->take(10)->orderBy('order_count')->get();
         $customerCount = User::role(Role::CUSTOMER->value)->count();
         return view('admin.admin')->with( [
             "Product"=>$Product,

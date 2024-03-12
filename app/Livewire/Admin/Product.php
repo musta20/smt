@@ -68,7 +68,7 @@ class Product extends Component
         return themeView('livewire.admin.product', [
 
             "allProducts" => $this->products,
-            "category" => Category::get(),
+            "category" => Category::where('tenant_id',tenant('id'))->get(),
             "enumStatus" => Status::class
 
         ]);

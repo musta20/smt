@@ -67,7 +67,7 @@ class Setting extends Component
 
     public function mount()
     {
-        $this->setting = ModelsSetting::all();
+        $this->setting = ModelsSetting::where('tenant_id',tenant('id'))->get();
         $this->store = Store::where('tenant_id',tenant('id'))->first();
         
         $this->siteStatus = $this->setting->where('key', 'siteStatus')->first()->value == Status::PUBLISHED->value ? true : false;

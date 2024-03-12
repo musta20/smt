@@ -17,7 +17,7 @@ class Category extends Component
     }
     
     public function mount(){
-        $this->category = ModelsCategory::all();
+        $this->category = ModelsCategory::where('tenant_id',tenant('id'))->get();
     }
 
     public function render()

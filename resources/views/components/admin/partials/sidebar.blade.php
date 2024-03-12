@@ -3,8 +3,11 @@
   @click.outside="sidebarToggle = false">
   <!-- SIDEBAR HEADER -->
   <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-    <a href="index.html">
-      <img src="{{ Vite::asset('resources/images/logo/logo.svg') }}" alt="Logo" />
+
+    <a class="flex gap-2" href="/">
+      <img width="40"  style="filter: invert(70%);" src="{{ Vite::asset('resources/images/logo.png') }}" alt="Logo" />
+      <span class="text-xl mt-6 font-bold text-gray-100 ">لوحة التحكم</span>
+
     </a>
 
     <button class="block lg:hidden" @click.stop="sidebarToggle = !sidebarToggle">
@@ -20,7 +23,7 @@
 
   <div class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
     <!-- Sidebar Menu -->
-    <nav class="mt-5 px-4 py-4 lg:mt-9 lg:px-6" x-data="{selected: $persist('Dashboard')}">
+    <nav class="px-4 py-4 lg:mt-9 lg:px-6" x-data="{selected: $persist('Dashboard')}">
       <!-- Menu Group -->
       <div>
         <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">{{__('messages.main menu')}}</h3>
@@ -219,7 +222,7 @@
           <!-- Menu Item Chart -->
           <li>
             <a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
-              href="chart.html" @click="selected = (selected === 'Chart' ? '':'Chart')"
+              href="/" @click="selected = (selected === 'Chart' ? '':'Chart')"
               :class="{ 'bg-graydark': (selected === 'Chart') && (page === 'Chart') }">
               <svg class="fill-current" width="18" height="19" viewBox="0 0 18 19" fill="none"
                 xmlns="http://www.w3.org/2000/svg">

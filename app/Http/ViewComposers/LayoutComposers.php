@@ -32,12 +32,6 @@ class LayoutComposers
             $setting = Setting::where('tenant_id',tenant('id'))->get();
 
             $visibleRecored = $setting->where('key', 'visibility')->first();
-
-            $lang = $setting->where('key', 'lang')->first()->value;
-            
-            // if($lang){
-            //     app()->setLocale($lang);
-            // }
          
             $visible = json_decode($visibleRecored?->value);
 

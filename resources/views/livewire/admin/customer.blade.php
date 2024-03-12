@@ -57,11 +57,11 @@
               <div class="col-span-4 flex items-center">
   
                 <p class="text-sm font-medium text-black dark:text-white">
-                  <a class="hover:text-primary" href="{{route('admin.category.edit',$item->id)}}">
+                  <span class="hover:text-primary">
   
                     {{$item->name}}
   
-                  </a>
+                  </span>
                 </p>
               </div>
               <div class="col-span-3 hidden items-center sm:flex">
