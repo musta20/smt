@@ -21,6 +21,6 @@ class layout extends Component
      */
     public function render(): View|Closure|string
     {
-        return themeView('admin.partials.layout');
+        return view('admin.partials.layout');
     }
 }

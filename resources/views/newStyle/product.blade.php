@@ -106,9 +106,9 @@
                     </div>
                 </div>
             </div>            <div>
-            <button type="submit" class="text-white  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
+                <a target="_blank" href="{{$product->order_url}}" class="text-white  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
              focus:ring-green-300 font-medium  text-sm px-5 py-2.5 text-center me-2 mb-2
-              ">{{__('messages.order')}}</button>
+              ">{{__('messages.order')}}</a>
 
             <a href="{{route('addToCart',$product->id)}}" 
                 class="text-white hover:bg-gray-800 bg-gray-500  focus:outline-none focus:ring-4 focus:ring-slate-300 font-medium  text-sm px-5 py-3 text-center  mb-2">{{__('messages.Add to cart')}}

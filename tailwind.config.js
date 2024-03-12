@@ -5,6 +5,10 @@ module.exports = {
       "./node_modules/flowbite/**/*.js"
     ],
     theme: {
+      fontFamily: {
+        'Camel': ['Camel'],
+        'ElMessiri':['El Messiri']
+      },
       extend: {},
     },
     plugins: [

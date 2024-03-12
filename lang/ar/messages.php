@@ -6,10 +6,12 @@ return [
     'add review' => 'إصافة تقييم',
     'publish' => 'نشر',
     'Cart' => 'السله',
+    'theme updated'=>'تم تحديث القالب' ,
     'olderprice' => 'قبل',
     'This is a secure area of the application. Please confirm your password before continuing.' => '
     الرجاء تأكيد كلمة المرور',
     'Confirm' => 'تاكيد',
+    'login'=>'دخول',
     'Login' => 'تسجيل الدخول',
     'Social'=>'تواصل',
     'your shoping cart is empty' => 'السلة فارغة',

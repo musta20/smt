@@ -1,0 +1,15 @@
+@config "../../../../tailwind.coffee.config.js";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: "Camel";
+    src: url("./Cairo-Medium.ttf") format("ttf"),
+ 
+  }
+  
+*{
+    transition: all .01s;
+}

@@ -14,7 +14,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return themeView('admin.store.index');
+        return view('admin.store.index');
     }
 
     /**

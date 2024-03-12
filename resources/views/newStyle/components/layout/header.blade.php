@@ -76,7 +76,7 @@
             <a class="flex   items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
                 href="/">
 
-                <img class="px-1" src="{{tenant_asset('media/'.$logo)}}" alt="noon">
+                <img class="px-1" src="{{tenant_asset('media/'.$logo)}}">
                 {{$store->title}}
             </a>
         </div>

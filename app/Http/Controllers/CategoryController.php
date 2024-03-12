@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return themeView('admin.category.index');
+        return view('admin.category.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return themeView('admin.category.create');
+        return view('admin.category.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return themeView('admin.category.edit',[
+        return view('admin.category.edit',[
             'category' => $category
 
         ]);

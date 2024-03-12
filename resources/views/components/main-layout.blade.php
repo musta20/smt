@@ -6,7 +6,7 @@
  >
 
 <x-layout.head  :$page/>
-<body class="bg-slate-50">
+<body class="bg-slate-50 font-Cairo">
     <x-layout.header :logo="$logo"/>
 
     <section class="px-14 ">

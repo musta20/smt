@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Enums\Store\Theme;
+use App\Http\Requests\ThemeUpdateRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ThemesController extends Controller
 {
@@ -13,7 +15,7 @@ class ThemesController extends Controller
     public function index()
     {
         $themes = Theme::cases();
-        return themeView('admin.themes.index',['themes'=>$themes]);
+        return view('admin.themes.index', ['themes' => $themes]);
     }
 
     /**
@@ -51,9 +53,33 @@ class ThemesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function updateTheme(ThemeUpdateRequest $request)
     {
-        //
+        // $request->validate([
+        //     'theme' => ['required', 'in:'. implode(',', Theme::cases())],
+        // ]);
+
+
+
+        if (in_array($request->theme, Theme::values())) {
+
+
+            if ($request->theme == Theme::DEFAULT->value) {
+                tenant()->theme  = '';
+            } else {
+                tenant()->theme  = $request->theme;
+            }
+            tenant()->save();
+
+            return Redirect::route('admin.themes.index')->with('OkToast', __('messages.theme updated'));
+        }
+        return Redirect::route('admin.themes.index')->with('OkToast', __('messages.theme updated'));
+
+
+
+
+
+        //ThemeUpdateRequest
     }
 
     /**

@@ -37,7 +37,8 @@ Route::middleware(
         Route::resource('/setting', SettingController::class);
         Route::resource('/customer', CustomerController::class);
         Route::resource('/themes', ThemesController::class);
-
+        Route::put('/updateTheme', [ThemesController::class,'updateTheme'])->name('updateTheme');
+        
         
         Route::resource('/setting', SettingController::class);
         Route::put('/updateSetting', [SettingController::class,'updateSetting'])->name('setting.updateSetting');

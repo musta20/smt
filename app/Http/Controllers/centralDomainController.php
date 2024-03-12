@@ -9,7 +9,7 @@ class centralDomainController extends Controller
 
     public function welcome()
     {
-        return themeView('welcome');
+        return view('welcome');
     }
 
     public function setLocale(Request $request)

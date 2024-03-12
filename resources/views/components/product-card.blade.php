@@ -1,4 +1,4 @@
-<div class="w-full  bg-white  border-gray-200 text-gray-700 rounded-lg shadow">
+<div class="w-full  bg-white  border-gray-200 text-gray-700  shadow">
     <div class="w-full  overflow-hidden max-h-60">
         <a href="{{route('productPage',$product->id)}}">
             <img class="  rounded-t-lg  " src="{{tenant_asset('media/'.$product->image)}}" alt="product image" />

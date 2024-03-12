@@ -6,6 +6,10 @@ return  [
 
     'Login' => 'Login',
 
+    'login'=>'login',
+
+    'theme updated'=>'theme updated' ,
+
     'Social'=>'Social',
 
     'This is a secure area of the application. Please confirm your password before continuing.' => 'This is a secure area of the application. Please confirm your password before continuing.',
