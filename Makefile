@@ -22,3 +22,13 @@ clear:
 
 clearfiles: 
 	rm -rf storage/tenant* &&  rm -rf storage/app/*
+
+prod:
+	docker --file 'docker-compose-prod.yaml' start 
+
+prodbuild:
+	docker --file docker-compose-prod.yaml build -d
+
+profresh: 
+	rm -rf storage/tenant* && rm -rf storage/app/*  && @docker exec crm_php php artisan migrate:fresh --seed &&	chmod -R 777 storage && @docker exec crm_php php artisan storage:link
+

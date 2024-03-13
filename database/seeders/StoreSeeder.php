@@ -6,9 +6,7 @@ use App\Models\Store;
 use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Process;
-use Illuminate\Support\Facades\Storage;
 
 class StoreSeeder extends Seeder
 {
@@ -33,13 +31,10 @@ class StoreSeeder extends Seeder
         $storename2 = "reem";
 
 
-
         $logopath = storage_path() . '/logo/logo-icon.svg';
         $Faviconpath = storage_path() . '/logo/favicon.ico';
 
-      
 
-        
 
         Process::run("cp ".$Faviconpath." ".$tenantpath."/favicon.ico");
         Process::run("cp ".$logopath." ".$tenantpath."/logo-icon.svg");

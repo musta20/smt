@@ -38,7 +38,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
-    <header class="fixed w-full">
+    <header class="fixed w-full ">
         <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
             <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
                 <a href="#" class="flex items-center">
@@ -56,8 +56,8 @@
                         <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                 </div>
-                <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                    <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1 " id="mobile-menu-2">
+                    <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 hidden">
                         
                     
                         <li>
@@ -96,7 +96,7 @@
     </section>
     <!-- End block -->
     <!-- Start block -->
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-900 hidden">
         <div class="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16">
             <div class="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6 dark:text-gray-400">
                 <a href="#" class="flex items-center lg:justify-center">
@@ -159,7 +159,7 @@
     </section>
     <!-- End block -->
     <!-- Start block -->
-    <section class="bg-gray-50 dark:bg-gray-800">
+    <section class="bg-gray-50 dark:bg-gray-800 hidden">
         <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
             <!-- Row -->
             <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
@@ -231,7 +231,7 @@
       </section>
     <!-- End block -->
     <!-- Start block -->
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-900 hidden">
         <div class="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
             <div class="col-span-2 mb-8">
                 <p class="text-lg font-medium text-purple-600 dark:text-purple-500">Trusted Worldwide</p>
@@ -278,7 +278,7 @@
       </section>
     <!-- End block -->
     <!-- Start block -->
-    <section class="bg-gray-50 dark:bg-gray-800">
+    <section class="bg-gray-50 dark:bg-gray-800 hidden">
         <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-24 lg:px-6">
             <figure class="max-w-screen-md mx-auto">
                 <svg class="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -299,7 +299,7 @@
       </section>
     <!-- End block -->
     <!-- Start block -->
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-900 hidden">
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
             <div class="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
                 <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Designed for business teams like yours</h2>
@@ -425,7 +425,7 @@
       </section>
     <!-- End block -->
     <!-- Start block -->
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-900 hidden">
         <div class="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-24 lg:px-6 ">
             <h2 class="mb-6 text-3xl font-extrabold tracking-tight text-center text-gray-900 lg:mb-8 lg:text-3xl dark:text-white">Frequently asked questions</h2>
             <div class="max-w-screen-md mx-auto">
@@ -497,14 +497,19 @@
     <section class="bg-gray-50 dark:bg-gray-800">
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
             <div class="max-w-screen-sm mx-auto text-center">
-                <h2 class="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">Start your free trial today</h2>
-                <p class="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">Try Matajer Platform for 30 days. No credit card required.</p>
-                <a href="#" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">Free trial for 30 days</a>
+                <h2 class="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">ابداء تجربتك الان مجاناً</h2>
+
+
+          
+                <a 
+                href="{{route('register')}}"                 class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
+                سجل
+            </a>
             </div>
         </div>
     </section>
     <!-- End block -->
-    <footer class="bg-white dark:bg-gray-800">
+    <footer class="bg-white dark:bg-gray-800 hidden">
         <div class="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
             <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
                 <div>
