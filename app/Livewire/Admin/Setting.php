@@ -97,6 +97,6 @@ class Setting extends Component
 
     public function render()
     {
-        return themeView('livewire.admin.setting');
+        return view('livewire.admin.setting');
     }
 }

@@ -11,6 +11,6 @@ class Modal extends Component
     }
     public function render()
     {
-        return themeView('livewire.admin.modal');
+        return view('livewire.admin.modal');
     }
 }

@@ -73,7 +73,7 @@ class CreateProduct extends Component
 
 
 
-        return themeView('livewire.admin.create-product', [
+        return view('livewire.admin.create-product', [
             "categories" => Category::where('tenant_id', tenant('id'))->get(),
 
         ]);

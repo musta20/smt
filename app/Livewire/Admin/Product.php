@@ -65,7 +65,7 @@ class Product extends Component
         $this->products = ModelsProduct::orderByType($this->filters,true)->where('name', 'like', '%' . $this->searchword . '%')
             ->paginate(10);
 
-        return themeView('livewire.admin.product', [
+        return view('livewire.admin.product', [
 
             "allProducts" => $this->products,
             "category" => Category::where('tenant_id',tenant('id'))->get(),

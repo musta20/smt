@@ -22,6 +22,6 @@ class Category extends Component
 
     public function render()
     {
-        return themeView('livewire.admin.category');
+        return view('livewire.admin.category');
     }
 }
