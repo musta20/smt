@@ -1,4 +1,4 @@
-<nav id="header" class="w-full z-30 top-0 py-1">
+<nav id="header"  class=" w-full top-0 py-1">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
         <label for="menu-toggle" class="cursor-pointer md:hidden block">
@@ -22,7 +22,6 @@
             <a href="{{route('showCart')}}"
                 class="hover:bg-slate-100 rounded-full p-2 flex justify-center justify-items-center">
                 <span class="relative inline-block">
-                    <a class="pl-3 inline-block no-underline hover:text-black" href="#">
                         <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" viewBox="0 0 24 24">
                             <path
@@ -30,13 +29,13 @@
                             <circle cx="10.5" cy="18.5" r="1.5" />
                             <circle cx="17.5" cy="18.5" r="1.5" />
                         </svg>
-                    </a>
+                  
                     @if (count($userCart) > 0)
                     <span
-                        class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs 
-                font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
-                        {{ count($userCart) }}
-                    </span>
+                    class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs 
+                         font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+                    {{ count($userCart) }}
+                      </span>
                     @endif
 
                 </span>
@@ -59,7 +58,7 @@
                     @if (count($value))
                     <span
                         class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs 
-                    font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+                          font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
                         {{ count($value) }}
                     </span>
                     @endif
@@ -85,7 +84,9 @@
 
             @auth
 
-            <div class="relative !min-w-90" x-data="{ dropdownOpen: false }" @click.outside="dropdownOpen = false">
+            <div class="relative  !min-w-90"
+            style="z-index: 100" 
+            x-data="{ dropdownOpen: false }" @click.outside="dropdownOpen = false">
                 <a class="flex items-center gap-4" href="#" @click.prevent="dropdownOpen = ! dropdownOpen">
                     <div class="flex justify-center justify-items-center p-1.5 uppercase font-bold text-xl 
                     text-center w-10 h-10 rounded-full bg-yellow-200 
@@ -195,4 +196,3 @@
     </div>
 </nav>
 
-<x-toast />

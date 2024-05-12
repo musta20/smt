@@ -7,9 +7,10 @@
     <body style="font-family: El Messiri" class="bg-white font-ElMessiri text-gray-600 work-sans leading-normal text-base tracking-normal">
         <x-layout.header :logo="$logo"/>
         <x-newstyle::layout.nav />
-        <main
-        class="w-4/5 m-auto"
-        > {{$slot}} </main>
+        <main class="w-4/5 m-auto"> 
+        {{$slot}}
+     </main>
+     <x-newstyle::toast />
 
 
     </body>
