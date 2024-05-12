@@ -42,7 +42,7 @@
         <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
             <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
                 <a href="#" class="flex items-center">
-                    <img src="{{ Vite::asset('resources/images/logo.png') }}" class="h-6 mr-3 sm:h-9" alt="Matajer" />
+                    <img src="{{ Vite::asset('resources/images/logo.svg') }}" class="h-6 mr-3 sm:h-9" alt="Matajer" />
                     <span class="self-center text-xl font-semibold whitespace-nowrap mx-2 mt-2 dark:text-white">Matajer</span>
                 </a>
                 <div class="flex items-center lg:order-2">

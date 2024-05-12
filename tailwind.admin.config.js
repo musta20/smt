@@ -12,6 +12,7 @@ export default {
   theme: {
     fontFamily: {
       satoshi: ['Satoshi', 'sans-serif'],
+      cairo: ['Cairo', 'sans-serif'],
     },
     screens: {
       '2xsm': '375px',

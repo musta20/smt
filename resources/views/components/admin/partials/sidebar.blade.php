@@ -4,10 +4,9 @@
   <!-- SIDEBAR HEADER -->
   <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
 
-    <a class="flex gap-2" href="/">
-      <img width="40"  style="filter: invert(70%);" src="{{ Vite::asset('resources/images/logo.png') }}" alt="Logo" />
-      <span class="text-xl mt-6 font-bold text-gray-100 ">لوحة التحكم</span>
-
+    <a class="flex gap-3" href="/">
+      <img width="40"  src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Logo" />
+      <span class=" my-auto text-xl font-bold text-gray-100 ">لوحة التحكم</span>
     </a>
 
     <button class="block lg:hidden" @click.stop="sidebarToggle = !sidebarToggle">
@@ -23,7 +22,7 @@
 
   <div class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
     <!-- Sidebar Menu -->
-    <nav class="px-4 py-4 lg:mt-9 lg:px-6" x-data="{selected: $persist('{{request()->path()}}'), pageRoute: '{{request()->path()}}'}">
+    <nav class="px-4 py-4  lg:px-6" x-data="{selected: $persist('{{request()->path()}}'), pageRoute: '{{request()->path()}}'}">
       <!-- Menu Group -->
       <div>
         <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">{{__('messages.main menu')}}</h3>
