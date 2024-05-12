@@ -35,6 +35,7 @@ class EditProduct extends Component
 
     public function removeImage()
     {
+        
         Storage::disk('media')->delete($this->product->image);
         $this->product->image = null;
         $this->product->save();

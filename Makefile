@@ -8,6 +8,10 @@ help:
 install:
 	@composer install
 
+godocker:
+	docker exec -it smt_php /bin/bash
+
+
 test:
 	php artisan test 
 

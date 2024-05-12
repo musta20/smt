@@ -40,8 +40,7 @@ class ProductFactory extends Factory
             'discount' => rand(10, 100),
             'rating' => rand(1, 5),
             'visible'=>['CanReview' => $this->faker->boolean()],
-            //  'store_id'=>Store::factory()->create(),
-            //  'tenant_id'=>Tenant::factory(),
+     
 
             'created_at' => $this->faker->dateTime()
         ];
