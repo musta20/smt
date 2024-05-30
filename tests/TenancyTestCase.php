@@ -15,7 +15,7 @@ use Stancl\Tenancy\Events\TenantCreated;
 abstract class TenancyTestCase extends BaseTestCase  
 {
     use CreatesApplication;
-
+    
     public $tenancy = true;
 
     protected function setUp(): void

@@ -55,7 +55,7 @@ services:
         networks:
             - smt
 
-    mysql:
+    mariadb:
         image: mariadb:latest
         container_name: "${PROJECT_NAME}_mysql"
         environment:
