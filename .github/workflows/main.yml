@@ -24,6 +24,6 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest --optimize-autoloader
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: ./vendor/bin/pest
 
  
