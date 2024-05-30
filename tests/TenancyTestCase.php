@@ -27,8 +27,8 @@ abstract class TenancyTestCase extends BaseTestCase
             $this->initializeTenancy();
 
             $tenantDomain = tenant()->domain->domain;
-            config(['app.url' => 'http://'.$tenantDomain]);
-            URL::forceRootUrl('http://'.$tenantDomain);
+            config(['app.url' => 'https://'.$tenantDomain]);
+            URL::forceRootUrl('https://'.$tenantDomain);
 
                 (new TestSeeder())->run(tenant(), User::factory()->create());
 
