@@ -9,12 +9,15 @@
             <directory>tests/Unit</directory>
         </testsuite>
 
-        <testsuite name="Tenancy">
-            <directory>tests/Tenancy</directory>
-        </testsuite>
+       
         
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
+        </testsuite>
+
+
+         <testsuite name="Tenancy">
+            <directory>tests/Tenancy</directory>
         </testsuite>
     </testsuites>
     <source>

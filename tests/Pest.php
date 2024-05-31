@@ -14,9 +14,10 @@ use Tests\TestCase;
 | need to change it using the "uses()" function to bind a different classes or traits.
 |
 */
-uses(TenancyTestCase::class, RefreshDatabase::class)->in('Tenancy');;
 
 uses(TestCase::class, RefreshDatabase::class)->in('Feature');
+uses(TenancyTestCase::class, RefreshDatabase::class)->in('Tenancy');;
+
 
 /*
 |--------------------------------------------------------------------------
