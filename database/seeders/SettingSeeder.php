@@ -18,19 +18,22 @@ class SettingSeeder extends Seeder
     public function run($storename, $storename2): void
     {
         $tenant = Tenant::get()->where('name', $storename)->first();
+
         $CarouselImage = [];
+
         if ($storename2) {
+
             $tenant2 = Tenant::get()->where('name', $storename2)->first();
         }
 
-        $imagePath = storage_path().'/Images/';
+        $imagePath = storage_path() . '/Images/';
 
         for ($i = 0; $i < 3; $i++) {
             $Image = collect(SeederData::$imageName)->random();
 
-            $tenantpath = storage_path().'/tenant'.$tenant->id.'/app/public/media';
+            $tenantpath = storage_path() . '/tenant' . $tenant->id . '/app/public/media';
 
-            Process::run('cp '.$imagePath.'/'.$Image.' '.$tenantpath.'/'.$Image);
+            Process::run('cp ' . $imagePath . '/' . $Image . ' ' . $tenantpath . '/' . $Image);
 
             $CarouselImage[$Image] = MediaType::IMAGE->value;
 

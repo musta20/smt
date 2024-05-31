@@ -18,7 +18,7 @@ it('can render category edit page', function () {
 
     $category = Category::factory()->for(tenant())->create();
 
-    $response = $this->actingAs($user)->get('admin/category/'.$category->id.'/edit');
+    $response = $this->actingAs($user)->get('admin/category/' . $category->id . '/edit');
 
     $response->assertStatus(Response::HTTP_OK);
 });
@@ -69,7 +69,7 @@ it('can delete a category item', function () {
 
     $category = Category::factory()->create();
 
-    $response = $this->actingAs($user)->delete('/admin/category/'.$category->id);
+    $response = $this->actingAs($user)->delete('/admin/category/' . $category->id);
 
     $response->assertRedirect('/admin/category');
 
@@ -94,7 +94,7 @@ it('get erorrs when trying to update a category with invalid value', function ()
 
     $category = Category::factory()->create();
 
-    $response = $this->actingAs($user)->put('/admin/category/'.$category->id, [
+    $response = $this->actingAs($user)->put('/admin/category/' . $category->id, [
         'name' => '',
         'discription' => '',
     ]);
@@ -108,7 +108,7 @@ it('can update category', function () {
 
     $category = Category::factory()->create();
 
-    $response = $this->actingAs($user)->put('/admin/category/'.$category->id, [
+    $response = $this->actingAs($user)->put('/admin/category/' . $category->id, [
         'name' => 'new-name',
         'description' => 'new-description',
     ]);
@@ -125,7 +125,7 @@ it('redirect to login page when trying to modify category while not authorized',
 
     $category = Category::factory()->create();
 
-    $response = $this->put('/admin/category/'.$category->id, [
+    $response = $this->put('/admin/category/' . $category->id, [
         'name' => 'new-name',
         'description' => 'new-description',
     ]);

@@ -10,7 +10,7 @@ test('registration screen can be rendered', function () {
 
 test('new users can register', function (string $string) {
 
-    (new PermissionSeeder())->run();
+    $this->seed(PermissionSeeder::class);
 
     $response = $this->post('/register', [
         'name' => 'Test User',

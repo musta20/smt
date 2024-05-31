@@ -19,11 +19,11 @@ class ProductSeeder extends Seeder
      */
     public function addMediaImage($tenant, $product, $tenantpath)
     {
-        $imagePath = storage_path().'/Images/';
+        $imagePath = storage_path() . '/Images/';
 
         for ($i = 0; $i < 3; $i++) {
             $productMediaImage = collect(SeederData::$imageName)->random();
-            Process::run('cp '.$imagePath.'/'.$productMediaImage.' '.$tenantpath.'/'.$productMediaImage);
+            Process::run('cp ' . $imagePath . '/' . $productMediaImage . ' ' . $tenantpath . '/' . $productMediaImage);
 
             Media::create(
                 [
@@ -44,23 +44,23 @@ class ProductSeeder extends Seeder
 
         $tenant2 = Tenant::get()->where('name', $storename2)->first();
 
-        $tenantpath = storage_path().'/tenant'.$tenant->id.'/app/public/media';
+        $tenantpath = storage_path() . '/tenant' . $tenant->id . '/app/public/media';
 
-        $tenantpath2 = storage_path().'/tenant'.$tenant2->id.'/app/public/media';
+        $tenantpath2 = storage_path() . '/tenant' . $tenant2->id . '/app/public/media';
 
         $category = Category::get()->where('tenant_id', $tenant->id);
         $category2 = Category::get()->where('tenant_id', $tenant2->id);
         $store = Store::get()->where('title', $storename2)->first();
         $store2 = Store::get()->where('title', $storename2)->first();
 
-        $imagePath = storage_path().'/Images/';
-        $tenantpath = storage_path().'/tenant'.$tenant->id.'/app/public/media';
+        $imagePath = storage_path() . '/Images/';
+        $tenantpath = storage_path() . '/tenant' . $tenant->id . '/app/public/media';
 
         for ($count = 0; $count < 60; $count++) {
 
             $productImage = collect(SeederData::$imageName)->random();
 
-            Process::run('cp '.$imagePath.'/'.$productImage.' '.$tenantpath.'/'.$productImage);
+            Process::run('cp ' . $imagePath . '/' . $productImage . ' ' . $tenantpath . '/' . $productImage);
 
             $product = Product::factory()
                 ->state(new Sequence(

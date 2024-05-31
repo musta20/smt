@@ -18,7 +18,7 @@ it('can delete customer ', function () {
     $user = User::factory()->withVenderRole()->for(tenant())->create();
     $customer = User::factory()->withRole(Role::CUSTOMER->value)->for(tenant())->create();
 
-    $response = $this->actingAs($user)->delete('admin/customer/'.$customer->id);
+    $response = $this->actingAs($user)->delete('admin/customer/' . $customer->id);
 
     $response->assertSessionHas('OkToast');
     $this->assertDataBaseHas('users', [

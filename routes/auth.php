@@ -29,7 +29,7 @@ Route::middleware(
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::group(['middleware' => ['role:'.Role::VENDER->value], 'prefix' => '/admin', 'as' => 'admin.'], function () {
+    Route::group(['middleware' => ['role:' . Role::VENDER->value], 'prefix' => '/admin', 'as' => 'admin.'], function () {
 
         Route::get('', AdminController::class)->name('dashboard');
 
