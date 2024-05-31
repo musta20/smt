@@ -8,11 +8,7 @@ use Illuminate\Support\Facades\Schema;
 use Stancl\Tenancy\Database\Concerns\BelongsToPrimaryModel;
 class CreateDomainsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up(): void
     {
         Schema::create('domains', function (Blueprint $table) {
@@ -28,11 +24,7 @@ class CreateDomainsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+  
     public function down(): void
     {
         Schema::dropIfExists('domains');

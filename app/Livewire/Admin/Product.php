@@ -22,8 +22,11 @@ class Product extends Component
         "categoryId" => '',
         "sortType" => '',
     ];
+    
     public $CurrentProduct;
+
     public $searchword = '';
+
     protected $products;
 
     public function openModel($id, $name)
