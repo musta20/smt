@@ -18,22 +18,22 @@ abstract class TenancyTestCase extends BaseTestCase
     
     public $tenancy = true;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        Event::fake([TenantCreated::class]);
+    // protected function setUp(): void
+    // {
+    //     parent::setUp();
+    //     Event::fake([TenantCreated::class]);
 
-        if ($this->tenancy) {
-            $this->initializeTenancy();
+    //     if ($this->tenancy) {
+    //         $this->initializeTenancy();
 
-            $tenantDomain = tenant()->domain->domain;
-            config(['app.url' => 'https://'.$tenantDomain]);
-            URL::forceRootUrl('https://'.$tenantDomain);
+    //         $tenantDomain = tenant()->domain->domain;
+    //         config(['app.url' => 'https://'.$tenantDomain]);
+    //         URL::forceRootUrl('https://'.$tenantDomain);
 
-                (new TestSeeder())->run(tenant(), User::factory()->create());
+    //             (new TestSeeder())->run(tenant(), User::factory()->create());
 
-        }
-    }
+    //     }
+    // }
 
     public function initializeTenancy()
     {        
