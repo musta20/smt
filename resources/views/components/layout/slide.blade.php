@@ -6,16 +6,16 @@
         <!-- Item 1 -->
 
         @if (count($CarouselImage) > 1)
-        @foreach($CarouselImage as $key=>$item)
+        @foreach ($CarouselImage as $key=>$item)
         <div class="hidden  duration-700 ease-in-out" data-carousel-item="active">
-            <img src="{{tenant_asset('media/'.$key)}}"
+            <img src="{{ tenant_asset('media/'.$key) }}"
                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
         @endforeach
 
         @else
-        @foreach($CarouselImage as $key=>$item)
-            <img src="{{tenant_asset('media/'.$key)}}"
+        @foreach ($CarouselImage as $key=>$item)
+            <img src="{{ tenant_asset('media/'.$key) }}"
                 class="absolute block w-full -translate-x-1/4 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         @endforeach
         @endif
@@ -25,11 +25,11 @@
     <!-- Slider indicators -->
     <div class="absolute -z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
 
-        @foreach($CarouselImage as $key=>$item)
+        @foreach ($CarouselImage as $key=>$item)
 
 
         <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-            data-carousel-slide-to="{{$loop->index}}"></button>
+            data-carousel-slide-to="{{ $loop->index }}"></button>
 
 
 
@@ -52,7 +52,7 @@
             <span class="sr-only">Next</span>
         </span>
     </button>
-    
+
     <button type="button"
         class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         data-carousel-prev>

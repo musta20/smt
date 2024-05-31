@@ -40,6 +40,13 @@ class RouteServiceProvider extends ServiceProvider
         // specify the right identification middleware
     }
 
+    public function configureRateLimiting()
+    {
+        RateLimiter::for('api', function (Request $request) {
+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
+    }
+
 
     protected function mapWebRoutes()
     {
@@ -65,12 +72,5 @@ class RouteServiceProvider extends ServiceProvider
     protected function centralDomains(): array
     {
         return config('tenancy.central_domains');
-    }
-
-    public function configureRateLimiting()
-    {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
-        });
     }
 }

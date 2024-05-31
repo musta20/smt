@@ -1,4 +1,4 @@
-@if(session('OkToast'))
+@if (session('OkToast'))
 <div  x-data="{loaded:true}">
   <div x-show="loaded"
     x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 5000)})"
@@ -18,7 +18,7 @@
           </div>
           <div>
             <h4 class="mb-0.5 text-title-xsm font-medium text-black dark:text-white">
-              {{session('OkToast')}}
+              {{ session('OkToast') }}
             </h4>
             {{-- <p class="text-sm font-medium">
               your message sent successfully
@@ -43,7 +43,7 @@
 
 
 
-@if(session('ErorrToast'))
+@if (session('ErorrToast'))
 <div x-data="{loaded:true}">
   <div x-show="loaded"
     x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 5000)})"
@@ -61,7 +61,7 @@
           </div>
           <div>
             <h4 class="mb-0.5 text-title-xsm font-medium text-black dark:text-[#EA4E2C]">
-              {{session('ErorrToast')}}
+              {{ session('ErorrToast') }}
             </h4>
             {{-- <p class="text-sm font-medium">
               Sorry! There was a problem with your request
@@ -78,14 +78,14 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 </div>
 @endif
 
 
 
-@if($errors->any())
+@if ($errors->any())
 <div x-data="{loaded:true}">
   <div x-show="loaded"
     x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 5000)})"
@@ -119,7 +119,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 </div>
 @endif

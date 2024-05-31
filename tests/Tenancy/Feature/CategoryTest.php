@@ -78,7 +78,7 @@ it("can delete a category item", function () {
     $response->assertRedirect('/admin/category');
 
     $category->fresh();
-    
+
     $response->assertSessionHas('OkToast');
 
     $this->assertSoftDeleted($category);

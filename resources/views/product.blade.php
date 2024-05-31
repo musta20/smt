@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="max-w-xl flex flex-col gap-1 justify-between">
-            <div class="text-4xl">{{$product->name}}</div>
+            <div class="text-4xl">{{ $product->name }}</div>
             <hr />
             <P class="text-pretty">
                 {{ $product->description }}

@@ -1,5 +1,5 @@
 <div class=" py-2">
-   
+
         <div class="flex" x-data="{rating:'',clicked: new Array(5).fill(false)}">
             <svg @click="clicked.fill(false).fill(true, 0, 5);rating=5" :class="{ 'text-yellow-300' : clicked[4]}"
                 class="w-4 h-4 text-gray-200 peer hover:cursor-pointer peer-hover:text-yellow-300 hover:text-yellow-300   mx-2"

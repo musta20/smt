@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Event;
 use Stancl\Tenancy\Events\TenantCreated;
 
-abstract class TenancyTestCase extends BaseTestCase  
+abstract class TenancyTestCase extends BaseTestCase
 {
     use CreatesApplication;
-    
+
     public $tenancy = true;
 
     protected function setUp(): void
@@ -36,7 +36,7 @@ abstract class TenancyTestCase extends BaseTestCase
     }
 
     public function initializeTenancy()
-    {        
+    {
 
         Event::fake([TenantCreated::class]);
 
@@ -44,10 +44,10 @@ abstract class TenancyTestCase extends BaseTestCase
 
         $tenant = Tenant::create([
             'name' =>$domain,
-            
+
         ]);
 
-    
+
 
         $tenant->domains()->create([
             'domain' =>  $domain  . '.' . config('app.domain'),

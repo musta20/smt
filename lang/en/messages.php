@@ -1,7 +1,7 @@
 <?php
 
 return  [
-    
+
     'EGP' => 'EGP',
 
     'Login' => 'Login',

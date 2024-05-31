@@ -57,6 +57,14 @@ class SettingController extends Controller
     {
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Setting $setting)
+    {
+        //
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -109,13 +117,5 @@ class SettingController extends Controller
         $visibleRecored->save();
 
         return redirect()->route('admin.setting.index')->with('OkToast', __('messages.setting updated'));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Setting $setting)
-    {
-        //
     }
 }

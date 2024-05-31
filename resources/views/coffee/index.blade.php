@@ -14,7 +14,7 @@
       @foreach ($products as $product)
 
       <x-coffee::product-card :$product />
-   
+
       @endforeach
 
     </div>

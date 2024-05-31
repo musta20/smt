@@ -1,4 +1,4 @@
-@if(session('OkToast'))
+@if (session('OkToast'))
 <div  x-data="{loaded:true}">
   <div x-show="loaded"
     x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 5000)})"
@@ -8,7 +8,7 @@
     <div class=" rounded-lg shadow border py-4 pl-4 pr-4.5 shadow-2 dark:bg-meta-4 bg-white ">
       <div class="flex  items-center justify-evenly">
         <div class="flex justify-evenly flex-grow items-center gap-5">
-          <div 
+          <div
           style="background-color:#1EA779; max-width: 100px; "
           class="flex h-8 w-full max-w-10 items-center justify-center rounded-full ">
             <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +22,7 @@
           </div>
           <div>
             <h4 class="mb-0.5 text-title-xsm font-medium text-black ">
-              {{session('OkToast')}}
+              {{ session('OkToast') }}
             </h4>
             {{-- <p class="text-sm font-medium">
               your message sent successfully
@@ -46,7 +46,7 @@
 @endif
 
 
-@if(session('ErorrToast'))
+@if (session('ErorrToast'))
 <div x-data="{loaded:true}">
   <div x-show="loaded"
     x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 5000)})"
@@ -64,7 +64,7 @@
           </div>
           <div>
             <h4 class="mb-0.5 text-title-xsm font-medium text-black dark:text-[#EA4E2C]">
-              {{session('ErorrToast')}}
+              {{ session('ErorrToast') }}
             </h4>
             {{-- <p class="text-sm font-medium">
               Sorry! There was a problem with your request
@@ -81,15 +81,15 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 </div>
 @endif
 
 
-@if($errors->any())
+@if ($errors->any())
 <div class="absolute   fixed z-10 right-2/4 -mr-20 top-10 " x-data="{loaded:true}">
-  
+
   <div x-show="loaded"
     x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 5000)})"
     x-transition.duration.500ms >
@@ -122,7 +122,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 </div>
 @endif

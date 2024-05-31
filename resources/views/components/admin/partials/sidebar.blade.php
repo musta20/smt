@@ -22,19 +22,19 @@
 
   <div class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
     <!-- Sidebar Menu -->
-    <nav class="px-4 py-4  lg:px-6" x-data="{selected: $persist('{{request()->path()}}'), pageRoute: '{{request()->path()}}'}">
+    <nav class="px-4 py-4  lg:px-6" x-data="{selected: $persist('{{ request()->path() }}'), pageRoute: '{{ request()->path() }}'}">
       <!-- Menu Group -->
       <div>
-        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">{{__('messages.main menu')}}</h3>
+        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">{{ __('messages.main menu') }}</h3>
 
         <ul class="mb-6 flex flex-col gap-1.5">
           <!-- Menu Item Dashboard -->
           <li>
             <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
-          
+
             :class="{ 'border-l-4 border-primary bg-slate-700':  pageRoute === 'admin/product' }"
 
-            href="{{Route('admin.product.index')}}">
+            href="{{ Route('admin.product.index') }}">
               <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -51,8 +51,8 @@
                   fill="" />
               </svg>
 
-              
-              {{__('messages.products')}}
+
+              {{ __('messages.products') }}
 
 
             </a>
@@ -66,23 +66,23 @@
             <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
 
             :class="{ 'border-l-4 border-primary bg-slate-700':  pageRoute === 'admin/category' }"
-            href="{{Route('admin.category.index')}}">
-              
+            href="{{ Route('admin.category.index') }}">
+
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
               </svg>
-              
 
-              {{__('messages.Categories')}}
+
+              {{ __('messages.Categories') }}
 
 
             </a>
           </li>
           <li>
             <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
-              href="{{route('admin.themes.index')}}"
-              
+              href="{{ route('admin.themes.index') }}"
+
               :class="{ 'border-l-4 border-primary bg-slate-700':  pageRoute === 'admin/themes' }"
              >
               <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none"
@@ -95,7 +95,7 @@
                   fill="" />
               </svg>
 
-              {{__('messages.Themes')}}
+              {{ __('messages.Themes') }}
 
 
             </a>
@@ -106,8 +106,8 @@
           <li>
             <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
             :class="{ 'border-l-4 border-primary bg-slate-700':  pageRoute === 'admin/customer' }"
- 
-            href="{{route('admin.customer.index')}}">
+
+            href="{{ route('admin.customer.index') }}">
               <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -127,7 +127,7 @@
                   fill="white" />
               </svg>
 
-              {{__('messages.Customers')}}
+              {{ __('messages.Customers') }}
 
 
             </a>
@@ -141,10 +141,10 @@
           <!-- Menu Item Tables -->
           <li>
             <a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
-              href="{{route('profilePage')}}"
+              href="{{ route('profilePage') }}"
               :class="{ 'border-l-4 border-primary bg-slate-700':  pageRoute === 'admin/profile' }"
 
-              
+
               >
               <svg class="fill-current" width="18" height="19" viewBox="0 0 18 19" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -160,7 +160,7 @@
                 </defs>
               </svg>
 
-              {{__('messages.Dashboard')}}
+              {{ __('messages.Dashboard') }}
 
             </a>
           </li>
@@ -168,7 +168,7 @@
 
           <!-- Menu Item Settings -->
           <li>
-            <a href="{{Route('admin.store.index')}}"
+            <a href="{{ Route('admin.store.index') }}"
             :class="{ 'border-l-4 border-primary bg-slate-700':  pageRoute === 'admin/store' }"
 
               class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
@@ -190,13 +190,13 @@
                 </defs>
               </svg>
 
-              {{__('messages.Settings')}}
+              {{ __('messages.Settings') }}
 
             </a>
 
             <li>
-              <a 
-              href="{{Route('admin.setting.index')}}"
+              <a
+              href="{{ Route('admin.setting.index') }}"
               :class="{ 'border-l-4 border-primary bg-slate-700':  pageRoute === 'admin/setting' }"
 
                 class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark"
@@ -204,9 +204,9 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
                 </svg>
-                
-  
-                {{__('messages.Genral Settings')}}
+
+
+                {{ __('messages.Genral Settings') }}
 
               </a>
 
@@ -217,7 +217,7 @@
 
       <!-- Others Group -->
       <div>
-        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">       {{__('messages.others')}}
+        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">       {{ __('messages.others') }}
         </h3>
 
         <ul class="mb-6 flex flex-col gap-1.5">
@@ -243,7 +243,7 @@
                 </defs>
               </svg>
 
-              {{__('messages.Support')}}
+              {{ __('messages.Support') }}
 
 
             </a>

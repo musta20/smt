@@ -1,12 +1,12 @@
 <x-guest-layout>
     <div class="w-full border-stroke dark:border-strokedark  xl:border-l-2">
-        <div class="w-full p-4 sm:p-12.5 xl:p-17.5"> 
+        <div class="w-full p-4 sm:p-12.5 xl:p-17.5">
             <h2 class="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                 {{ __('messages.SinUp') }}
             </h2>
 
             <form method="POST" action="{{ route('register') }}">
-                @csrf              
+                @csrf
                   <div class="mb-4">
                     <label :value="__('messages.Name')" class="mb-2.5 block font-medium text-black dark:text-white">{{ __('messages.Name') }}</label>
                     <div class="relative">
@@ -100,7 +100,7 @@
                         </span>
                     </div>
                 </div>
-             
+
 
 
                 <div class="mb-5">

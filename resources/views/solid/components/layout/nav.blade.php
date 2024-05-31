@@ -4,8 +4,8 @@
     <ul class="flex gap-3 border-black">
         @foreach ($categoryLink as $item)
         <li>
-            <a href={{route('categoryPage',$item->id)}} class="p-1 border-solidsecondary  border-b hover:border-secondary"
-                >{{$item->name}}</a>
+            <a href={{ route('categoryPage',$item->id) }} class="p-1 border-solidsecondary  border-b hover:border-secondary"
+                >{{ $item->name }}</a>
         </li>
         @endforeach
     </ul>

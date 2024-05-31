@@ -4,17 +4,17 @@
       <div class="px-3 md:px-0">
         <div class="flex justify-between gap-3">
           <div class="md:items-center">
-            <img src="{{tenant_asset('media/'.$logo)}}" alt="noon">
+            <img src="{{ tenant_asset('media/'.$logo) }}" alt="noon">
           </div>
           @if ($visible->showFooterLinks)
           <ul class="flex gap-3 px-1">
-            <li><a class="hover:underline" href="{{route('homePage')}}">{{__('messages.Home')}}
+            <li><a class="hover:underline" href="{{ route('homePage') }}">{{ __('messages.Home') }}
               </a></li>
-            <li><a class="hover:underline" href="{{route('contactPage')}}">{{__('messages.Contact')}}
+            <li><a class="hover:underline" href="{{ route('contactPage') }}">{{ __('messages.Contact') }}
               </a></li>
-            <li><a class="hover:underline" href="{{route('aboutPage')}}">{{__('messages.About')}}
+            <li><a class="hover:underline" href="{{ route('aboutPage') }}">{{ __('messages.About') }}
               </a></li>
-            <li><a class="hover:underline" href="{{route('termPage')}}">{{__('messages.Term')}}</a></li>
+            <li><a class="hover:underline" href="{{ route('termPage') }}">{{ __('messages.Term') }}</a></li>
           </ul>
           @endif
         </div>

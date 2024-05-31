@@ -15,7 +15,7 @@
       @foreach ($products as $product)
 
       <x-newstyle::product-card :$product />
-   
+
       @endforeach
 
 

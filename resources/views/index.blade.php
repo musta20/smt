@@ -13,7 +13,7 @@
     @foreach ($products as $product)
 
     <x-product-card :$product />
- 
+
     @endforeach
 
   </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html 
+<html
   lang="{{ str_replace('_', '-', app()->getLocale()) }}"
  dir="{{ in_array(app()->getLocale(), ['ar']) ? 'rtl' : 'ltr' }}"
  >
@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
     <title>
-       {{__('messages.Dashboard')}}
+       {{ __('messages.Dashboard') }}
     </title>
 </head>
 <body

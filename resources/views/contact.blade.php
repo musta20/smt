@@ -30,7 +30,7 @@
                     <div class="w-full  p-5 xl:w-1/2">
 
                         <input type="text" multiple="" name="title" placeholder="{{ __('messages.first name') }}"
-                            class="w-full rounded-lg  border-[1.5px] border-stroke 
+                            class="w-full rounded-lg  border-[1.5px] border-stroke
                             border-slate-300
                             bg-transparent px-5 py-3 font-normal text-black outline-none transition
                              focus:!border-primary active:border-primary disabled:cursor-default

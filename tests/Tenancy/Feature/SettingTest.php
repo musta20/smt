@@ -16,7 +16,7 @@ it("can update setting config", function () {
     $response = $this->actingAs($user)->put('/admin/updateSetting/', [
         "siteStatus" => false,
         "aboutPageContent" => "new-aboutPageContent",
-        
+
     ]);
 
     $response->assertStatus(Response::HTTP_FOUND);
@@ -50,10 +50,10 @@ it("can't update config setting with invalid values", function () {
     $response = $this->actingAs($user)->put('/admin/updateSetting/', [
         "siteStatus" => null,
         "aboutPageContent" => "1",
-        
+
     ]);
 
     $response->assertStatus(Response::HTTP_FOUND);
-    
+
     $response->assertSessionHasErrors();
 });

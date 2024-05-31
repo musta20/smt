@@ -13,10 +13,10 @@
               </svg>
             </span>
             <h3 class="mt-1 p-2 text-xl font-bold text-black dark:text-white sm:text-2xl">
-              <strong class="text-3xl"> {{__('messages.Are you sure')}}</strong>
+              <strong class="text-3xl"> {{ __('messages.Are you sure') }}</strong>
             </h3>
-            <p class="m-5 text-2xl">{{__('messages.you want to delete product :')}}
-              {{$product->name ?? ""}}
+            <p class="m-5 text-2xl">{{ __('messages.you want to delete product :') }}
+              {{ $product->name ?? "" }}
             </p>
             <form method="post" action="{{ route('admin.product.destroy',$product->id) }}"
               class="-mx-3 flex flex-wrap gap-y-4">
@@ -25,13 +25,13 @@
               <div class="w-full px-3 2xsm:w-1/2">
                 <button type="submit"
                   class="block w-full rounded border border-meta-1 bg-meta-1 p-3 text-center font-medium text-white transition hover:bg-opacity-90">
-                  {{__('messages.Delete')}}
+                  {{ __('messages.Delete') }}
                 </button>
               </div>
               <div class="w-full px-3 2xsm:w-1/2">
                 <button @click.prevent="modalOpen = false"
                   class="block w-full rounded border border-stroke bg-gray p-3 text-center font-medium text-black transition hover:border-meta-1 hover:bg-meta-1 hover:text-white dark:border-strokedark dark:bg-meta-4 dark:text-white dark:hover:border-meta-1 dark:hover:bg-meta-1">
-                  {{__('messages.cancel')}}
+                  {{ __('messages.cancel') }}
                 </button>
               </div>
             </form>
@@ -39,20 +39,20 @@
           {{-- <div @modalindow.window="alert('mom');"></div> --}}
           <button @click="$refs.form.submit()"
             class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-            {{__('messages.save')}}
+            {{ __('messages.save') }}
           </button>
           <button @click="$dispatch('modalbox', { message: 'Hello World!' });"
             class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded">
-            {{__('messages.delete')}}
+            {{ __('messages.delete') }}
           </button>
         </div>
-        <a class="font-medium text-black dark:text-white hover:underline py-1" href="{{route('admin.product.index')}}">
-          {{__('messages.Product list')}}
+        <a class="font-medium text-black dark:text-white hover:underline py-1" href="{{ route('admin.product.index') }}">
+          {{ __('messages.Product list') }}
 
         </a>
       </div>
     </div>
-    <form x-ref='form' method="POST" action="{{route('admin.product.update',$product->id)}}"
+    <form x-ref='form' method="POST" action="{{ route('admin.product.update',$product->id) }}"
       class="grid grid-cols-1 gap-9 sm:grid-cols-2">
       @method('PUT')
       @csrf
@@ -60,13 +60,13 @@
         <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
             <h3 class="font-medium text-black dark:text-white">
-              {{__('messages.Product details')}}
+              {{ __('messages.Product details') }}
             </h3>
           </div>
           <div class=" p-4 xl:flex-row">
             <div class="w-full xl:w-1/2">
               <label class=" text-sm font-medium text-black dark:text-white">
-                {{__('messages.Main product image')}}
+                {{ __('messages.Main product image') }}
               </label>
             </div>
           </div>
@@ -75,7 +75,7 @@
             @if ($product->image)
             <div @mouseenter="showCancle=true" @mouseleave="showCancle=false" class=" rounded-lg relative   ">
               <img :class="{'blur-sm' : showCancle==true}" class="rounded-lg  object-contain "
-                src="{{tenant_asset('media/'.$product->image)}}" />
+                src="{{ tenant_asset('media/'.$product->image) }}" />
               <button wire:click.prevent="removeImage" x-show="showCancle"
                 class="absolute bg-white hover:bg-slate-200 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <svg class="w-10 h-10 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@
               </button>
             </div>
             @else
-            <div x-data="{ uploading: false,fileLoded:false, progress: 0  }" x-ref="dnd" class="relative flex  flex-col items-center justify-center w-full min-h-100 border-2 border-dashed  hover:border-primary hover:border-3 bg-slate-50 rounded-lg 
+            <div x-data="{ uploading: false,fileLoded:false, progress: 0  }" x-ref="dnd" class="relative flex  flex-col items-center justify-center w-full min-h-100 border-2 border-dashed  hover:border-primary hover:border-3 bg-slate-50 rounded-lg
                       bg-gray-50 hover:bg-gray-100 ">
               <input wire:model='photo' id="dropzone-file" type="file"
                 class="absolute h-full w-full opacity-0 cursor-pointer" for="dropzone-file"
@@ -106,14 +106,14 @@
                 </svg>
                 <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
                   <span class="font-semibold">
-                    {{__('messages.click here or drag')}}
+                    {{ __('messages.click here or drag') }}
                   </span>
                 </p>
                 <p>
-                  {{__('messages.Supported image formats ')}}(PNG, JPG or GIF)
+                  {{ __('messages.Supported image formats ') }}(PNG, JPG or GIF)
                 </p>
                 <p>
-                  {{__('messages.size')}} (800x400px)
+                  {{ __('messages.size') }} (800x400px)
                 </p>
                 @error('photo') <span class="text-red-500">{{ $message }}</span> @enderror
               </div>
@@ -128,17 +128,17 @@
           <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
             <div class="w-full xl:w-1/2">
               <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                {{__('messages.product name')}}
+                {{ __('messages.product name') }}
               </label>
-              <input type="text" name="name" value="{{old('name',$product->name)}}" placeholder="{{__('messages.product name')}}"
+              <input type="text" name="name" value="{{ old('name',$product->name) }}" placeholder="{{ __('messages.product name') }}"
                 class=" @error('name') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
               <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
             <div class="w-full xl:w-1/2">
               <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                {{__('messages.price')}}
+                {{ __('messages.price') }}
               </label>
-              <input type="text" name="price" value="{{old('price',$product->price)}}" placeholder="{{__('messages.price')}}"
+              <input type="text" name="price" value="{{ old('price',$product->price) }}" placeholder="{{ __('messages.price') }}"
                 class="w-full @error('price') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
               <x-input-error :messages="$errors->get('price')" class="mt-2" />
             </div>
@@ -146,20 +146,20 @@
           <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
             <div class="w-full xl:w-1/2">
               <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                {{__('messages.order url')}}
+                {{ __('messages.order url') }}
               </label>
-              <input type="text" value="{{old('order_url',$product->order_url)}}" name="order_url"
-                placeholder="{{__('messages.order url')}}"
+              <input type="text" value="{{ old('order_url',$product->order_url) }}" name="order_url"
+                placeholder="{{ __('messages.order url') }}"
                 class="w-full @error('order_url') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
               <x-input-error :messages="$errors->get('order_url')" class="mt-2" />
             </div>
             <div class="w-full xl:w-1/2">
               <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                {{__('messages.discount')}} ({{__('messages.optinal')}} )
+                {{ __('messages.discount') }} ({{ __('messages.optinal') }} )
               </label>
               <input type="text" name="discount"
-               value="{{old('discount',$product->discount)}}"
-                placeholder="{{__('messages.discount')}}"
+               value="{{ old('discount',$product->discount) }}"
+                placeholder="{{ __('messages.discount') }}"
                 class="w-full @error('discount') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
               <x-input-error :messages="$errors->get('discount')" class="mt-2" />
 
@@ -168,11 +168,11 @@
           <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row">
             <div class="w-full xl:w-1/2">
               <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                {{__('messages.old price')}}
-                ({{__('messages.optinal')}} )
+                {{ __('messages.old price') }}
+                ({{ __('messages.optinal') }} )
               </label>
-              <input type="text" name="older_price" value="{{old('older_price',$product->older_price)}}"
-                placeholder="{{__('messages.old price')}}"
+              <input type="text" name="older_price" value="{{ old('older_price',$product->older_price) }}"
+                placeholder="{{ __('messages.old price') }}"
                 class="w-full @error('older_price') !border-red-500 @enderror  rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />
               <x-input-error :messages="$errors->get('older_price')" class="mt-2" />
             </div>
@@ -181,12 +181,12 @@
           </div>
           <div class="p-6.5 xl:flex-row">
             <label class="  flex justify-between mb-3 block gap-1 text-sm font-medium text-black dark:text-white">
-              <span class="py-1.5">{{__('messages.categories')}} :</span>
+              <span class="py-1.5">{{ __('messages.categories') }} :</span>
               <div x-data="{ isOpen: false }"
                 class="relative divide-y divide-gray-3 border border-gray-3 rounded-s-lg shadow w-35 dark:bg-gray-700">
                 <button @click.prevent="isOpen = !isOpen"
                   class="w-full inline-flex items-center gap-1.5 justify-center py-1.5 text-sm text-black  hover:text-primary dark:bg-meta-4 dark:text-white dark:shadow-none">
-                  {{__('messages.add')}}
+                  {{ __('messages.add') }}
 
                   <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                     fill="none" viewBox="0 0 24 24">
@@ -200,8 +200,8 @@
                   @foreach ($category as $item)
                   <button
                     class="flex w-full px-4 py-4 justify-center text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4"
-                    wire:key="{{$item->id}}" wire:click.prevent="addCategory('{{$item->id}}'); isOpen = false">
-                    {{$item->name}}
+                    wire:key="{{ $item->id }}" wire:click.prevent="addCategory('{{ $item->id }}'); isOpen = false">
+                    {{ $item->name }}
                   </button>
                   @endforeach
                 </div>
@@ -209,11 +209,11 @@
             </label>
             <div class=" min-h-20  rounded-md border-dashed p-5 border-bodydark1 bg-gray dark:border-strokedark ">
               @foreach ($productCategorys as $cat)
-              <span wire:key="{{$cat}}"
+              <span wire:key="{{ $cat }}"
                 class="inline-flex items-center px-2 py-1 mt-1 me-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">
-                {{$category->find($cat)->name}}
-                <input hidden name="category[]" value="{{$cat}}" />
-                <button type="button" wire:click="removeCategory('{{$cat}}')"
+                {{ $category->find($cat)->name }}
+                <input hidden name="category[]" value="{{ $cat }}" />
+                <button type="button" wire:click="removeCategory('{{ $cat }}')"
                   class="inline-flex items-center p-1 ms-2 text-sm text-blue-400 bg-transparent rounded-sm hover:bg-blue-200 hover:text-blue-900 dark:hover:bg-blue-800 dark:hover:text-blue-300">
                   <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 14 14">
@@ -235,12 +235,12 @@
           class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
             <h3 class="font-medium text-black dark:text-white">
-              {{__('messages.Publishing and reviews options')}}
+              {{ __('messages.Publishing and reviews options') }}
             </h3>
           </div>
           <div class="flex flex-col gap-5.5 p-6.5 xl:flex-row ">
             <div class="w-full xl:w-1/2 flex justify-end">
-              <span class="px-2"> {{__('messages.Allow review for this product')}}
+              <span class="px-2"> {{ __('messages.Allow review for this product') }}
               </span>
               <label class="flex cursor-pointer select-none items-center">
                 <div class="relative">
@@ -253,7 +253,7 @@
               </label>
             </div>
             <div class="w-full xl:w-1/2 flex justify-end">
-              <span class="px-2">  {{__('messages.publish this product')}}
+              <span class="px-2">  {{ __('messages.publish this product') }}
               </span>
               <label class="flex cursor-pointer select-none items-center">
                 <div class="relative">
@@ -271,7 +271,7 @@
             <div class="w-full xl:w-1/2 flex justify-end">
             </div>
             <div class="w-full xl:w-1/2 flex justify-end">
-      
+
             </div>
           </div>
         </div>
@@ -280,26 +280,26 @@
         <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
             <h3 class="font-medium text-black dark:text-white">
-              {{__('messages.Additional product details')}}
+              {{ __('messages.Additional product details') }}
             </h3>
           </div>
           <div class="flex flex-col gap-5.5 p-6.5">
             <div>
               <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                {{__('messages.description')}}
-              ({{__('messages.optinal')}})
+                {{ __('messages.description') }}
+              ({{ __('messages.optinal') }})
               </label>
-              <textarea rows="6" name="description" placeholder="{{__('messages.description')}}"
-                class="w-full 
+              <textarea rows="6" name="description" placeholder="{{ __('messages.description') }}"
+                class="w-full
                           @error('description') !border-red-500 @enderror
                           rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary">
-                        {{old('description',$product->description)}}
+                        {{ old('description',$product->description) }}
                       </textarea>
               <x-input-error :messages="$errors->get('description')" class="mt-2" />
             </div>
             <div>
               <label class=" block text-sm font-medium text-black dark:text-white">
-                {{__('messages.Add more image')}}
+                {{ __('messages.Add more image') }}
               </label>
               <livewire:admin.file-manger :$subFiles :$product />
             </div>

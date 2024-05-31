@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html 
+<html
   lang="{{ str_replace('_', '-', app()->getLocale()) }}"
  dir="{{ in_array(app()->getLocale(), ['ar']) ? 'rtl' : 'ltr' }}"
  >
@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{__('Login')}} | {{$title ?? "store"}}</title>
+    <title>{{ __('Login') }} | {{ $title ?? "store" }}</title>
 </head>
 <x-auth-session-status class="mb-4" :status="session('status')" />
 @vite(['resources/js/index.js','resources/js/helper.js'])
@@ -36,14 +36,14 @@
                         <div class="md:items-center p-2">
                             @if (tenant())
                             <a href="/">
-                                <img src="{{tenant_asset('media/'.$logo)}}" alt="noon">
-                            </a>   
+                                <img src="{{ tenant_asset('media/'.$logo) }}" alt="noon">
+                            </a>
                             @endif
                         </div>
                         <nav>
                             <ol class="flex items-center gap-2">
                                 <li>
-                                    <a class="font-medium" href="/">{{__('messages.Home')}}</a>
+                                    <a class="font-medium" href="/">{{ __('messages.Home') }}</a>
                                 </li>
                             </ol>
                         </nav>
@@ -53,7 +53,7 @@
                     <!-- ====== Forms Section Start -->
                     <div
                         class="rounded-sm border w-1/2 m-auto border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                         
+
 
                             {{ $slot }}
 

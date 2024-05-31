@@ -7,5 +7,5 @@
         <livewire:search :keyword="$search" />
     </div>
     @livewireScriptConfig
-    
+
 </x-main-layout>

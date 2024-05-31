@@ -17,19 +17,19 @@
       <div class="flex items-center gap-3 p-2.5 xl:p-5">
 
         <p class="hidden font-medium text-black sm:block">
-          {{$item->name}}
+          {{ $item->name }}
         </p>
       </div>
 
       <div class="flex items-center justify-center p-2.5 xl:p-5">
         <p class="font-medium text-black">
-          {{$item->order_count}}
+          {{ $item->order_count }}
         </p>
       </div>
 
       <div class="flex items-center justify-center p-2.5 xl:p-5">
         <p class="font-medium text-meta-3">
-          {{$item->view_count}}
+          {{ $item->view_count }}
 
         </p>
       </div>

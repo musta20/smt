@@ -61,7 +61,7 @@
                     <x-admin.partials.table01 :product="$Product" />
                     {{--  <include src="./partials/table-01.html" /> --}}
                 </div>
-     
+
             </div>
         </div>
     </main>

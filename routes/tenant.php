@@ -25,7 +25,7 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 Route::middleware([
     'web',
-    
+
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
     LocaleMiddleware::class
@@ -53,10 +53,10 @@ Route::middleware([
         Route::get('contact', [SiteController::class, 'contactPage'])->name('contactPage');
         Route::get('about', [SiteController::class, 'aboutPage'])->name('aboutPage');
         Route::get('term', [SiteController::class, 'termPage'])->name('termPage');
-        
+
         Route::get('category/{category}', [SiteController::class, 'category'])->name('categoryPage');
         Route::get('product/{product}', [SiteController::class, 'product'])->name('productPage');
-        
+
     });
 
 

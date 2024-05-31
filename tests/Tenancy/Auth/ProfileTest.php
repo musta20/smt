@@ -3,7 +3,7 @@
 use App\Models\User;
 
 test('profile page is displayed', function () {
-    
+
     $user = User::factory()->for(tenant())->create();
 
     $response = $this
@@ -67,7 +67,7 @@ test('user can delete their account', function () {
     $this->assertGuest();
     $user->fresh();
     $this->assertSoftDeleted($user);
-    
+
 });
 
 test('correct password must be provided to delete account', function () {

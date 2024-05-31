@@ -8,7 +8,7 @@
 
     <nav>
       <ol class="flex items-center gap-2">
-   
+
         <li class="font-medium text-primary">{{ __('messages.categories') }}</li>
         <li>
           <a class="font-medium" href="{{ route('admin.dashboard') }}"> / {{ __('messages.Dashboard') }} </a>

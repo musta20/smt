@@ -31,26 +31,26 @@ it('can  add product to shoping cart while not loged in', function () {
 });
 
 it('can render a shoping cart list while not loged in ',function(){
-   
+
     $response = $this->get('/showCart');
 
     $response->assertStatus(Response::HTTP_OK);
-    
+
 });
 
 it('can render a shoping cart list ',function(){
-   
+
     $user = User::factory()->for(tenant())->create();
 
     $response = $this->actingAs($user)->get('/showCart');
 
     $response->assertStatus(Response::HTTP_OK);
-    
+
 });
 
 it('can  remove product from shoping cart', function () {
 
-    
+
     $user = User::factory()->for(tenant())->create();
     $product = Product::factory()->for(tenant())->create();
 
@@ -70,7 +70,7 @@ it('can  remove product from shoping cart', function () {
 
 it('can  remove product from shoping cart while not loged in', function () {
 
-    
+
     $product = Product::factory()->for(tenant())->create();
     $this->get('/addToCart/'.$product->id);
 

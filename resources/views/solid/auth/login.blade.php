@@ -2,18 +2,18 @@
 
     <div class="w-full border-stroke dark:border-strokedark  xl:border-l-2">
         <div class="w-full p-4 sm:p-12.5 xl:p-17.5">
-            
+
             <h2 class="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-                {{__('messages.Login')}}
+                {{ __('messages.Login') }}
             </h2>
 
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white"
-                        :value="__('Email')">{{__('messages.Email')}}</label>
+                        :value="__('Email')">{{ __('messages.Email') }}</label>
                     <div class="relative">
-                        <input type="email" :value="old('email')" placeholder="{{__('messages.Email')}}" name="email"
+                        <input type="email" :value="old('email')" placeholder="{{ __('messages.Email') }}" name="email"
                             class="w-full  rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
@@ -32,10 +32,10 @@
 
                 <div class="mb-6">
                     <label for="password" :value="__('Password')"
-                        class="mb-2.5 block font-medium text-black dark:text-white">{{__('messages.Password')}}</label>
+                        class="mb-2.5 block font-medium text-black dark:text-white">{{ __('messages.Password') }}</label>
                     <div class="relative">
                         <input required autocomplete="current-password" name="password" type="password"
-                            placeholder="{{__('messages.Password')}}"
+                            placeholder="{{ __('messages.Password') }}"
                             class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
 
@@ -57,18 +57,18 @@
                         @if (Route::has('password.request'))
                         <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                             href="{{ route('password.request') }}">
-                            {{__('messages.Forgot your password?') }}
+                            {{ __('messages.Forgot your password?') }}
                         </a>
                         @endif
 
                         <x-primary-button class="ms-3">
-                            {{__('messages.Login') }}
+                            {{ __('messages.Login') }}
                         </x-primary-button>
                     </div>
                 </div>
 
                 <div class="mb-5">
-                    <input type="submit" value="{{__('messages.Login')}}"
+                    <input type="submit" value="{{ __('messages.Login') }}"
                         class="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 font-medium text-white transition hover:bg-opacity-90" />
                 </div>
 
@@ -97,14 +97,14 @@
                             </defs>
                         </svg>
                     </span>
-                    {{__('messages.Sign up with Google')}}
+                    {{ __('messages.Sign up with Google') }}
                 </button>
 
                 <div class="mt-6 text-center">
                     <p class="font-medium">
-                        {{__('messages.Don’t have any account?')}}
+                        {{ __('messages.Don’t have any account?') }}
                         <a href="/register" class="text-primary">
-                        {{__('messages.Create account')}}
+                        {{ __('messages.Create account') }}
                         </a>
                     </p>
                 </div>

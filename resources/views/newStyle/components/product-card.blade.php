@@ -1,12 +1,12 @@
 <div class="w-full md:w-1/3 xl:w-1/4 hover:shadow-xl p-4 flex flex-col">
 
-    <a class=" overflow-hidden max-h-60" href="{{route('productPage',$product->id)}}">
-        <img class="hover:grow " src="{{tenant_asset('media/'.$product->image)}}">
+    <a class=" overflow-hidden max-h-60" href="{{ route('productPage',$product->id) }}">
+        <img class="hover:grow " src="{{ tenant_asset('media/'.$product->image) }}">
     </a>
-    
+
     <div class="pt-3 flex items-center justify-between">
-        <p class="">{{$product->name}}</p>
-        <a href="{{route('addToCart',$product->id)}}">
+        <p class="">{{ $product->name }}</p>
+        <a href="{{ route('addToCart',$product->id) }}">
             <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24">
                 <path
@@ -14,8 +14,8 @@
             </svg>
         </a>
     </div>
-    
-    <p class="pt-1 text-xl text-gray-900">{{$product->price}}
-        <span class="text-xs">{{__('messages.EGP')}}</span>
+
+    <p class="pt-1 text-xl text-gray-900">{{ $product->price }}
+        <span class="text-xs">{{ __('messages.EGP') }}</span>
     </p>
 </div>

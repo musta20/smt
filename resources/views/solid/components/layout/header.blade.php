@@ -1,7 +1,7 @@
 <nav class="bg-solidsecondary  flex  justify-between justify-items-center py-3 px-5 text-light">
   <div class="w-full flex gap-3 border-black">
     @auth
-    <a href="{{route('showCart')}}"
+    <a href="{{ route('showCart') }}"
       class="hover:bg-slate-100 rounded-full p-2 flex justify-center justify-items-center">
       <span class="relative inline-block">
         <svg class="w-7 h-7  " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -9,7 +9,7 @@
             d="M9 10V6a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v4m3-2 1 12c0 .5-.5 1-1 1H6a1 1 0 0 1-1-1L6 8h12Z" />
         </svg>
         @if (count($userCart) > 0)
-        <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs 
+        <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs
         font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
           {{ count($userCart) }}
         </span>
@@ -18,7 +18,7 @@
       </span>
     </a>
     @else
-    <a href="{{route('showCart')}}"
+    <a href="{{ route('showCart') }}"
       class="hover:bg-slate-100 rounded-full p-2 flex justify-center justify-items-center">
       <span class="relative inline-block">
         <svg class="w-7 h-7  " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -27,7 +27,7 @@
         </svg>
         @session('cart')
         @if (count($value))
-        <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs 
+        <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs
             font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
           {{ count($value) }}
         </span>
@@ -38,13 +38,13 @@
     </a>
     @endauth
     @if (app()->getLocale() == 'ar')
-    <a class="p-1 m-1 rounded-md border hover:bg-slate-200" href="{{route('setLocale','en')}}">English</a>
+    <a class="p-1 m-1 rounded-md border hover:bg-slate-200" href="{{ route('setLocale','en') }}">English</a>
     @else
-    <a class="p-1 m-1 rounded-md border hover:bg-slate-200" href="{{route('setLocale','ar')}}">العربية</a>
+    <a class="p-1 m-1 rounded-md border hover:bg-slate-200" href="{{ route('setLocale','ar') }}">العربية</a>
     @endif
 
 
-    <a class="pl-3 inline-block p-2 no-underline hover:text-black" href="{{route('searchPage')}}">
+    <a class="pl-3 inline-block p-2 no-underline hover:text-black" href="{{ route('searchPage') }}">
       <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
         viewBox="0 0 24 24">
         <path
@@ -55,8 +55,8 @@
     <div style="z-index: 100" class="relative !min-w-90" x-data="{ dropdownOpen: false }"
       @click.outside="dropdownOpen = false">
       <a class="flex items-center gap-4" href="#" @click.prevent="dropdownOpen = ! dropdownOpen">
-        <div class="flex justify-center justify-items-center p-1.5 uppercase font-bold text-md 
-              text-center w-10 h-10 rounded-full bg-orange-400 border-2  
+        <div class="flex justify-center justify-items-center p-1.5 uppercase font-bold text-md
+              text-center w-10 h-10 rounded-full bg-orange-400 border-2
                border-3 text-slate-700">
           <p>{{ substr(auth()->user()->name,0*2,1*2) }}</p>
         </div>
@@ -66,7 +66,7 @@
         class="absolute ltr:-right-25  mt-4 flex  flex-col rounded-sm border border-stroke text-primary bg-white shadow-default">
         <ul class="flex flex-col border-b w-40 border-stroke px-6 py-7.5">
           <li >
-            <a href="{{route('profilePage')}}"
+            <a href="{{ route('profilePage') }}"
               class="flex items-center py-4 gap-3 hover:text-secondary font-medium duration-300 ease-in-out ">
               <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -78,14 +78,14 @@
                   fill="" />
               </svg>
               <span class="text-xs w-full">
-                {{__('messages.Profile')}}
+                {{ __('messages.Profile') }}
               </span>
-              
+
             </a>
           </li>
           @role(App\Enums\Identity\Role::VENDER->value)
           <li>
-            <a href="{{route('admin.dashboard')}}"
+            <a href="{{ route('admin.dashboard') }}"
               class="flex items-center text-xs  py-4 gap-3  font-medium duration-300 ease-in-out hover:text-secondary  ">
               <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -98,7 +98,7 @@
               </svg>
               <span class="text-xs ">
 
-              {{__('messages.Dashboard')}}
+              {{ __('messages.Dashboard') }}
               </span>
             </a>
           </li>
@@ -129,7 +129,7 @@
     </div>
     @else
     @if ($visible->AllowUsers)
-    <a class="flex gap-2 justify-start justify-items-center  py-2" href="{{route('login')}}">
+    <a class="flex gap-2 justify-start justify-items-center  py-2" href="{{ route('login') }}">
       <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path
@@ -147,8 +147,8 @@
   </div>
   <div class=" flex justify-center">
     <a href="/" class="flex gap-2 justify-items-center">
-      <span class="py-3">{{$title}}</span>
-      <img class="px-1" src="{{tenant_asset('media/'.$logo)}}">
+      <span class="py-3">{{ $title }}</span>
+      <img class="px-1" src="{{ tenant_asset('media/'.$logo) }}">
     </a>
   </div>
 </nav>

@@ -5,10 +5,10 @@
 
 <div class="mt-4 flex items-end justify-between">
     <div class="flex w-full justify-between" >
-        <span class="text-sm font-medium">{{$title}}</span>
+        <span class="text-sm font-medium">{{ $title }}</span>
 
         <h4 class="text-title-md font-bold text-black">
-            {{$number}}
+            {{ $number }}
         </h4>
     </div>
 

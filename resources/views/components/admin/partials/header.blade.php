@@ -32,13 +32,13 @@
       </a>
     </div>
     <span class="inline-flex items-center px-3 py-3 me-3 text-sm font-medium text-green-800 bg-green-100 rounded-full hover:bg-green-500 dark:bg-green-900 dark:text-green-300">
-      <a href="/">       {{__('messages.show the store')}}
+      <a href="/">       {{ __('messages.show the store') }}
       </a>
     </span>
 
     <div class="flex items-center gap-3 2xsm:gap-7">
       <ul class="flex items-center gap-2 2xsm:gap-4">
- 
+
 
         <!-- Notification Menu Area -->
         <li class="relative hidden" x-data="{ dropdownOpen: false, notifying: true }" @click.outside="dropdownOpen = false">
@@ -119,10 +119,10 @@
       <!-- User Area -->
       <div class="relative" x-data="{ dropdownOpen: false }" @click.outside="dropdownOpen = false">
         <a class="flex items-center gap-4" href="#" @click.prevent="dropdownOpen = ! dropdownOpen">
-  
 
-          <div class="flex justify-center justify-items-center p-1.5 uppercase font-bold text-xl 
-          text-center w-10 h-10 rounded-full bg-cyan-200 
+
+          <div class="flex justify-center justify-items-center p-1.5 uppercase font-bold text-xl
+          text-center w-10 h-10 rounded-full bg-cyan-200
            border-3 text-slate-700">
               <p>{{ auth()->user()->name['0'] }}</p>
           </div>
@@ -140,7 +140,7 @@
           class="absolute right0 left-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default">
           <ul class="flex flex-col gap-5 border-b border-stroke px-6 py-7.5">
             <li>
-              <a href="{{route('profilePage')}}"
+              <a href="{{ route('profilePage') }}"
                 class="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
                 <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -151,7 +151,7 @@
                     d="M17.7719 21.4156H4.2281C3.5406 21.4156 2.9906 20.8656 2.9906 20.1781V17.0844C2.9906 13.7156 5.7406 10.9656 9.10935 10.9656H12.925C16.2937 10.9656 19.0437 13.7156 19.0437 17.0844V20.1781C19.0094 20.8312 18.4594 21.4156 17.7719 21.4156ZM4.53748 19.8687H17.4969V17.0844C17.4969 14.575 15.4344 12.5125 12.925 12.5125H9.07498C6.5656 12.5125 4.5031 14.575 4.5031 17.0844V19.8687H4.53748Z"
                     fill="" />
                 </svg>
-                {{__('messages.Profile')}}
+                {{ __('messages.Profile') }}
 
               </a>
             </li>

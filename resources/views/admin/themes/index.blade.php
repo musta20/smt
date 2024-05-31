@@ -25,17 +25,17 @@
 
     @foreach ($themes as $item)
     <div class="flex items-center  border rounded border-slate-400 hover:shadow-lg">
-      <label for="theme-1" class="w-full flex flex-col justify-center justify-items-center py-1 ms-2 text-sm font-medium 
+      <label for="theme-1" class="w-full flex flex-col justify-center justify-items-center py-1 ms-2 text-sm font-medium
       text-gray-900 dark:text-gray-300">
         <img class="h-60 w-80" src="{{ Vite::asset('resources/images/themes/'.$item->value.'.png') }}" />
         <div class="flex justify-items-center justify-center gap-2 m-2" >
-         <div class=""> {{$item}}</div>
-        <input id="theme-1" 
+         <div class=""> {{ $item }}</div>
+        <input id="theme-1"
 
         @if (!tenant()->theme && $item->value=='Default')
-       
-        checked         
-        
+
+        checked
+
         @elseif ($item->value == tenant()->theme )
         checked
         @endif type="radio" value="{{ $item->value }}" name="theme"

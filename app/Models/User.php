@@ -51,6 +51,30 @@ class User extends Authenticatable
         'tenant_id'
     ];
 
+
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+        'role' => Role::class,
+        'provider' => Provider::class
+    ];
+
     public function store(): HasOne
     {
 
@@ -80,28 +104,4 @@ class User extends Authenticatable
             foreignKey: 'tenant_id'
         );
     }
-
-
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-        'role' => Role::class,
-        'provider' => Provider::class
-    ];
 }

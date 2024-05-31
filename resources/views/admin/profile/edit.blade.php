@@ -4,7 +4,7 @@
         @csrf
         <form method="post" action="{{ route('profile.update') }}" class="flex flex-col p-5 gap-9">
             @csrf
-            @method('patch')           
+            @method('patch')
             <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
                     <h3 class="font-medium text-black dark:text-white">
@@ -91,7 +91,7 @@
                             {{ __('messages.password confirmation') }}
                         </label>
                         <input type="password"
-                         name="password_confirmation" 
+                         name="password_confirmation"
                          placeholder="{{ __('messages.password confirmation') }}"
 
                             class=" @error('password_confirmation') !border-red-500 @enderror  w-full rounded-lg  border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:!border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:!border-primary" />

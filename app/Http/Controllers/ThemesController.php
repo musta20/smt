@@ -51,6 +51,14 @@ class ThemesController extends Controller
     }
 
     /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+
+    /**
      * Update the specified resource in storage.
      */
     public function updateTheme(ThemeUpdateRequest $request)
@@ -80,13 +88,5 @@ class ThemesController extends Controller
 
 
         //ThemeUpdateRequest
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

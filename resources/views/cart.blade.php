@@ -20,10 +20,10 @@
                 <div
                     class="grid grid-cols-7 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
                     <div class="col-span-4 flex items-center">
-                        <a href="{{route('productPage',$item->id)}}">
+                        <a href="{{ route('productPage',$item->id) }}">
                             <div class="h-12.5 w-15 rounded-md">
                                 @if ($item->image)
-                                <img width="100px" height="100px" src="{{tenant_asset('media/'.$item->image) }}"
+                                <img width="100px" height="100px" src="{{ tenant_asset('media/'.$item->image) }}"
                                     alt="Product" />
 
                                 @else
