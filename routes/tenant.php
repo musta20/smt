@@ -36,26 +36,26 @@ Route::middleware([
         CheckTenantForMaintenanceMode::class,
     )->group(function () {
 
-        Route::get('/addToCart/{product}', [CartController::class, 'addToCart'])->name('addToCart');
-        Route::get('/removeCart/{product}', [CartController::class, 'removeCart'])->name('removeCart');
-        Route::get('/showCart', [CartController::class, 'showCart'])->name('showCart');
+        Route::get('addToCart/{product}', [CartController::class, 'addToCart'])->name('addToCart');
+        Route::get('removeCart/{product}', [CartController::class, 'removeCart'])->name('removeCart');
+        Route::get('showCart', [CartController::class, 'showCart'])->name('showCart');
 
 
         Route::get('setLocale/{locale}',[SiteController::class, 'setLocale'])->name('setLocale');
 
-        Route::get('/register', [SiteController::class, 'showRegister'])->name('registerPage');
-        Route::post('/register', [SiteController::class, 'register'])->name('register');
+        Route::get('register', [SiteController::class, 'showRegister'])->name('registerPage');
+        Route::post('register', [SiteController::class, 'register'])->name('register');
 
-        Route::get('/search', [SiteController::class, 'search'])->name('searchPage');
+        Route::get('search', [SiteController::class, 'search'])->name('searchPage');
 
-        Route::get('/', [SiteController::class, 'index'])->name('homePage');
+        Route::get('', [SiteController::class, 'index'])->name('homePage');
 
-        Route::get('/contact', [SiteController::class, 'contactPage'])->name('contactPage');
-        Route::get('/about', [SiteController::class, 'aboutPage'])->name('aboutPage');
-        Route::get('/term', [SiteController::class, 'termPage'])->name('termPage');
+        Route::get('contact', [SiteController::class, 'contactPage'])->name('contactPage');
+        Route::get('about', [SiteController::class, 'aboutPage'])->name('aboutPage');
+        Route::get('term', [SiteController::class, 'termPage'])->name('termPage');
         
-        Route::get('/category/{category}', [SiteController::class, 'category'])->name('categoryPage');
-        Route::get('/product/{product}', [SiteController::class, 'product'])->name('productPage');
+        Route::get('category/{category}', [SiteController::class, 'category'])->name('categoryPage');
+        Route::get('product/{product}', [SiteController::class, 'product'])->name('productPage');
         
     });
 

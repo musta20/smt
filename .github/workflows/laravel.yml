@@ -37,3 +37,5 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: make test
+    - name: Execute lint (check code qulity using  ) via duster lint
+      run: ./vendor/bin/duster lint

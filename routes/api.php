@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/isDomainAvilable/{domain}', function (Request $request) {
+Route::post('isDomainAvilable/{domain}', function (Request $request) {
     $domain = DB::table('domains')->where('name', $request->domain)->first();
     if (!$domain) {
         return response()->json('the domain name is available', 200);
