@@ -5,6 +5,18 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Domain
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application Domain. 
+    |
+    */
+
+    'domain' => env('APP_DOMAIN'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -86,16 +98,16 @@ return [
     'locale' => 'ar',
     'dir' => 'rtl',
 
-    
-   /*
+
+    /*
     |--------------------------------------------------------------------------
     | Available Locale Configuration
     |--------------------------------------------------------------------------
     |
     |
     */
-    
-    'available_locales'=>[
+
+    'available_locales' => [
         'ar',
         'en'
     ],
@@ -182,7 +194,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\TenancyServiceProvider::class, 
+        App\Providers\TenancyServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         App\Providers\ComposerServiceProvider::class
 

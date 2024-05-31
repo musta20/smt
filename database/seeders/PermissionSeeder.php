@@ -9,7 +9,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role as PermissionModelsRole;
 
-class permissionSeeder extends Seeder
+class PermissionSeeder extends Seeder
 {
     /**
      * Run the database seeds.

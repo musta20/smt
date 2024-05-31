@@ -24,12 +24,12 @@ class TenantSeeder extends Seeder
 
 
         $tenant->domains()->create([
-            'domain' =>  $storename . '.' . env('APP_DOMAIN'),
+            'domain' =>  $storename . '.' . config('app.domain'),
             'name' =>  $storename
         ]);
 
         $tenant2->domains()->create([
-            'domain' =>  $storename2 . '.' . env('APP_DOMAIN'),
+            'domain' =>  $storename2 . '.' . config('app.domain'),
             'name' =>  $storename2
 
         ]);

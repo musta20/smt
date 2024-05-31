@@ -2,15 +2,15 @@
     <div class="w-full border-stroke dark:border-strokedark  xl:border-l-2">
         <div class="w-full p-4 sm:p-12.5 xl:p-17.5"> 
             <h2 class="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-                {{__('messages.SinUp')}}
+                {{ __('messages.SinUp') }}
             </h2>
 
             <form method="POST" action="{{ route('register') }}">
                 @csrf              
                   <div class="mb-4">
-                    <label :value="__('messages.Name')" class="mb-2.5 block font-medium text-black dark:text-white">{{__('messages.Name')}}</label>
+                    <label :value="__('messages.Name')" class="mb-2.5 block font-medium text-black dark:text-white">{{ __('messages.Name') }}</label>
                     <div class="relative">
-                        <input type="text" id='name' name="name" placeholder="{{__('messages.Name')}}"
+                        <input type="text" id='name' name="name" placeholder="{{ __('messages.Name') }}"
                             class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                             :value="old('name')" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
@@ -32,9 +32,9 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="mb-2.5 block font-medium text-black dark:text-white">{{__('messages.Email')}}</label>
+                    <label class="mb-2.5 block font-medium text-black dark:text-white">{{ __('messages.Email') }}</label>
                     <div class="relative">
-                        <input type="email" :value="__('messages.Email')" placeholder="{{__('messages.Email')}}"
+                        <input type="email" :value="__('messages.Email')" placeholder="{{ __('messages.Email') }}"
                             class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                             type="email" name="email" :value="old('email')" required />
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -54,9 +54,9 @@
 
                 <div class="mb-4">
                     <label class="mb-2.5 block font-medium text-black dark:text-white" for="password"
-                        :value="__('messages.Password')">{{__('messages.Password')}}</label>
+                        :value="__('messages.Password')">{{ __('messages.Password') }}</label>
                     <div class="relative">
-                        <input type="password" placeholder="{{__('messages.password')}}" type="password" id="password"
+                        <input type="password" placeholder="{{ __('messages.password') }}" type="password" id="password"
                             name="password" required autocomplete="new-password"
                             class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -78,9 +78,9 @@
                 </div>
 
                 <div class="mb-6">
-                    <label class="mb-2.5 block font-medium text-black dark:text-white">{{__('messages.Re-type Password')}}</label>
+                    <label class="mb-2.5 block font-medium text-black dark:text-white">{{ __('messages.Re-type Password') }}</label>
                     <div class="relative">
-                        <input type="password" placeholder="{{__('messages.Re-type Password')}}" name="password_confirmation"
+                        <input type="password" placeholder="{{ __('messages.Re-type Password') }}" name="password_confirmation"
                             id="password_confirmation" required autocomplete="new-password"
                             class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
@@ -104,7 +104,7 @@
 
 
                 <div class="mb-5">
-                    <input type="submit" value="{{__('messages.Create account')}}"
+                    <input type="submit" value="{{ __('messages.Create account') }}"
                         class="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 font-medium text-white transition hover:bg-opacity-90" />
                 </div>
 
@@ -134,13 +134,13 @@
                             </defs>
                         </svg>
                     </span>
-                    {{__('messages.Sign up with Google')}}
+                    {{ __('messages.Sign up with Google') }}
                 </button>
 
                 <div class="mt-6 text-center">
                     <p class="font-medium">
-                        {{__('messages.Already have an account?')}}
-                        <a href="/login" class="text-primary">{{__('messages.Login')}}</a>
+                        {{ __('messages.Already have an account?') }}
+                        <a href="/login" class="text-primary">{{ __('messages.Login') }}</a>
                     </p>
                 </div>
             </form>

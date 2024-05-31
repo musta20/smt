@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class commentSeeder extends Seeder
+class CommentSeeder extends Seeder
 {
     /**
      * Run the database seeds.

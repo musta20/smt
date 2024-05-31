@@ -25,14 +25,14 @@ class DatabaseSeeder extends Seeder
         $this->callWith(
             [ 
                 TenantSeeder::class,
-                permissionSeeder::class,
+                PermissionSeeder::class,
                 UserSeeder::class,
                 StoreSeeder::class,
                 CategorySeeder::class,
                 ProductSeeder::class,
                 SettingSeeder::class,
                 SettingSeeder::class,
-                commentSeeder::class
+                CommentSeeder::class
             ],
             [
                 "storename" => $this->storename, "storename2" => $this->storename2

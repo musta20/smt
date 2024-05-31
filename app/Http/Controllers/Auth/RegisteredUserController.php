@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
         $tenant =  Tenant::create();
 
         $tenant->domains()->create([
-            'domain' =>  $request->domain . '.' . env('APP_DOMAIN'),
+            'domain' =>  $request->domain . '.' . config('app.domain'),
             'name' =>  $request->domain
         ]);
 

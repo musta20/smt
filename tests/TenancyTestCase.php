@@ -50,7 +50,7 @@ abstract class TenancyTestCase extends BaseTestCase
     
 
         $tenant->domains()->create([
-            'domain' =>  $domain  . '.' . env('APP_DOMAIN'),
+            'domain' =>  $domain  . '.' . config('app.domain'),
             'name' =>  $domain
         ]);
 

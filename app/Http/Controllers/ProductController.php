@@ -8,7 +8,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Media;
 use App\Models\Product;
 
-class productController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.

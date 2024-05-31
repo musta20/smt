@@ -1,7 +1,7 @@
 <?php
 
 use App\Enums\Identity\Role;
-use App\Http\Controllers\adminController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -11,7 +11,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\productController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SiteController;
@@ -32,7 +32,7 @@ Route::middleware(
     Route::group(['middleware' => ['role:'.Role::VENDER->value],'prefix' => '/admin', 'as' => 'admin.'], function () {
 
 
-        Route::get('',adminController::class)->name('dashboard');
+        Route::get('',AdminController::class)->name('dashboard');
 
         Route::resource('setting', SettingController::class);
         Route::resource('customer', CustomerController::class);
@@ -45,7 +45,7 @@ Route::middleware(
 
         
         Route::resource('store', StoreController::class);
-        Route::resource('product', productController::class);
+        Route::resource('product', ProductController::class);
         Route::resource('category', CategoryController::class);
         
         Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');

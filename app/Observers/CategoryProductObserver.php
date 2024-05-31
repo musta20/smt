@@ -9,7 +9,7 @@ class CategoryProductObserver
 {
 
     public function creating(CategoryProduct $categoryProduct): void{
-        dd(tenant('id'));
+
         if(tenant('id')){
 
             $categoryProduct->tenant_id=tenant('id');

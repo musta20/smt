@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\centralDomainController;
+use App\Http\Controllers\CentralDomainController;
 use App\Http\Middleware\LocaleMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware([LocaleMiddleware::class])->group(function () {
 
-Route::get('/',[centralDomainController::class, 'welcome'] );
-Route::get('setLocale/{locale}',[centralDomainController::class, 'setLocale'])->name('setLocale');
+Route::get('/',[CentralDomainController::class, 'welcome'] );
+Route::get('setLocale/{locale}',[CentralDomainController::class, 'setLocale'])->name('setLocale');
 
 
  require __DIR__.'/centralDomainAuth.php';

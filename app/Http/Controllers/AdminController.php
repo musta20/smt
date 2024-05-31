@@ -7,7 +7,7 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class adminController extends Controller
+class AdminController extends Controller
 {
     /**
      * Handle the incoming request.

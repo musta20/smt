@@ -1,6 +1,6 @@
 <x-main-layout :page="$product->name">
     <ul class="flex justify-items-center  gap-1   text-gray ">
-        <li>{{__('messages.categories')}}</li>
+        <li>{{ __('messages.categories') }}</li>
         <li>
             <svg class="w-[12px] h-[12px] text-gray-800 my-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 24 24">
@@ -10,7 +10,7 @@
         </li>
         <li class="flex ">
             @foreach ($product->categories as $item)
-            <span class="mx-2">{{$item->name}}</span>
+            <span class="mx-2">{{ $item->name }}</span>
             @endforeach
 
         </li>
@@ -21,19 +21,19 @@
                     d="m15 19-7-7 7-7" />
             </svg>
         </li>
-        <li>{{$product->name}}</li>
+        <li>{{ $product->name }}</li>
     </ul>
     <section id="product-carousel" data-carousel="static"
         class="flex justify-center flex-col  lg:flex-row  bg-white m-2 py-5 px-3 rounded-lg  border ">
         <!-- image galary indecater -->
 
-        @if(count($product->media))
+        @if (count($product->media))
         <div class="lg:w-1/12 w-1/6 flex lg:flex-col lg:justify-center ">
             <img class="h-auto max-w-full rounded-lg  mb-1  " aria-current="true" aria-label="Slide 1"
-                data-carousel-slide-to="0" src="{{tenant_asset('media/'.$product->image)}}" alt="">
+                data-carousel-slide-to="0" src="{{ tenant_asset('media/'.$product->image) }}" alt="">
             @foreach ($product->media as $key=>$item)
             <img class="h-auto max-w-full rounded-lg  mb-1  " aria-current="true" aria-label="Slide 1"
-                data-carousel-slide-to="{{$key+1}}" src="{{tenant_asset('media/'.$item->name)}}" alt="">
+                data-carousel-slide-to="{{ $key+1 }}" src="{{ tenant_asset('media/'.$item->name) }}" alt="">
             @endforeach
         </div>
         @endif
@@ -43,21 +43,21 @@
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
 
-                <div @if(count($product->media))
+                <div @if (count($product->media))
                     class="hidden duration-700 ease-in-out"
                     data-carousel-item="active"
                     @endif
                     >
-                    <img src="{{tenant_asset('media/'.$product->image)}}"
+                    <img src="{{ tenant_asset('media/'.$product->image) }}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
 
 
-                @if(count($product->media))
+                @if (count($product->media))
                 @foreach ($product->media as $key=>$item)
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
 
-                    <img src="{{tenant_asset('media/'.$item->name)}}"
+                    <img src="{{ tenant_asset('media/'.$item->name) }}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 @endforeach
@@ -69,49 +69,49 @@
             <div class="text-4xl">{{$product->name}}</div>
             <hr />
             <P class="text-pretty">
-                {{$product->description }}
+                {{ $product->description }}
             </P>
             <hr />
             <div class="flex text-slate-800  justify-between">
                 <div class=" w-full flex justify-between font-bold ">
                     <div class=" py-2 px-2">
                         <span class="text-2xl">
-                            {{$product->price}}
+                            {{ $product->price }}
                         </span>
                         <span class="text-sm">
-                            {{__('messages.EGP')}}
+                            {{ __('messages.EGP') }}
                         </span>
                         <div class="">
                             @if ($product->older_price)
-                            <label>{{__('messages.olderprice')}} : </label>
+                            <label>{{ __('messages.olderprice') }} : </label>
 
                             <span class="line-through text-slate-500">
 
-                                {{$product->older_price}}
+                                {{ $product->older_price }}
                                 <span class="text-sm">
-                                    {{__('messages.EGP')}}
+                                    {{ __('messages.EGP') }}
                                 </span>
                             </span>
 
                             @endif
                         </div>
                         @if ($product->discount)
-                        <label>{{__('messages.discount')}} : </label>
+                        <label>{{ __('messages.discount') }} : </label>
 
                         <span class="bg-blue-100 text-xl text-blue-800 font-semibold px-2.5 py-0.5 rounded ms-3">
                            %
-                            {{$product->discount}}
+                            {{ $product->discount }}
                         </span>
                         @endif
                     </div>
                 </div>
             </div>            <div>
-                <a target="_blank" href="{{$product->order_url}}" class="text-white  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
+                <a target="_blank" href="{{ $product->order_url }}" class="text-white  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
              focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
-              ">{{__('messages.order')}}</a>
-            <a href="{{route('addToCart',$product->id)}}" class="text-white  bg-slate-700 hover:bg-slate-800 focus:outline-none focus:ring-4
+              ">{{ __('messages.order') }}</a>
+            <a href="{{ route('addToCart',$product->id) }}" class="text-white  bg-slate-700 hover:bg-slate-800 focus:outline-none focus:ring-4
               focus:ring-slate-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
-               ">{{__('messages.Add to cart')}}
+               ">{{ __('messages.Add to cart') }}
             </a>
             </div>
         </div>
@@ -120,10 +120,10 @@
         <div class="w-1/2">
             @if ($product->visible->CanReview && $visible->CanReview && $visible->OnlycustomerCanReview)
 
-            <form method="post" action="{{route('comment.store')}}" class="p-2 m-2 space-x-2">
+            <form method="post" action="{{ route('comment.store') }}" class="p-2 m-2 space-x-2">
                 @csrf
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    {{__('messages.add review')}}
+                    {{ __('messages.add review') }}
                 </label>
                 <x-add-rating />
                 <textarea id="comment" rows="4" name="comment"
@@ -131,14 +131,14 @@
                     placeholder=""></textarea>
                 <button type="submit" class="text-white m-2  bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4
                 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
-                 ">{{__('messages.publish')}}</button>
-                <input value="{{$product->id}}" name="product_id" hidden />
+                 ">{{ __('messages.publish') }}</button>
+                <input value="{{ $product->id }}" name="product_id" hidden />
             </form>
             <hr>
 
             @endif
 
-            <span class="text-xl">{{__('messages.reviews')}} :</span>
+            <span class="text-xl">{{ __('messages.reviews') }} :</span>
             @foreach ($product->comment as $comment)
             <x-comment-card :$comment />
             @endforeach
@@ -150,16 +150,16 @@
                 <span class="flex sm:flex-col justify-between my-2">
                     <x-user-rating :rating="$totalRating" />
                     <strong>
-                        {{__('messages.over all rating')}}
+                        {{ __('messages.over all rating') }}
 
-                        {{__('messages.based on')}}({{array_sum($allRating)}}) {{__('messages.reviews')}}
+                        {{ __('messages.based on') }}({{ array_sum($allRating) }}) {{ __('messages.reviews') }}
                     </strong>
                 </span>
                 <hr>
                 @foreach ($allRating as $key=>$item)
                 <span class="flex max-h-6  p-1">
                     <span class="w-2/12 ">
-                        {{$key}} star
+                        {{ $key }} star
                     </span>
                     @php
                     $perst =0 ;
@@ -169,9 +169,9 @@
                     }
                     @endphp
                     <div dir="ltr" class="  w-10/12  bg-gray-100 rounded-full dark:bg-gray-200">
-                        <div style="width: {{$perst}}%" @class(['bg-yellow-300 text-xs text-white font-medium
+                        <div style="width: {{ $perst }}%" @class(['bg-yellow-300 text-xs text-white font-medium
                             text-blue-100 text-center p-0.5 leading-none rounded-full', 'hidden'=> !$perst ]) >
-                            {{$perst}}%</div>
+                            {{ $perst }}%</div>
                     </div>
                 </span>
                 @endforeach

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Admin\Partials;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class recommendedproduct extends Component
+class Layout extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class recommendedproduct extends Component
      */
     public function render(): View|Closure|string
     {
-        return themeView('components.recommendedproduct');
+        return view('admin.partials.layout');
     }
 }

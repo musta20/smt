@@ -22,7 +22,7 @@ class ProductSeeder extends Seeder
      */
 
 
-     public function AddMediaImage($tenant,$product,$tenantpath){
+     public function addMediaImage($tenant,$product,$tenantpath){
         $imagePath = storage_path() . '/Images/';
 
         for ($i=0; $i < 3; $i++) { 
@@ -81,7 +81,7 @@ class ProductSeeder extends Seeder
                 )->for($tenant)->for($store)->create();
 
         
-         $this->AddMediaImage($tenant, $product ,$tenantpath);
+         $this->addMediaImage($tenant, $product ,$tenantpath);
 
 
 
