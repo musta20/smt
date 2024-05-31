@@ -24,8 +24,8 @@ class CreateFrameworkDirectoriesForTenant
         $this->tenant->run(function ($tenant) {
             $storage_path = storage_path();
 
-            mkdir("$storage_path/framework/cache", 0777, true);
-            mkdir("$storage_path/app/public/media", 0777, true);
+            mkdir("{$storage_path}/framework/cache", 0777, true);
+            mkdir("{$storage_path}/app/public/media", 0777, true);
 
         });
     }

@@ -9,7 +9,7 @@ it('can  add product to shoping cart', function () {
 
     $user = User::factory()->for(tenant())->create();
     $product = Product::factory()->for(tenant())->create();
-    $response = $this->actingAs($user)->get('/addToCart/'.$product->id);
+    $response = $this->actingAs($user)->get('/addToCart/' . $product->id);
 
     $this->assertDatabaseHas('shop_carts', [
         'product_id' => $product->id,
@@ -23,7 +23,7 @@ it('can  add product to shoping cart', function () {
 it('can  add product to shoping cart while not loged in', function () {
 
     $product = Product::factory()->for(tenant())->create();
-    $response = $this->get('/addToCart/'.$product->id);
+    $response = $this->get('/addToCart/' . $product->id);
 
     $response->assertStatus(Response::HTTP_FOUND);
     $response->assertSessionHas('OkToast');
@@ -55,7 +55,7 @@ it('can  remove product from shoping cart', function () {
 
     ShopCart::factory()->for($product)->for($user)->for(tenant())->create();
 
-    $response = $this->actingAs($user)->get('/removeCart/'.$product->id);
+    $response = $this->actingAs($user)->get('/removeCart/' . $product->id);
 
     $this->assertDatabaseMissing('shop_carts', [
         'product_id' => $product->id,
@@ -70,9 +70,9 @@ it('can  remove product from shoping cart', function () {
 it('can  remove product from shoping cart while not loged in', function () {
 
     $product = Product::factory()->for(tenant())->create();
-    $this->get('/addToCart/'.$product->id);
+    $this->get('/addToCart/' . $product->id);
 
-    $response = $this->get('/removeCart/'.$product->id);
+    $response = $this->get('/removeCart/' . $product->id);
 
     $response->assertStatus(Response::HTTP_FOUND);
     $response->assertSessionHas('OkToast');

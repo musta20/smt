@@ -35,14 +35,14 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'domain' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Password::defaults()],
         ]);
 
         $tenant = Tenant::create();
 
         $tenant->domains()->create([
-            'domain' => $request->domain.'.'.config('app.domain'),
+            'domain' => $request->domain . '.' . config('app.domain'),
             'name' => $request->domain,
         ]);
 

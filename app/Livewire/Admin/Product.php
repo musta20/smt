@@ -53,7 +53,7 @@ class Product extends Component
     public function render()
     {
 
-        $this->products = ModelsProduct::orderByType($this->filters, true)->where('name', 'like', '%'.$this->searchword.'%')
+        $this->products = ModelsProduct::orderByType($this->filters, true)->where('name', 'like', '%' . $this->searchword . '%')
             ->paginate(10);
 
         return view('livewire.admin.product', [

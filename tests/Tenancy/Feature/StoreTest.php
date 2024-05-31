@@ -19,7 +19,7 @@ it('can update store config', function () {
         'title' => 'old',
     ]);
 
-    $response = $this->actingAs($user)->put('/admin/store/'.$store->id, [
+    $response = $this->actingAs($user)->put('/admin/store/' . $store->id, [
         'title' => 'title',
         'description' => 'title desvription',
     ]);
@@ -44,7 +44,7 @@ it('can update store config', function () {
 it("can't update config with invalid values", function () {
     $user = User::factory()->withVenderRole()->for(tenant())->create();
     $store = Store::factory()->for($user)->for(tenant())->create();
-    $response = $this->actingAs($user)->put('/admin/store/'.$store->id, [
+    $response = $this->actingAs($user)->put('/admin/store/' . $store->id, [
         'title' => '',
     ]);
 

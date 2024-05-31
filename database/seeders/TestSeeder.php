@@ -16,7 +16,8 @@ class TestSeeder extends Seeder
     public function run($tenant, $user): void
     {
 
-        (new PermissionSeeder())->run();
+        //(new PermissionSeeder())->run();
+        $this->call(PermissionSeeder::class);
 
         Store::factory()->for($tenant)->for($user)->create([
             'title' => 'Test store',

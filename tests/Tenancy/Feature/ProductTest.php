@@ -24,7 +24,7 @@ it('can render product edit page', function () {
 
     $product = Product::factory()->for($store)->for(tenant())->create();
 
-    $response = $this->actingAs($user)->get('admin/product/'.$product->id.'/edit');
+    $response = $this->actingAs($user)->get('admin/product/' . $product->id . '/edit');
 
     $response->assertStatus(Response::HTTP_OK);
 });
@@ -48,7 +48,7 @@ it('can add new product', function (string $string) {
         'name' => $string,
         'discription' => $string,
         'price' => 423,
-        'order_url' => 'http://'.$string.'.com',
+        'order_url' => 'http://' . $string . '.com',
         'discount' => 51,
         'category' => $categories->pluck('id')->toArray(),
         'older_price' => 40,
@@ -59,7 +59,7 @@ it('can add new product', function (string $string) {
 
     $product = Product::first();
 
-    $response->assertRedirect('/admin/product/'.$product->id.'/edit');
+    $response->assertRedirect('/admin/product/' . $product->id . '/edit');
 
     Storage::disk('media')->assertExists($image->hashName());
 })->with(data: 'strings');
@@ -77,7 +77,7 @@ it('get 422 when trying to create new product item with invalid value', function
     $response = $this->actingAs($user)->post('/admin/product/', [
         'name' => '1',
         'discription' => 1,
-        'order_url' => 'http://'.$string.'.com',
+        'order_url' => 'http://' . $string . '.com',
         'discount' => 51,
         'older_price' => 40,
     ]);
@@ -89,7 +89,7 @@ it('can delete a product item', function () {
     $user = User::factory()->withVenderRole()->for(tenant())->create();
     $product = Product::factory()->for(tenant())->create();
 
-    $response = $this->actingAs($user)->delete('admin/product/'.$product->id);
+    $response = $this->actingAs($user)->delete('admin/product/' . $product->id);
 
     $response->assertRedirect('/admin/product');
 
@@ -110,10 +110,10 @@ it('get 422 when trying to update a product with invalid value', function ($stri
     $user = User::factory()->withVenderRole()->for(tenant())->create();
     $product = Product::factory()->for(tenant())->create();
 
-    $response = $this->actingAs($user)->put('/admin/product/'.$product->id, [
+    $response = $this->actingAs($user)->put('/admin/product/' . $product->id, [
         'name' => '',
         'discription' => 1,
-        'order_url' => 'http://'.$string.'.com',
+        'order_url' => 'http://' . $string . '.com',
         'discount' => 51,
         'older_price' => 40,
     ]);
@@ -127,11 +127,11 @@ it('can update product', function (string $string) {
     $categories = Category::factory(2)->for(tenant())->create();
 
     $product = Product::factory()->for(tenant())->create();
-    $response = $this->actingAs($user)->put('/admin/product/'.$product->id, [
+    $response = $this->actingAs($user)->put('/admin/product/' . $product->id, [
         'name' => $string,
         'discription' => $string,
         'price' => 423,
-        'order_url' => 'http://'.$string.'.com',
+        'order_url' => 'http://' . $string . '.com',
         'discount' => 51,
         'category' => $categories->pluck('id')->toArray(),
         'older_price' => 40,
@@ -141,13 +141,13 @@ it('can update product', function (string $string) {
 
     $product = Product::first();
 
-    $response->assertRedirect('/admin/product/'.$product->id.'/edit');
+    $response->assertRedirect('/admin/product/' . $product->id . '/edit');
 })->with(data: 'strings');
 
 it('get 401 when trying to modify product while not authorized', function () {
 
     $product = Product::factory()->for(tenant())->create();
-    $response = $this->put('/admin/product/'.$product->id, [
+    $response = $this->put('/admin/product/' . $product->id, [
         'name' => 'NAME',
     ]);
 
@@ -160,11 +160,11 @@ it('get 403 when trying to modify product that dose not belong to tenant', funct
     $user = User::factory()->withVenderRole()->for(tenant())->create();
     $categories = Category::factory(2)->for(tenant())->create();
     $product = Product::factory()->for(Tenant::factory()->create())->create();
-    $response = $this->actingAs($user)->put('/admin/product/'.$product->id, [
+    $response = $this->actingAs($user)->put('/admin/product/' . $product->id, [
         'name' => $string,
         'discription' => $string,
         'price' => 423,
-        'order_url' => 'http://'.$string.'.com',
+        'order_url' => 'http://' . $string . '.com',
         'discount' => 51,
         'category' => $categories->pluck('id')->toArray(),
         'older_price' => 40,

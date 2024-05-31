@@ -23,7 +23,7 @@ class DomainFactory extends Factory
         $domain = $this->faker->word();
 
         return [
-            'domain' => $domain.'.'.config('app.domain'),
+            'domain' => $domain . '.' . config('app.domain'),
             'name' => $domain,
             //  'tenant_id'=>Tenant::factory()->create()
 

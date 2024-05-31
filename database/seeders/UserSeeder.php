@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             'last_name' => 'osman',
             'provider' => Provider::EMAIL,
             'avatar' => 'https://github.com/musta20.png',
-            'email' => $storename.'@'.$storename.'.com',
+            'email' => $storename . '@' . $storename . '.com',
             'password' => Hash::make('1234'),
         ]);
 
@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
             'last_name' => 'reem',
             'provider' => Provider::EMAIL,
             'avatar' => 'https://github.com/musta20.png',
-            'email' => $storename2.'@'.$storename2.'.com',
+            'email' => $storename2 . '@' . $storename2 . '.com',
             'password' => Hash::make('1234'),
         ]);
 
