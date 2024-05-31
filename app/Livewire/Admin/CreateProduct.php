@@ -26,29 +26,28 @@ class CreateProduct extends Component
 
     public $photo;
 
-    #[On('addImage')] 
+    #[On('addImage')]
     public function updateImageList($imgename)
     {
         $this->subFiles[$imgename] = MediaType::IMAGE->value;
     }
-    #[On('removeImage')] 
+
+    #[On('removeImage')]
     public function removeImageList($imgename)
     {
         $this->subFiles = array_filter($this->subFiles, fn ($type, $name) => $name != $imgename, ARRAY_FILTER_USE_BOTH);
     }
 
-
-
     public function removeImage()
     {
-        
+
         $this->reset('photo');
     }
 
     public function addCategory($categoryId)
     {
 
-        if (!in_array($categoryId, $this->productCategorys)) {
+        if (! in_array($categoryId, $this->productCategorys)) {
             $this->productCategorys[] = $categoryId;
         }
     }
@@ -57,8 +56,7 @@ class CreateProduct extends Component
     {
         $copy = $this->productCategorys;
 
-
-        $this->productCategorys = array_filter($copy, fn ($item) =>  $categoryId != $item);
+        $this->productCategorys = array_filter($copy, fn ($item) => $categoryId != $item);
     }
 
     public function openModel($id)
@@ -66,15 +64,11 @@ class CreateProduct extends Component
         $this->dispatch('modalbox');
     }
 
-
-
     public function render()
     {
 
-
-
         return view('livewire.admin.create-product', [
-            "categories" => Category::where('tenant_id', tenant('id'))->get(),
+            'categories' => Category::where('tenant_id', tenant('id'))->get(),
 
         ]);
     }

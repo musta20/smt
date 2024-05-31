@@ -22,20 +22,18 @@ class UpdateSettingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "aboutPageContent" =>
-            [
+            'aboutPageContent' => [
                 'string',
                 'nullable',
                 'min:3',
-                'max:1000'
+                'max:1000',
             ],
-            "TermPageContent" =>    [
+            'TermPageContent' => [
                 'string',
                 'nullable',
                 'min:3',
-                'max:1000'
+                'max:1000',
             ],
-
 
         ];
     }

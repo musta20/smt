@@ -21,11 +21,11 @@ class DomainFactory extends Factory
     public function definition(): array
     {
         $domain = $this->faker->word();
-        
+
         return [
-            'domain'=>$domain.'.'.config('app.domain'),
-            'name'=> $domain,
-          //  'tenant_id'=>Tenant::factory()->create()
+            'domain' => $domain.'.'.config('app.domain'),
+            'name' => $domain,
+            //  'tenant_id'=>Tenant::factory()->create()
 
         ];
     }

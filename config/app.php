@@ -5,13 +5,12 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
-
     /*
     |--------------------------------------------------------------------------
     | Application Domain
     |--------------------------------------------------------------------------
     |
-    | This value is the name of your application Domain. 
+    | This value is the name of your application Domain.
     |
     */
 
@@ -98,7 +97,6 @@ return [
     'locale' => 'ar',
     'dir' => 'rtl',
 
-
     /*
     |--------------------------------------------------------------------------
     | Available Locale Configuration
@@ -109,7 +107,7 @@ return [
 
     'available_locales' => [
         'ar',
-        'en'
+        'en',
     ],
     /*
     |--------------------------------------------------------------------------
@@ -196,9 +194,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TenancyServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-        App\Providers\ComposerServiceProvider::class
-
-
+        App\Providers\ComposerServiceProvider::class,
 
     ])->toArray(),
 

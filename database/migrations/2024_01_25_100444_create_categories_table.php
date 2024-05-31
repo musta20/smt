@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
- 
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
@@ -23,12 +22,12 @@ return new class extends Migration
                 ->on('tenants')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            
-                $table->string('name');
-                $table->mediumText('description')->nullable();
+
+            $table->string('name');
+            $table->mediumText('description')->nullable();
 
             $table->foreignUlid('store_id')
-            ->nullable()
+                ->nullable()
                 ->index()
                 ->cascadeOnDelete();
             $table->softDeletes();
@@ -36,7 +35,6 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
 
     public function down(): void
     {

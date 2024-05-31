@@ -27,37 +27,36 @@ class LayoutComposers
     {
         $uri = url()->current();
 
-
-        if (!strpos($uri, 'admin') &&  tenant('id')) {
-            $setting = Setting::where('tenant_id',tenant('id'))->get();
+        if (! strpos($uri, 'admin') && tenant('id')) {
+            $setting = Setting::where('tenant_id', tenant('id'))->get();
 
             $visibleRecored = $setting->where('key', 'visibility')->first();
-         
+
             $visible = json_decode($visibleRecored?->value);
 
-            $store =  Store::where('tenant_id', tenant('id'))->first();
+            $store = Store::where('tenant_id', tenant('id'))->first();
 
             $SocialMedia = (array) json_decode($store->SocialMedia);
 
             $categoryLink = $visible->showHeadrLinks ? Category::latest()->get(['name', 'id']) : null;
 
             $userCart = [];
-            
-            if(Auth::check()){
+
+            if (Auth::check()) {
                 $userCart = Auth::user()->products;
             }
 
             $this->props = [
-                "logo" =>  $store->logo,
-                "SocialMedia" =>$SocialMedia,
-                "favicon" =>  $store->favicon,
-                "title" => $store->title,
-                "visible"=>$visible ,
-                "store"=>$store,
-                "userCart"=>$userCart,
-                "setting"=> $setting ,
-                "categoryLink"=>$categoryLink,
-                "description" =>  $store->description
+                'logo' => $store->logo,
+                'SocialMedia' => $SocialMedia,
+                'favicon' => $store->favicon,
+                'title' => $store->title,
+                'visible' => $visible,
+                'store' => $store,
+                'userCart' => $userCart,
+                'setting' => $setting,
+                'categoryLink' => $categoryLink,
+                'description' => $store->description,
             ];
         }
     }
@@ -65,7 +64,6 @@ class LayoutComposers
     /**
      * Bind data to the view.
      *
-     * @param  View  $view
      * @return void
      */
     public function compose(View $view)

@@ -21,8 +21,9 @@ Route::middleware('auth:sanctum')->get('user', function (Request $request) {
 
 Route::post('isDomainAvilable/{domain}', function (Request $request) {
     $domain = DB::table('domains')->where('name', $request->domain)->first();
-    if (!$domain) {
+    if (! $domain) {
         return response()->json('the domain name is available', 200);
     }
+
     return response()->json('domain is already taken', 404);
 });

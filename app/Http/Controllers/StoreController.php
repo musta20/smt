@@ -55,16 +55,15 @@ class StoreController extends Controller
     public function update(UpdateStoreRequest $request, Store $store)
     {
 
-
-        $SocialMedia =  json_encode([
-                SocialMedia::FACEBOOK->value =>  $request->facebook,
-                SocialMedia::X->value => $request->x,
-                SocialMedia::INSTAGRAM->value =>  $request->instagram,
-                SocialMedia::TELEGRAM->value =>  $request->telegram,
-                SocialMedia::WHATSAPP->value => $request->whatsapp,
-                SocialMedia::SNAPCHAT->value => $request->snapchat,
-                SocialMedia::YOUTUBE->value => $request->youtube,
-                SocialMedia::TIKTOK->value => $request->tiktok,
+        $SocialMedia = json_encode([
+            SocialMedia::FACEBOOK->value => $request->facebook,
+            SocialMedia::X->value => $request->x,
+            SocialMedia::INSTAGRAM->value => $request->instagram,
+            SocialMedia::TELEGRAM->value => $request->telegram,
+            SocialMedia::WHATSAPP->value => $request->whatsapp,
+            SocialMedia::SNAPCHAT->value => $request->snapchat,
+            SocialMedia::YOUTUBE->value => $request->youtube,
+            SocialMedia::TIKTOK->value => $request->tiktok,
         ]);
 
         $store->update([
@@ -76,10 +75,8 @@ class StoreController extends Controller
             'email' => $request->email,
             'specialty' => $request->specialty,
             'SocialMedia' => $SocialMedia,
-            'tenant_id' => tenant('id')
+            'tenant_id' => tenant('id'),
         ]);
-
-
 
         return redirect()->route('admin.store.index')->with('OkToast', __('messages.setting updated'));
     }

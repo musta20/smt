@@ -17,7 +17,7 @@ return [
          */
 
         //  'permission' => Spatie\Permission\Models\Permission::class,
-         'permission' => Permission::class,
+        'permission' => Permission::class,
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -29,7 +29,7 @@ return [
          */
 
         //  'role' => Spatie\Permission\Models\Role::class,
-         'role' => Role::class,
+        'role' => Role::class,
 
     ],
 

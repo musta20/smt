@@ -9,20 +9,18 @@ use App\Models\Product;
 use App\Models\Role;
 use App\Models\Setting;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\Rules\Password;
 
 class SiteController extends Controller
 {
-
     public function index()
     {
-           $setting = Setting::where('tenant_id', tenant('id'))->get();
+        $setting = Setting::where('tenant_id', tenant('id'))->get();
         $product = Product::where('status', Status::PUBLISHED->value)->latest()->take(50)->get();
         $visibleRecored = $setting->where('key', 'visibility')->first();
         $visible = json_decode($visibleRecored->value);
@@ -31,7 +29,7 @@ class SiteController extends Controller
         return themeView('index', [
             'visible' => $visible,
             'products' => $product,
-            'CarouselImage' => $CarouselImage
+            'CarouselImage' => $CarouselImage,
         ]);
     }
 
@@ -41,19 +39,20 @@ class SiteController extends Controller
 
         if (in_array($locale, config('app.available_locales'))) {
 
-          session()->put('locale', $locale);
-
+            session()->put('locale', $locale);
 
         }
+
         return redirect()->back();
     }
-
-
 
     public function profile()
     {
         $user = Auth::user();
-        if ($user->hasRole(IdentityRole::VENDER->value)) return Redirect::Route('admin.profile.update');
+        if ($user->hasRole(IdentityRole::VENDER->value)) {
+            return Redirect::Route('admin.profile.update');
+        }
+
         return themeView('profile', ['user' => $user]);
     }
 
@@ -65,8 +64,9 @@ class SiteController extends Controller
 
     public function search(Request $request)
     {
-        return themeView('search', ['search'  => $request->search]);
+        return themeView('search', ['search' => $request->search]);
     }
+
     public function contactPage()
     {
         return themeView('contact');
@@ -77,10 +77,11 @@ class SiteController extends Controller
         return themeView('about');
     }
 
-
     public function showRegister(Request $request)
     {
-        if (Auth::check()) return redirect('/');
+        if (Auth::check()) {
+            return redirect('/');
+        }
 
         return themeView('auth.customerRegister');
     }
@@ -89,10 +90,9 @@ class SiteController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Password::defaults()],
         ]);
-
 
         $user = User::create([
             'name' => $request->name,
@@ -113,6 +113,7 @@ class SiteController extends Controller
     public function category(Category $category)
     {
         $category->products = $category->products->where('status', Status::PUBLISHED->value);
+
         return themeView('category', [
             'category' => $category,
         ]);
@@ -121,7 +122,9 @@ class SiteController extends Controller
     public function product(Product $product)
     {
 
-        if ($product->status != Status::PUBLISHED->value) return     abort(404);
+        if ($product->status != Status::PUBLISHED->value) {
+            return abort(404);
+        }
 
         $recomendedProduct = Product::where('status', Status::PUBLISHED->value)->latest()->take(5)->get();
 
@@ -138,7 +141,7 @@ class SiteController extends Controller
 
         if (array_sum($allRating) > 0) {
 
-            $r =   array_map(function ($n, $i) {
+            $r = array_map(function ($n, $i) {
                 return $n * $i;
             }, $allRating, array_keys($allRating));
 
@@ -149,7 +152,7 @@ class SiteController extends Controller
             'product' => $product,
             'totalRating' => $totalRating,
             'allRating' => $allRating,
-            'recomendedProduct' => $recomendedProduct
+            'recomendedProduct' => $recomendedProduct,
         ]);
     }
 }

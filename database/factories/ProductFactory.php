@@ -2,12 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Enums\Identity\Role;
 use App\Enums\Store\Status;
-use App\Models\Category;
 use App\Models\Product;
-use App\Models\Store;
-use App\Models\Tenant;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -31,7 +27,7 @@ class ProductFactory extends Factory
                 indexSize: 4
             ),
             'price' => rand(456, 5100),
-            'status'=>  Status::getRandomStatus()->value,
+            'status' => Status::getRandomStatus()->value,
             'order_url' => $this->faker->url(),
             'image' => $this->faker->imageUrl(250, 160),
             'older_price' => rand(465, 3351),
@@ -39,26 +35,24 @@ class ProductFactory extends Factory
             'view_count' => rand(3, 7465),
             'discount' => rand(10, 100),
             'rating' => rand(1, 5),
-            'visible'=>['CanReview' => $this->faker->boolean()],
-     
+            'visible' => ['CanReview' => $this->faker->boolean()],
 
-            'created_at' => $this->faker->dateTime()
+            'created_at' => $this->faker->dateTime(),
         ];
     }
 
-public function withReview(){
+    public function withReview()
+    {
 
-    return $this->state(fn (array $attributes) => ['visible'=>['CanReview' => true]]);
+        return $this->state(fn (array $attributes) => ['visible' => ['CanReview' => true]]);
 
+    }
 
-}
+    public function withRealImage($path): Factory
+    {
 
-
-public function withRealImage($path): Factory
-{
-
-    return $this->state(fn (array $attributes) => ['image' =>$path]);
-}
+        return $this->state(fn (array $attributes) => ['image' => $path]);
+    }
 
     public function withImage($path): Factory
     {
@@ -66,9 +60,6 @@ public function withRealImage($path): Factory
         return $this->state(fn (array $attributes) => ['image' => $this->faker->image($path, 640, 480, 'products', false)]);
     }
 
-
     //            'image' => $this->faker->image(storage_path(),250, 160),
-
-
 
 }

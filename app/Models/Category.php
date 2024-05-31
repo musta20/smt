@@ -13,17 +13,16 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Category extends Model
 {
+    use BelongsToTenant;
     use HasFactory;
     use HasUlids;
-    use BelongsToTenant;
     use SoftDeletes;
-
 
     protected $fillable = [
         'name',
         'description',
         'store_id',
-        'tenant_id'
+        'tenant_id',
     ];
 
     protected $casts = [];
@@ -36,9 +35,9 @@ class Category extends Model
         );
     }
 
-    public function products():BelongsToMany
+    public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class,'category_products');
+        return $this->belongsToMany(Product::class, 'category_products');
     }
 
     public function parent(): BelongsTo
@@ -49,11 +48,12 @@ class Category extends Model
         );
     }
 
-    public function tenant(): BelongsTo {
+    public function tenant(): BelongsTo
+    {
 
         return $this->belongsTo(
-            related:Tenant::class,
-            foreignKey:'tenant_id'
+            related: Tenant::class,
+            foreignKey: 'tenant_id'
         );
 
     }

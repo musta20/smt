@@ -10,13 +10,18 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 class Store extends Component
 {
     use WithFileUploads;
+
     public $photo;
+
     public $faviconImge;
+
     public $store;
+
     public $SocialMedia;
+
     public function updatedPhoto()
     {
-        $imgename  = $this->photo->store();
+        $imgename = $this->photo->store();
         $this->store->logo = $imgename;
         $this->store->save();
     }
@@ -30,7 +35,7 @@ class Store extends Component
 
     public function updatedFaviconImge()
     {
-        $imgename  = $this->faviconImge->store();
+        $imgename = $this->faviconImge->store();
         $this->store->favicon = $imgename;
         $this->store->save();
     }
@@ -42,13 +47,15 @@ class Store extends Component
         $this->store->save();
     }
 
-    public function mount(){
+    public function mount()
+    {
 
-        $this->store=StoreModel::first();
+        $this->store = StoreModel::first();
 
         $this->SocialMedia = json_decode($this->store->SocialMedia);
 
     }
+
     public function render()
     {
         return view('livewire.admin.store');

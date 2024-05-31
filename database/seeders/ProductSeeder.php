@@ -13,34 +13,30 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Process;
 
 class ProductSeeder extends Seeder
-
 {
-
-
     /**
      * Run the database seeds.
      */
+    public function addMediaImage($tenant, $product, $tenantpath)
+    {
+        $imagePath = storage_path().'/Images/';
 
-
-     public function addMediaImage($tenant,$product,$tenantpath){
-        $imagePath = storage_path() . '/Images/';
-
-        for ($i=0; $i < 3; $i++) { 
-            $productMediaImage =   collect(SeederData::$imageName)->random();
-            Process::run("cp " . $imagePath . "/" . $productMediaImage . " " . $tenantpath . "/" . $productMediaImage);
+        for ($i = 0; $i < 3; $i++) {
+            $productMediaImage = collect(SeederData::$imageName)->random();
+            Process::run('cp '.$imagePath.'/'.$productMediaImage.' '.$tenantpath.'/'.$productMediaImage);
 
             Media::create(
                 [
-                    'name' =>  $productMediaImage,
+                    'name' => $productMediaImage,
                     'type' => MediaType::IMAGE->value,
                     'product_id' => $product->id,
-                    'tenant_id' =>$tenant->id
+                    'tenant_id' => $tenant->id,
                 ]
             );
-            
+
         }
-     }
-     
+    }
+
     public function run($storename, $storename2): void
     {
 
@@ -48,31 +44,29 @@ class ProductSeeder extends Seeder
 
         $tenant2 = Tenant::get()->where('name', $storename2)->first();
 
-        $tenantpath = storage_path() . '/tenant' . $tenant->id . '/app/public/media';
+        $tenantpath = storage_path().'/tenant'.$tenant->id.'/app/public/media';
 
-        $tenantpath2 = storage_path() . '/tenant' . $tenant2->id . '/app/public/media';
+        $tenantpath2 = storage_path().'/tenant'.$tenant2->id.'/app/public/media';
 
         $category = Category::get()->where('tenant_id', $tenant->id);
         $category2 = Category::get()->where('tenant_id', $tenant2->id);
         $store = Store::get()->where('title', $storename2)->first();
         $store2 = Store::get()->where('title', $storename2)->first();
 
-        $imagePath = storage_path() . '/Images/';
-        $tenantpath = storage_path() . '/tenant' . $tenant->id . '/app/public/media';
-
-
+        $imagePath = storage_path().'/Images/';
+        $tenantpath = storage_path().'/tenant'.$tenant->id.'/app/public/media';
 
         for ($count = 0; $count < 60; $count++) {
 
-            $productImage =   collect(SeederData::$imageName)->random();
+            $productImage = collect(SeederData::$imageName)->random();
 
-            Process::run("cp " . $imagePath . "/" . $productImage . " " . $tenantpath . "/" . $productImage);
+            Process::run('cp '.$imagePath.'/'.$productImage.' '.$tenantpath.'/'.$productImage);
 
-            $product =    Product::factory()
+            $product = Product::factory()
                 ->state(new Sequence(
                     fn (Sequence $sequence) => [
                         'name' => collect(SeederData::$arabicProduct)->random(),
-                        'image' => $productImage
+                        'image' => $productImage,
                     ]
                 ))
                 ->hasAttached(
@@ -80,17 +74,7 @@ class ProductSeeder extends Seeder
                     ['tenant_id' => $tenant->id]
                 )->for($tenant)->for($store)->create();
 
-        
-         $this->addMediaImage($tenant, $product ,$tenantpath);
-
-
-
-
-
-
-
-
-
+            $this->addMediaImage($tenant, $product, $tenantpath);
 
             Product::factory()->hasAttached(
                 $category2->random(3),

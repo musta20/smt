@@ -6,7 +6,6 @@ namespace App\Models;
 
 use App\Enums\Identity\Provider;
 use App\Enums\Identity\Role;
-
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -23,15 +22,13 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant as ConcernsBelongsToTenant;
 
 class User extends Authenticatable
 {
+    use ConcernsBelongsToTenant;
     use HasApiTokens;
     use HasFactory;
-    use Notifiable;
-    use HasUlids;
-    use ConcernsBelongsToTenant;
-    use SoftDeletes;
     use HasRoles;
-
-
+    use HasUlids;
+    use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -48,10 +45,8 @@ class User extends Authenticatable
         'country',
         'email',
         'password',
-        'tenant_id'
+        'tenant_id',
     ];
-
-
 
     /**
      * The attributes that should be hidden for serialization.
@@ -72,7 +67,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
         'role' => Role::class,
-        'provider' => Provider::class
+        'provider' => Provider::class,
     ];
 
     public function store(): HasOne
@@ -84,8 +79,6 @@ class User extends Authenticatable
         );
     }
 
-
-
     public function media(): HasMany
     {
         return $this->hasMany(
@@ -93,11 +86,13 @@ class User extends Authenticatable
             foreignKey: 'user_id'
         );
     }
-    public function products():BelongsToMany
+
+    public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class,'shop_carts')->wherePivotNull('deleted_at');
+        return $this->belongsToMany(Product::class, 'shop_carts')->wherePivotNull('deleted_at');
     }
-    public function tenant(): BelongsTo | Collection
+
+    public function tenant(): BelongsTo|Collection
     {
         return $this->belongsTo(
             related: Tenant::class,

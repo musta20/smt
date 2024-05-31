@@ -15,6 +15,7 @@ class ThemesController extends Controller
     public function index()
     {
         $themes = Theme::cases();
+
         return view('admin.themes.index', ['themes' => $themes]);
     }
 
@@ -67,25 +68,19 @@ class ThemesController extends Controller
         //     'theme' => ['required', 'in:'. implode(',', Theme::cases())],
         // ]);
 
-
-
         if (in_array($request->theme, Theme::values())) {
 
-
             if ($request->theme == Theme::DEFAULT->value) {
-                tenant()->theme  = '';
+                tenant()->theme = '';
             } else {
-                tenant()->theme  = $request->theme;
+                tenant()->theme = $request->theme;
             }
             tenant()->save();
 
             return Redirect::route('admin.themes.index')->with('OkToast', __('messages.theme updated'));
         }
+
         return Redirect::route('admin.themes.index')->with('OkToast', __('messages.theme updated'));
-
-
-
-
 
         //ThemeUpdateRequest
     }

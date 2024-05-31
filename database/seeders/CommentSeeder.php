@@ -6,7 +6,6 @@ use App\Models\Comment;
 use App\Models\Product;
 use App\Models\Tenant;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CommentSeeder extends Seeder
@@ -20,9 +19,8 @@ class CommentSeeder extends Seeder
 
         $tenant2 = Tenant::get()->where('name', $storename2)->first();
 
-
-        $products  = Product::get()->where('tenant_id', $tenant->id);
-        $products2  = Product::get()->where('tenant_id', $tenant2->id);
+        $products = Product::get()->where('tenant_id', $tenant->id);
+        $products2 = Product::get()->where('tenant_id', $tenant2->id);
 
         $users = User::get()->where('tenant_id', $tenant->id);
         $users2 = User::get()->where('tenant_id', $tenant2->id);

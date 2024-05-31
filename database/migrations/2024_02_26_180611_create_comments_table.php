@@ -6,21 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
- 
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            
+
             $table->foreignUlid('product_id')
-            ->index()
-            ->constrained()
-            ->cascadeOnDelete();
+                ->index()
+                ->constrained()
+                ->cascadeOnDelete();
 
             $table->foreignUlid('user_id')
-            ->index()
-            ->constrained()
-            ->cascadeOnDelete();
+                ->index()
+                ->constrained()
+                ->cascadeOnDelete();
 
             $table->unsignedFloat('rating')->nullable();
 
@@ -37,7 +36,6 @@ return new class extends Migration
             $table->softDeletes();
         });
     }
-
 
     public function down(): void
     {

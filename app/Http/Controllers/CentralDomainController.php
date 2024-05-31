@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class CentralDomainController extends Controller
 {
-
     public function welcome()
     {
         return view('welcome');
@@ -20,6 +19,7 @@ class CentralDomainController extends Controller
 
             session()->put('locale', $locale);
         }
+
         return redirect()->back();
     }
 }

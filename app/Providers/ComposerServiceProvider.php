@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 
 class ComposerServiceProvider extends ServiceProvider
@@ -14,7 +13,7 @@ class ComposerServiceProvider extends ServiceProvider
     {
         // Using class based composers...
         view()->composer(
-            "*",
+            '*',
             'App\Http\ViewComposers\LayoutComposers'
         );
     }

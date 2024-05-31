@@ -31,13 +31,13 @@ class UserFactory extends Factory
             'name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
 
-            'provider'=>Provider::EMAIL->value,
+            'provider' => Provider::EMAIL->value,
 
             //'role' => Role::CUSTOMER->value,
             //Role::CUSTOMER->value
-            'password'=>Hash::make("password"),
-            'tenant_id'=>Tenant::factory(),
-            'avatar'=>$this->faker->imageUrl(550,400),
+            'password' => Hash::make('password'),
+            'tenant_id' => Tenant::factory(),
+            'avatar' => $this->faker->imageUrl(550, 400),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
@@ -54,7 +54,9 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
-    public function withVenderRole(){
+
+    public function withVenderRole()
+    {
         return $this->afterMaking(function (User $user) {
             $user->assignRole(Role::VENDER->value);
         });

@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use Illuminate\Database\Eloquent\Collection;
-
 class CartService
 {
     public static function add($productid): void
@@ -11,22 +9,19 @@ class CartService
         //dd($productid);
         $cart = self::getCart();
 
-
         $cartItem = $cart->where('id', $productid->id)->first();
-        if (!$cartItem) {
+        if (! $cartItem) {
 
             $cart->push($productid);
             session()->put('cart', $cart);
         }
     }
 
-
     public static function remove($productId): void
     {
         $cart = self::getCart();
-        
-        $cart = $cart->filter(fn($item) => $item->id!= $productId);
 
+        $cart = $cart->filter(fn ($item) => $item->id != $productId);
 
         session()->put('cart', $cart);
     }

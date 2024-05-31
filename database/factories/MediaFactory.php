@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class MediaFactory extends Factory
 {
-        protected $model = Media::class;
+    protected $model = Media::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,10 @@ class MediaFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>$this->faker->word(),
-            'type'=>MediaType::IMAGE->value,
-            'user_id'=>User::factory()->create(),
-           // 'tenant_id'=>Tenant::factory(),
+            'name' => $this->faker->word(),
+            'type' => MediaType::IMAGE->value,
+            'user_id' => User::factory()->create(),
+            // 'tenant_id'=>Tenant::factory(),
 
         ];
     }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\Store\Theme;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ThemeUpdateRequest extends FormRequest
@@ -23,10 +22,10 @@ class ThemeUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'theme' =>[
+            'theme' => [
                 'string',
-                'required'
-            ]
+                'required',
+            ],
         ];
     }
 }

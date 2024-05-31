@@ -16,8 +16,7 @@ use Tests\TestCase;
 */
 
 uses(TestCase::class, RefreshDatabase::class)->in('Feature');
-uses(TenancyTestCase::class, RefreshDatabase::class)->in('Tenancy');;
-
+uses(TenancyTestCase::class, RefreshDatabase::class)->in('Tenancy');
 
 /*
 |--------------------------------------------------------------------------

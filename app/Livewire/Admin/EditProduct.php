@@ -28,14 +28,14 @@ class EditProduct extends Component
 
     public function updatedPhoto()
     {
-        $imgename  = $this->photo->store();
+        $imgename = $this->photo->store();
         $this->product->image = $imgename;
         $this->product->save();
     }
 
     public function removeImage()
     {
-        
+
         Storage::disk('media')->delete($this->product->image);
         $this->product->image = null;
         $this->product->save();
@@ -44,7 +44,7 @@ class EditProduct extends Component
     public function addCategory($categoryId)
     {
 
-        if (!in_array($categoryId, $this->productCategorys)) {
+        if (! in_array($categoryId, $this->productCategorys)) {
             $this->productCategorys[] = $categoryId;
         }
     }
@@ -53,12 +53,12 @@ class EditProduct extends Component
     {
         $copy = $this->productCategorys;
 
-
-        $this->productCategorys = array_filter($copy, fn ($item) =>  $categoryId != $item);
+        $this->productCategorys = array_filter($copy, fn ($item) => $categoryId != $item);
     }
+
     public function openModel($id)
     {
-        $this->dispatch('modalbox'); 
+        $this->dispatch('modalbox');
     }
 
     public function mount($product)
@@ -67,11 +67,10 @@ class EditProduct extends Component
         $this->product = $product;
 
         $this->productCategorys = $product->categories->pluck('id')->toArray();
-   
+
         $this->status = $product->status == Status::PUBLISHED->value ? true : false;
 
         $this->CanReview = $product->visible['CanReview'];
-
 
         $this->subFiles = $product->media->pluck('type.value', 'name')->toArray();
     }
@@ -79,7 +78,7 @@ class EditProduct extends Component
     public function render()
     {
         return view('livewire.admin.edit-product', [
-            "category" => Category::where('tenant_id',tenant('id'))->get(),
+            'category' => Category::where('tenant_id', tenant('id'))->get(),
 
         ]);
     }

@@ -32,10 +32,10 @@ class CategoryController extends Controller
 
         Category::create([
             'name' => $request->name,
-            'description' => $request->description
+            'description' => $request->description,
         ]);
 
-        return redirect()->route('admin.category.index')->with('OkToast',__('messages.category added'));
+        return redirect()->route('admin.category.index')->with('OkToast', __('messages.category added'));
     }
 
     /**
@@ -51,8 +51,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.category.edit',[
-            'category' => $category
+        return view('admin.category.edit', [
+            'category' => $category,
 
         ]);
     }
@@ -65,7 +65,7 @@ class CategoryController extends Controller
 
         $category->update([
             'name' => $request->name,
-            'description' => $request->description
+            'description' => $request->description,
         ]);
 
         return redirect()->route('admin.category.index')->with('OkToast', __('messages.category updated'));
@@ -78,6 +78,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
+
         return redirect()->route('admin.category.index')->with('OkToast', __('messages.category removed'));
     }
 }

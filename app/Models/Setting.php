@@ -11,18 +11,16 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Setting extends Model
 {
-
+    use BelongsToTenant;
     use HasFactory;
     use HasUlids;
-    use BelongsToTenant;
     use SoftDeletes;
-
 
     protected $fillable = [
         'key',
-        'value'
+        'value',
     ];
-    
+
     public function tenant(): BelongsTo
     {
         return $this->belongsTo(
@@ -30,6 +28,4 @@ class Setting extends Model
             foreignKey: 'tenant_id'
         );
     }
-    
-    
-    }
+}

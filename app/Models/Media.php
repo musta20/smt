@@ -12,39 +12,36 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Media extends Model
 {
+    use BelongsToTenant;
     use HasFactory;
     use HasUlids;
     use SoftDeletes;
-    use BelongsToTenant;
-
 
     protected $fillable = [
         'name',
         'type',
         'user_id',
         'product_id',
-        'tenant_id'
+        'tenant_id',
     ];
 
     protected $casts = [
-        'type'=>MediaType::class,
+        'type' => MediaType::class,
     ];
 
-    
-
-
-    public function product():BelongsTo{
+    public function product(): BelongsTo
+    {
         return $this->belongsTo(
-            related:User::class,
-            foreignKey:'product_id'
+            related: User::class,
+            foreignKey: 'product_id'
         );
     }
 
-    public function user():BelongsTo{
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(
-            related:User::class,
-            foreignKey:'user_id'
+            related: User::class,
+            foreignKey: 'user_id'
         );
     }
-
 }

@@ -6,20 +6,18 @@ use App\Enums\Store\MediaType;
 use App\Models\Media;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Modelable;
-use Livewire\Attributes\Reactive;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class FileManger extends Component
 {
-
     use WithFileUploads;
 
     #[Validate(['photo.*' => 'image|max:1024'])]
     public $photo;
-    
-    #[Modelable] 
+
+    #[Modelable]
     public $subFiles;
 
     public $product;
@@ -27,8 +25,7 @@ class FileManger extends Component
     public function updatedPhoto()
     {
         foreach ($this->photo as $imge) {
-            $imgename  = $imge->store();
-
+            $imgename = $imge->store();
 
             if ($this->product) {
                 $this->subFiles[$imgename] = MediaType::IMAGE->value;
@@ -39,19 +36,17 @@ class FileManger extends Component
                         'type' => MediaType::IMAGE->value,
                         'product_id' => $this->product->id,
                         'user_id' => auth()->user()->id,
-                        'tenant_id' => tenant('id')
+                        'tenant_id' => tenant('id'),
                     ]
                 );
-            }else
-            {
-                $this->dispatch('addImage',$imgename);
+            } else {
+                $this->dispatch('addImage', $imgename);
 
             }
         }
     }
 
-
-    public function  remove($imageName)
+    public function remove($imageName)
     {
         //Storage::disk('media')->delete($imageName);
 
@@ -60,13 +55,12 @@ class FileManger extends Component
 
             $this->subFiles = array_filter($this->subFiles, fn ($type, $name) => $name != $imageName, ARRAY_FILTER_USE_BOTH);
 
-        }else{
-            $this->dispatch('removeImage',$imageName);
+        } else {
+            $this->dispatch('removeImage', $imageName);
 
         }
 
     }
-
 
     public function render()
     {

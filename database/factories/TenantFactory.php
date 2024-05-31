@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class TenantFactory extends Factory
 {
-        protected $model = Tenant::class;
+    protected $model = Tenant::class;
 
     /**
      * Define the model's default state.
@@ -20,9 +20,8 @@ class TenantFactory extends Factory
     public function definition(): array
     {
 
-        
         return [
-            
+
             // 'name'=>$this->faker->word(),
             // 'category_id'=>null,
         ];

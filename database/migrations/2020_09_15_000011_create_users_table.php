@@ -1,21 +1,20 @@
 <?php
 
-use App\Enums\Identity\Role;
 use App\Enums\Identity\Provider;
+use App\Enums\Identity\Role;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
- 
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('name');
             $table->string('last_name')->nullable();
-          //  $table->string('role')->default(Role::VENDER->value);
+            //  $table->string('role')->default(Role::VENDER->value);
 
             $table->string('provider')->default(Provider::EMAIL->value);
             $table->string('provider_id')->nullable();
@@ -31,7 +30,6 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
@@ -41,7 +39,6 @@ return new class extends Migration
             $table->softDeletes();
         });
     }
-
 
     public function down(): void
     {

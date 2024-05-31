@@ -11,18 +11,15 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class CategoryProduct extends Model
 {
+    use BelongsToTenant;
     use HasFactory;
     use HasUlids;
-    use BelongsToTenant;
     use SoftDeletes;
 
-
-
-    
     protected $fillable = [
         'category_id',
         'product_id',
-        'tenant_id'
+        'tenant_id',
     ];
 
     public function product(): BelongsTo

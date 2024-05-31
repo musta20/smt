@@ -13,24 +13,23 @@ class TenantSeeder extends Seeder
     public function run($storename, $storename2): void
     {
 
-        $tenant =  Tenant::create([
-            'name' =>  $storename,
-            'theme' =>  ""
+        $tenant = Tenant::create([
+            'name' => $storename,
+            'theme' => '',
         ]);
-        $tenant2 =  Tenant::create([
-            'name' =>  $storename2,
-            'theme' =>  ""
+        $tenant2 = Tenant::create([
+            'name' => $storename2,
+            'theme' => '',
         ]);
-
 
         $tenant->domains()->create([
-            'domain' =>  $storename . '.' . config('app.domain'),
-            'name' =>  $storename
+            'domain' => $storename.'.'.config('app.domain'),
+            'name' => $storename,
         ]);
 
         $tenant2->domains()->create([
-            'domain' =>  $storename2 . '.' . config('app.domain'),
-            'name' =>  $storename2
+            'domain' => $storename2.'.'.config('app.domain'),
+            'name' => $storename2,
 
         ]);
     }

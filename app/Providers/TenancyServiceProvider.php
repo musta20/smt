@@ -30,7 +30,7 @@ class TenancyServiceProvider extends ServiceProvider
                     //Jobs\CreateDatabase::class,
                     //Jobs\MigrateDatabase::class,
                     //Jobs\SeedDatabase::class,
-                    CreateFrameworkDirectoriesForTenant::class
+                    CreateFrameworkDirectoriesForTenant::class,
 
                     // Your own jobs to prepare the tenant.
                     // Provision API keys, create S3 buckets, anything you want!
@@ -99,7 +99,8 @@ class TenancyServiceProvider extends ServiceProvider
     {
         //
     }
-// 
+
+    //
     public function boot()
     {
 
@@ -118,7 +119,6 @@ class TenancyServiceProvider extends ServiceProvider
 
         $this->makeTenancyMiddlewareHighestPriority();
         // TenantAssetsController::$tenancyMiddleware = InitializeTenancyByDomainOrSubdomain::class;
-
 
     }
 
@@ -148,7 +148,6 @@ class TenancyServiceProvider extends ServiceProvider
         $tenancyMiddleware = [
             // Even higher priority than the initialization middleware
             Middleware\PreventAccessFromCentralDomains::class,
-            
 
             Middleware\InitializeTenancyByDomain::class,
 

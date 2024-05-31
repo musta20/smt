@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,14 +11,14 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class ShopCart extends Pivot
 {
+    use BelongsToTenant;
     use HasFactory;
     use HasUlids;
     use SoftDeletes;
-    use BelongsToTenant;
 
     protected $fillable = [
         'product_id',
-        'user_id'
+        'user_id',
     ];
 
     protected $table = 'shop_carts';
@@ -38,7 +37,4 @@ class ShopCart extends Pivot
     {
         return $this->BelongsTo(User::class);
     }
-
-
-
 }

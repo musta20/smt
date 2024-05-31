@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
- 
     public function up(): void
     {
         Schema::create('stores', function (Blueprint $table) {
@@ -33,8 +32,8 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-                $table->longText('term')->nullable();
-                $table->longText('about')->nullable();
+            $table->longText('term')->nullable();
+            $table->longText('about')->nullable();
             $table->string('address')->nullable();
             $table->string('location')->nullable();
             $table->string('phone')->nullable();
@@ -50,12 +49,11 @@ return new class extends Migration
                         SocialMedia::SNAPCHAT->value => '',
                         SocialMedia::YOUTUBE->value => '',
                         SocialMedia::TIKTOK->value => '',
-                        SocialMedia::TELEGRAM->value => ''
+                        SocialMedia::TELEGRAM->value => '',
 
                     ]
                 )
             );
-
 
             $table->foreignUlid('user_id')
                 ->index()
@@ -66,7 +64,6 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
 
     public function down(): void
     {

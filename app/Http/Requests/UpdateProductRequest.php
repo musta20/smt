@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\Store\Status;
 use App\Rules\Ownership;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Enum;
 
 class UpdateProductRequest extends FormRequest
 {
@@ -32,14 +30,14 @@ class UpdateProductRequest extends FormRequest
                 'string',
                 'required',
                 'min:3',
-                'max:600'
+                'max:600',
             ],
 
             'description' => [
                 'nullable',
                 'string',
                 'min:3',
-                'max:600'
+                'max:600',
             ],
             'category' => [
                 'required',

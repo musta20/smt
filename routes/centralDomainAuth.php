@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,7 +11,6 @@ Route::middleware('guest')->group(function () {
     Route::post('register', [RegisteredUserController::class, 'store']);
 });
 
-
 //tenant/login
 //tenant/admin
 //tenant/logout
@@ -20,4 +18,3 @@ Route::middleware('guest')->group(function () {
 //tenant/send_email_pass
 //tenant/verfiy_email
 //maindomain/register
-?>

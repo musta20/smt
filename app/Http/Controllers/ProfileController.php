@@ -17,13 +17,12 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-      
 
         return view('admin.profile.edit',
-         [
-            'user' => $request->user(),
-        ]
-    );
+            [
+                'user' => $request->user(),
+            ]
+        );
     }
 
     /**
@@ -39,7 +38,9 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        if(Auth::user()->hasRole(Role::VENDER->value)) return Redirect::route('admin.profile.update')->with('OkToast', __('messages.profile updated'));
+        if (Auth::user()->hasRole(Role::VENDER->value)) {
+            return Redirect::route('admin.profile.update')->with('OkToast', __('messages.profile updated'));
+        }
 
         return Redirect::route('profilePage')->with('OkToast', __('messages.profile updated'));
 

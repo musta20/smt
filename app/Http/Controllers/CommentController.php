@@ -38,7 +38,7 @@ class CommentController extends Controller
         $visible = json_decode($visibleRecored->value);
 
         $product = Product::findorfail($request->product_id);
-        
+
         $CanReviewProduct = json_decode($product->visible);
 
         if ($CanReviewProduct->CanReview && $visible->CanReview && $visible->OnlycustomerCanReview) {
@@ -49,7 +49,7 @@ class CommentController extends Controller
                 'rating' => $request->rating,
                 'product_id' => $request->product_id,
                 'user_id' => $user->id,
-                'tenant_id' => tenant('id')
+                'tenant_id' => tenant('id'),
             ]);
 
             return redirect()->back()->with('OkToast', __('messages.review added'));

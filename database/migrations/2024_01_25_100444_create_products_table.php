@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
- 
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
@@ -25,15 +24,15 @@ return new class extends Migration
             $table->unsignedInteger('view_count')->nullable();
 
             $table->unsignedInteger('order_count')->nullable();
-            
+
             $table->unsignedFloat('rating')->nullable();
-            
+
             $table->string('tenant_id');
-            
+
             $table->string('status')->default(Status::DRAFT);
 
             $table->json('visible')->default(json_encode([
-                "CanReview" => true,
+                'CanReview' => true,
             ]));
 
             $table->foreign('tenant_id')
@@ -43,8 +42,8 @@ return new class extends Migration
                 ->onDelete('cascade');
 
             $table->foreignUlid('store_id')
-            ->nullable()
-            ->index()
+                ->nullable()
+                ->index()
                 ->cascadeOnDelete();
 
             $table->json('tags')->nullable();
@@ -58,7 +57,6 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
 
     public function down(): void
     {

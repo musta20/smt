@@ -1,9 +1,6 @@
 <?php
 
-
 use App\Models\User;
-
-
 
 test('users can not authenticate without tenant ', function () {
     $user = User::factory()->create();
@@ -15,6 +12,3 @@ test('users can not authenticate without tenant ', function () {
 
     $this->assertGuest();
 });
-
-
-

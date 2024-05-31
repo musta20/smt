@@ -60,7 +60,7 @@ test('user can delete their account', function () {
             'password' => 'password',
         ]);
 
-        $response
+    $response
         ->assertSessionHasNoErrors()
         ->assertRedirect('/');
 

@@ -15,12 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::middleware([LocaleMiddleware::class])->group(function () {
 
-Route::get('/',[CentralDomainController::class, 'welcome'] );
-Route::get('setLocale/{locale}',[CentralDomainController::class, 'setLocale'])->name('setLocale');
+    Route::get('/', [CentralDomainController::class, 'welcome']);
+    Route::get('setLocale/{locale}', [CentralDomainController::class, 'setLocale'])->name('setLocale');
 
-
- require __DIR__.'/centralDomainAuth.php';
+    require __DIR__.'/centralDomainAuth.php';
 });

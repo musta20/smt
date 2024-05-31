@@ -6,53 +6,47 @@ use Symfony\Component\HttpFoundation\Response;
 
 it('login screen can be rendered', function () {
 
-  $response = $this->get(RouteServiceProvider::LOGIN);
+    $response = $this->get(RouteServiceProvider::LOGIN);
 
-  $response->assertStatus(Response::HTTP_OK);
+    $response->assertStatus(Response::HTTP_OK);
 });
-
 
 it('users can authenticate using the login screen', function () {
 
-  $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->for(tenant())->create();
 
-  $response = $this->post(RouteServiceProvider::LOGIN, [
-    'email' => $user->email,
-    'password' => "password",
-  ]);
+    $response = $this->post(RouteServiceProvider::LOGIN, [
+        'email' => $user->email,
+        'password' => 'password',
+    ]);
 
-  $response->assertValid();
+    $response->assertValid();
 
-  $this->assertAuthenticated();
+    $this->assertAuthenticated();
 
-  $response->assertRedirect(RouteServiceProvider::HOME);
+    $response->assertRedirect(RouteServiceProvider::HOME);
 });
-
 
 it('users can not authenticate with invalid password', function () {
 
-  $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->for(tenant())->create();
 
-  $this->post(RouteServiceProvider::LOGIN, [
-    'email' => $user->email,
-    'password' => "invalid-password",
-  ]);
+    $this->post(RouteServiceProvider::LOGIN, [
+        'email' => $user->email,
+        'password' => 'invalid-password',
+    ]);
 
-  $this->assertGuest();
+    $this->assertGuest();
 });
-
 
 it('users can logout', function () {
 
-  $user = User::factory()->for(tenant())->create();
+    $user = User::factory()->for(tenant())->create();
 
-  $response = $this->actingAs($user)->post(RouteServiceProvider::LOGOUT);
+    $response = $this->actingAs($user)->post(RouteServiceProvider::LOGOUT);
 
-  $this->assertGuest();
+    $this->assertGuest();
 
-  $response->assertRedirect('/');
+    $response->assertRedirect('/');
 
 });
-
-
-

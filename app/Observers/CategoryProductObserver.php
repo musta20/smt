@@ -7,17 +7,17 @@ use Exception;
 
 class CategoryProductObserver
 {
+    public function creating(CategoryProduct $categoryProduct): void
+    {
 
-    public function creating(CategoryProduct $categoryProduct): void{
+        if (tenant('id')) {
 
-        if(tenant('id')){
-
-            $categoryProduct->tenant_id=tenant('id');
-        }else{
-            throw new Exception("tenant not idenfited", 1);
-            
+            $categoryProduct->tenant_id = tenant('id');
+        } else {
+            throw new Exception('tenant not idenfited', 1);
         }
     }
+
     /**
      * Handle the CategoryProduct "created" event.
      */

@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 test('reset password link screen can be rendered', function () {
 
-   // (new TestSeeder())->run(tenant(), User::factory()->create());
+    // (new TestSeeder())->run(tenant(), User::factory()->create());
 
     $response = $this->get('/forgot-password');
 

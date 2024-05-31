@@ -6,14 +6,14 @@ return [
     'add review' => 'إصافة تقييم',
     'publish' => 'نشر',
     'Cart' => 'السله',
-    'theme updated'=>'تم تحديث القالب' ,
+    'theme updated' => 'تم تحديث القالب',
     'olderprice' => 'قبل',
     'This is a secure area of the application. Please confirm your password before continuing.' => '
     الرجاء تأكيد كلمة المرور',
     'Confirm' => 'تاكيد',
-    'login'=>'دخول',
+    'login' => 'دخول',
     'Login' => 'تسجيل الدخول',
-    'Social'=>'تواصل',
+    'Social' => 'تواصل',
     'your shoping cart is empty' => 'السلة فارغة',
     'you want to delete product :' => 'تريد حذف المنتج',
     'add category' => 'إضافة تصنيف',
@@ -42,35 +42,34 @@ return [
     'Add to cart' => 'اضافى الى السلة',
     'categories' => 'التصنيفات',
     'over all rating' => 'التقييم العام',
-    'Don’t have any account?'=>'ليس لديك حساب؟',
-    'SinUp'=>'انشاء حساب',
-    'Forgot your password? No problem. Just let us know your email'=>'نسيت كلمة المرور؟ ادخل بريد الالكتروني',
-    'address and we will email you a password reset link that will allow you to choose a new one.'=>'وسيتم ارسالة رابط تعيين كلمة المرور على بريدك المسجل لدينا',
+    'Don’t have any account?' => 'ليس لديك حساب؟',
+    'SinUp' => 'انشاء حساب',
+    'Forgot your password? No problem. Just let us know your email' => 'نسيت كلمة المرور؟ ادخل بريد الالكتروني',
+    'address and we will email you a password reset link that will allow you to choose a new one.' => 'وسيتم ارسالة رابط تعيين كلمة المرور على بريدك المسجل لدينا',
 
-    'domain is not valid'=>'العنوان غير متاح',
+    'domain is not valid' => 'العنوان غير متاح',
 
-    'domain is valid'=>'العنوان متاح',
+    'domain is valid' => 'العنوان متاح',
 
     'Forgot your password?' => 'استعادة كلمة المرور',
 
-    'Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.'=>
-    'تم انشاء الحساب بنجاح , الرجاء تأكيد البريد الإلكتروني  بواسطة الرابط المرسل الى بريدك الالكتروني',
+    'Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.' => 'تم انشاء الحساب بنجاح , الرجاء تأكيد البريد الإلكتروني  بواسطة الرابط المرسل الى بريدك الالكتروني',
 
-    'Enter your full Domain'=>'اختر عنوان متجرك الاكتروني',
-    'Your store domain adress'=>'عنوان متجرك الاكتروني',
+    'Enter your full Domain' => 'اختر عنوان متجرك الاكتروني',
+    'Your store domain adress' => 'عنوان متجرك الاكتروني',
     'based on' => 'بناء على',
     'reviews' => 'تقييمات',
-    'A new verification link has been sent to the email address you provided during registration.'=>'تم ارسال رابط جديد الى بريدك الالكتروني لوتوثيق الحساب',
-    'Already have an account?'=>'لديك حساب؟',
+    'A new verification link has been sent to the email address you provided during registration.' => 'تم ارسال رابط جديد الى بريدك الالكتروني لوتوثيق الحساب',
+    'Already have an account?' => 'لديك حساب؟',
     'Term and condition' => 'الشروط و الاحكام',
     'About us' => 'من نحن',
     'contact' => 'تواصل معنا',
     'order' => 'طلب',
 
-    'Sign up with Google'=>'تسجيل الدخول بحساب جوجل',
-    'Password'=>'كلمة المرور',
-    'Create account'=>'إنشاء حساب',
-    'Re-type Password'=> 'اعد كتابة كلمة المرور',
+    'Sign up with Google' => 'تسجيل الدخول بحساب جوجل',
+    'Password' => 'كلمة المرور',
+    'Create account' => 'إنشاء حساب',
+    'Re-type Password' => 'اعد كتابة كلمة المرور',
     'Contact us' => 'تواصل معنا',
     'Adress' => 'العنوان',
     'Phone' => 'الهاتف',
@@ -198,9 +197,6 @@ return [
     'Enable footer links' => 'اتاحة الروابط اسفل الصفحة',
     'Enable user registration' => 'إتاحة تسجيل المستخدميين',
     'Allow unregistered users to review' => 'السماح للمستخدمين غير المسجلين بالتقييم',
-    'User deleted' => 'تم حذف المستخدم'
-
-
-
+    'User deleted' => 'تم حذف المستخدم',
 
 ];

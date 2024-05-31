@@ -1,7 +1,8 @@
 <?php
+
 namespace App\Enums\Store;
 
-enum Sorting:string 
+enum Sorting: string
 {
     case NEWEST = 'NEWEST';
     case AVG_COUSTMER = 'AVG_COUSTMER';
@@ -9,5 +10,3 @@ enum Sorting:string
     case LOW_TO_HIGHT = 'LOW_TO_HIGHT';
     case HIGHT_TO_LOW = 'HIGHT_TO_LOW';
 }
-
-?>

@@ -11,11 +11,10 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\View\View;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\View\View;
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -36,16 +35,15 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'domain' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Password::defaults()],
         ]);
 
-
-        $tenant =  Tenant::create();
+        $tenant = Tenant::create();
 
         $tenant->domains()->create([
-            'domain' =>  $request->domain . '.' . config('app.domain'),
-            'name' =>  $request->domain
+            'domain' => $request->domain.'.'.config('app.domain'),
+            'name' => $request->domain,
         ]);
 
         $user = User::create([
@@ -59,10 +57,9 @@ class RegisteredUserController extends Controller
 
         $user->assignRole($vernderRole);
 
-
         event(new Registered($user));
 
-       return redirect()->route(RouteServiceProvider::LOGIN)->domain($tenant->domain->domain);
+        return redirect()->route(RouteServiceProvider::LOGIN)->domain($tenant->domain->domain);
 
     }
 }

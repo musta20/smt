@@ -26,16 +26,16 @@ class StoreProductRequest extends FormRequest
                 'string',
                 'required',
                 'min:3',
-                'max:600'
+                'max:600',
             ],
-          
+
             'description' => [
                 'nullable',
                 'string',
                 'min:3',
-                'max:600'
+                'max:600',
             ],
-            'category'=>[
+            'category' => [
                 'required',
             ],
             'price' => [
@@ -57,7 +57,7 @@ class StoreProductRequest extends FormRequest
                 'nullable',
                 'int',
             ],
-        
+
         ];
     }
 }

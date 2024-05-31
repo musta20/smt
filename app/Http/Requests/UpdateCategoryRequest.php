@@ -26,14 +26,14 @@ class UpdateCategoryRequest extends FormRequest
                 'string',
                 'required',
                 'min:3',
-                'max:600'
+                'max:600',
             ],
-          
+
             'description' => [
                 'nullable',
                 'string',
                 'min:3',
-                'max:600'
+                'max:600',
             ],
         ];
     }

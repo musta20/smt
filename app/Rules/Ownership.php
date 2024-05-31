@@ -7,11 +7,13 @@ use Illuminate\Contracts\Validation\ValidationRule;
 
 class Ownership implements ValidationRule
 {
-
     protected $model;
-    public function __construct($model) {
+
+    public function __construct($model)
+    {
         $this->model = $model;
     }
+
     /**
      * Run the validation rule.
      *
@@ -21,6 +23,6 @@ class Ownership implements ValidationRule
     {
         $object = is_object($value) ? $value : (new $this->model)->findOrFail($value);
 
-         $object->tenant_id != tenant('id') ? $fail("this object dose not bleong to this tenant"):'';
+        $object->tenant_id != tenant('id') ? $fail('this object dose not bleong to this tenant') : '';
     }
 }

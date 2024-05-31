@@ -26,29 +26,29 @@ class UpdateStoreRequest extends FormRequest
                 'string',
                 'required',
                 'min:3',
-                'max:600'
+                'max:600',
             ],
-          
+
             'description' => [
                 'nullable',
                 'string',
                 'min:3',
-                'max:600'
+                'max:600',
             ],
             'address' => [
                 'nullable',
                 'string',
-                
+
             ],
             'location' => [
                 'nullable',
                 'string',
-                
+
             ],
             'phone' => [
                 'nullable',
                 'string',
-                
+
             ],
             'specialty' => [
                 'string',
@@ -88,8 +88,8 @@ class UpdateStoreRequest extends FormRequest
                 'nullable',
 
                 'url',
-            ]
-           
+            ],
+
         ];
     }
 }

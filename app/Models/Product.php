@@ -16,11 +16,10 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Product extends Model
 {
+    use BelongsToTenant;
     use HasFactory;
     use HasUlids;
-    use BelongsToTenant;
     use SoftDeletes;
-
 
     protected $fillable = [
         'name',
@@ -36,7 +35,7 @@ class Product extends Model
         'tag',
         'visible',
         'category_id',
-        'tenant_id'
+        'tenant_id',
     ];
 
     protected $casts = [
@@ -44,9 +43,10 @@ class Product extends Model
         'older_price' => 'float',
         'dicount' => 'integer',
         'visible' => AsCollection::class,
-        'tag' => AsCollection::class
+        'tag' => AsCollection::class,
 
     ];
+
     public function media(): HasMany
     {
 
@@ -69,19 +69,19 @@ class Product extends Model
         return $this->belongsToMany(Category::class, 'category_products');
     }
 
-
-
     public function comment(): HasMany
     {
         return $this->hasMany(
             related: Comment::class,
-            foreignKey: "product_id"
+            foreignKey: 'product_id'
         );
     }
+
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }
+
     public function scopeOrderByType($query, $orderType, $isAdmin)
     {
 
@@ -93,7 +93,7 @@ class Product extends Model
         }
 
         if ($isAdmin) {
-            
+
             switch ($orderType['sortType']) {
                 case Status::PUBLISHED->value:
                     $query->where('status', Status::PUBLISHED->value);

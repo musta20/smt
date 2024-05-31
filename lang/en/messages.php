@@ -1,16 +1,16 @@
 <?php
 
-return  [
+return [
 
     'EGP' => 'EGP',
 
     'Login' => 'Login',
 
-    'login'=>'login',
+    'login' => 'login',
 
-    'theme updated'=>'theme updated' ,
+    'theme updated' => 'theme updated',
 
-    'Social'=>'Social',
+    'Social' => 'Social',
 
     'This is a secure area of the application. Please confirm your password before continuing.' => 'This is a secure area of the application. Please confirm your password before continuing.',
 
@@ -70,12 +70,12 @@ return  [
 
     'LOW_TO_HIGHT' => 'low to high',
 
-    'A new verification link has been sent to the email address you provided during registration.'=>'A new verification link has been sent to the email address you provided during registration.',
+    'A new verification link has been sent to the email address you provided during registration.' => 'A new verification link has been sent to the email address you provided during registration.',
 
     'DRAFT' => 'draft',
 
-    'Forgot your password? No problem. Just let us know your email'=>'Forgot your password? No problem. Just let us know your email',
-    'address and we will email you a password reset link that will allow you to choose a new one.'=>'address and we will email you a password reset link that will allow you to choose a new one.',
+    'Forgot your password? No problem. Just let us know your email' => 'Forgot your password? No problem. Just let us know your email',
+    'address and we will email you a password reset link that will allow you to choose a new one.' => 'address and we will email you a password reset link that will allow you to choose a new one.',
 
     'PUBLISHED' => 'published',
 
@@ -85,10 +85,9 @@ return  [
 
     'categories' => 'categories',
 
-    'Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.'=>
-    'Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.',
+    'Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.' => 'Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.',
 
-    'Already have an account?'=>'Already have an account?',
+    'Already have an account?' => 'Already have an account?',
 
     'over all rating' => 'over all rating',
 
@@ -108,13 +107,13 @@ return  [
 
     'Adress' => 'Adress',
 
-    'Create account'=> 'Create account',
+    'Create account' => 'Create account',
 
     'Sign up with Google' => 'Sign up with Google',
 
     'Phone' => 'Phone',
 
-    'Don’t have any account?'=>'Don’t have any account?',
+    'Don’t have any account?' => 'Don’t have any account?',
 
     'Forgot your password?' => 'Forgot your password',
 
@@ -372,5 +371,5 @@ return  [
 
     'Allow unregistered users to review' => 'Allow unregistered users to review',
 
-    'User deleted' => 'User deleted'
+    'User deleted' => 'User deleted',
 ];

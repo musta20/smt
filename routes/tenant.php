@@ -5,7 +5,6 @@ declare(strict_types=1);
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SiteController;
 use App\Http\Middleware\LocaleMiddleware;
-use App\Http\Middleware\SetThemeForTenant;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\CheckTenantForMaintenanceMode;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
@@ -28,7 +27,7 @@ Route::middleware([
 
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
-    LocaleMiddleware::class
+    LocaleMiddleware::class,
 
 ])->group(function () {
 
@@ -40,8 +39,7 @@ Route::middleware([
         Route::get('removeCart/{product}', [CartController::class, 'removeCart'])->name('removeCart');
         Route::get('showCart', [CartController::class, 'showCart'])->name('showCart');
 
-
-        Route::get('setLocale/{locale}',[SiteController::class, 'setLocale'])->name('setLocale');
+        Route::get('setLocale/{locale}', [SiteController::class, 'setLocale'])->name('setLocale');
 
         Route::get('register', [SiteController::class, 'showRegister'])->name('registerPage');
         Route::post('register', [SiteController::class, 'register'])->name('register');
@@ -59,8 +57,6 @@ Route::middleware([
 
     });
 
-
-
-    require __DIR__ . '/auth.php';
-    require __DIR__ . '/guest.php';
+    require __DIR__.'/auth.php';
+    require __DIR__.'/guest.php';
 });

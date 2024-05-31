@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class CategoryFactory extends Factory
 {
-        protected $model = Category::class;
+    protected $model = Category::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>$this->faker->word()
+            'name' => $this->faker->word(),
             //'store_id'=>Store::factory()->create(),
             //'tenant_id'=>Tenant::factory(),
 

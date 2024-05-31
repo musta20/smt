@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
- 
     public function up(): void
     {
         Schema::create('media', function (Blueprint $table) {
@@ -18,23 +17,22 @@ return new class extends Migration
             $table->string('type')->default(MediaType::IMAGE->value);
 
             $table->foreignUlid('product_id')->index()
-            ->constrained()
-            ->cascadeOnDelete();
-            
+                ->constrained()
+                ->cascadeOnDelete();
 
             $table->foreignUlid('user_id')
-            ->nullable()
-            ->index()
-            ->constrained()
-            ->cascadeOnDelete();
+                ->nullable()
+                ->index()
+                ->constrained()
+                ->cascadeOnDelete();
 
             $table->string('tenant_id');
 
             $table->foreign('tenant_id')
-            ->references('id')
-            ->on('tenants')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('tenants')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             // $table->foreignId('tenant_id')->index()
             // ->constrained()
@@ -46,7 +44,6 @@ return new class extends Migration
 
         });
     }
-
 
     public function down(): void
     {

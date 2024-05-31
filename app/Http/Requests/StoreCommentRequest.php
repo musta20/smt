@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Livewire\Admin\Product;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class StoreCommentRequest extends FormRequest
 {
@@ -25,22 +23,22 @@ class StoreCommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-             'comment' => [
+            'comment' => [
                 'string',
                 'required',
                 'min:3',
-                'max:600'
+                'max:600',
             ],
-          
+
             'rating' => [
                 'int',
-                'between:1,5'
+                'between:1,5',
 
-            ] ,
-            'product_id'=>[
+            ],
+            'product_id' => [
                 'required',
-                'exists:products,id'
-            ]
+                'exists:products,id',
+            ],
 
         ];
     }

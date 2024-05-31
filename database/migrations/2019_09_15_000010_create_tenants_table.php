@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTenantsTable extends Migration
 {
-   
     public function up(): void
     {
         Schema::create('tenants', function (Blueprint $table) {
@@ -23,7 +22,6 @@ class CreateTenantsTable extends Migration
         });
     }
 
-   
     public function down(): void
     {
         Schema::dropIfExists('tenants');

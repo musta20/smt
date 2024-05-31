@@ -30,7 +30,7 @@ it('can  add product to shoping cart while not loged in', function () {
     $response->assertSessionHas('cart');
 });
 
-it('can render a shoping cart list while not loged in ',function(){
+it('can render a shoping cart list while not loged in ', function () {
 
     $response = $this->get('/showCart');
 
@@ -38,7 +38,7 @@ it('can render a shoping cart list while not loged in ',function(){
 
 });
 
-it('can render a shoping cart list ',function(){
+it('can render a shoping cart list ', function () {
 
     $user = User::factory()->for(tenant())->create();
 
@@ -49,7 +49,6 @@ it('can render a shoping cart list ',function(){
 });
 
 it('can  remove product from shoping cart', function () {
-
 
     $user = User::factory()->for(tenant())->create();
     $product = Product::factory()->for(tenant())->create();
@@ -70,7 +69,6 @@ it('can  remove product from shoping cart', function () {
 
 it('can  remove product from shoping cart while not loged in', function () {
 
-
     $product = Product::factory()->for(tenant())->create();
     $this->get('/addToCart/'.$product->id);
 
@@ -78,5 +76,4 @@ it('can  remove product from shoping cart while not loged in', function () {
 
     $response->assertStatus(Response::HTTP_FOUND);
     $response->assertSessionHas('OkToast');
-})
-?>
+});

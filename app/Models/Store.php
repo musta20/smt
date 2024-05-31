@@ -14,11 +14,10 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Store extends Model
 {
+    use BelongsToTenant;
     use HasFactory;
     use HasUlids;
-    use BelongsToTenant;
     use SoftDeletes;
-
 
     protected $fillable = [
         'title',
@@ -35,12 +34,12 @@ class Store extends Model
         'status',
         'user_id',
         'tenant_id',
-        'SocialMedia'
+        'SocialMedia',
     ];
 
     protected $casts = [
         'currency' => Currency::class,
-        'status' => Status::class
+        'status' => Status::class,
     ];
 
     public function getRelationshipToPrimaryModel(): string
@@ -63,9 +62,10 @@ class Store extends Model
             foreignKey: 'store_id'
         );
     }
+
     public function product(): HasMany
     {
-        return   $this->hasMany(
+        return $this->hasMany(
             related: Product::class,
             foreignKey: 'store_id'
         );

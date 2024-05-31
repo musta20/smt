@@ -65,7 +65,6 @@ class SettingController extends Controller
         //
     }
 
-
     /**
      * Update the specified resource in storage.
      */
@@ -75,27 +74,25 @@ class SettingController extends Controller
         $TermPageContent = $request->TermPageContent;
         $aboutPageContent = $request->aboutPageContent;
 
-        $store = Store::where('tenant_id',tenant('id'))->first();
+        $store = Store::where('tenant_id', tenant('id'))->first();
 
-        $store->term  = $TermPageContent;
-        $store->about  = $aboutPageContent;
+        $store->term = $TermPageContent;
+        $store->about = $aboutPageContent;
 
         $store->save();
         $visible = [
-            "CanReview" => $request->CanReview ? true : false,
-            "showCarousel" => $request->showCarousel ? true : false,
-            "showAboutPage" => $request->showTermPage ? true : false,
+            'CanReview' => $request->CanReview ? true : false,
+            'showCarousel' => $request->showCarousel ? true : false,
+            'showAboutPage' => $request->showTermPage ? true : false,
 
-            "showHeadrLinks" => $request->showHeadrLinks ? true : false,
-            "showTermPage" => $request->showTermPage ? true : false,
-            "showFooterLinks" => $request->showFooterLinks ? true : false,
+            'showHeadrLinks' => $request->showHeadrLinks ? true : false,
+            'showTermPage' => $request->showTermPage ? true : false,
+            'showFooterLinks' => $request->showFooterLinks ? true : false,
 
-            "AllowUsers" => $request->AllowUsers ? true : false,
-            "OrderWithoutUsers" => $request->OrderWithoutUsers ? true : false,
+            'AllowUsers' => $request->AllowUsers ? true : false,
+            'OrderWithoutUsers' => $request->OrderWithoutUsers ? true : false,
 
-            "OnlycustomerCanReview" => $request->OnlycustomerCanReview ? true : false
-
-            
+            'OnlycustomerCanReview' => $request->OnlycustomerCanReview ? true : false,
 
         ];
         $tenant = tenant();
@@ -106,7 +103,7 @@ class SettingController extends Controller
             $tenant->update(['maintenance_mode' => null]);
         }
 
-        $setting = Setting::where('tenant_id',tenant('id'))->get();
+        $setting = Setting::where('tenant_id', tenant('id'))->get();
 
         $siteStatusRecored = $setting->where('key', 'siteStatus')->first();
         $siteStatusRecored->value = $siteStatus;

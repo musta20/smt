@@ -10,11 +10,11 @@ class GuestLayout extends Component
     /**
      * Get the view / contents that represents the component.
      */
-    public $thecomponent = "hi uam commiug from the class pgp component";
+    public $thecomponent = 'hi uam commiug from the class pgp component';
 
     public function render(): View
     {
-        
+
         return themeView('layouts.guest');
     }
 }

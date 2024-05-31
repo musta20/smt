@@ -187,13 +187,13 @@ return [
     */
 
     'attributes' => [
-        'name'=>'الاسم',
-        'category'=>'التصنيف',
-        'order_url'=>'رابط الطلب',
-        'price'=>'السعر',
-        'discount'=>'الخصم',
-        'discount'=>'الخصم',
-        'description'=>'الوصف'
+        'name' => 'الاسم',
+        'category' => 'التصنيف',
+        'order_url' => 'رابط الطلب',
+        'price' => 'السعر',
+        'discount' => 'الخصم',
+        'discount' => 'الخصم',
+        'description' => 'الوصف',
     ],
 
 ];

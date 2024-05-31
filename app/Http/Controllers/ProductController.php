@@ -33,14 +33,13 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
 
-        $imgename  = $request->file('image')->store('/','media');
+        $imgename = $request->file('image')->store('/', 'media');
 
         $visible = [
-            "CanReview" => $request->CanReview ? true : false,
+            'CanReview' => $request->CanReview ? true : false,
         ];
 
         $newCategory = $request->category;
-
 
         $status = $request->status ? Status::PUBLISHED->value : Status::DRAFT->value;
 
@@ -54,14 +53,14 @@ class ProductController extends Controller
             'older_price' => $request->older_price,
             'status' => $status,
             'tenant_id' => tenant('id'),
-            'visible' => $visible
+            'visible' => $visible,
         ]);
 
         $product->categories()->syncWithPivotValues($newCategory, ['tenant_id' => tenant('id')]);
 
         if ($request->subFiles) {
             foreach ($request->subFiles as $item) {
-                $file=json_decode($item);
+                $file = json_decode($item);
 
                 Media::create(
                     [
@@ -69,14 +68,11 @@ class ProductController extends Controller
                         'type' => $file->type,
                         'product_id' => $product->id,
                         'user_id' => auth()->user()->id,
-                        'tenant_id' => tenant('id')
+                        'tenant_id' => tenant('id'),
                     ]
                 );
             }
         }
-
-
-
 
         return redirect()->route('admin.product.edit', $product->id)->with('OkToast', __('messages.product added'));
     }
@@ -96,7 +92,7 @@ class ProductController extends Controller
     {
 
         return view('admin.product.edit', [
-            'product' => $product
+            'product' => $product,
         ]);
     }
 
@@ -106,7 +102,7 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product)
     {
         $visible = [
-            "CanReview" => $request->CanReview ? true : false,
+            'CanReview' => $request->CanReview ? true : false,
         ];
 
         $newCategory = $request->category;
@@ -123,10 +119,10 @@ class ProductController extends Controller
             'discount' => $request->discount,
             'older_price' => $request->older_price,
             'status' => $status,
-            'visible' => $visible
+            'visible' => $visible,
         ]);
 
-        return redirect()->route('admin.product.edit', $product->id)->with('OkToast', __("messages.product updated"));
+        return redirect()->route('admin.product.edit', $product->id)->with('OkToast', __('messages.product updated'));
 
         // return redirect()->route('admin.product.edit',$product->id)->with('ErorrToast', "الرجاء مراجعة الاخطاء");
 
@@ -139,6 +135,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('admin.product.index')->with('OkToast',  __("messages.product deleted"));
+
+        return redirect()->route('admin.product.index')->with('OkToast', __('messages.product deleted'));
     }
 }

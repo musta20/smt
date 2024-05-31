@@ -20,8 +20,11 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = 'admin';
+
     public const LOGIN = 'login';
+
     public const LOGOUT = 'logout';
+
     public const PROFILE = 'profile';
 
     /**
@@ -46,7 +49,6 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
     }
-
 
     protected function mapWebRoutes()
     {

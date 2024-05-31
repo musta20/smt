@@ -2,7 +2,7 @@
 
 namespace App\Enums\Store;
 
-enum SocialMedia:string
+enum SocialMedia: string
 {
     case INSTAGRAM = 'INSTAGRAM';
     case YOUTUBE = 'YOUTUBE';
@@ -12,8 +12,5 @@ enum SocialMedia:string
     case SNAPCHAT = 'SNAPCHAT';
     case TIKTOK = 'TIKTOK';
     case TELEGRAM = 'TELEGRAM';
-    
+
 }
-
-
-?>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class CustomerController extends Controller
 {
@@ -13,8 +12,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $users = User::where('tenant_id',tenant('id'))->get();
-        return view('admin.customer.index',['users' => $users]);
+        $users = User::where('tenant_id', tenant('id'))->get();
+
+        return view('admin.customer.index', ['users' => $users]);
     }
 
     /**
@@ -62,13 +62,11 @@ class CustomerController extends Controller
      */
     public function destroy(string $id)
     {
-       
-        $user = User::findOrfail($id);
 
+        $user = User::findOrfail($id);
 
         $user->delete();
 
-     
         return redirect()->back()->with('OkToast', __('messages.User deleted'));
     }
 }

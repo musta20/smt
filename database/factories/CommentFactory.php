@@ -17,11 +17,11 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            "rating"=>rand(1,5),
-            "comment"=>$this->faker->realText(
+            'rating' => rand(1, 5),
+            'comment' => $this->faker->realText(
                 maxNbChars: 160,
                 indexSize: 4
-            )
+            ),
         ];
     }
 }

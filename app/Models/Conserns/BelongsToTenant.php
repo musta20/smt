@@ -4,16 +4,11 @@ namespace App\Models\Conserns;
 
 use App\Scope\TenantScope;
 
-
-trait BelongsToTenant {
-
-
+trait BelongsToTenant
+{
     protected static function booted()
     {
-       // parent::boot();
+        // parent::boot();
         static::addGlobalScope(new TenantScope);
     }
-
 }
-
-?>

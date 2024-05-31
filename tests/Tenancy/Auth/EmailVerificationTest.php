@@ -13,14 +13,12 @@ it('email verification screen can be rendered', function () {
         'email_verified_at' => null,
     ]);
 
-   // (new TestSeeder())->run(tenant(), $user);
+    // (new TestSeeder())->run(tenant(), $user);
 
     $response = $this->actingAs($user)->get('/verify-email');
 
     $response->assertStatus(Response::HTTP_OK);
 });
-
-
 
 it('email can be verified', function () {
     $user = User::factory()->for(tenant())->create([
@@ -39,9 +37,8 @@ it('email can be verified', function () {
 
     Event::assertDispatched(Verified::class);
     expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
-    $response->assertRedirect(RouteServiceProvider::HOME . '?verified=1');
+    $response->assertRedirect(RouteServiceProvider::HOME.'?verified=1');
 });
-
 
 it('email is not verified with invalid hash', function () {
     $user = User::factory()->for(tenant())->create([
