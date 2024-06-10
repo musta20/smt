@@ -1,0 +1,53 @@
+name: Deploy to VPS with Docker Compose
+
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1' # Adjust based on your project's PHP version
+          extensions: 'pdo_mysql, mbstring, gd' # Add necessary extensions
+          tools: 'composer:v2'
+
+      - name: Install dependencies
+        run: composer install --no-dev
+
+      - name: Generate application key (if needed)
+        run: php artisan key:generate
+
+      - name: Build assets (if using Laravel Mix or other asset bundlers)
+        run: npm install && npm run prod
+
+      - name: Connect to VPS and Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_PRIVATE_KEY }}
+          port: 22 # Adjust if needed
+          script: |
+            # Update the project directory on the VPS
+            cd /path/to/your/project/directory
+            # Pull latest code from the repository
+            git pull origin main
+            # Build Docker images
+            docker-compose build
+            # Stop and remove existing containers
+            docker-compose down
+            # Start the application
+            docker-compose up -d
+            # Optionally, run database migrations
+            # docker-compose exec -T app php artisan migrate
+
+      - name: Deploy successful
+        run: echo "Deployment successful!"
