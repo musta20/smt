@@ -73,9 +73,9 @@ jobs:
             # Optionally, run database migrations
             # docker-compose exec -T app php artisan migrate
             # Install Laravel dependencies inside the container
-            docker exec -it smt_php composer install
+            docker exec smt_php composer install
             # migrate and seed the database
-            docker exec -it smt_php make fresh
+            docker exec smt_php make fresh
 
       - name: Deploy successful
         run: echo "Deployment successful!"
