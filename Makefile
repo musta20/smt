@@ -8,10 +8,13 @@ help:
 install:
 	@composer install
 
-godocker:
-	docker exec -it smt_php /bin/bash
 
+init-docker:
+	@docker exec -it smt_php composer install
 
+fresh-docker:
+	@docker exec -it smt_php make fresh
+	
 test:
 	php artisan test 
 
