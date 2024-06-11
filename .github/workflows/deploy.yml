@@ -33,13 +33,13 @@ jobs:
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_PRIVATE_KEY }}
+          key: ${{ secrets.VPS_DIGITALOCIAN_PRIVATE_KEY }}
           port: 22 # Adjust if needed
           script: |
             # Update the project directory on the VPS
-            cd /path/to/your/project/directory
+            cd ${{ secrets.VPS_DIR }}
             # Pull latest code from the repository
-            git pull origin main
+            git pull origin deploy
             # Build Docker images
             docker-compose build
             # Stop and remove existing containers
