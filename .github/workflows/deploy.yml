@@ -65,11 +65,11 @@ jobs:
             # Pull latest code from the repository
             git pull origin deploy
             # Build Docker images
-            docker-compose build
+            docker compose build
             # Stop and remove existing containers
-            docker-compose down
+            docker compose down
             # Start the application
-            docker-compose up -d
+            docker compose up -d
             # Optionally, run database migrations
             # docker-compose exec -T app php artisan migrate
 
