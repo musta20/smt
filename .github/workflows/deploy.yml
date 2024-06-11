@@ -76,6 +76,8 @@ jobs:
             docker exec smt_php composer install
             # migrate and seed the database
             docker exec smt_php make fresh
+            # Build assets
+            yarn vite build
 
       - name: Deploy successful
         run: echo "Deployment successful!"
