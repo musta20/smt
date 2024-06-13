@@ -137,7 +137,7 @@ jobs:
             # docker compose down
             # Pull latest code from the repository
             # Pull latest code from the repository
-            git pull origin production
+            git pull origin production --force
             # Build Docker images
             # docker compose build
             # # Start the application
