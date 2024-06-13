@@ -50,6 +50,7 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: make test
+  
   commit-and-push:
     needs:  build-test
     runs-on: ubuntu-latest
@@ -138,7 +139,7 @@ jobs:
             # git rebase origin
             # git rebase
             # Pull latest code from the repository
-            git pull origin deploy 
+            git pull 
             # Build Docker images
             # docker compose build
             # # Start the application
