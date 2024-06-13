@@ -79,6 +79,7 @@ jobs:
           force: true
 
   deploy:
+    needs:  commit-and-push
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
