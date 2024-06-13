@@ -106,7 +106,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: production
+          branch: deploy
           force: true
 
   deploy:
@@ -138,7 +138,7 @@ jobs:
             # git rebase origin
             # git rebase
             # Pull latest code from the repository
-            git pull origin production --force
+            git pull origin deploy 
             # Build Docker images
             # docker compose build
             # # Start the application
