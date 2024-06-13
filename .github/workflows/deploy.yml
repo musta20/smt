@@ -57,10 +57,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
+          ref: production
           php-version: '8.1' # Adjust based on your project's PHP version
           extensions: 'pdo_mysql, mbstring, gd' # Add necessary extensions
           tools: 'composer:v2'
