@@ -101,7 +101,7 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add -A --force
+          git add --force public/
           git commit -m "Updated assets" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
@@ -135,24 +135,24 @@ jobs:
             # Update the project directory on the VPS
             cd ${{ secrets.VPS_DIR }}
             # Stop and remove existing containers
-            docker compose down
+            # docker compose down
             # Pull latest code from the repository
             git pull origin production
             # Build Docker images
-            docker compose build
-            # Start the application
-            docker compose up -d
-            # Optionally, run database migrations
-            # docker-compose exec -T app php artisan migrate
-            # Clear config cache
-            docker exec smt_php php artisan config:clear
-            # Install Laravel dependencies inside the container
-            docker exec smt_php composer install
-            # migrate and seed the database
-            docker ps -a
-            docker exec smt_php make fresh
-            # Build assets
-            yarn vite build
+            # docker compose build
+            # # Start the application
+            # docker compose up -d
+            # # Optionally, run database migrations
+            # # docker-compose exec -T app php artisan migrate
+            # # Clear config cache
+            # docker exec smt_php php artisan config:clear
+            # # Install Laravel dependencies inside the container
+            # docker exec smt_php composer install
+            # # migrate and seed the database
+            # docker ps -a
+            # docker exec smt_php make fresh
+            # # Build assets
+            # yarn vite build
 
       - name: Deploy successful
         run: echo "Deployment successful!"
