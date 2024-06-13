@@ -1,0 +1,1 @@
+import{a as t}from"./axios-xY6ymfx7.js";import"./flowbite-0UE_Kf4E.js";import{m as o}from"./module.esm-GvOiCj-t.js";window.axios=t;window.axios.defaults.headers.common["X-Requested-With"]="XMLHttpRequest";window.Alpine=o;o.start();

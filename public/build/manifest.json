@@ -1,0 +1,567 @@
+{
+  "_axios-xY6ymfx7.js": {
+    "file": "assets/axios-xY6ymfx7.js"
+  },
+  "_livewire.esm-xM-6o3rM.js": {
+    "file": "assets/livewire.esm-xM-6o3rM.js"
+  },
+  "_module.esm-GvOiCj-t.js": {
+    "file": "assets/module.esm-GvOiCj-t.js"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-MwjtgjD-.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/fonts/Satoshi-Black.eot": {
+    "file": "assets/Satoshi-Black-0bHmettk.eot",
+    "src": "resources/fonts/Satoshi-Black.eot"
+  },
+  "resources/fonts/Satoshi-Black.ttf": {
+    "file": "assets/Satoshi-Black-osx8kam5.ttf",
+    "src": "resources/fonts/Satoshi-Black.ttf"
+  },
+  "resources/fonts/Satoshi-Black.woff": {
+    "file": "assets/Satoshi-Black-94c0-1Jh.woff",
+    "src": "resources/fonts/Satoshi-Black.woff"
+  },
+  "resources/fonts/Satoshi-Black.woff2": {
+    "file": "assets/Satoshi-Black-450Lrkc_.woff2",
+    "src": "resources/fonts/Satoshi-Black.woff2"
+  },
+  "resources/fonts/Satoshi-BlackItalic.eot": {
+    "file": "assets/Satoshi-BlackItalic-hc8v0csV.eot",
+    "src": "resources/fonts/Satoshi-BlackItalic.eot"
+  },
+  "resources/fonts/Satoshi-BlackItalic.ttf": {
+    "file": "assets/Satoshi-BlackItalic-ryKTqEoS.ttf",
+    "src": "resources/fonts/Satoshi-BlackItalic.ttf"
+  },
+  "resources/fonts/Satoshi-BlackItalic.woff": {
+    "file": "assets/Satoshi-BlackItalic-_AIv0twt.woff",
+    "src": "resources/fonts/Satoshi-BlackItalic.woff"
+  },
+  "resources/fonts/Satoshi-BlackItalic.woff2": {
+    "file": "assets/Satoshi-BlackItalic-oQm0w9uw.woff2",
+    "src": "resources/fonts/Satoshi-BlackItalic.woff2"
+  },
+  "resources/fonts/Satoshi-Bold.eot": {
+    "file": "assets/Satoshi-Bold-E1OqDedJ.eot",
+    "src": "resources/fonts/Satoshi-Bold.eot"
+  },
+  "resources/fonts/Satoshi-Bold.ttf": {
+    "file": "assets/Satoshi-Bold-j5cvZB-W.ttf",
+    "src": "resources/fonts/Satoshi-Bold.ttf"
+  },
+  "resources/fonts/Satoshi-Bold.woff": {
+    "file": "assets/Satoshi-Bold-tj4S1hXG.woff",
+    "src": "resources/fonts/Satoshi-Bold.woff"
+  },
+  "resources/fonts/Satoshi-Bold.woff2": {
+    "file": "assets/Satoshi-Bold-XeZCkP1H.woff2",
+    "src": "resources/fonts/Satoshi-Bold.woff2"
+  },
+  "resources/fonts/Satoshi-BoldItalic.eot": {
+    "file": "assets/Satoshi-BoldItalic-QMRztHRj.eot",
+    "src": "resources/fonts/Satoshi-BoldItalic.eot"
+  },
+  "resources/fonts/Satoshi-BoldItalic.ttf": {
+    "file": "assets/Satoshi-BoldItalic-LQpUHAG_.ttf",
+    "src": "resources/fonts/Satoshi-BoldItalic.ttf"
+  },
+  "resources/fonts/Satoshi-BoldItalic.woff": {
+    "file": "assets/Satoshi-BoldItalic-0OwdD3y2.woff",
+    "src": "resources/fonts/Satoshi-BoldItalic.woff"
+  },
+  "resources/fonts/Satoshi-BoldItalic.woff2": {
+    "file": "assets/Satoshi-BoldItalic-gI7wHMUV.woff2",
+    "src": "resources/fonts/Satoshi-BoldItalic.woff2"
+  },
+  "resources/fonts/Satoshi-Italic.eot": {
+    "file": "assets/Satoshi-Italic-eNOKkbBz.eot",
+    "src": "resources/fonts/Satoshi-Italic.eot"
+  },
+  "resources/fonts/Satoshi-Italic.ttf": {
+    "file": "assets/Satoshi-Italic-BTMZAg_K.ttf",
+    "src": "resources/fonts/Satoshi-Italic.ttf"
+  },
+  "resources/fonts/Satoshi-Italic.woff": {
+    "file": "assets/Satoshi-Italic-Twl0cc8q.woff",
+    "src": "resources/fonts/Satoshi-Italic.woff"
+  },
+  "resources/fonts/Satoshi-Italic.woff2": {
+    "file": "assets/Satoshi-Italic-MFZhBHOj.woff2",
+    "src": "resources/fonts/Satoshi-Italic.woff2"
+  },
+  "resources/fonts/Satoshi-Light.eot": {
+    "file": "assets/Satoshi-Light-V927SeYt.eot",
+    "src": "resources/fonts/Satoshi-Light.eot"
+  },
+  "resources/fonts/Satoshi-Light.ttf": {
+    "file": "assets/Satoshi-Light-fNpM21Pn.ttf",
+    "src": "resources/fonts/Satoshi-Light.ttf"
+  },
+  "resources/fonts/Satoshi-Light.woff": {
+    "file": "assets/Satoshi-Light-v3ZpCl8y.woff",
+    "src": "resources/fonts/Satoshi-Light.woff"
+  },
+  "resources/fonts/Satoshi-Light.woff2": {
+    "file": "assets/Satoshi-Light-CKsCf2Y0.woff2",
+    "src": "resources/fonts/Satoshi-Light.woff2"
+  },
+  "resources/fonts/Satoshi-LightItalic.eot": {
+    "file": "assets/Satoshi-LightItalic-5duHfy8k.eot",
+    "src": "resources/fonts/Satoshi-LightItalic.eot"
+  },
+  "resources/fonts/Satoshi-LightItalic.ttf": {
+    "file": "assets/Satoshi-LightItalic-QIbsWPgA.ttf",
+    "src": "resources/fonts/Satoshi-LightItalic.ttf"
+  },
+  "resources/fonts/Satoshi-LightItalic.woff": {
+    "file": "assets/Satoshi-LightItalic-fS-rPe05.woff",
+    "src": "resources/fonts/Satoshi-LightItalic.woff"
+  },
+  "resources/fonts/Satoshi-LightItalic.woff2": {
+    "file": "assets/Satoshi-LightItalic-vYrlOL--.woff2",
+    "src": "resources/fonts/Satoshi-LightItalic.woff2"
+  },
+  "resources/fonts/Satoshi-Medium.eot": {
+    "file": "assets/Satoshi-Medium-zjwK4_Ax.eot",
+    "src": "resources/fonts/Satoshi-Medium.eot"
+  },
+  "resources/fonts/Satoshi-Medium.ttf": {
+    "file": "assets/Satoshi-Medium-zrfZDPmu.ttf",
+    "src": "resources/fonts/Satoshi-Medium.ttf"
+  },
+  "resources/fonts/Satoshi-Medium.woff": {
+    "file": "assets/Satoshi-Medium-w8Az3gYK.woff",
+    "src": "resources/fonts/Satoshi-Medium.woff"
+  },
+  "resources/fonts/Satoshi-Medium.woff2": {
+    "file": "assets/Satoshi-Medium-cj_mW_vX.woff2",
+    "src": "resources/fonts/Satoshi-Medium.woff2"
+  },
+  "resources/fonts/Satoshi-MediumItalic.eot": {
+    "file": "assets/Satoshi-MediumItalic-gHIHyTXl.eot",
+    "src": "resources/fonts/Satoshi-MediumItalic.eot"
+  },
+  "resources/fonts/Satoshi-MediumItalic.ttf": {
+    "file": "assets/Satoshi-MediumItalic-VBVWKA9v.ttf",
+    "src": "resources/fonts/Satoshi-MediumItalic.ttf"
+  },
+  "resources/fonts/Satoshi-MediumItalic.woff": {
+    "file": "assets/Satoshi-MediumItalic-T0yVKccw.woff",
+    "src": "resources/fonts/Satoshi-MediumItalic.woff"
+  },
+  "resources/fonts/Satoshi-MediumItalic.woff2": {
+    "file": "assets/Satoshi-MediumItalic-cUfiHEYx.woff2",
+    "src": "resources/fonts/Satoshi-MediumItalic.woff2"
+  },
+  "resources/fonts/Satoshi-Regular.eot": {
+    "file": "assets/Satoshi-Regular-PhRwW51W.eot",
+    "src": "resources/fonts/Satoshi-Regular.eot"
+  },
+  "resources/fonts/Satoshi-Regular.ttf": {
+    "file": "assets/Satoshi-Regular-06BV6INj.ttf",
+    "src": "resources/fonts/Satoshi-Regular.ttf"
+  },
+  "resources/fonts/Satoshi-Regular.woff": {
+    "file": "assets/Satoshi-Regular-lkshIxr8.woff",
+    "src": "resources/fonts/Satoshi-Regular.woff"
+  },
+  "resources/fonts/Satoshi-Regular.woff2": {
+    "file": "assets/Satoshi-Regular-jzPXXLeF.woff2",
+    "src": "resources/fonts/Satoshi-Regular.woff2"
+  },
+  "resources/fonts/Satoshi-Variable.eot": {
+    "file": "assets/Satoshi-Variable-lkhqoMx1.eot",
+    "src": "resources/fonts/Satoshi-Variable.eot"
+  },
+  "resources/fonts/Satoshi-Variable.ttf": {
+    "file": "assets/Satoshi-Variable-oQF26RWl.ttf",
+    "src": "resources/fonts/Satoshi-Variable.ttf"
+  },
+  "resources/fonts/Satoshi-Variable.woff": {
+    "file": "assets/Satoshi-Variable-eXFZmEKH.woff",
+    "src": "resources/fonts/Satoshi-Variable.woff"
+  },
+  "resources/fonts/Satoshi-Variable.woff2": {
+    "file": "assets/Satoshi-Variable-hYPs9p3n.woff2",
+    "src": "resources/fonts/Satoshi-Variable.woff2"
+  },
+  "resources/fonts/Satoshi-VariableItalic.eot": {
+    "file": "assets/Satoshi-VariableItalic-f-ppAyYx.eot",
+    "src": "resources/fonts/Satoshi-VariableItalic.eot"
+  },
+  "resources/fonts/Satoshi-VariableItalic.ttf": {
+    "file": "assets/Satoshi-VariableItalic-W-7HRBbx.ttf",
+    "src": "resources/fonts/Satoshi-VariableItalic.ttf"
+  },
+  "resources/fonts/Satoshi-VariableItalic.woff": {
+    "file": "assets/Satoshi-VariableItalic-3oq8yHAB.woff",
+    "src": "resources/fonts/Satoshi-VariableItalic.woff"
+  },
+  "resources/fonts/Satoshi-VariableItalic.woff2": {
+    "file": "assets/Satoshi-VariableItalic-48BbKca6.woff2",
+    "src": "resources/fonts/Satoshi-VariableItalic.woff2"
+  },
+  "resources/images/Gemini_Generated_Image__3_-removebg-preview.png": {
+    "file": "assets/Gemini_Generated_Image__3_-removebg-preview-AVOpdo6v.png",
+    "src": "resources/images/Gemini_Generated_Image__3_-removebg-preview.png"
+  },
+  "resources/images/android-chrome-192x192.png": {
+    "file": "assets/android-chrome-192x192-WFd4DkO-.png",
+    "src": "resources/images/android-chrome-192x192.png"
+  },
+  "resources/images/android-chrome-512x512.png": {
+    "file": "assets/android-chrome-512x512-4iBUoIRD.png",
+    "src": "resources/images/android-chrome-512x512.png"
+  },
+  "resources/images/apple-touch-icon.png": {
+    "file": "assets/apple-touch-icon-cbiWxTVP.png",
+    "src": "resources/images/apple-touch-icon.png"
+  },
+  "resources/images/brand/brand-01.svg": {
+    "file": "assets/brand-01-MUFgW9na.svg",
+    "src": "resources/images/brand/brand-01.svg"
+  },
+  "resources/images/brand/brand-02.svg": {
+    "file": "assets/brand-02-LcJiyVKg.svg",
+    "src": "resources/images/brand/brand-02.svg"
+  },
+  "resources/images/brand/brand-03.svg": {
+    "file": "assets/brand-03-IELcSL1B.svg",
+    "src": "resources/images/brand/brand-03.svg"
+  },
+  "resources/images/brand/brand-04.svg": {
+    "file": "assets/brand-04-hdTN6aW-.svg",
+    "src": "resources/images/brand/brand-04.svg"
+  },
+  "resources/images/brand/brand-05.svg": {
+    "file": "assets/brand-05-56PlDBO6.svg",
+    "src": "resources/images/brand/brand-05.svg"
+  },
+  "resources/images/cards/cards-01.png": {
+    "file": "assets/cards-01-cygS1yBI.png",
+    "src": "resources/images/cards/cards-01.png"
+  },
+  "resources/images/cards/cards-02.png": {
+    "file": "assets/cards-02-KsHC5VpF.png",
+    "src": "resources/images/cards/cards-02.png"
+  },
+  "resources/images/cards/cards-03.png": {
+    "file": "assets/cards-03-CvyKMG2Z.png",
+    "src": "resources/images/cards/cards-03.png"
+  },
+  "resources/images/cards/cards-04.png": {
+    "file": "assets/cards-04-IwA28ynF.png",
+    "src": "resources/images/cards/cards-04.png"
+  },
+  "resources/images/cards/cards-05.png": {
+    "file": "assets/cards-05-_LRyA03e.png",
+    "src": "resources/images/cards/cards-05.png"
+  },
+  "resources/images/cards/cards-06.png": {
+    "file": "assets/cards-06-g_eT9FOj.png",
+    "src": "resources/images/cards/cards-06.png"
+  },
+  "resources/images/country/country-01.svg": {
+    "file": "assets/country-01-bhB110z3.svg",
+    "src": "resources/images/country/country-01.svg"
+  },
+  "resources/images/country/country-02.svg": {
+    "file": "assets/country-02-5i7zsDqg.svg",
+    "src": "resources/images/country/country-02.svg"
+  },
+  "resources/images/country/country-03.svg": {
+    "file": "assets/country-03-ZaxiaqcS.svg",
+    "src": "resources/images/country/country-03.svg"
+  },
+  "resources/images/country/country-04.svg": {
+    "file": "assets/country-04-2bIAXTZP.svg",
+    "src": "resources/images/country/country-04.svg"
+  },
+  "resources/images/country/country-05.svg": {
+    "file": "assets/country-05-aC5cAw2P.svg",
+    "src": "resources/images/country/country-05.svg"
+  },
+  "resources/images/country/country-06.svg": {
+    "file": "assets/country-06-D5Ob6CQg.svg",
+    "src": "resources/images/country/country-06.svg"
+  },
+  "resources/images/cover/cover-01.png": {
+    "file": "assets/cover-01-Bh2KyY3g.png",
+    "src": "resources/images/cover/cover-01.png"
+  },
+  "resources/images/favicon-16x16.png": {
+    "file": "assets/favicon-16x16-4QF3tFvi.png",
+    "src": "resources/images/favicon-16x16.png"
+  },
+  "resources/images/favicon-32x32.png": {
+    "file": "assets/favicon-32x32-0XA6X8CT.png",
+    "src": "resources/images/favicon-32x32.png"
+  },
+  "resources/images/favicon.ico": {
+    "file": "assets/favicon-FfPyKNq5.ico",
+    "src": "resources/images/favicon.ico"
+  },
+  "resources/images/feature-1.png": {
+    "file": "assets/feature-1-SaHn4N5L.png",
+    "src": "resources/images/feature-1.png"
+  },
+  "resources/images/feature-2.png": {
+    "file": "assets/feature-2-u5Z6Ep8M.png",
+    "src": "resources/images/feature-2.png"
+  },
+  "resources/images/hero.png": {
+    "file": "assets/hero-UlPhcG0u.png",
+    "src": "resources/images/hero.png"
+  },
+  "resources/images/icon/icon-arrow-down.svg": {
+    "file": "assets/icon-arrow-down-NLmCo2Px.svg",
+    "src": "resources/images/icon/icon-arrow-down.svg"
+  },
+  "resources/images/icon/icon-calendar.svg": {
+    "file": "assets/icon-calendar-U618poHT.svg",
+    "src": "resources/images/icon/icon-calendar.svg"
+  },
+  "resources/images/icon/icon-copy-alt.svg": {
+    "file": "assets/icon-copy-alt-Wq43NQtL.svg",
+    "src": "resources/images/icon/icon-copy-alt.svg"
+  },
+  "resources/images/icon/icon-moon.svg": {
+    "file": "assets/icon-moon-kV_mw_Td.svg",
+    "src": "resources/images/icon/icon-moon.svg"
+  },
+  "resources/images/icon/icon-sun.svg": {
+    "file": "assets/icon-sun-zXok_o78.svg",
+    "src": "resources/images/icon/icon-sun.svg"
+  },
+  "resources/images/illustration/illustration-03.svg": {
+    "file": "assets/illustration-03-SGoVcoqE.svg",
+    "src": "resources/images/illustration/illustration-03.svg"
+  },
+  "resources/images/logo.png": {
+    "file": "assets/logo-K38YHNbR.png",
+    "src": "resources/images/logo.png"
+  },
+  "resources/images/logo.svg": {
+    "file": "assets/logo-gzjWe2_5.svg",
+    "src": "resources/images/logo.svg"
+  },
+  "resources/images/logo/logo-dark.svg": {
+    "file": "assets/logo-dark-OebqFTfr.svg",
+    "src": "resources/images/logo/logo-dark.svg"
+  },
+  "resources/images/logo/logo-icon.svg": {
+    "file": "assets/logo-icon-iAXq6Raq.svg",
+    "src": "resources/images/logo/logo-icon.svg"
+  },
+  "resources/images/logo/logo.svg": {
+    "file": "assets/logo-2kwgSOJC.svg",
+    "src": "resources/images/logo/logo.svg"
+  },
+  "resources/images/logo2.svg": {
+    "file": "assets/logo2-oUMdOSA4.svg",
+    "src": "resources/images/logo2.svg"
+  },
+  "resources/images/logow.svg": {
+    "file": "assets/logow-hlGRoKT0.svg",
+    "src": "resources/images/logow.svg"
+  },
+  "resources/images/mstile-150x150.png": {
+    "file": "assets/mstile-150x150-5PVa-RLH.png",
+    "src": "resources/images/mstile-150x150.png"
+  },
+  "resources/images/product/product-01.png": {
+    "file": "assets/product-01-hDMX2gNC.png",
+    "src": "resources/images/product/product-01.png"
+  },
+  "resources/images/product/product-02.png": {
+    "file": "assets/product-02-ooCFLK2k.png",
+    "src": "resources/images/product/product-02.png"
+  },
+  "resources/images/product/product-03.png": {
+    "file": "assets/product-03-aavd2e2f.png",
+    "src": "resources/images/product/product-03.png"
+  },
+  "resources/images/product/product-04.png": {
+    "file": "assets/product-04-zp8Np3FV.png",
+    "src": "resources/images/product/product-04.png"
+  },
+  "resources/images/product/product-thumb.png": {
+    "file": "assets/product-thumb-fnTd_mVF.png",
+    "src": "resources/images/product/product-thumb.png"
+  },
+  "resources/images/task/task-01.jpg": {
+    "file": "assets/task-01-wFE8pzD-.jpg",
+    "src": "resources/images/task/task-01.jpg"
+  },
+  "resources/images/themes/Default.png": {
+    "file": "assets/Default-2kugLgLb.png",
+    "src": "resources/images/themes/Default.png"
+  },
+  "resources/images/themes/coffee.png": {
+    "file": "assets/coffee-e2KSrVIh.png",
+    "src": "resources/images/themes/coffee.png"
+  },
+  "resources/images/themes/newStyle.png": {
+    "file": "assets/newStyle-mH7jA9Hf.png",
+    "src": "resources/images/themes/newStyle.png"
+  },
+  "resources/images/themes/solid.png": {
+    "file": "assets/solid-tfFtBsN9.png",
+    "src": "resources/images/themes/solid.png"
+  },
+  "resources/images/user/user-01.png": {
+    "file": "assets/user-01-OMqtv7h9.png",
+    "src": "resources/images/user/user-01.png"
+  },
+  "resources/images/user/user-02.png": {
+    "file": "assets/user-02-u3nxgvad.png",
+    "src": "resources/images/user/user-02.png"
+  },
+  "resources/images/user/user-03.png": {
+    "file": "assets/user-03-l9Ao8BuR.png",
+    "src": "resources/images/user/user-03.png"
+  },
+  "resources/images/user/user-04.png": {
+    "file": "assets/user-04-hFxv_XBZ.png",
+    "src": "resources/images/user/user-04.png"
+  },
+  "resources/images/user/user-05.png": {
+    "file": "assets/user-05-7y14hK6N.png",
+    "src": "resources/images/user/user-05.png"
+  },
+  "resources/images/user/user-06.png": {
+    "file": "assets/user-06-9s1C9Ddv.png",
+    "src": "resources/images/user/user-06.png"
+  },
+  "resources/images/user/user-07.png": {
+    "file": "assets/user-07-MXW-Cq6w.png",
+    "src": "resources/images/user/user-07.png"
+  },
+  "resources/images/user/user-08.png": {
+    "file": "assets/user-08-SrghIP1-.png",
+    "src": "resources/images/user/user-08.png"
+  },
+  "resources/images/user/user-09.png": {
+    "file": "assets/user-09-6gFT3dKr.png",
+    "src": "resources/images/user/user-09.png"
+  },
+  "resources/images/user/user-10.png": {
+    "file": "assets/user-10-VPXGyw-7.png",
+    "src": "resources/images/user/user-10.png"
+  },
+  "resources/images/user/user-11.png": {
+    "file": "assets/user-11-Y0ixYjo_.png",
+    "src": "resources/images/user/user-11.png"
+  },
+  "resources/images/user/user-12.png": {
+    "file": "assets/user-12-UC3i25W_.png",
+    "src": "resources/images/user/user-12.png"
+  },
+  "resources/images/user/user-13.png": {
+    "file": "assets/user-13-B3h1advb.png",
+    "src": "resources/images/user/user-13.png"
+  },
+  "resources/js/alpine.js": {
+    "file": "assets/alpine--yYAfHuP.js",
+    "imports": [
+      "_module.esm-GvOiCj-t.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/alpine.js"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CWFbzdLm.js",
+    "imports": [
+      "_axios-xY6ymfx7.js",
+      "resources/js/flowbite.js",
+      "_module.esm-GvOiCj-t.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/fileUpload.js": {
+    "file": "assets/fileUpload-Q8wksjin.js",
+    "isEntry": true,
+    "src": "resources/js/fileUpload.js"
+  },
+  "resources/js/flowbite.js": {
+    "file": "assets/flowbite-0UE_Kf4E.js",
+    "isEntry": true,
+    "src": "resources/js/flowbite.js"
+  },
+  "resources/js/helper.js": {
+    "file": "assets/helper-FM4x88h7.js",
+    "imports": [
+      "_axios-xY6ymfx7.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/helper.js"
+  },
+  "resources/js/index.js": {
+    "assets": [
+      "assets/Satoshi-Light-CKsCf2Y0.woff2",
+      "assets/Satoshi-Light-v3ZpCl8y.woff",
+      "assets/Satoshi-Light-fNpM21Pn.ttf",
+      "assets/Satoshi-LightItalic-vYrlOL--.woff2",
+      "assets/Satoshi-LightItalic-fS-rPe05.woff",
+      "assets/Satoshi-LightItalic-QIbsWPgA.ttf",
+      "assets/Satoshi-Regular-jzPXXLeF.woff2",
+      "assets/Satoshi-Regular-lkshIxr8.woff",
+      "assets/Satoshi-Regular-06BV6INj.ttf",
+      "assets/Satoshi-Italic-MFZhBHOj.woff2",
+      "assets/Satoshi-Italic-Twl0cc8q.woff",
+      "assets/Satoshi-Italic-BTMZAg_K.ttf",
+      "assets/Satoshi-Medium-cj_mW_vX.woff2",
+      "assets/Satoshi-Medium-w8Az3gYK.woff",
+      "assets/Satoshi-Medium-zrfZDPmu.ttf",
+      "assets/Satoshi-MediumItalic-cUfiHEYx.woff2",
+      "assets/Satoshi-MediumItalic-T0yVKccw.woff",
+      "assets/Satoshi-MediumItalic-VBVWKA9v.ttf",
+      "assets/Satoshi-Bold-XeZCkP1H.woff2",
+      "assets/Satoshi-Bold-tj4S1hXG.woff",
+      "assets/Satoshi-Bold-j5cvZB-W.ttf",
+      "assets/Satoshi-BoldItalic-gI7wHMUV.woff2",
+      "assets/Satoshi-BoldItalic-0OwdD3y2.woff",
+      "assets/Satoshi-BoldItalic-LQpUHAG_.ttf",
+      "assets/Satoshi-Black-450Lrkc_.woff2",
+      "assets/Satoshi-Black-94c0-1Jh.woff",
+      "assets/Satoshi-Black-osx8kam5.ttf",
+      "assets/Satoshi-BlackItalic-oQm0w9uw.woff2",
+      "assets/Satoshi-BlackItalic-_AIv0twt.woff",
+      "assets/Satoshi-BlackItalic-ryKTqEoS.ttf",
+      "assets/icon-calendar-U618poHT.svg",
+      "assets/icon-arrow-down-NLmCo2Px.svg"
+    ],
+    "css": [
+      "assets/index-HpXceEjS.css"
+    ],
+    "file": "assets/index-zjSYTY9C.js",
+    "imports": [
+      "_livewire.esm-xM-6o3rM.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/index.js"
+  },
+  "resources/js/test.js": {
+    "file": "assets/test-dVdRxy8o.js",
+    "imports": [
+      "_livewire.esm-xM-6o3rM.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/test.js"
+  },
+  "resources/views/coffee/css/coffee.css": {
+    "file": "assets/coffee-qvNwgBlB.css",
+    "isEntry": true,
+    "src": "resources/views/coffee/css/coffee.css"
+  },
+  "resources/views/newStyle/css/nordic.css": {
+    "file": "assets/nordic-B4nmEt3R.css",
+    "isEntry": true,
+    "src": "resources/views/newStyle/css/nordic.css"
+  }
+}
