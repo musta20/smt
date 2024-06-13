@@ -50,7 +50,6 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: make test
-
   commit-and-push:
     needs:  build-test
     runs-on: ubuntu-latest
@@ -123,7 +122,6 @@ jobs:
           php-version: '8.1' # Adjust based on your project's PHP version
           extensions: 'pdo_mysql, mbstring, gd' # Add necessary extensions
           tools: 'composer:v2'
-
       - name: Connect to VPS and Deploy
         uses: appleboy/ssh-action@master
         with:
@@ -134,8 +132,10 @@ jobs:
           script: |
             # Update the project directory on the VPS
             cd ${{ secrets.VPS_DIR }}
+
             # Stop and remove existing containers
             # docker compose down
+            # Pull latest code from the repository
             # Pull latest code from the repository
             git pull origin production
             # Build Docker images
@@ -153,6 +153,5 @@ jobs:
             # docker exec smt_php make fresh
             # # Build assets
             # yarn vite build
-
       - name: Deploy successful
         run: echo "Deployment successful!"
