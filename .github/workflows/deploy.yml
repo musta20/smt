@@ -50,8 +50,78 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: make test
+  commit-and-push:
+    needs:  build-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1' # Adjust based on your project's PHP version
+          extensions: 'pdo_mysql, mbstring, gd' # Add necessary extensions
+          tools: 'composer:v2'
+
+      # - name: Install dependencies
+      #   run: composer install --no-dev
+
+      # - name: Generate application key (if needed)
+      #   run: php artisan key:generate
+
+      # - name: Build assets (if using Laravel Mix or other asset bundlers)
+      #   run: npm install && npm run prod
 
 
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Install Dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Install assets Dependencies using yarn
+        run: yarn install
+      - name: Generate key
+        run: php artisan key:generate
+      - name: Directory Permissions
+        run: chmod -R 777 storage bootstrap/cache
+      - name: Compile assets
+        run: |
+          yarn install
+          yarn vite build
+      - name: Commit files
+        # uses: devops-infra/action-commit-push@master
+        # with:
+        #   github_token: "${{ secrets.GITHUB_TOKEN }}"
+        #   add_timestamp: true
+        #   commit_prefix: "[AUTO]"
+        #   commit_message: "Updated assets"
+        #   force: false
+        #   target_branch: production
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add --force public/
+          git commit -m "Updated assets" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: production
+          force: true
+
+  deploy:
+    needs:  commit-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1' # Adjust based on your project's PHP version
+          extensions: 'pdo_mysql, mbstring, gd' # Add necessary extensions
+          tools: 'composer:v2'
       - name: Connect to VPS and Deploy
         uses: appleboy/ssh-action@master
         with:
@@ -62,10 +132,13 @@ jobs:
           script: |
             # Update the project directory on the VPS
             cd ${{ secrets.VPS_DIR }}
+
+            # Stop and remove existing containers
+            # docker compose down
+            # Pull latest code from the repository
             # Pull latest code from the repository
             git pull origin production
             # Build Docker images
-    
             # docker compose build
             # # Start the application
             # docker compose up -d
