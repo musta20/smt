@@ -83,11 +83,11 @@
         <div class="flex max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16  lg:pt-28">
             <div class="mr-auto place-self-center lg:col-span-7">
                 <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
-                   ابنيfsdfssdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdsdfsdfsdfs متجرك الالكتروني <br>وبكل سهولة بدون تعقيد.</h1>
+                   ابني متجرك الالكتروني <br>وبكل سهولة بدون تعقيد.</h1>
                 <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
                     بكل سهولة اطلق متجر الكتروني بسيط في دقائق <a href="https://tailwindcss.com" class="hover:underline">
 
-
+<h1>test Done</h1>
             </div>
             <div class="lg:mt-0  ">
                 <img width="600" src="{{ Vite::asset('resources/images/hero.png') }}" alt="hero image">

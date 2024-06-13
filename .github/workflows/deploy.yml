@@ -138,7 +138,7 @@ jobs:
             # git rebase origin
             git rebase
             # Pull latest code from the repository
-            git pull origin production --force
+            #git pull origin production --force
             # Build Docker images
             # docker compose build
             # # Start the application
