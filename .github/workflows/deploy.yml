@@ -135,7 +135,8 @@ jobs:
 
             # Stop and remove existing containers
             # docker compose down
-            # Pull latest code from the repository
+            # git rebase origin
+            git rebase
             # Pull latest code from the repository
             git pull origin production --force
             # Build Docker images
