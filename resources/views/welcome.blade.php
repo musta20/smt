@@ -87,7 +87,7 @@
                 <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
                     بكل سهولة اطلق متجر الكتروني بسيط في دقائق <a href="https://tailwindcss.com" class="hover:underline">
 
-<h1>test Done</h1>
+<h1>Final Test Done</h1>
             </div>
             <div class="lg:mt-0  ">
                 <img width="600" src="{{ Vite::asset('resources/images/hero.png') }}" alt="hero image">
