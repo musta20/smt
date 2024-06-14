@@ -138,11 +138,9 @@ jobs:
           script: |
             # Update the project directory on the VPS
             cd ${{ secrets.VPS_DIR }}
-            if [[ `git status --porcelain` ]]; then
-              git pull origin deploy
-            else
-              echo "WARNING: No changes were detected."
-            fi
+            git fetch origin  # Fetch remote changes
+            git checkout deploy # Checkout your local branch
+            git merge origin/deploy  # Merge remote 'main' branch into your local branch
              
   
       - name: Deploy successful
