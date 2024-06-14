@@ -133,27 +133,12 @@ jobs:
           script: |
             # Update the project directory on the VPS
             cd ${{ secrets.VPS_DIR }}
-
-            # Stop and remove existing containers
-            # docker compose down
-            # git rebase origin
-            # git rebase
-            # Pull latest code from the repository
-            git pull 
-            # Build Docker images
-            # docker compose build
-            # # Start the application
-            # docker compose up -d
-            # # Optionally, run database migrations
-            # # docker-compose exec -T app php artisan migrate
-            # # Clear config cache
-            # docker exec smt_php php artisan config:clear
-            # # Install Laravel dependencies inside the container
-            # docker exec smt_php composer install
-            # # migrate and seed the database
-            # docker ps -a
-            # docker exec smt_php make fresh
-            # # Build assets
-            # yarn vite build
+            if [[ `git status --porcelain` ]]; then
+              echo "OK: Changes detected."
+            else
+              echo "WARNING: No changes were detected."
+            fi
+              git pull origin deploy
+  
       - name: Deploy successful
         run: echo "Deployment successful!"
