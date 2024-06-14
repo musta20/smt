@@ -85,7 +85,7 @@
                 <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
                    ابني متجرك الالكتروني <br>وبكل سهولة بدون تعقيد.</h1>
                 <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                    بكل سهولة اطلق متجر الكتروني بسيط في دقائق <a href="https://tailwindcss.com" class="hover:underline">
+                    بكل سهولة اطلق متجر الكتروني مع متاجر في دقائق <a href="https://tailwindcss.com" class="hover:underline">
 
             </div>
             <div class="lg:mt-0  ">
