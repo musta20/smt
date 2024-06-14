@@ -102,7 +102,12 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add --force public/
-          git commit -m "Updated assets" -a
+          if [[ `git status --porcelain` ]]; then
+            echo "OK: Changes detected."
+            git commit -m "Updated assets" -a
+          else
+            echo "WARNING: No changes were detected."
+          fi
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
@@ -134,11 +139,11 @@ jobs:
             # Update the project directory on the VPS
             cd ${{ secrets.VPS_DIR }}
             if [[ `git status --porcelain` ]]; then
-              echo "OK: Changes detected."
+              git pull origin deploy
             else
               echo "WARNING: No changes were detected."
             fi
-              git pull origin deploy
+             
   
       - name: Deploy successful
         run: echo "Deployment successful!"
