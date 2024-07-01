@@ -15,18 +15,10 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1' # Adjust based on your project's PHP version
+          php-version: '8.2' # Adjust based on your project's PHP version
           extensions: 'pdo_mysql, mbstring, gd' # Add necessary extensions
           tools: 'composer:v2'
 
-      # - name: Install dependencies
-      #   run: composer install --no-dev
-
-      # - name: Generate application key (if needed)
-      #   run: php artisan key:generate
-
-      # - name: Build assets (if using Laravel Mix or other asset bundlers)
-      #   run: npm install && npm run prod
 
 
       - name: Copy .env
@@ -35,8 +27,6 @@ jobs:
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
       - name: Install assets Dependencies using yarn
         run: yarn install
-      - name: Generate key
-        run: php artisan key:generate
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
       - name: Create Database
@@ -45,6 +35,8 @@ jobs:
           touch database/database.sqlite
       - name: Build assets using vite for testing
         run: yarn vite build
+      - name: Generate key
+        run: php artisan key:generate
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
         env:
           DB_CONNECTION: sqlite
@@ -61,18 +53,11 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1' # Adjust based on your project's PHP version
+          php-version: '8.2' # Adjust based on your project's PHP version
           extensions: 'pdo_mysql, mbstring, gd' # Add necessary extensions
           tools: 'composer:v2'
 
-      # - name: Install dependencies
-      #   run: composer install --no-dev
 
-      # - name: Generate application key (if needed)
-      #   run: php artisan key:generate
-
-      # - name: Build assets (if using Laravel Mix or other asset bundlers)
-      #   run: npm install && npm run prod
 
 
       - name: Copy .env
@@ -81,27 +66,21 @@ jobs:
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
       - name: Install assets Dependencies using yarn
         run: yarn install
-      - name: Generate key
-        run: php artisan key:generate
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
       - name: Compile assets
         run: |
           yarn install
           yarn vite build
+      - name: Generate key
+        run: php artisan key:generate
       - name: Commit files
-        # uses: devops-infra/action-commit-push@master
-        # with:
-        #   github_token: "${{ secrets.GITHUB_TOKEN }}"
-        #   add_timestamp: true
-        #   commit_prefix: "[AUTO]"
-        #   commit_message: "Updated assets"
-        #   force: false
-        #   target_branch: production
+
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add --force public/
+          git add . 
+          rm .env
           if [[ `git status --porcelain` ]]; then
             echo "OK: Changes detected."
             git commit -m "Updated assets" -a
@@ -125,7 +104,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1' # Adjust based on your project's PHP version
+          php-version: '8.2' # Adjust based on your project's PHP version
           extensions: 'pdo_mysql, mbstring, gd' # Add necessary extensions
           tools: 'composer:v2'
       - name: Connect to VPS and Deploy
@@ -140,8 +119,9 @@ jobs:
             cd ${{ secrets.VPS_DIR }}
             git fetch origin  # Fetch remote changes
             git checkout deploy # Checkout your local branch
-            git merge origin/deploy  # Merge remote 'main' branch into your local branch
-             
-  
+            git reset --hard HEAD
+            git merge origin/deploy   # Merge remote 'main' branch into your local branch
+            chmod -R 777 storage
+            docker exec mybnb_php php artisan storage:link
       - name: Deploy successful
         run: echo "Deployment successful!"
