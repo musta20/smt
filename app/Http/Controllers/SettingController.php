@@ -53,9 +53,7 @@ class SettingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSettingRequest $request, Setting $setting)
-    {
-    }
+    public function update(UpdateSettingRequest $request, Setting $setting) {}
 
     /**
      * Remove the specified resource from storage.
