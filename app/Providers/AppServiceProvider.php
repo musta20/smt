@@ -3,9 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
-use Livewire\Features\SupportFileUploads\FilePreviewController;
-use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -39,13 +38,8 @@ class AppServiceProvider extends ServiceProvider
             'coffee'
         );
 
-        //  Blade::componentNamespace('App\\Views\\newStyle\\Components', 'newStyle');
-
-        // FilePreviewController::$middleware = ['web', 'universal', InitializeTenancyByDomain::class];
-        // config(['view.paths'=>[resource_path('newTheme')]]);
-        //  dd(tenant());
-
-        //
-        // specify the right identification middleware
+        if(config('app.env') !== 'local') {
+            URL::forceScheme('https');
+        }
     }
 }
