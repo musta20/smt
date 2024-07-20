@@ -8,6 +8,8 @@ return [
 
     'login' => 'login',
 
+    'Address' => 'Address',
+
     'theme updated' => 'theme updated',
 
     'Social' => 'Social',
@@ -372,4 +374,80 @@ return [
     'Allow unregistered users to review' => 'Allow unregistered users to review',
 
     'User deleted' => 'User deleted',
+
+    'E-Commerce Solution' => 'E-Commerce Solution',
+
+    'E-Commerce Platform for All Businesses.' => 'E-Commerce Platform for All Businesses.',
+
+    "Give yourself the best chance of success with Matajer" => "Give yourself the best chance of success with Matajer",
+
+    'Matajer_sentence'=>'Matajer is designed with your customers in mind. Provide email and live chat with a personal touch, and deliver help content right where your customers need it, all in one place, all for one low price.',
+
+    'get_started' => 'get started',
+
+    'Matajer' => 'Matajer',
+
+    'Matajer empowers customer-centric businesses with tools that make every interaction more human and helpful.' => 'Matajer empowers customer-centric businesses with tools that make every interaction more human and helpful.',
+
+    'Analytics' => 'Analytics',
+
+    'Matajer is an easy to use tool all very easy! e - Commerce. With the help of our system you can present.' => 'Matajer is an easy to use tool all very easy! e - Commerce. With the help of our system you can present.',
+
+    'Ecommerce' => 'Ecommerce',
+
+    'Matajer is an easy to use tool all very easy! e - Commerce. for all you ecommers users.' => 'Matajer is an easy to use tool all very easy! e - Commerce. for all you ecommers users.',
+
+    'Payment' => 'Payment',
+
+    'Matajer is an easy to use tool all very easy! to mange your Payment with customers.' => 'Matajer is an easy to use tool all very easy! to mange your Payment with customers. and with our payment system.',
+
+    'Look and feel matters' => 'Look and feel matters',
+
+    'well organized products for easy add and update, with the help of matajer platform.' => 'well organized products for easy add and update, with the help of matajer platform.',
+
+    'Controle you store'=> 'Controle you store',
+
+    'Keep your store up to date'=> 'Keep your store up to date',
+
+    'Complete control over your store to ensure that you benefit from the products and services available.'=> 'Complete control over your store to ensure that you benefit from the products and services available.',
+
+    'plans'=>'plans',
+
+    'basic plan'=>'basic plan',
+
+    'user'=>'user',
+
+    'projects'=>'projects',
+    
+    'storage'=>'storage',
+
+    'support'=>'support',
+
+    'unlimited'=>'unlimited',
+    
+    'Get Started'=>'Get Started',
+
+    'golden plan'=>'golden plan',
+
+    'platinum plan'=>'platinum plan',
+
+    'customer_commet'=>"“We don't take ourselves too seriously, but seriously enough to ensure we're creating the best product and experience for our customers. I feel like Help Scout does the same.”",
+
+    'Frequently asked questions'=>'Frequently asked questions',
+
+    'what is matajer'=>'what is matajer',
+
+    'what_is_matajer'=>'matajer is eCommerce platform for all businesses.',
+
+    'how to use matajer'=>'how to use matajer',
+    'use_matajer'=>'You can browse and use a wide variety of free and paid stores.',
+    'how_m_s'=>'How does Matajer guarantee your rights?',
+
+    'not_s'=>"What's not in matajer?",
+
+    'footer_text'=>"Matajer is a professional e-commerce platform for creating, designing and managing online stores.",
+
+    'copyright'=>"Copyright © 2022. All rights reserved.",
+
+
 ];
