@@ -6,9 +6,15 @@ module.exports = {
     ],
     theme: {
       fontFamily: {
-        'Camel': ['Camel'],
+        'Cairo': ['Cairo'],
         'ElMessiri':['El Messiri']
       },
+      animation: {
+        'bounce-slow': 'bounce 6s linear infinite',
+        'wiggle': 'wiggle 6s ease-in-out infinite',
+
+      }
+      ,
       extend: {},
     },
     plugins: [
