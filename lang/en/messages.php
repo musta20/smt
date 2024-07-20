@@ -379,9 +379,9 @@ return [
 
     'E-Commerce Platform for All Businesses.' => 'E-Commerce Platform for All Businesses.',
 
-    "Give yourself the best chance of success with Matajer" => "Give yourself the best chance of success with Matajer",
+    'Give yourself the best chance of success with Matajer' => 'Give yourself the best chance of success with Matajer',
 
-    'Matajer_sentence'=>'Matajer is designed with your customers in mind. Provide email and live chat with a personal touch, and deliver help content right where your customers need it, all in one place, all for one low price.',
+    'Matajer_sentence' => 'Matajer is designed with your customers in mind. Provide email and live chat with a personal touch, and deliver help content right where your customers need it, all in one place, all for one low price.',
 
     'get_started' => 'get started',
 
@@ -405,49 +405,48 @@ return [
 
     'well organized products for easy add and update, with the help of matajer platform.' => 'well organized products for easy add and update, with the help of matajer platform.',
 
-    'Controle you store'=> 'Controle you store',
+    'Controle you store' => 'Controle you store',
 
-    'Keep your store up to date'=> 'Keep your store up to date',
+    'Keep your store up to date' => 'Keep your store up to date',
 
-    'Complete control over your store to ensure that you benefit from the products and services available.'=> 'Complete control over your store to ensure that you benefit from the products and services available.',
+    'Complete control over your store to ensure that you benefit from the products and services available.' => 'Complete control over your store to ensure that you benefit from the products and services available.',
 
-    'plans'=>'plans',
+    'plans' => 'plans',
 
-    'basic plan'=>'basic plan',
+    'basic plan' => 'basic plan',
 
-    'user'=>'user',
+    'user' => 'user',
 
-    'projects'=>'projects',
-    
-    'storage'=>'storage',
+    'projects' => 'projects',
 
-    'support'=>'support',
+    'storage' => 'storage',
 
-    'unlimited'=>'unlimited',
-    
-    'Get Started'=>'Get Started',
+    'support' => 'support',
 
-    'golden plan'=>'golden plan',
+    'unlimited' => 'unlimited',
 
-    'platinum plan'=>'platinum plan',
+    'Get Started' => 'Get Started',
 
-    'customer_commet'=>"“We don't take ourselves too seriously, but seriously enough to ensure we're creating the best product and experience for our customers. I feel like Help Scout does the same.”",
+    'golden plan' => 'golden plan',
 
-    'Frequently asked questions'=>'Frequently asked questions',
+    'platinum plan' => 'platinum plan',
 
-    'what is matajer'=>'what is matajer',
+    'customer_commet' => "“We don't take ourselves too seriously, but seriously enough to ensure we're creating the best product and experience for our customers. I feel like Help Scout does the same.”",
 
-    'what_is_matajer'=>'matajer is eCommerce platform for all businesses.',
+    'Frequently asked questions' => 'Frequently asked questions',
 
-    'how to use matajer'=>'how to use matajer',
-    'use_matajer'=>'You can browse and use a wide variety of free and paid stores.',
-    'how_m_s'=>'How does Matajer guarantee your rights?',
+    'what is matajer' => 'what is matajer',
 
-    'not_s'=>"What's not in matajer?",
+    'what_is_matajer' => 'matajer is eCommerce platform for all businesses.',
 
-    'footer_text'=>"Matajer is a professional e-commerce platform for creating, designing and managing online stores.",
+    'how to use matajer' => 'how to use matajer',
+    'use_matajer' => 'You can browse and use a wide variety of free and paid stores.',
+    'how_m_s' => 'How does Matajer guarantee your rights?',
 
-    'copyright'=>"Copyright © 2022. All rights reserved.",
+    'not_s' => "What's not in matajer?",
 
+    'footer_text' => 'Matajer is a professional e-commerce platform for creating, designing and managing online stores.',
+
+    'copyright' => 'Copyright © 2022. All rights reserved.',
 
 ];
