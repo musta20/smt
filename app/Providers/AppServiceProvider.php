@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
             'coffee'
         );
 
-        if(config('app.env') !== 'local') {
+        if (config('app.env') !== 'local') {
             URL::forceScheme('https');
         }
     }
