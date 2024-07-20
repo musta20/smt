@@ -1,0 +1,1 @@
+import{a as e}from"./axios-xY6ymfx7.js";import"./flowbite-0UE_Kf4E.js";import{m as o}from"./module.esm-GvOiCj-t.js";window.axios=e;window.axios.defaults.headers.common["X-Requested-With"]="XMLHttpRequest";new Swiper(".swiper-container",{loop:!0,autoplay:{delay:3500},plugins:[SwiperPluginAutoPlay]});window.Alpine=o;o.start();

@@ -9,7 +9,7 @@
     "file": "assets/module.esm-GvOiCj-t.js"
   },
   "resources/css/app.css": {
-    "file": "assets/app-MwjtgjD-.css",
+    "file": "assets/app-tAVqKC-W.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -209,6 +209,18 @@
     "file": "assets/Gemini_Generated_Image__3_-removebg-preview-AVOpdo6v.png",
     "src": "resources/images/Gemini_Generated_Image__3_-removebg-preview.png"
   },
+  "resources/images/Screenshot from 2024-07-19 01-33-16.png": {
+    "file": "assets/Screenshot from 2024-07-19 01-33-16-KGGSc3Az.png",
+    "src": "resources/images/Screenshot from 2024-07-19 01-33-16.png"
+  },
+  "resources/images/Screenshot from 2024-07-19 01-33-33.png": {
+    "file": "assets/Screenshot from 2024-07-19 01-33-33-AljJkojq.png",
+    "src": "resources/images/Screenshot from 2024-07-19 01-33-33.png"
+  },
+  "resources/images/Screenshot from 2024-07-19 01-33-42.png": {
+    "file": "assets/Screenshot from 2024-07-19 01-33-42-EjZEkTvq.png",
+    "src": "resources/images/Screenshot from 2024-07-19 01-33-42.png"
+  },
   "resources/images/android-chrome-192x192.png": {
     "file": "assets/android-chrome-192x192-WFd4DkO-.png",
     "src": "resources/images/android-chrome-192x192.png"
@@ -220,6 +232,14 @@
   "resources/images/apple-touch-icon.png": {
     "file": "assets/apple-touch-icon-cbiWxTVP.png",
     "src": "resources/images/apple-touch-icon.png"
+  },
+  "resources/images/banner-bg.png": {
+    "file": "assets/banner-bg-Qj1bzdLh.png",
+    "src": "resources/images/banner-bg.png"
+  },
+  "resources/images/bg-map.png": {
+    "file": "assets/bg-map-n4lV6gR2.png",
+    "src": "resources/images/bg-map.png"
   },
   "resources/images/brand/brand-01.svg": {
     "file": "assets/brand-01-MUFgW9na.svg",
@@ -293,6 +313,18 @@
     "file": "assets/cover-01-Bh2KyY3g.png",
     "src": "resources/images/cover/cover-01.png"
   },
+  "resources/images/face1.jpeg": {
+    "file": "assets/face1-rL5bG4GM.jpeg",
+    "src": "resources/images/face1.jpeg"
+  },
+  "resources/images/face2.jpeg": {
+    "file": "assets/face2-cEk2PGW-.jpeg",
+    "src": "resources/images/face2.jpeg"
+  },
+  "resources/images/face3.jpeg": {
+    "file": "assets/face3-7k5v8hdX.jpeg",
+    "src": "resources/images/face3.jpeg"
+  },
   "resources/images/favicon-16x16.png": {
     "file": "assets/favicon-16x16-4QF3tFvi.png",
     "src": "resources/images/favicon-16x16.png"
@@ -312,6 +344,14 @@
   "resources/images/feature-2.png": {
     "file": "assets/feature-2-u5Z6Ep8M.png",
     "src": "resources/images/feature-2.png"
+  },
+  "resources/images/footer-bg.png": {
+    "file": "assets/footer-bg-e-nHzm5B.png",
+    "src": "resources/images/footer-bg.png"
+  },
+  "resources/images/footer_bg_2.png": {
+    "file": "assets/footer_bg_2-m7exCfSl.png",
+    "src": "resources/images/footer_bg_2.png"
   },
   "resources/images/hero.png": {
     "file": "assets/hero-UlPhcG0u.png",
@@ -340,6 +380,14 @@
   "resources/images/illustration/illustration-03.svg": {
     "file": "assets/illustration-03-SGoVcoqE.svg",
     "src": "resources/images/illustration/illustration-03.svg"
+  },
+  "resources/images/image-shap-3.png": {
+    "file": "assets/image-shap-3-EzOVtein.png",
+    "src": "resources/images/image-shap-3.png"
+  },
+  "resources/images/image-shap-4.png": {
+    "file": "assets/image-shap-4--PWExzca.png",
+    "src": "resources/images/image-shap-4.png"
   },
   "resources/images/logo.png": {
     "file": "assets/logo-K38YHNbR.png",
@@ -393,9 +441,17 @@
     "file": "assets/product-thumb-fnTd_mVF.png",
     "src": "resources/images/product/product-thumb.png"
   },
+  "resources/images/service_bg_2.jpg": {
+    "file": "assets/service_bg_2-kPdKH2ZX.jpg",
+    "src": "resources/images/service_bg_2.jpg"
+  },
   "resources/images/task/task-01.jpg": {
     "file": "assets/task-01-wFE8pzD-.jpg",
     "src": "resources/images/task/task-01.jpg"
+  },
+  "resources/images/testi_bg_3.jpg": {
+    "file": "assets/testi_bg_3-py_iisaV.jpg",
+    "src": "resources/images/testi_bg_3.jpg"
   },
   "resources/images/themes/Default.png": {
     "file": "assets/Default-2kugLgLb.png",
@@ -474,7 +530,7 @@
     "src": "resources/js/alpine.js"
   },
   "resources/js/app.js": {
-    "file": "assets/app-CWFbzdLm.js",
+    "file": "assets/app-671gM9aY.js",
     "imports": [
       "_axios-xY6ymfx7.js",
       "resources/js/flowbite.js",
@@ -533,13 +589,16 @@
       "assets/Satoshi-BlackItalic-oQm0w9uw.woff2",
       "assets/Satoshi-BlackItalic-_AIv0twt.woff",
       "assets/Satoshi-BlackItalic-ryKTqEoS.ttf",
+      "assets/banner-bg-Qj1bzdLh.png",
+      "assets/bg-map-n4lV6gR2.png",
+      "assets/footer-bg-e-nHzm5B.png",
       "assets/icon-calendar-U618poHT.svg",
       "assets/icon-arrow-down-NLmCo2Px.svg"
     ],
     "css": [
-      "assets/index-HpXceEjS.css"
+      "assets/index-GVkyw87n.css"
     ],
-    "file": "assets/index-zjSYTY9C.js",
+    "file": "assets/index-eTrjV7XB.js",
     "imports": [
       "_livewire.esm-xM-6o3rM.js"
     ],
@@ -554,8 +613,28 @@
     "isEntry": true,
     "src": "resources/js/test.js"
   },
+  "resources/svg/election-bulletin-board-svgrepo-com.svg": {
+    "file": "assets/election-bulletin-board-svgrepo-com-UC8Hr9Dk.svg",
+    "src": "resources/svg/election-bulletin-board-svgrepo-com.svg"
+  },
+  "resources/svg/online-classes-svgrepo-com.svg": {
+    "file": "assets/online-classes-svgrepo-com-bun2JdDv.svg",
+    "src": "resources/svg/online-classes-svgrepo-com.svg"
+  },
+  "resources/svg/origami-svgrepo-com.svg": {
+    "file": "assets/origami-svgrepo-com-RN6g5UYH.svg",
+    "src": "resources/svg/origami-svgrepo-com.svg"
+  },
+  "resources/svg/quality-site-website-svgrepo-com.svg": {
+    "file": "assets/quality-site-website-svgrepo-com-Hb138OWc.svg",
+    "src": "resources/svg/quality-site-website-svgrepo-com.svg"
+  },
+  "resources/svg/star-svgrepo-com.svg": {
+    "file": "assets/star-svgrepo-com-b5DUzgwI.svg",
+    "src": "resources/svg/star-svgrepo-com.svg"
+  },
   "resources/views/coffee/css/coffee.css": {
-    "file": "assets/coffee-qvNwgBlB.css",
+    "file": "assets/coffee-p9XqOdO8.css",
     "isEntry": true,
     "src": "resources/views/coffee/css/coffee.css"
   },
