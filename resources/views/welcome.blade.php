@@ -112,7 +112,7 @@
             <div class="md:w-1/2 text-[#312363] text-center md:text-right ">
                 <span class="text-xl md:text-[rgb(152,124,253)]">{{ __('messages.E-Commerce Solution')}} </span>
                 <h3 class="text-5xl">
-                    {{ __('messages.E-Commerce Platform for All Businesses.')}}
+                    {{ __('messages.E-Commerce Platform for All Businesses.') }}
                 </h3>
                 <p class="my-5">
                     {{ __('messages.Matajer_sentence') }}
@@ -124,13 +124,14 @@
             </div>
             <div class="flex place-items-center  w-full   md:w-1/2">
 
+
                 <lottie-player src="{{  asset('lottie/Animation-1721330082154.json') }}" debug background="transparent"
                     speed="1" style="width: 600px; height: 500px" direction="1" mode="normal" loop autoplay>
                 </lottie-player>
             </div>
         </div>
         <div class="flex flex-col gap-5 place-items-center">
-            <h3 class="text-5xl text-[#312363]">{{ __('messages.Matajer')}}</h3>
+            <h3 class="text-5xl text-[#312363]">{{ __('messages.Matajer') }}</h3>
 
             <img src="{{ Vite::asset('resources/svg/quality-site-website-svgrepo-com.svg') }}" class="w-24" alt="" />
             <p class="text-xl text-[#312363] w-1/2 text-center">
@@ -142,7 +143,7 @@
         <div class="flex flex-col md:flex-row gap-5 justify-around w-4/6 mx-auto p-10">
             <div
                 class="text-[#312363] border bg-[#f8f8f8] hover:text-white shadow-lg p-5 hover:bg-purple-950 rounded-lg">
-                <h3 class="text-xl font-bold">{{ __('messages.Analytics')}}</h3>
+                <h3 class="text-xl font-bold">{{ __('messages.Analytics') }}</h3>
                 <p class="my-5">
                     {{ __('messages.Matajer is an easy to use tool all very easy! e - Commerce. With the help of our
                     system you can present.')}}
@@ -214,10 +215,10 @@
                     <p class="text-3xl">$50</p>
                     <ul class="py-5 flex flex-col gap-2">
                         <li>1 {{ __('messages.user') }}</li>
-                        <li>10 {{ __('messages.projects')}}</li>
-                        <li>10GB {{ __('messages.storage')}}</li>
-                        <li>24/7 {{ __('messages.support')}}</li>
-                        <li>{{ __('messages.unlimited')}}</li>
+                        <li>10 {{ __('messages.projects') }}</li>
+                        <li>10GB {{ __('messages.storage') }}</li>
+                        <li>24/7 {{ __('messages.support') }}</li>
+                        <li>{{ __('messages.unlimited') }}</li>
                     </ul>
                     <a href="{{ route('register') }}"
                         class="hover:bg-[#8765ff] text-white p-5 m-5 rounded-lg bg-[#312363]">
@@ -236,10 +237,10 @@
                         <p class="text-3xl">$100</p>
                         <ul class="py-5 flex flex-col gap-2">
                             <li>1 {{ __('messages.user') }}</li>
-                            <li>10 {{ __('messages.projects')}}</li>
-                            <li>10GB {{ __('messages.storage')}}</li>
-                            <li>24/7 {{ __('messages.support')}}</li>
-                            <li>{{ __('messages.unlimited')}}</li>
+                            <li>10 {{ __('messages.projects') }}</li>
+                            <li>10GB {{ __('messages.storage') }}</li>
+                            <li>24/7 {{ __('messages.support') }}</li>
+                            <li>{{ __('messages.unlimited') }}</li>
                         </ul>
                         <a href="{{ route('register') }}"
                             class="hover:bg-[#8765ff] text-white p-5 m-5 rounded-lg bg-[#312363]">
@@ -254,10 +255,10 @@
                     <p class="text-3xl">$70</p>
                     <ul class="py-5 flex flex-col gap-2">
                         <li>1 {{ __('messages.user') }}</li>
-                        <li>10 {{ __('messages.projects')}}</li>
-                        <li>10GB {{ __('messages.storage')}}</li>
-                        <li>24/7 {{ __('messages.support')}}</li>
-                        <li>{{ __('messages.unlimited')}}</li>
+                        <li>10 {{ __('messages.projects') }}</li>
+                        <li>10GB {{ __('messages.storage') }}</li>
+                        <li>24/7 {{ __('messages.support') }}</li>
+                        <li>{{ __('messages.unlimited') }}</li>
                     </ul>
                     <a href="{{ route('register') }}"
                         class="hover:bg-[#8765ff] text-white p-5 m-5 rounded-lg bg-[#312363]">
@@ -280,6 +281,7 @@
                                             class="border-scondary-light rounded-full w-[600px]" alt="" />
                                     </div>
                                     <p class="text-md p-5 my-auto text-scondary-light font-bold text-justify">
+
 
                                         {{ __('messages.customer_commet') }}
                                     </p>
@@ -336,7 +338,7 @@
                         class="transition-all duration-200 bg-white border border-gray-200 shadow-lg cursor-pointer hover:bg-gray-50">
                         <button type="button" id="question1" data-state="closed"
                             class="flex items-center justify-between w-full px-4 py-5 sm:p-6">
-                            <span class="flex text-lg font-semibold"> {{__('messages.what is matajer')}}?</span>
+                            <span class="flex text-lg font-semibold"> {{ __('messages.what is matajer') }}?</span>
                             <svg id="arrow1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" class="w-6 h-6 text-gray-400">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -351,7 +353,7 @@
                         class="transition-all duration-200 bg-white border border-gray-200 shadow-lg cursor-pointer hover:bg-gray-50">
                         <button type="button" id="question2" data-state="closed"
                             class="flex items-center justify-between w-full px-4 py-5 sm:p-6">
-                            <span class="flex text-lg font-semibold">{{ __('messages.how to use matajer')}}?</span>
+                            <span class="flex text-lg font-semibold">{{ __('messages.how to use matajer') }}?</span>
                             <svg id="arrow2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" class="w-6 h-6 text-gray-400">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -368,7 +370,7 @@
                         class="transition-all duration-200 bg-white border border-gray-200 shadow-lg cursor-pointer hover:bg-gray-50">
                         <button type="button" id="question3" data-state="closed"
                             class="flex items-center justify-between w-full px-4 py-5 sm:p-6">
-                            <span class="flex text-lg font-semibold">{{ __('messages.how_m_s')}}</span>
+                            <span class="flex text-lg font-semibold">{{ __('messages.how_m_s') }}</span>
                             <svg id="arrow3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" class="w-6 h-6 text-gray-400">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -389,7 +391,7 @@
                         <button type="button" id="question4" data-state="closed"
                             class="flex items-center justify-between w-full px-4 py-5 sm:p-6">
                             <span class="flex text-lg font-semibold">
-                                {{ __('messages.not_s')}}</span>
+                                {{ __('messages.not_s') }}</span>
                             <svg id="arrow4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" class="w-6 h-6 text-gray-400">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -513,7 +515,7 @@
                 <img class="w-12" src="{{ Vite::asset('resources/images/logo.svg') }}" alt="" />
             </a>
             <p class="text-center mx-auto  w-1/2  p-2">
-                {{ __('messages.footer_text')}}
+                {{ __('messages.footer_text') }}
             </p>
             <form class="flex flex-col w-1/2 mx-auto gap-2">
                 <input type="email" placeholder="ادخل بريدك الإلكتروني"
@@ -590,7 +592,7 @@
         </div>
 
         <div class="flex text-[#210e81] flex-col gap-1 text-center">
-            <p class="font-bold">{{__('messages.contact')}}</p>
+            <p class="font-bold">{{ __('messages.contact') }}</p>
             <div class="flex flex-col text-xs mt-5 font-Mada font-bold  text-primary gap-2">
                 <div class="flex gap-3">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -623,42 +625,42 @@
                     <p>example@example.com</p>
                 </div>
             </div>
-            <p class="font-bold">{{__('messages.contact')}}</p>
-            <a href="#" class="text-xs  font-bold">{{__('messages.contact')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Home')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.About us')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Address')}}</a>
+            <p class="font-bold">{{ __('messages.contact') }}</p>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.contact') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Home') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.About us') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Address') }}</a>
         </div>
 
         <div class="flex  flex-col gap-1 text-center">
-            <p class="font-bold">{{__('messages.contact')}}</p>
-            <a href="#" class="text-xs  font-bold">{{__('messages.contact')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Home')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.About us')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Address')}}</a>
-            <p class="font-bold">{{__('messages.contact')}}</p>
-            <a href="#" class="text-xs  font-bold">{{__('messages.contact')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Home')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.About us')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Address')}}</a>
-            <p class="font-bold">{{__('messages.contact')}}</p>
-            <a href="#" class="text-xs  font-bold">{{__('messages.contact')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Home')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.About us')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Address')}}</a>
+            <p class="font-bold">{{ __('messages.contact') }}</p>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.contact') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Home') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.About us') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Address') }}</a>
+            <p class="font-bold">{{ __('messages.contact') }}</p>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.contact') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Home') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.About us') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Address') }}</a>
+            <p class="font-bold">{{ __('messages.contact') }}</p>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.contact') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Home') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.About us') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Address') }}</a>
         </div>
 
         <div class="flex  flex-col gap-1 text-center">
-            <p class="font-bold">{{__('messages.contact')}}</p>
-            <a href="#" class="text-xs  font-bold">{{__('messages.contact')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Home')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.About us')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Address')}}</a>
-            <p class="font-bold">{{__('messages.contact')}}</p>
-            <a href="#" class="text-xs  font-bold">{{__('messages.contact')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Home')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.About us')}}</a>
-            <a href="#" class="text-xs  font-bold">{{__('messages.Address')}}</a>
+            <p class="font-bold">{{ __('messages.contact') }}</p>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.contact') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Home') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.About us') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Address') }}</a>
+            <p class="font-bold">{{ __('messages.contact') }}</p>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.contact') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Home') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.About us') }}</a>
+            <a href="#" class="text-xs  font-bold">{{ __('messages.Address') }}</a>
         </div>
 
     </footer>
