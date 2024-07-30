@@ -9,7 +9,7 @@
     "file": "assets/module.esm-GvOiCj-t.js"
   },
   "resources/css/app.css": {
-    "file": "assets/app-tAVqKC-W.css",
+    "file": "assets/app-w1hV7b56.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -596,9 +596,9 @@
       "assets/icon-arrow-down-NLmCo2Px.svg"
     ],
     "css": [
-      "assets/index-GVkyw87n.css"
+      "assets/index-WHhxzN4I.css"
     ],
-    "file": "assets/index-eTrjV7XB.js",
+    "file": "assets/index-2BKLDmhe.js",
     "imports": [
       "_livewire.esm-xM-6o3rM.js"
     ],
@@ -634,7 +634,7 @@
     "src": "resources/svg/star-svgrepo-com.svg"
   },
   "resources/views/coffee/css/coffee.css": {
-    "file": "assets/coffee-p9XqOdO8.css",
+    "file": "assets/coffee-1JBT-Ihc.css",
     "isEntry": true,
     "src": "resources/views/coffee/css/coffee.css"
   },
