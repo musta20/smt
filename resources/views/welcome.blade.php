@@ -135,8 +135,7 @@
 
             <img src="{{ Vite::asset('resources/svg/quality-site-website-svgrepo-com.svg') }}" class="w-24" alt="" />
             <p class="text-xl text-[#312363] w-1/2 text-center">
-                {{__('messages.Matajer empowers customer-centric businesses with tools that make every interaction more
-                human and helpful.')}}
+                {{ __('messages.Matajer_empowers.') }}
             </p>
         </div>
 
@@ -145,8 +144,7 @@
                 class="text-[#312363] border bg-[#f8f8f8] hover:text-white shadow-lg p-5 hover:bg-purple-950 rounded-lg">
                 <h3 class="text-xl font-bold">{{ __('messages.Analytics') }}</h3>
                 <p class="my-5">
-                    {{ __('messages.Matajer is an easy to use tool all very easy! e - Commerce. With the help of our
-                    system you can present.')}}
+                    {{ __('messages.Matajer_easy_resent.') }}
                 </p>
             </div>
 
@@ -154,8 +152,7 @@
                 class="text-[#312363] border max-w-[400px] bg-[#f8f8f8] hover:text-white shadow-lg p-5 hover:bg-purple-950 rounded-lg">
                 <h3 class="text-xl font-bold">{{ __('messages.Ecommerce') }}</h3>
                 <p class="my-5">
-                    {{ __('messages.Matajer is an easy to use tool all very easy! e - Commerce. for all you ecommers
-                    users.')}}
+                    {{ __('messages.Matajer_easy_users.') }}
                 </p>
             </div>
 
@@ -163,8 +160,7 @@
                 class="text-[#312363] border max-w-[400px] bg-[#f8f8f8] hover:text-white shadow-lg p-5 hover:bg-purple-950 rounded-lg">
                 <h3 class="text-xl font-bold">{{ __('messages.Payment') }}</h3>
                 <p class="my-5">
-                    {{ __('messages.Matajer is an easy to use tool all very easy! to mange your Payment with
-                    customers.')}}
+                    {{ __('messages.Matajer_easy_customers.') }}
                 </p>
             </div>
         </div>
@@ -176,8 +172,7 @@
                 <span class="text-xl py-1 mb-2 border-b-[3px] border-[#8765ff]">{{ __('messages.Products') }}</span>
                 <h3 class="text-5xl py-3">{{ __('messages.Look and feel matters') }}</h3>
                 <p class="my-5">
-                    {{ __('messages.well organized products for easy add and update, with the help of matajer
-                    platform.') }}
+                    {{ __('messages.well_organized_products_platform.') }}
                 </p>
             </div>
             <div class="w-4/6 md:block hidden">
@@ -196,12 +191,10 @@
             </div>
 
             <div class="md:w-3/6 w-full text-center text-[#312363]">
-                <span class="text-xl py-1 mb-2 border-b-[3px] border-[#8765ff]">{{__('messages.Controle you
-                    store')}}</span>
+                <span class="text-xl py-1 mb-2 border-b-[3px] border-[#8765ff]">{{ __('messages.Controle_you_store') }}</span>
                 <h3 class="text-5xl py-3">{{ __('messages.Keep your store up to date') }}</h3>
                 <p class="my-5">
-                    {{ __('messages.Complete control over your store to ensure that you benefit from the products and
-                    services available.') }}
+                    {{ __('messages.Complete_control_available.') }}
                 </p>
             </div>
         </section>
@@ -229,7 +222,7 @@
                 <div
                     class="text-[#312363] hover:bg-[#8765ff] border-[#8765ff] border-4 hover:shadow-2xl rounded-lg flex flex-col place-items-center">
                     <h3 class="text-xl w-full text-center bg-[#8765ff] text-white p-5">
-                        most popular
+                       {{ __('messages.most popular') }}
                     </h3>
 
                     <div class="flex flex-col gap-5 place-items-center p-16 rounded-md">
