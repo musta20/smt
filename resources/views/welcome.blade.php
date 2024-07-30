@@ -22,13 +22,13 @@
     <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
     <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
       <div class="flex items-center mb-8">
-    
+
         <button class="navbar-close">
           <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
-        
+
       </div>
       <div>
         <ul class="flex flex-col place-items-center gap-4 text-primary-light font-Ibm text-md">
@@ -57,7 +57,7 @@
           <a class="block px-4 py-3 mb-3  text-xs text-center font-semibold leading-none bg-gray-200 hover:bg-gray-100 rounded-xl" href="#">تسجيل الدخول</a>
           <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center bg-[#312363] hover:bg-[#5226f3] text-white  rounded-xl" href="#">انشاء حساب</a>
         </div>
-        <p class="my-4 text-xs text-center text-gray-400">               
+        <p class="my-4 text-xs text-center text-gray-400">
 
           <span>جميع الحقوق محفوظ © 2021</span>
         </p>
@@ -80,37 +80,37 @@
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                       </svg>
                     </button>
-                    
+
                   </div>
 
 
 
                   <ul class="gap-5 my-auto lg:flex hidden ">
-                
-                    <li class="hover:text-[#724aff]"><a href="#">{{ __('messages.Home')}}</a></li>
-                    <li class="hover:text-[#724aff]"><a href="#">{{ __('messages.About')}}</a></li>
-                    <li class="hover:text-[#724aff]"><a href="#">{{ __('messages.Contact')}}</a></li>
-    
+
+                    <li class="hover:text-[#724aff]"><a href="#">{{ __('messages.Home') }}</a></li>
+                    <li class="hover:text-[#724aff]"><a href="#">{{ __('messages.About') }}</a></li>
+                    <li class="hover:text-[#724aff]"><a href="#">{{ __('messages.Contact') }}</a></li>
+
                     @if (app()->getLocale() == 'ar')
                     <li class="hover:text-[#724aff]"> <a class="p-1 m-1 rounded-md border hover:bg-slate-200"
                             href="{{ route('setLocale','en') }}">English</a>
                     </li>
-    
+
                     @else
                     <li class="hover:text-[#724aff]"><a class="p-1 m-1 rounded-md border hover:bg-slate-200"
                             href="{{ route('setLocale','ar') }}">العربية</a>
-    
+
                     </li>
                     @endif
-    
+
                 </ul>
             </div>
- 
+
 
         </nav>
         <div class="md:flex-row flex flex-col-reverse w-full  md:justify-evenly px-5 place-items-center my-10 md:my-32 rounded-lg text-white mx-auto md:w-5/6">
             <div class="md:w-1/2 text-[#312363] text-center md:text-right ">
-                <span class="text-xl md:text-[rgb(152,124,253)]">{{ __('messages.E-Commerce Solution')}} </span>
+                <span class="text-xl md:text-[rgb(152,124,253)]">{{ __('messages.E-Commerce Solution') }} </span>
                 <h3 class="text-5xl">
                     {{ __('messages.E-Commerce Platform for All Businesses.') }}
                 </h3>
@@ -119,13 +119,13 @@
                 </p>
                 <a href="{{ route('register') }}"
                     class="bg-[#312363] hover:bg-[#724aff] text-white px-5 py-3 rounded-lg">
-                    {{ __('messages.get_started')}}
+                    {{ __('messages.get_started') }}
                 </a>
             </div>
             <div class="flex place-items-center  w-full   md:w-1/2">
 
 
-                <lottie-player src="{{  asset('lottie/Animation-1721330082154.json') }}" debug background="transparent"
+                <lottie-player src="{{ asset('lottie/Animation-1721330082154.json') }}" debug background="transparent"
                     speed="1" style="width: 600px; height: 500px" direction="1" mode="normal" loop autoplay>
                 </lottie-player>
             </div>
@@ -173,8 +173,8 @@
     <main>
         <section class="flex justify-between gap-2 place-items-center py-20 w-5/6 mx-auto">
             <div class="md:w-3/6 text-[#312363]  text-center w-full">
-                <span class="text-xl py-1 mb-2 border-b-[3px] border-[#8765ff]">{{__('messages.Products')}}</span>
-                <h3 class="text-5xl py-3">{{ __('messages.Look and feel matters')}}</h3>
+                <span class="text-xl py-1 mb-2 border-b-[3px] border-[#8765ff]">{{ __('messages.Products') }}</span>
+                <h3 class="text-5xl py-3">{{ __('messages.Look and feel matters') }}</h3>
                 <p class="my-5">
                     {{ __('messages.well organized products for easy add and update, with the help of matajer
                     platform.') }}
@@ -472,7 +472,7 @@
             // open
             const burger = document.querySelectorAll('.navbar-burger');
             const menu = document.querySelectorAll('.navbar-menu');
-        
+
             if (burger.length && menu.length) {
                 for (var i = 0; i < burger.length; i++) {
                     burger[i].addEventListener('click', function() {
@@ -482,11 +482,11 @@
                     });
                 }
             }
-        
+
             // close
             const close = document.querySelectorAll('.navbar-close');
             const backdrop = document.querySelectorAll('.navbar-backdrop');
-        
+
             if (close.length) {
                 for (var i = 0; i < close.length; i++) {
                     close[i].addEventListener('click', function() {
@@ -496,7 +496,7 @@
                     });
                 }
             }
-        
+
             if (backdrop.length) {
                 for (var i = 0; i < backdrop.length; i++) {
                     backdrop[i].addEventListener('click', function() {
@@ -522,7 +522,7 @@
                     class="border border-secondary-light rounded-lg px-4 py-2" />
 
                 <button class="bg-[#312363] text-white px-2 py-2 rounded-lg">
-                    {{ __('messages.get_started')}}
+                    {{ __('messages.get_started') }}
                 </button>
             </form>
             <div class="flex gap-1 mx-auto">
@@ -665,10 +665,10 @@
 
     </footer>
     <div class="bottom-0 bg-[#210e81] text-center text-white py-3">
-        {{__('messages.copyright')}}
+        {{ __('messages.copyright') }}
     </div>
 
-  
+
 </body>
 
 </html>
