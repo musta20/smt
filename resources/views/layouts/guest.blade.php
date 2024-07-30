@@ -52,8 +52,7 @@
 
                     <!-- ====== Forms Section Start -->
                     <div
-                        class="rounded-sm border w-1/2 m-auto border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-
+                        class="rounded-sm border w-full md:w-1/2 m-auto border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
 
                             {{ $slot }}
 
