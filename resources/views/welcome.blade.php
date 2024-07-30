@@ -11,49 +11,118 @@
     <link rel="icon" href="{{ Vite::asset('resources/images/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
 
-    <title>Matajer -  Ecommerce Platform for All Businesses.</title>
+    <title>Matajer - Ecommerce Platform for All Businesses.</title>
 </head>
 
+
 <body class="font-Cairo">
+
+
+<div class="navbar-menu relative z-50 hidden">
+    <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+    <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+      <div class="flex items-center mb-8">
+    
+        <button class="navbar-close">
+          <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        
+      </div>
+      <div>
+        <ul class="flex flex-col place-items-center gap-4 text-primary-light font-Ibm text-md">
+          <li class="hover:text-primary hover:border-b-4 my-auto p-3.5">
+            <a href="#">الصفحة الرئيسية</a>
+          </li>
+          <li class="hover:text-primary hover:border-b-4 my-auto p-3.5">
+            <a href="#">من نحن</a>
+          </li>
+          <li class="hover:text-primary hover:border-b-4 my-auto p-3.5">
+            <a href="#">تواصل</a>
+          </li>
+          <li class="hover:text-primary hover:border-b-4 my-auto p-3.5">
+            <a href="#">المدونة</a>
+          </li>
+          <li class="hover:text-primary hover:border-b-4 my-auto p-3.5">
+            <a href="#">خدماتنا</a>
+          </li>
+          <li class="hover:text-primary hover:border-b-4 my-auto p-3.5">
+            <a href="#">التوظيف</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mt-auto">
+        <div class="pt-6">
+          <a class="block px-4 py-3 mb-3  text-xs text-center font-semibold leading-none bg-gray-200 hover:bg-gray-100 rounded-xl" href="#">تسجيل الدخول</a>
+          <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center bg-[#312363] hover:bg-[#5226f3] text-white  rounded-xl" href="#">انشاء حساب</a>
+        </div>
+        <p class="my-4 text-xs text-center text-gray-400">               
+
+          <span>جميع الحقوق محفوظ © 2021</span>
+        </p>
+      </div>
+    </nav>
+  </div>
     <header class="w-full bg-[url('/resources/images/banner-bg.png')] pt-5 bg-cover bg-center bg-no-repeat">
+
         <nav id="header" class="flex justify-between px-5 py-5 rounded-lg  text-white mx-auto w-5/6 bg-[#312363]">
+
+
+
             <img src="{{ Vite::asset('resources/images/logo.svg') }}" class="w-10" alt="Matajer" />
 
-            <ul class="flex gap-5 my-auto">
-                <li class="hover:text-[#724aff]" ><a href="#">{{ __('messages.Home')}}</a></li>
-                <li class="hover:text-[#724aff]" ><a href="#">{{ __('messages.About')}}</a></li>
-                <li class="hover:text-[#724aff]" ><a href="#">{{ __('messages.Contact')}}</a></li>
+            <div>
+                <div class="lg:hidden">
+                    <button class="navbar-burger flex items-center text-white  p-3">
+                      <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Mobile menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                      </svg>
+                    </button>
+                    
+                  </div>
 
-    @if (app()->getLocale() == 'ar')
-    <li class="hover:text-[#724aff]" >  <a class="p-1 m-1 rounded-md border hover:bg-slate-200" href="{{ route('setLocale','en') }}" >English</a>
-    </li>
 
-    @else
-    <li class="hover:text-[#724aff]" ><a class="p-1 m-1 rounded-md border hover:bg-slate-200" href="{{ route('setLocale','ar') }}" >العربية</a>
 
-    </li>
-    @endif
-         
-            </ul>
+                  <ul class="gap-5 my-auto lg:flex hidden ">
+                
+                    <li class="hover:text-[#724aff]"><a href="#">{{ __('messages.Home')}}</a></li>
+                    <li class="hover:text-[#724aff]"><a href="#">{{ __('messages.About')}}</a></li>
+                    <li class="hover:text-[#724aff]"><a href="#">{{ __('messages.Contact')}}</a></li>
+    
+                    @if (app()->getLocale() == 'ar')
+                    <li class="hover:text-[#724aff]"> <a class="p-1 m-1 rounded-md border hover:bg-slate-200"
+                            href="{{ route('setLocale','en') }}">English</a>
+                    </li>
+    
+                    @else
+                    <li class="hover:text-[#724aff]"><a class="p-1 m-1 rounded-md border hover:bg-slate-200"
+                            href="{{ route('setLocale','ar') }}">العربية</a>
+    
+                    </li>
+                    @endif
+    
+                </ul>
+            </div>
+ 
 
         </nav>
-        <div class="flex justify-evenly px-5 my-32 rounded-lg text-white mx-auto w-5/6">
-            <div class="w-1/2 text-[#312363]">
-                <span class="text-xl">{{ __('messages.E-Commerce Solution')}} </span>
+        <div class="md:flex-row flex flex-col-reverse w-full  md:justify-evenly px-5 place-items-center my-10 md:my-32 rounded-lg text-white mx-auto md:w-5/6">
+            <div class="md:w-1/2 text-[#312363] text-center md:text-right ">
+                <span class="text-xl md:text-[rgb(152,124,253)]">{{ __('messages.E-Commerce Solution')}} </span>
                 <h3 class="text-5xl">
                     {{ __('messages.E-Commerce Platform for All Businesses.')}}
                 </h3>
                 <p class="my-5">
                     {{ __('messages.Matajer_sentence') }}
                 </p>
-                <a href="{{ route('register') }}" class="bg-[#312363] hover:bg-[#724aff] text-white px-5 py-3 rounded-lg">
+                <a href="{{ route('register') }}"
+                    class="bg-[#312363] hover:bg-[#724aff] text-white px-5 py-3 rounded-lg">
                     {{ __('messages.get_started')}}
                 </a>
             </div>
-            <div class="flex place-items-center gap-5 w-1/2">
-                {{-- <img class="w-56 animate-wiggle"
-                    src="{{ Vite::asset('resources/svg/online-classes-svgrepo-com.svg') }}" /> --}}
-
+            <div class="flex place-items-center  w-full   md:w-1/2">
 
                 <lottie-player src="{{  asset('lottie/Animation-1721330082154.json') }}" debug background="transparent"
                     speed="1" style="width: 600px; height: 500px" direction="1" mode="normal" loop autoplay>
@@ -65,16 +134,18 @@
 
             <img src="{{ Vite::asset('resources/svg/quality-site-website-svgrepo-com.svg') }}" class="w-24" alt="" />
             <p class="text-xl text-[#312363] w-1/2 text-center">
-                {{__('messages.Matajer empowers customer-centric businesses with tools that make every interaction more human and helpful.')}}
+                {{__('messages.Matajer empowers customer-centric businesses with tools that make every interaction more
+                human and helpful.')}}
             </p>
         </div>
 
-        <div class="flex gap-5 justify-around w-4/6 mx-auto p-10">
+        <div class="flex flex-col md:flex-row gap-5 justify-around w-4/6 mx-auto p-10">
             <div
                 class="text-[#312363] border bg-[#f8f8f8] hover:text-white shadow-lg p-5 hover:bg-purple-950 rounded-lg">
                 <h3 class="text-xl font-bold">{{ __('messages.Analytics')}}</h3>
                 <p class="my-5">
-                    {{ __('messages.Matajer is an easy to use tool all very easy! e - Commerce. With the help of our system you can present.')}}
+                    {{ __('messages.Matajer is an easy to use tool all very easy! e - Commerce. With the help of our
+                    system you can present.')}}
                 </p>
             </div>
 
@@ -82,7 +153,8 @@
                 class="text-[#312363] border max-w-[400px] bg-[#f8f8f8] hover:text-white shadow-lg p-5 hover:bg-purple-950 rounded-lg">
                 <h3 class="text-xl font-bold">{{ __('messages.Ecommerce') }}</h3>
                 <p class="my-5">
-                    {{ __('messages.Matajer is an easy to use tool all very easy! e - Commerce. for all you ecommers users.')}}
+                    {{ __('messages.Matajer is an easy to use tool all very easy! e - Commerce. for all you ecommers
+                    users.')}}
                 </p>
             </div>
 
@@ -90,7 +162,8 @@
                 class="text-[#312363] border max-w-[400px] bg-[#f8f8f8] hover:text-white shadow-lg p-5 hover:bg-purple-950 rounded-lg">
                 <h3 class="text-xl font-bold">{{ __('messages.Payment') }}</h3>
                 <p class="my-5">
-                    {{ __('messages.Matajer is an easy to use tool all very easy! to mange your Payment with customers.')}}
+                    {{ __('messages.Matajer is an easy to use tool all very easy! to mange your Payment with
+                    customers.')}}
                 </p>
             </div>
         </div>
@@ -98,14 +171,15 @@
 
     <main>
         <section class="flex justify-between gap-2 place-items-center py-20 w-5/6 mx-auto">
-            <div class="w-3/6 text-[#312363]">
+            <div class="md:w-3/6 text-[#312363]  text-center w-full">
                 <span class="text-xl py-1 mb-2 border-b-[3px] border-[#8765ff]">{{__('messages.Products')}}</span>
                 <h3 class="text-5xl py-3">{{ __('messages.Look and feel matters')}}</h3>
                 <p class="my-5">
-                {{ __('messages.well organized products for easy add and update, with the help of matajer platform.') }}
+                    {{ __('messages.well organized products for easy add and update, with the help of matajer
+                    platform.') }}
                 </p>
             </div>
-            <div class="w-4/6">
+            <div class="w-4/6 md:block hidden">
                 <img src="{{ Vite::asset('resources/images/Screenshot from 2024-07-19 01-33-16.png') }}"
                     class="w-[700px] shadow-2xl mt-40 absolute ml-40 rounded-lg place-items-end" alt="" />
                 <img src="{{ Vite::asset('resources/images/Screenshot from 2024-07-19 01-33-33.png') }}"
@@ -113,25 +187,27 @@
             </div>
         </section>
         <section class="flex justify-between place-items-center py-20 w-5/6 mx-auto">
-            <div class="w-4/6">
+            <div class="hidden md:block w-4/6">
                 <img src="{{ Vite::asset('resources/images/Screenshot from 2024-07-19 01-33-42.png') }}"
                     class="w-[700px] shadow-2xl mt-40 -ml-32 absolute rounded-lg place-items-end" alt="" />
                 <img src="{{ Vite::asset('resources/images/Screenshot from 2024-07-19 01-33-33.png') }}"
                     class="w-[700px] shadow-2xl rounded-lg place-items-end" alt="" />
             </div>
 
-            <div class="w-3/6 text-[#312363]">
-                <span class="text-xl py-1 mb-2 border-b-[3px] border-[#8765ff]">{{__('messages.Controle you store')}}</span>
+            <div class="md:w-3/6 w-full text-center text-[#312363]">
+                <span class="text-xl py-1 mb-2 border-b-[3px] border-[#8765ff]">{{__('messages.Controle you
+                    store')}}</span>
                 <h3 class="text-5xl py-3">{{ __('messages.Keep your store up to date') }}</h3>
                 <p class="my-5">
-                    {{ __('messages.Complete control over your store to ensure that you benefit from the products and services available.') }}
+                    {{ __('messages.Complete control over your store to ensure that you benefit from the products and
+                    services available.') }}
                 </p>
             </div>
         </section>
         <section class="flex flex-col justify-between gap-2 place-items-center mt-32 py-20 bg-[#f8f8f8] mx-auto">
             <h3 class="text-5xl py-5 text-[#312363]">{{ __('messages.plans') }}</h3>
-        
-            <div class="flex gap-5">
+
+            <div class="flex flex-col md:flex-row gap-5">
                 <div
                     class="border-[#312363] border text-[#312363] hover:bg-[#8765ff] hover:shadow-2xl p-16 rounded-lg flex flex-col gap-5 place-items-center">
                     <h3 class="text-3xl">{{ __('messages.basic plan') }}</h3>
@@ -143,7 +219,8 @@
                         <li>24/7 {{ __('messages.support')}}</li>
                         <li>{{ __('messages.unlimited')}}</li>
                     </ul>
-                    <a href="{{ route('register') }}"  class="hover:bg-[#8765ff] text-white p-5 m-5 rounded-lg bg-[#312363]">
+                    <a href="{{ route('register') }}"
+                        class="hover:bg-[#8765ff] text-white p-5 m-5 rounded-lg bg-[#312363]">
                         {{ __('messages.Get Started') }}
                     </a>
                 </div>
@@ -164,7 +241,8 @@
                             <li>24/7 {{ __('messages.support')}}</li>
                             <li>{{ __('messages.unlimited')}}</li>
                         </ul>
-                        <a href="{{ route('register') }}"  class="hover:bg-[#8765ff] text-white p-5 m-5 rounded-lg bg-[#312363]">
+                        <a href="{{ route('register') }}"
+                            class="hover:bg-[#8765ff] text-white p-5 m-5 rounded-lg bg-[#312363]">
                             {{ __('messages.Get Started') }}
                         </a>
                     </div>
@@ -181,7 +259,8 @@
                         <li>24/7 {{ __('messages.support')}}</li>
                         <li>{{ __('messages.unlimited')}}</li>
                     </ul>
-                    <a href="{{ route('register') }}"  class="hover:bg-[#8765ff] text-white p-5 m-5 rounded-lg bg-[#312363]">
+                    <a href="{{ route('register') }}"
+                        class="hover:bg-[#8765ff] text-white p-5 m-5 rounded-lg bg-[#312363]">
                         {{ __('messages.Get Started') }}
                     </a>
                 </div>
@@ -194,14 +273,14 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide my-32">
-                            <div dir="rtl" class="bg-white p-5 text-[#312363] rounded-md my-auto w-1/2">
+                            <div dir="rtl" class="bg-white p-5 text-[#312363] rounded-md my-auto w-5/6  md:w-1/2">
                                 <div class="flex justify-around gap-2">
                                     <div class="p-5">
                                         <img src="{{ Vite::asset('resources/images/face3.jpeg') }}"
                                             class="border-scondary-light rounded-full w-[600px]" alt="" />
                                     </div>
                                     <p class="text-md p-5 my-auto text-scondary-light font-bold text-justify">
-                                       
+
                                         {{ __('messages.customer_commet') }}
                                     </p>
                                 </div>
@@ -209,7 +288,7 @@
                         </div>
 
                         <div class="swiper-slide my-32">
-                            <div dir="rtl" class="bg-white p-5 text-[#312363] rounded-md my-auto w-1/2">
+                            <div dir="rtl" class="bg-white p-5 text-[#312363] rounded-md my-auto w-5/6  md:w-1/2">
                                 <div class="flex justify-around gap-2">
                                     <div class="p-5">
                                         <img src="{{ Vite::asset('resources/images/face2.jpeg') }}"
@@ -219,18 +298,14 @@
                                         مرحبًا بك في عالم الإبداع الخطي! منصتنا هي الوجهة المثالية
                                         لكل من يعشق فن التجارة الالكترونية ويرغب في تطوير مهاراته. سواء
                                         كنت مصممًا محترفًا أو هاويًا متحمسًا، ستجد هنا كل الأدوات
-                                        اللازمة لإطلاق العنان لإبداعك. يمكنك البدء بتصميم موقعك
-                                        الخاصة باستخدام أدواتنا السهلة والمتطورة، أو استكشاف
-                                        مجموعة واسعة من المنتجات من قبل مبدعين آخرين. استفد
-                                        من ميزة المشاركة لعرض أعمالك على مجتمع من المهتمين
-                                        والخبراء، وتلقي ملاحظات قيمة تساعدك على التطور.
+                                        . يمكنك البدء بتص
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="swiper-slide my-32">
-                            <div dir="rtl" class="bg-white p-5 text-[#312363] rounded-md my-auto w-1/2">
+                            <div dir="rtl" class="bg-white p-5 text-[#312363] rounded-md my-auto w-5/6  md:w-1/2">
                                 <div class="flex justify-around gap-2">
                                     <div class="p-5">
                                         <img src="{{ Vite::asset('resources/images/face1.jpeg') }}"
@@ -248,11 +323,12 @@
             </div>
         </section>
 
-        <section dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}" class="py-10 sm:py-16 text-[#312363] font-Mada lg:py-24">
+        <section dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}"
+            class="py-10 sm:py-16 text-[#312363] font-Mada lg:py-24">
             <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                 <div class="max-w-2xl mx-auto text-center">
                     <h2 class="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-                       {{ __('messages.Frequently asked questions') }}
+                        {{ __('messages.Frequently asked questions') }}
                     </h2>
                 </div>
                 <div class="max-w-3xl mx-auto mt-8 space-y-4 md:mt-16">
@@ -284,7 +360,7 @@
                         </button>
                         <div id="answer2" style="display: none" class="px-4 text-primary pb-5 sm:px-6 sm:pb-6">
                             <p>
-                               {{ __('messages.use_matajer') }}
+                                {{ __('messages.use_matajer') }}
                             </p>
                         </div>
                     </div>
@@ -301,7 +377,7 @@
                         </button>
                         <div id="answer3" style="display: none" class="px-4 pb-5 sm:px-6 sm:pb-6">
                             <p>
-                                موقع  يضمن لك حقوقك بشكل كامل، كن مطمئنا عند شراء أي خدمة
+                                موقع يضمن لك حقوقك بشكل كامل، كن مطمئنا عند شراء أي خدمة
                                 معروضة في الموقع، يقوم حروف بدور الوسيط بين المشتري والبائع
                                 ويحمي حقوق الطرفين المالية في حال الالتزام بشروط موقع حروف
                                 وبنود الضمان والإبقاء على جميع التواصلات داخل الموقع.
@@ -387,9 +463,51 @@
       );
     }
   });
+
+
+         // Burger menus
+         document.addEventListener('DOMContentLoaded', function() {
+            // open
+            const burger = document.querySelectorAll('.navbar-burger');
+            const menu = document.querySelectorAll('.navbar-menu');
+        
+            if (burger.length && menu.length) {
+                for (var i = 0; i < burger.length; i++) {
+                    burger[i].addEventListener('click', function() {
+                        for (var j = 0; j < menu.length; j++) {
+                            menu[j].classList.toggle('hidden');
+                        }
+                    });
+                }
+            }
+        
+            // close
+            const close = document.querySelectorAll('.navbar-close');
+            const backdrop = document.querySelectorAll('.navbar-backdrop');
+        
+            if (close.length) {
+                for (var i = 0; i < close.length; i++) {
+                    close[i].addEventListener('click', function() {
+                        for (var j = 0; j < menu.length; j++) {
+                            menu[j].classList.toggle('hidden');
+                        }
+                    });
+                }
+            }
+        
+            if (backdrop.length) {
+                for (var i = 0; i < backdrop.length; i++) {
+                    backdrop[i].addEventListener('click', function() {
+                        for (var j = 0; j < menu.length; j++) {
+                            menu[j].classList.toggle('hidden');
+                        }
+                    });
+                }
+            }
+        });
     </script>
     <footer
-        class="bg-[url('/resources/images/footer-bg.png')]   justify-between p-5 px-10 text-[#210e81] font-Readex   gap-10 flex-justify-between h-96 flex">
+        class="bg-[url('/resources/images/footer-bg.png')]   justify-between p-5 px-10 text-[#210e81] font-Readex   gap-10 flex-justify-between items-center flex flex-col md:flex-row">
         <div class="flex flex-col text-sm gap-1">
             <a class="rounded-full  bg-white mx-auto border-secondary-light p-2" href="#">
                 <img class="w-12" src="{{ Vite::asset('resources/images/logo.svg') }}" alt="" />
@@ -400,10 +518,11 @@
             <form class="flex flex-col w-1/2 mx-auto gap-2">
                 <input type="email" placeholder="ادخل بريدك الإلكتروني"
                     class="border border-secondary-light rounded-lg px-4 py-2" />
-           
-                    <button class="bg-[#312363] text-white px-2 py-2 rounded-lg">
-                        {{ __('messages.get_started')}}
-                    </button>            </form>
+
+                <button class="bg-[#312363] text-white px-2 py-2 rounded-lg">
+                    {{ __('messages.get_started')}}
+                </button>
+            </form>
             <div class="flex gap-1 mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
                     <polygon fill="#616161" points="41,6 9.929,42 6.215,42 37.287,6"></polygon>
@@ -544,8 +663,10 @@
 
     </footer>
     <div class="bottom-0 bg-[#210e81] text-center text-white py-3">
-       {{__('messages.copyright')}}
+        {{__('messages.copyright')}}
     </div>
+
+  
 </body>
 
 </html>
