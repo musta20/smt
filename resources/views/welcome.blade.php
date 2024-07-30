@@ -135,7 +135,7 @@
 
             <img src="{{ Vite::asset('resources/svg/quality-site-website-svgrepo-com.svg') }}" class="w-24" alt="" />
             <p class="text-xl text-[#312363] w-1/2 text-center">
-                {{__('messages.Matajer_empowers.')}}
+                {{ __('messages.Matajer_empowers.') }}
             </p>
         </div>
 
@@ -144,7 +144,7 @@
                 class="text-[#312363] border bg-[#f8f8f8] hover:text-white shadow-lg p-5 hover:bg-purple-950 rounded-lg">
                 <h3 class="text-xl font-bold">{{ __('messages.Analytics') }}</h3>
                 <p class="my-5">
-                    {{ __('messages.Matajer_easy_resent.')}}
+                    {{ __('messages.Matajer_easy_resent.') }}
                 </p>
             </div>
 
@@ -152,7 +152,7 @@
                 class="text-[#312363] border max-w-[400px] bg-[#f8f8f8] hover:text-white shadow-lg p-5 hover:bg-purple-950 rounded-lg">
                 <h3 class="text-xl font-bold">{{ __('messages.Ecommerce') }}</h3>
                 <p class="my-5">
-                    {{ __('messages.Matajer_easy_users.')}}
+                    {{ __('messages.Matajer_easy_users.') }}
                 </p>
             </div>
 
@@ -160,7 +160,7 @@
                 class="text-[#312363] border max-w-[400px] bg-[#f8f8f8] hover:text-white shadow-lg p-5 hover:bg-purple-950 rounded-lg">
                 <h3 class="text-xl font-bold">{{ __('messages.Payment') }}</h3>
                 <p class="my-5">
-                    {{ __('messages.Matajer_easy_customers.')}}
+                    {{ __('messages.Matajer_easy_customers.') }}
                 </p>
             </div>
         </div>
@@ -191,7 +191,7 @@
             </div>
 
             <div class="md:w-3/6 w-full text-center text-[#312363]">
-                <span class="text-xl py-1 mb-2 border-b-[3px] border-[#8765ff]">{{__('messages.Controle_you_store')}}</span>
+                <span class="text-xl py-1 mb-2 border-b-[3px] border-[#8765ff]">{{ __('messages.Controle_you_store') }}</span>
                 <h3 class="text-5xl py-3">{{ __('messages.Keep your store up to date') }}</h3>
                 <p class="my-5">
                     {{ __('messages.Complete_control_available.') }}
