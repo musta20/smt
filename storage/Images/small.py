@@ -1,6 +1,6 @@
 import os
 from PIL import Image
-
+#this python file made to optmize images in folder
 def resize_image(file_path, max_size=(1024, 1024), quality=85):
     try:
         with Image.open(file_path) as img:
