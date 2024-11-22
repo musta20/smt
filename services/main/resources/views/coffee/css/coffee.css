@@ -1,0 +1,10 @@
+@config "../../../../tailwind.coffee.config.js";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+*{
+    transition: all .01s;
+}

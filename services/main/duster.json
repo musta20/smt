@@ -1,0 +1,8 @@
+{
+ 
+    "exclude": [
+        "storage/tenant*",
+        "bootstrap/",
+        "app/Console/*"
+    ]
+}
