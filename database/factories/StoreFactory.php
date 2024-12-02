@@ -45,7 +45,7 @@ class StoreFactory extends Factory
             ),
             // 'tenant_id'=>Tenant::factory()->create(),
             // 'user_id' => User::factory()->create(),
-            'SocialMedia' => json_encode( [
+            'SocialMedia' => json_encode([
                 SocialMedia::FACEBOOK->value => '',
                 SocialMedia::X->value => '',
                 SocialMedia::INSTAGRAM->value => '',
