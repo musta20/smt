@@ -11,7 +11,20 @@ return new class extends Migration
 {
     public function up(): void
     {
+
         Schema::create('stores', function (Blueprint $table) {
+            $socialMedia = [
+                SocialMedia::FACEBOOK->value => '',
+                SocialMedia::X->value => '',
+                SocialMedia::INSTAGRAM->value => '',
+                SocialMedia::WHATSAPP->value => '',
+                SocialMedia::SNAPCHAT->value => '',
+                SocialMedia::YOUTUBE->value => '',
+                SocialMedia::TIKTOK->value => '',
+                SocialMedia::TELEGRAM->value => '',
+
+            ];
+
             $table->ulid('id')->primary();
             $table->string('title');
             $table->string('logo')->nullable();
@@ -39,21 +52,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('specialty')->nullable();
 
-            $table->json('SocialMedia')->default(
-                json_encode(
-                    [
-                        SocialMedia::FACEBOOK->value => '',
-                        SocialMedia::X->value => '',
-                        SocialMedia::INSTAGRAM->value => '',
-                        SocialMedia::WHATSAPP->value => '',
-                        SocialMedia::SNAPCHAT->value => '',
-                        SocialMedia::YOUTUBE->value => '',
-                        SocialMedia::TIKTOK->value => '',
-                        SocialMedia::TELEGRAM->value => '',
-
-                    ]
-                )
-            );
+            $table->json('SocialMedia')->default($socialMedia);
 
             $table->foreignUlid('user_id')
                 ->index()
