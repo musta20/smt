@@ -1,7 +1,6 @@
 <?php
 
 use App\Enums\Store\Currency;
-use App\Enums\Store\SocialMedia;
 use App\Enums\Store\Status;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,8 +12,7 @@ return new class extends Migration
     {
 
         Schema::create('stores', function (Blueprint $table) {
-      
-        
+
             $table->ulid('id')->primary();
             $table->string('title');
             $table->string('logo')->nullable();
