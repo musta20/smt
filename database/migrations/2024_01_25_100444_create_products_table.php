@@ -31,7 +31,7 @@ return new class extends Migration
 
             $table->string('status')->default(Status::DRAFT);
 
-            $table->json('visible')->default();
+            $table->json('visible');
 
             $table->foreign('tenant_id')
                 ->references('id')
