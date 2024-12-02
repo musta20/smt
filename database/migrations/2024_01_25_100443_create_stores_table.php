@@ -13,7 +13,7 @@ return new class extends Migration
     {
 
         Schema::create('stores', function (Blueprint $table) {
-
+      
         
             $table->ulid('id')->primary();
             $table->string('title');
