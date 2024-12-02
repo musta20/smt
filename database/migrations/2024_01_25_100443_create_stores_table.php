@@ -23,8 +23,8 @@ return new class extends Migration
                 SocialMedia::TIKTOK->value => '',
                 SocialMedia::TELEGRAM->value => '',
 
-         ];
-        
+            ];
+
             $table->ulid('id')->primary();
             $table->string('title');
             $table->string('logo')->nullable();
