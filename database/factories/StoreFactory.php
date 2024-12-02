@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\Store\Currency;
+use App\Enums\Store\SocialMedia;
 use App\Enums\Store\Status;
 use App\Models\Store;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -44,6 +45,17 @@ class StoreFactory extends Factory
             ),
             // 'tenant_id'=>Tenant::factory()->create(),
             // 'user_id' => User::factory()->create(),
+            'SocialMedia' => json_encode([
+                SocialMedia::FACEBOOK->value => '',
+                SocialMedia::X->value => '',
+                SocialMedia::INSTAGRAM->value => '',
+                SocialMedia::WHATSAPP->value => '',
+                SocialMedia::SNAPCHAT->value => '',
+                SocialMedia::YOUTUBE->value => '',
+                SocialMedia::TIKTOK->value => '',
+                SocialMedia::TELEGRAM->value => '',
+
+            ]),
             'logo' => 'logo-icon.svg',
             'favicon' => 'favicon.ico',
             'currency' => Currency::EGP,
