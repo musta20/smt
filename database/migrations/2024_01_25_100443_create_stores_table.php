@@ -13,7 +13,7 @@ return new class extends Migration
     {
 
         Schema::create('stores', function (Blueprint $table) {
-            $socialMedia = json_encode( [
+            $socialMedia = json_encode([
                 SocialMedia::FACEBOOK->value => '',
                 SocialMedia::X->value => '',
                 SocialMedia::INSTAGRAM->value => '',
@@ -23,8 +23,8 @@ return new class extends Migration
                 SocialMedia::TIKTOK->value => '',
                 SocialMedia::TELEGRAM->value => '',
 
-         ]);
-        
+            ]);
+
             $table->ulid('id')->primary();
             $table->string('title');
             $table->string('logo')->nullable();
